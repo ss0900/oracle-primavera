@@ -142,11 +142,16 @@ function Header() {
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container header-content">
-        <Link to="/" className="logo">
+        <Link to="/" className="logo" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
           <img
             src="/피식스에스씨_rgb_06.좌우국영문화이트.png"
             alt="Company Logo"
-            style={{ height: '2.5rem', objectFit: 'contain' }}
+            style={{ height: '3.5rem', objectFit: 'contain' }}
+          />
+          <img
+            src="/image.png"
+            alt="Partner Logo"
+            style={{ height: '3.5rem', objectFit: 'contain' }}
           />
         </Link>
 
