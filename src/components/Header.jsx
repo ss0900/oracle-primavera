@@ -17,7 +17,11 @@ function Header({ sections, onNavigate }) {
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container header-content">
         <div className="logo" onClick={() => onNavigate('hero')}>
-          NEXON<span style={{ opacity: 0.6 }}>Tech</span>
+          <img
+            src="/피식스에스씨_rgb_03.상하국문.png"
+            alt="Company Logo"
+            style={{ height: '2.5rem', objectFit: 'contain' }}
+          />
         </div>
 
         <nav className="nav">
