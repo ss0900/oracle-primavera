@@ -22,118 +22,178 @@ function Header() {
       label: 'Company',
       subItems: [
         {
-          id: 'about',
-          title: '회사개요',
-          description: 'Company Overview',
+          id: 'intro',
+          title: '회사소개',
+          description: 'Company Introduction',
           image: 'https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=400'
         },
         {
           id: 'ceo',
-          title: 'CEO 인사말',
-          description: 'Message from CEO',
+          title: 'CEO 소개',
+          description: 'CEO Profile',
           image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400'
         },
         {
-          id: 'vision',
-          title: '비전',
-          description: 'Our Vision',
-          image: 'https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=400'
-        },
-        {
-          id: 'business',
-          title: '사업장 안내',
-          description: 'Business Sites',
-          image: 'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=400'
-        },
-        {
-          id: 'history',
-          title: '연혁',
-          description: 'History',
-          image: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=400'
-        },
-        {
-          id: 'ci',
-          title: 'CI 소개',
-          description: 'CI Introduction',
+          id: 'organization',
+          title: '조직도',
+          description: 'Organization Chart',
           image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400'
         },
         {
-          id: 'location',
-          title: '오시는 길',
-          description: 'Location',
-          image: 'https://images.pexels.com/photos/2187605/pexels-photo-2187605.jpeg?auto=compress&cs=tinysrgb&w=400'
-        }
-      ]
-    },
-    {
-      path: '/ir',
-      label: 'IR',
-      subItems: [
-        {
-          id: 'financial',
-          title: '재무 정보',
-          description: 'Financial Information',
-          image: 'https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=400'
+          id: 'history',
+          title: '회사연혁',
+          description: 'Company History',
+          image: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=400'
         },
         {
-          id: 'reports',
-          title: '보고서',
-          description: 'Reports',
-          image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=400'
-        },
-        {
-          id: 'stock',
-          title: '주가 정보',
-          description: 'Stock Information',
-          image: 'https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=400'
-        }
-      ]
-    },
-    {
-      path: '/career',
-      label: 'Career',
-      subItems: [
-        {
-          id: 'positions',
-          title: '채용 공고',
-          description: 'Job Openings',
-          image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400'
-        },
-        {
-          id: 'culture',
-          title: '조직 문화',
-          description: 'Company Culture',
-          image: 'https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=400'
-        },
-        {
-          id: 'benefits',
-          title: '복리 후생',
-          description: 'Benefits',
+          id: 'pr',
+          title: '홍보자료',
+          description: 'PR Materials',
           image: 'https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=400'
         }
       ]
     },
     {
-      path: '/community',
-      label: 'Community',
+      path: '/time-management',
+      label: 'Time Management',
       subItems: [
         {
-          id: 'notice',
-          title: '공지사항',
-          description: 'Notice',
+          id: 'overview',
+          title: '개요',
+          description: 'Overview',
+          image: 'https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=400'
+        },
+        {
+          id: 'features',
+          title: '기능 소개',
+          description: 'Features',
+          image: 'https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=400'
+        },
+        {
+          id: 'cases',
+          title: '적용 사례',
+          description: 'Case Studies',
+          image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=400'
+        }
+      ]
+    },
+    {
+      path: '/ppm',
+      label: 'PPM',
+      subItems: [
+        {
+          id: 'overview',
+          title: '개요',
+          description: 'Overview',
+          image: 'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=400'
+        },
+        {
+          id: 'features',
+          title: '주요 기능',
+          description: 'Main Features',
+          image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400'
+        },
+        {
+          id: 'benefits',
+          title: '도입 효과',
+          description: 'Benefits',
+          image: 'https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=400'
+        }
+      ]
+    },
+    {
+      path: '/eppm',
+      label: 'EPPM',
+      subItems: [
+        {
+          id: 'overview',
+          title: '개요',
+          description: 'Overview',
           image: 'https://images.pexels.com/photos/5989932/pexels-photo-5989932.jpeg?auto=compress&cs=tinysrgb&w=400'
         },
         {
-          id: 'news',
-          title: '뉴스',
-          description: 'News',
+          id: 'solution',
+          title: '솔루션 특징',
+          description: 'Solution Features',
           image: 'https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg?auto=compress&cs=tinysrgb&w=400'
         },
         {
-          id: 'events',
-          title: '이벤트',
-          description: 'Events',
+          id: 'cases',
+          title: '구축 사례',
+          description: 'Implementation Cases',
           image: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=400'
+        }
+      ]
+    },
+    {
+      path: '/opc',
+      label: 'OPC',
+      subItems: [
+        {
+          id: 'overview',
+          title: '개요',
+          description: 'Overview',
+          image: 'https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=400'
+        },
+        {
+          id: 'core',
+          title: '핵심 기능',
+          description: 'Core Features',
+          image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400'
+        },
+        {
+          id: 'application',
+          title: '활용 방안',
+          description: 'Application',
+          image: 'https://images.pexels.com/photos/2187605/pexels-photo-2187605.jpeg?auto=compress&cs=tinysrgb&w=400'
+        }
+      ]
+    },
+    {
+      path: '/unifier',
+      label: 'Unifier',
+      subItems: [
+        {
+          id: 'overview',
+          title: '개요',
+          description: 'Overview',
+          image: 'https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=400'
+        },
+        {
+          id: 'modules',
+          title: '모듈 소개',
+          description: 'Module Introduction',
+          image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=400'
+        },
+        {
+          id: 'customers',
+          title: '고객 사례',
+          description: 'Customer Cases',
+          image: 'https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=400'
+        }
+      ]
+    },
+    {
+      path: '/aconex',
+      label: 'Aconex',
+      subItems: [
+        {
+          id: 'overview',
+          title: '개요',
+          description: 'Overview',
+          image: 'https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=400'
+        },
+        {
+          id: 'features',
+          title: '기능 안내',
+          description: 'Feature Guide',
+          image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400'
+        },
+        {
+          id: 'projects',
+          title: '프로젝트 사례',
+          description: 'Project Cases',
+          image: 'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=400'
         }
       ]
     }

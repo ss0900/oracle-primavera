@@ -5,9 +5,12 @@ import Footer from './components/Footer'
 import Loader from './components/Loader'
 import Home from './pages/Home'
 import Company from './pages/Company'
-import IR from './pages/IR'
-import Career from './pages/Career'
-import Community from './pages/Community'
+import TimeManagement from './pages/TimeManagement'
+import PPM from './pages/PPM'
+import EPPM from './pages/EPPM'
+import OPC from './pages/OPC'
+import Unifier from './pages/Unifier'
+import Aconex from './pages/Aconex'
 import Contact from './components/Contact'
 
 function App() {
@@ -29,9 +32,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/company" element={<Company />} />
-        <Route path="/ir" element={<IR />} />
-        <Route path="/career" element={<Career />} />
-        <Route path="/community" element={<Community />} />
+        <Route path="/time-management" element={<TimeManagement />} />
+        <Route path="/ppm" element={<PPM />} />
+        <Route path="/eppm" element={<EPPM />} />
+        <Route path="/opc" element={<OPC />} />
+        <Route path="/unifier" element={<Unifier />} />
+        <Route path="/aconex" element={<Aconex />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
 

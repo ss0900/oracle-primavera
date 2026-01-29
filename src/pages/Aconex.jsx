@@ -5,7 +5,7 @@ import { initPageAnimations } from '../utils/animations'
 
 gsap.registerPlugin(ScrollTrigger)
 
-function Company() {
+function Aconex() {
   useEffect(() => {
     ScrollTrigger.refresh()
     initPageAnimations()
@@ -15,36 +15,24 @@ function Company() {
     }
   }, [])
 
-  const companyCards = [
+  const cards = [
     {
-      id: 'intro',
-      title: '회사소개',
-      description: 'Company Introduction',
+      id: 'overview',
+      title: '개요',
+      description: 'Overview',
       image: 'https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
-      id: 'ceo',
-      title: 'CEO 소개',
-      description: 'CEO Profile',
+      id: 'features',
+      title: '기능 안내',
+      description: 'Feature Guide',
       image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
-      id: 'organization',
-      title: '조직도',
-      description: 'Organization Chart',
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 'history',
-      title: '회사연혁',
-      description: 'Company History',
-      image: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 'pr',
-      title: '홍보자료',
-      description: 'PR Materials',
-      image: 'https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=800'
+      id: 'projects',
+      title: '프로젝트 사례',
+      description: 'Project Cases',
+      image: 'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=800'
     }
   ]
 
@@ -52,14 +40,14 @@ function Company() {
     <div className="subpage-container">
       <section className="subpage-hero fade-in-section">
         <div className="subpage-hero-content">
-          <h1 className="subpage-title">Company</h1>
-          <p className="subpage-subtitle">회사소개</p>
+          <h1 className="subpage-title">Aconex</h1>
+          <p className="subpage-subtitle">Oracle Aconex</p>
         </div>
       </section>
 
       <section className="subpage-content">
         <div className="cards-grid stagger-cards">
-          {companyCards.map((card) => (
+          {cards.map((card) => (
             <div key={card.id} className="subpage-card card-item">
               <div className="subpage-card-image">
                 <img src={card.image} alt={card.title} />
@@ -76,4 +64,4 @@ function Company() {
   )
 }
 
-export default Company
+export default Aconex
