@@ -149,7 +149,7 @@ function Header() {
             style={{ height: '2.5rem', objectFit: 'contain' }}
           />
           <img
-            src="/image.png"
+            src="/image copy.png"
             alt="Partner Logo"
             style={{ height: '2.5rem', objectFit: 'contain' }}
           />
