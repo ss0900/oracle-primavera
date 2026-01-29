@@ -6,7 +6,7 @@ function Loader({ isLoading }) {
           <img
             src="/피식스에스씨_rgb_03.상하국문.png"
             alt="Company Logo"
-            style={{ height: '4rem', objectFit: 'contain' }}
+            style={{ height: '4.5rem', objectFit: 'contain' }}
           />
         </div>
         <div className="loader-bar">
