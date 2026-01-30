@@ -1,10 +1,54 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
+const primaveraProducts = [
+  {
+    id: 'ppm',
+    title: 'P6 PPM',
+    subtitle: 'Professional Project Management',
+    path: '/ppm',
+    description: '대규모 프로젝트 일정/자원 관리',
+    color: '#00d4ff'
+  },
+  {
+    id: 'eppm',
+    title: 'P6 EPPM',
+    subtitle: 'Enterprise Portfolio Management',
+    path: '/eppm',
+    description: '전사 프로젝트 포트폴리오 관리',
+    color: '#7c3aed'
+  },
+  {
+    id: 'opc',
+    title: 'Primavera Cloud',
+    subtitle: 'Oracle Primavera Cloud',
+    path: '/opc',
+    description: 'SaaS 기반 클라우드 솔루션',
+    color: '#10b981'
+  },
+  {
+    id: 'unifier',
+    title: 'Unifier',
+    subtitle: 'Project Controls',
+    path: '/unifier',
+    description: '비용/계약/문서 통합 관리',
+    color: '#f59e0b'
+  },
+  {
+    id: 'aconex',
+    title: 'Aconex',
+    subtitle: 'Connected Construction',
+    path: '/aconex',
+    description: '협업 플랫폼 & 문서 관리',
+    color: '#ec4899'
+  }
+]
+
 function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
+  const [primaveraMenuOpen, setPrimaveraMenuOpen] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
@@ -76,126 +120,6 @@ function Header() {
           image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600'
         }
       ]
-    },
-    {
-      path: '/ppm',
-      label: 'PPM',
-      subItems: [
-        {
-          id: 'overview',
-          title: '개요',
-          path: '/ppm/overview',
-          image: 'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=600'
-        },
-        {
-          id: 'features',
-          title: '주요 기능',
-          path: '/ppm/features',
-          image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600'
-        },
-        {
-          id: 'benefits',
-          title: '도입 효과',
-          path: '/ppm/benefits',
-          image: 'https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=600'
-        }
-      ]
-    },
-    {
-      path: '/eppm',
-      label: 'EPPM',
-      subItems: [
-        {
-          id: 'overview',
-          title: '개요',
-          path: '/eppm/overview',
-          image: 'https://images.pexels.com/photos/5989932/pexels-photo-5989932.jpeg?auto=compress&cs=tinysrgb&w=600'
-        },
-        {
-          id: 'solution',
-          title: '솔루션 특징',
-          path: '/eppm/solution',
-          image: 'https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg?auto=compress&cs=tinysrgb&w=600'
-        },
-        {
-          id: 'cases',
-          title: '구축 사례',
-          path: '/eppm/cases',
-          image: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=600'
-        }
-      ]
-    },
-    {
-      path: '/opc',
-      label: 'OPC',
-      subItems: [
-        {
-          id: 'overview',
-          title: '개요',
-          path: '/opc/overview',
-          image: 'https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=600'
-        },
-        {
-          id: 'core',
-          title: '핵심 기능',
-          path: '/opc/core',
-          image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600'
-        },
-        {
-          id: 'application',
-          title: '활용 방안',
-          path: '/opc/application',
-          image: 'https://images.pexels.com/photos/2187605/pexels-photo-2187605.jpeg?auto=compress&cs=tinysrgb&w=600'
-        }
-      ]
-    },
-    {
-      path: '/unifier',
-      label: 'Unifier',
-      subItems: [
-        {
-          id: 'overview',
-          title: '개요',
-          path: '/unifier/overview',
-          image: 'https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=600'
-        },
-        {
-          id: 'modules',
-          title: '모듈 소개',
-          path: '/unifier/modules',
-          image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600'
-        },
-        {
-          id: 'customers',
-          title: '고객 사례',
-          path: '/unifier/customers',
-          image: 'https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=600'
-        }
-      ]
-    },
-    {
-      path: '/aconex',
-      label: 'Aconex',
-      subItems: [
-        {
-          id: 'overview',
-          title: '개요',
-          path: '/aconex/overview',
-          image: 'https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=600'
-        },
-        {
-          id: 'features',
-          title: '기능 안내',
-          path: '/aconex/features',
-          image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=600'
-        },
-        {
-          id: 'projects',
-          title: '프로젝트 사례',
-          path: '/aconex/projects',
-          image: 'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=600'
-        }
-      ]
     }
   ]
 
@@ -258,6 +182,68 @@ function Header() {
               )}
             </div>
           ))}
+
+          <div
+            className="nav-item"
+            onMouseEnter={() => setPrimaveraMenuOpen(true)}
+            onMouseLeave={() => setPrimaveraMenuOpen(false)}
+          >
+            <button
+              className={`nav-link primavera-trigger ${primaveraMenuOpen ? 'active' : ''}`}
+              aria-expanded={primaveraMenuOpen}
+              aria-haspopup="true"
+            >
+              Primavera
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                style={{
+                  marginLeft: '4px',
+                  transform: primaveraMenuOpen ? 'rotate(180deg)' : 'rotate(0)',
+                  transition: 'transform 0.2s ease'
+                }}
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+
+            <div className={`primavera-mega-menu ${primaveraMenuOpen ? 'show' : ''}`}>
+              <div className="primavera-mega-content">
+                <div className="primavera-mega-header">
+                  <h3>Oracle Primavera Solutions</h3>
+                  <p>건설 프로젝트 관리의 글로벌 표준</p>
+                </div>
+                <div className="primavera-products-grid">
+                  {primaveraProducts.map((product) => (
+                    <Link
+                      key={product.id}
+                      to={product.path}
+                      className="primavera-product-tile"
+                      onClick={() => setPrimaveraMenuOpen(false)}
+                      style={{ '--tile-color': product.color }}
+                    >
+                      <div className="tile-indicator" />
+                      <div className="tile-content">
+                        <h4>{product.title}</h4>
+                        <span className="tile-subtitle">{product.subtitle}</span>
+                        <p>{product.description}</p>
+                      </div>
+                      <span className="tile-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
           <Link to="/contact">
             <button className="btn btn-primary" style={{ padding: '0.5rem 1.25rem' }}>
               Contact Us
@@ -268,6 +254,8 @@ function Header() {
         <button
           className="mobile-menu-btn"
           onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle mobile menu"
+          aria-expanded={menuOpen}
           style={{
             display: 'none',
             background: 'transparent',
@@ -306,6 +294,22 @@ function Header() {
             {link.label}
           </Link>
         ))}
+        <div style={{ padding: '0.75rem 1rem', borderTop: '1px solid rgba(255,255,255,0.1)', marginTop: '0.5rem' }}>
+          <span style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '0.5rem', display: 'block' }}>
+            Primavera Solutions
+          </span>
+          {primaveraProducts.map((product) => (
+            <Link
+              key={product.id}
+              to={product.path}
+              className="nav-link"
+              onClick={() => setMenuOpen(false)}
+              style={{ padding: '0.5rem 0', display: 'block' }}
+            >
+              {product.title}
+            </Link>
+          ))}
+        </div>
       </div>
     </header>
   )

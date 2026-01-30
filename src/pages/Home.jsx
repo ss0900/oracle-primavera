@@ -1,35 +1,33 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 
 import HeroVideo from '../components/HeroVideo'
-import WhatWeDo from '../components/WhatWeDo'
-import Capabilities from '../components/Capabilities'
-import Metrics from '../components/Metrics'
-import GlobalMap from '../components/GlobalMap'
-import ESGCulture from '../components/ESGCulture'
-import News from '../components/News'
-import Contact from '../components/Contact'
+import PPMPanel from '../components/panels/PPMPanel'
+import EPPMPanel from '../components/panels/EPPMPanel'
+import OPCPanel from '../components/panels/OPCPanel'
+import UnifierPanel from '../components/panels/UnifierPanel'
+import AconexPanel from '../components/panels/AconexPanel'
 import SectionIndicator from '../components/SectionIndicator'
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
+
+const sections = [
+  { id: 'hero', label: 'Main' },
+  { id: 'ppm', label: 'P6 PPM' },
+  { id: 'eppm', label: 'P6 EPPM' },
+  { id: 'opc', label: 'OPC' },
+  { id: 'unifier', label: 'Unifier' },
+  { id: 'aconex', label: 'Aconex' }
+]
 
 function Home() {
   const [activeSection, setActiveSection] = useState(0)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
   const containerRef = useRef(null)
-
-  const sections = [
-    { id: 'hero', label: 'Home' },
-    { id: 'services', label: 'Services' },
-    { id: 'capabilities', label: 'Capabilities' },
-    { id: 'metrics', label: 'Metrics' },
-    { id: 'global', label: 'Global' },
-    { id: 'esg', label: 'ESG' },
-    { id: 'news', label: 'News' },
-    { id: 'contact', label: 'Contact' }
-  ]
+  const isAnimatingRef = useRef(false)
+  const currentSectionRef = useRef(0)
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -42,6 +40,33 @@ function Home() {
     mediaQuery.addEventListener('change', handleChange)
     return () => mediaQuery.removeEventListener('change', handleChange)
   }, [])
+
+  const scrollToSection = useCallback((sectionId) => {
+    const sectionIndex = sections.findIndex(s => s.id === sectionId)
+    if (sectionIndex === -1) return
+
+    const panels = gsap.utils.toArray('.panel')
+    if (!panels[sectionIndex]) return
+
+    currentSectionRef.current = sectionIndex
+    setActiveSection(sectionIndex)
+
+    if (prefersReducedMotion) {
+      panels[sectionIndex].scrollIntoView({ behavior: 'auto' })
+    } else {
+      isAnimatingRef.current = true
+      gsap.to(window, {
+        duration: 0.8,
+        scrollTo: { y: panels[sectionIndex], autoKill: false },
+        ease: 'power3.inOut',
+        onComplete: () => {
+          setTimeout(() => {
+            isAnimatingRef.current = false
+          }, 100)
+        }
+      })
+    }
+  }, [prefersReducedMotion])
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -56,35 +81,21 @@ function Home() {
     panels.forEach((panel, i) => {
       ScrollTrigger.create({
         trigger: panel,
-        start: 'top top',
-        end: 'bottom top',
-        snap: {
-          snapTo: 1,
-          duration: { min: 0.3, max: 0.6 },
-          delay: 0,
-          ease: 'power2.inOut'
+        start: 'top center',
+        end: 'bottom center',
+        onEnter: () => {
+          currentSectionRef.current = i
+          setActiveSection(i)
         },
-        onEnter: () => setActiveSection(i),
-        onEnterBack: () => setActiveSection(i),
+        onEnterBack: () => {
+          currentSectionRef.current = i
+          setActiveSection(i)
+        }
       })
     })
 
-    ScrollTrigger.create({
-      snap: {
-        snapTo: 1 / (panels.length - 1),
-        duration: { min: 0.4, max: 0.8 },
-        delay: 0.1,
-        ease: 'power2.inOut',
-        inertia: false
-      },
-      end: () => '+=' + (panels.length - 1) * window.innerHeight
-    })
-
-    let currentSection = 0
-    let isAnimating = false
-
     const handleWheel = (e) => {
-      if (isAnimating) {
+      if (isAnimatingRef.current) {
         e.preventDefault()
         return
       }
@@ -95,67 +106,72 @@ function Home() {
       if (Math.abs(delta) < threshold) return
 
       e.preventDefault()
-      isAnimating = true
+      isAnimatingRef.current = true
 
-      if (delta > 0 && currentSection < panels.length - 1) {
-        currentSection++
-      } else if (delta < 0 && currentSection > 0) {
-        currentSection--
+      let nextSection = currentSectionRef.current
+
+      if (delta > 0 && currentSectionRef.current < panels.length - 1) {
+        nextSection = currentSectionRef.current + 1
+      } else if (delta < 0 && currentSectionRef.current > 0) {
+        nextSection = currentSectionRef.current - 1
       } else {
-        isAnimating = false
+        isAnimatingRef.current = false
         return
       }
 
-      setActiveSection(currentSection)
+      currentSectionRef.current = nextSection
+      setActiveSection(nextSection)
 
       gsap.to(window, {
         duration: 0.8,
-        scrollTo: { y: panels[currentSection], autoKill: false },
+        scrollTo: { y: panels[nextSection], autoKill: false },
         ease: 'power3.inOut',
         onComplete: () => {
           setTimeout(() => {
-            isAnimating = false
+            isAnimatingRef.current = false
           }, 100)
         }
       })
     }
 
     let touchStartY = 0
-    let touchEndY = 0
 
     const handleTouchStart = (e) => {
       touchStartY = e.touches[0].clientY
     }
 
     const handleTouchEnd = (e) => {
-      if (isAnimating) return
+      if (isAnimatingRef.current) return
 
-      touchEndY = e.changedTouches[0].clientY
+      const touchEndY = e.changedTouches[0].clientY
       const delta = touchStartY - touchEndY
       const threshold = 50
 
       if (Math.abs(delta) < threshold) return
 
-      isAnimating = true
+      isAnimatingRef.current = true
 
-      if (delta > 0 && currentSection < panels.length - 1) {
-        currentSection++
-      } else if (delta < 0 && currentSection > 0) {
-        currentSection--
+      let nextSection = currentSectionRef.current
+
+      if (delta > 0 && currentSectionRef.current < panels.length - 1) {
+        nextSection = currentSectionRef.current + 1
+      } else if (delta < 0 && currentSectionRef.current > 0) {
+        nextSection = currentSectionRef.current - 1
       } else {
-        isAnimating = false
+        isAnimatingRef.current = false
         return
       }
 
-      setActiveSection(currentSection)
+      currentSectionRef.current = nextSection
+      setActiveSection(nextSection)
 
       gsap.to(window, {
         duration: 0.8,
-        scrollTo: { y: panels[currentSection], autoKill: false },
+        scrollTo: { y: panels[nextSection], autoKill: false },
         ease: 'power3.inOut',
         onComplete: () => {
           setTimeout(() => {
-            isAnimating = false
+            isAnimatingRef.current = false
           }, 100)
         }
       })
@@ -208,31 +224,11 @@ function Home() {
           ease: 'power3.out',
           scrollTrigger: {
             trigger: container,
-            start: 'top 75%',
+            start: 'top 75%'
           }
         }
       )
     })
-  }
-
-  const scrollToSection = (sectionId) => {
-    const sectionIndex = sections.findIndex(s => s.id === sectionId)
-    if (sectionIndex === -1) return
-
-    const panels = gsap.utils.toArray('.panel')
-    if (panels[sectionIndex]) {
-      setActiveSection(sectionIndex)
-
-      if (prefersReducedMotion) {
-        panels[sectionIndex].scrollIntoView({ behavior: 'auto' })
-      } else {
-        gsap.to(window, {
-          duration: 0.8,
-          scrollTo: { y: panels[sectionIndex], autoKill: false },
-          ease: 'power3.inOut'
-        })
-      }
-    }
   }
 
   return (
@@ -248,25 +244,19 @@ function Home() {
           <HeroVideo id="hero" scrollToSection={scrollToSection} />
         </section>
         <section className="panel">
-          <WhatWeDo id="services" />
+          <PPMPanel id="ppm" />
         </section>
         <section className="panel">
-          <Capabilities id="capabilities" />
+          <EPPMPanel id="eppm" isActive={activeSection === 2} />
         </section>
         <section className="panel">
-          <Metrics id="metrics" />
+          <OPCPanel id="opc" />
         </section>
         <section className="panel">
-          <GlobalMap id="global" />
+          <UnifierPanel id="unifier" />
         </section>
         <section className="panel">
-          <ESGCulture id="esg" />
-        </section>
-        <section className="panel">
-          <News id="news" />
-        </section>
-        <section className="panel">
-          <Contact id="contact" />
+          <AconexPanel id="aconex" />
         </section>
       </main>
     </>
