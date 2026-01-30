@@ -150,7 +150,7 @@ function AconexPanel({ id }) {
               ))}
             </div>
 
-            <div className="product-panel-cta">
+            {/* <div className="product-panel-cta">
               <a
                 href="#"
                 className="btn btn-primary"
@@ -165,7 +165,7 @@ function AconexPanel({ id }) {
                   <line x1="12" y1="15" x2="12" y2="3" />
                 </svg>
               </a>
-            </div>
+            </div> */}
           </div>
 
           <div className="aconex-right">

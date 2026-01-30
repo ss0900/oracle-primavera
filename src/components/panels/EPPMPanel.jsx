@@ -142,7 +142,7 @@ function EPPMPanel({ id, isActive }) {
               ))}
             </div>
 
-            <div className="product-panel-cta">
+            {/* <div className="product-panel-cta">
               <a
                 href="#"
                 className="btn btn-primary"
@@ -157,7 +157,7 @@ function EPPMPanel({ id, isActive }) {
                   <line x1="12" y1="15" x2="12" y2="3" />
                 </svg>
               </a>
-            </div>
+            </div> */}
           </div>
 
           <div className="eppm-right">
