@@ -1,47 +1,50 @@
-import { useEffect } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { initPageAnimations } from '../utils/animations'
+import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { initPageAnimations } from "../utils/animations";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 function TimeManagement() {
   useEffect(() => {
-    ScrollTrigger.refresh()
-    initPageAnimations()
+    ScrollTrigger.refresh();
+    initPageAnimations();
 
     return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill())
-    }
-  }, [])
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
 
   const cards = [
     {
-      id: 'overview',
-      title: '개요',
-      description: 'Overview',
-      image: 'https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=800'
+      id: "overview",
+      title: "개요",
+      description: "Overview",
+      image:
+        "https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
     {
-      id: 'features',
-      title: '기능 소개',
-      description: 'Features',
-      image: 'https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=800'
+      id: "features",
+      title: "기능 소개",
+      description: "Features",
+      image:
+        "https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
     {
-      id: 'cases',
-      title: '적용 사례',
-      description: 'Case Studies',
-      image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800'
-    }
-  ]
+      id: "cases",
+      title: "적용 사례",
+      description: "Case Studies",
+      image:
+        "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800",
+    },
+  ];
 
   return (
     <div className="subpage-container">
       <section className="subpage-hero fade-in-section">
         <div className="subpage-hero-content">
           <h1 className="subpage-title">Time Management</h1>
-          <p className="subpage-subtitle">시간 관리 솔루션</p>
+          <p className="subpage-subtitle">공정관리</p>
         </div>
       </section>
 
@@ -61,7 +64,7 @@ function TimeManagement() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default TimeManagement
+export default TimeManagement;

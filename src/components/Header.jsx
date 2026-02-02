@@ -251,7 +251,7 @@ function Header() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <Link
-                to={link.path}
+                to={link.subItems?.[0]?.path || link.path}
                 className={`nav-link ${location.pathname.startsWith(link.path) ? "active" : ""}`}
               >
                 {link.label}
@@ -340,7 +340,7 @@ function Header() {
         {navLinks.map((link) => (
           <Link
             key={link.path}
-            to={link.path}
+            to={link.subItems?.[0]?.path || link.path}
             className="nav-link"
             onClick={() => setMenuOpen(false)}
             style={{ padding: "0.75rem 1rem" }}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Loader from './components/Loader'
@@ -69,32 +69,32 @@ function App() {
         <Route path="/company/history" element={<CompanyHistory />} />
         <Route path="/company/pr" element={<CompanyPR />} />
 
-        <Route path="/time-management" element={<TimeManagement />} />
+        <Route path="/time-management" element={<Navigate to="/time-management/overview" replace />} />
         <Route path="/time-management/overview" element={<TimeManagementOverview />} />
         <Route path="/time-management/features" element={<TimeManagementFeatures />} />
         <Route path="/time-management/cases" element={<TimeManagementCases />} />
 
-        <Route path="/ppm" element={<PPM />} />
+        <Route path="/ppm" element={<Navigate to="/ppm/overview" replace />} />
         <Route path="/ppm/overview" element={<PPMOverview />} />
         <Route path="/ppm/features" element={<PPMFeatures />} />
         <Route path="/ppm/benefits" element={<PPMBenefits />} />
 
-        <Route path="/eppm" element={<EPPM />} />
+        <Route path="/eppm" element={<Navigate to="/eppm/overview" replace />} />
         <Route path="/eppm/overview" element={<EPPMOverview />} />
         <Route path="/eppm/solution" element={<EPPMSolution />} />
         <Route path="/eppm/cases" element={<EPPMCases />} />
 
-        <Route path="/opc" element={<OPC />} />
+        <Route path="/opc" element={<Navigate to="/opc/overview" replace />} />
         <Route path="/opc/overview" element={<OPCOverview />} />
         <Route path="/opc/core" element={<OPCCore />} />
         <Route path="/opc/application" element={<OPCApplication />} />
 
-        <Route path="/unifier" element={<Unifier />} />
+        <Route path="/unifier" element={<Navigate to="/unifier/overview" replace />} />
         <Route path="/unifier/overview" element={<UnifierOverview />} />
         <Route path="/unifier/modules" element={<UnifierModules />} />
         <Route path="/unifier/customers" element={<UnifierCustomers />} />
 
-        <Route path="/aconex" element={<Aconex />} />
+        <Route path="/aconex" element={<Navigate to="/aconex/overview" replace />} />
         <Route path="/aconex/overview" element={<AconexOverview />} />
         <Route path="/aconex/features" element={<AconexFeatures />} />
         <Route path="/aconex/projects" element={<AconexProjects />} />
