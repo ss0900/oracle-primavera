@@ -10,6 +10,7 @@ const sections = [
   { id: "hero", label: "장점" },
   { id: "advantages", label: "Primavera" },
   { id: "comparison", label: "Tool 비교" },
+  { id: "ppm-eppm", label: "PPM vs EPPM" },
 ];
 
 function TimeManagementAdvantages() {
@@ -35,6 +36,12 @@ function TimeManagementAdvantages() {
   const comparisonTableRef = useRef(null);
   const comparisonConclusionRef = useRef(null);
   const comparisonRowsRef = useRef([]);
+
+  // PPM vs EPPM section refs
+  const ppmEppmSectionRef = useRef(null);
+  const ppmEppmTitleRef = useRef(null);
+  const ppmEppmCardsRef = useRef([]);
+  const ppmEppmConclusionRef = useRef(null);
 
   // Check reduced motion preference
   useEffect(() => {
@@ -337,6 +344,50 @@ function TimeManagementAdvantages() {
           );
         }
       }, comparisonSectionRef);
+    }
+  }, [prefersReducedMotion]);
+
+  // PPM vs EPPM section animations
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+
+    if (ppmEppmSectionRef.current && ppmEppmTitleRef.current) {
+      gsap.context(() => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ppmEppmSectionRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        tl.fromTo(
+          ppmEppmTitleRef.current,
+          { opacity: 0, y: -30 },
+          { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+        );
+
+        ppmEppmCardsRef.current.forEach((card, i) => {
+          if (card) {
+            tl.fromTo(
+              card,
+              { opacity: 0, x: i === 0 ? -50 : 50 },
+              { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" },
+              "-=0.3",
+            );
+          }
+        });
+
+        if (ppmEppmConclusionRef.current) {
+          tl.fromTo(
+            ppmEppmConclusionRef.current,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
+            "+=0.2",
+          );
+        }
+      }, ppmEppmSectionRef);
     }
   }, [prefersReducedMotion]);
 
@@ -997,6 +1048,259 @@ function TimeManagementAdvantages() {
                 <p>
                   Primavera P6는 <em>대용량 데이터 처리</em>와{" "}
                   <em>다중 사용자 환경</em>에 최적화된 <em>산업 표준</em>입니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Panel 4: PPM vs EPPM Section */}
+        <section className="tm-panel" id="ppm-eppm">
+          <div className="tm-ppm-eppm-section" ref={ppmEppmSectionRef}>
+            <div className="tm-ppm-eppm-container">
+              {/* Section Title */}
+              <div className="tm-section-header" ref={ppmEppmTitleRef}>
+                <h2 className="tm-section-title">P6 PPM vs. EPPM</h2>
+              </div>
+
+              {/* Two Column Layout */}
+              <div className="tm-ppm-eppm-grid">
+                {/* PPM Card */}
+                <div
+                  className="tm-ppm-eppm-card tm-ppm-card"
+                  ref={(el) => (ppmEppmCardsRef.current[0] = el)}
+                >
+                  <div className="tm-ppm-eppm-card-header">
+                    <h3>PPM (Professional)</h3>
+                  </div>
+                  <div className="tm-ppm-eppm-card-content">
+                    {/* Icon: Desktop PC */}
+                    <div className="tm-ppm-eppm-icon">
+                      <svg
+                        viewBox="0 0 80 80"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        {/* Monitor */}
+                        <rect
+                          x="10"
+                          y="8"
+                          width="60"
+                          height="40"
+                          rx="3"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          fill="rgba(59, 130, 246, 0.1)"
+                        />
+                        <rect
+                          x="14"
+                          y="12"
+                          width="52"
+                          height="32"
+                          rx="1"
+                          fill="rgba(59, 130, 246, 0.2)"
+                        />
+                        {/* Monitor Stand */}
+                        <path
+                          d="M35 48 L35 56 L25 56 L25 58 L55 58 L55 56 L45 56 L45 48"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          fill="none"
+                        />
+                        {/* PC Tower */}
+                        <rect
+                          x="62"
+                          y="42"
+                          width="12"
+                          height="24"
+                          rx="2"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          fill="rgba(59, 130, 246, 0.1)"
+                        />
+                        <circle cx="68" cy="48" r="2" fill="currentColor" />
+                        <rect x="65" y="54" width="6" height="8" rx="1" fill="rgba(59, 130, 246, 0.3)" />
+                        {/* Keyboard */}
+                        <rect
+                          x="18"
+                          y="62"
+                          width="30"
+                          height="8"
+                          rx="2"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          fill="rgba(59, 130, 246, 0.1)"
+                        />
+                        {/* Mouse */}
+                        <ellipse
+                          cx="55"
+                          cy="66"
+                          rx="5"
+                          ry="4"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          fill="rgba(59, 130, 246, 0.1)"
+                        />
+                      </svg>
+                    </div>
+
+                    {/* Features */}
+                    <ul className="tm-ppm-eppm-features">
+                      <li>
+                        <span className="tm-bullet"></span>
+                        <span>Client-based (설치형)</span>
+                      </li>
+                      <li>
+                        <span className="tm-bullet"></span>
+                        <span>Power User 중심</span>
+                      </li>
+                      <li>
+                        <span className="tm-bullet"></span>
+                        <span>독립적 프로젝트 관리 강점</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Divider */}
+                <div className="tm-ppm-eppm-divider">
+                  <div className="tm-ppm-eppm-vs">VS</div>
+                </div>
+
+                {/* EPPM Card */}
+                <div
+                  className="tm-ppm-eppm-card tm-eppm-card"
+                  ref={(el) => (ppmEppmCardsRef.current[1] = el)}
+                >
+                  <div className="tm-ppm-eppm-card-header">
+                    <h3>EPPM (Enterprise)</h3>
+                  </div>
+                  <div className="tm-ppm-eppm-card-content">
+                    {/* Icon: Globe + Server + Cloud */}
+                    <div className="tm-ppm-eppm-icon">
+                      <svg
+                        viewBox="0 0 80 80"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        {/* Globe */}
+                        <circle
+                          cx="28"
+                          cy="35"
+                          r="18"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          fill="rgba(16, 185, 129, 0.1)"
+                        />
+                        <ellipse
+                          cx="28"
+                          cy="35"
+                          rx="8"
+                          ry="18"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          fill="none"
+                        />
+                        <line
+                          x1="10"
+                          y1="35"
+                          x2="46"
+                          y2="35"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                        />
+                        <line
+                          x1="28"
+                          y1="17"
+                          x2="28"
+                          y2="53"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                        />
+
+                        {/* Server */}
+                        <rect
+                          x="52"
+                          y="24"
+                          width="20"
+                          height="32"
+                          rx="2"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          fill="rgba(16, 185, 129, 0.1)"
+                        />
+                        <line
+                          x1="52"
+                          y1="34"
+                          x2="72"
+                          y2="34"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                        />
+                        <line
+                          x1="52"
+                          y1="44"
+                          x2="72"
+                          y2="44"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                        />
+                        <circle cx="56" cy="29" r="1.5" fill="#10b981" />
+                        <circle cx="56" cy="39" r="1.5" fill="#10b981" />
+                        <circle cx="56" cy="49" r="1.5" fill="#10b981" />
+
+                        {/* Cloud Upload */}
+                        <path
+                          d="M55 12 C50 12 46 16 46 20 C42 20 38 24 38 28 C38 32 42 36 48 36 L66 36 C70 36 74 32 74 28 C74 24 70 20 66 20 C66 16 62 12 55 12"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          fill="rgba(16, 185, 129, 0.2)"
+                        />
+                        <path
+                          d="M55 30 L55 22 M52 25 L55 22 L58 25"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+
+                        {/* Connection Lines */}
+                        <path
+                          d="M44 38 L52 38"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeDasharray="3 2"
+                        />
+                      </svg>
+                    </div>
+
+                    {/* Features */}
+                    <ul className="tm-ppm-eppm-features">
+                      <li>
+                        <span className="tm-bullet"></span>
+                        <span>Web-based (웹 접속)</span>
+                      </li>
+                      <li>
+                        <span className="tm-bullet"></span>
+                        <span>경영진/관리자 Dashboard 제공</span>
+                      </li>
+                      <li>
+                        <span className="tm-bullet"></span>
+                        <span>전사적 포트폴리오 관리 (Portfolio)</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Conclusion */}
+              <div
+                className="tm-ppm-eppm-conclusion"
+                ref={ppmEppmConclusionRef}
+              >
+                <p>
+                  건설 현장 실무에서는 <em>정밀한 조작</em>을 위해{" "}
+                  <em>PPM을 주로 병행 사용</em>함
                 </p>
               </div>
             </div>
