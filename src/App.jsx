@@ -25,6 +25,7 @@ import CompanyOrganization from "./pages/company/Organization";
 import CompanyHistory from "./pages/company/History";
 import CompanyPR from "./pages/company/PR";
 
+import TimeManagementCore from "./pages/time-management/Core";
 
 import PPMPage from "./pages/PPMPage";
 
@@ -66,6 +67,7 @@ function App() {
         <Route path="/time-management" element={<TimeManagementPage />} />
         <Route path="/time-management/:sectionId" element={<TimeManagementPage />} />
         <Route path="/time-management/:sectionId/:subId" element={<TimeManagementPage />} />
+        <Route path="/time-management/core" element={<TimeManagementCore />} />
 
         <Route path="/ppm" element={<PPMPage />} />
         <Route path="/ppm/:sectionId" element={<PPMPage />} />

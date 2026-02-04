@@ -57,10 +57,10 @@ const subMenuItems = [
       "https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
-    id: "cases",
-    title: "적용 사례",
+    id: "core",
+    title: "핵심 개념",
     image:
-      "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
 ];
 
@@ -1116,7 +1116,7 @@ function TimeManagementPage() {
                       if (item.id === "overview") scrollToSection("definition");
                       if (item.id === "advantages")
                         scrollToSection("advantages");
-                      if (item.id === "cases") scrollToSection("definition"); // Placeholder
+                      if (item.id === "core") navigate("/time-management/core");
                     }}
                   >
                     <div
