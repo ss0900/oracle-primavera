@@ -64,6 +64,7 @@ function App() {
         <Route path="/company/pr" element={<CompanyPR />} />
 
         <Route path="/time-management" element={<TimeManagementPage />} />
+        <Route path="/time-management/:sectionId" element={<TimeManagementPage />} />
         <Route path="/time-management/:sectionId/:subId" element={<TimeManagementPage />} />
 
         <Route path="/ppm" element={<PPMPage />} />

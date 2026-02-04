@@ -79,7 +79,7 @@ function Header() {
         {
           id: "cases",
           title: "적용 사례",
-          path: "/time-management/overview/1",
+          path: "/time-management/cases",
           image:
             "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
@@ -254,9 +254,9 @@ function Header() {
                 to={link.path}
                 className={`nav-link ${location.pathname.startsWith(link.path) ? "active" : ""}`}
                 onClick={() => {
-                   if (location.pathname === link.path) {
-                     window.scrollTo(0, 0);
-                   }
+                  if (location.pathname === link.path) {
+                    window.scrollTo(0, 0);
+                  }
                 }}
               >
                 {link.label}
