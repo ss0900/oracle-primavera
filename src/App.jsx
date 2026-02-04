@@ -8,9 +8,10 @@ import {
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
+import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Company from "./pages/Company";
-import TimeManagement from "./pages/TimeManagement";
+import TimeManagementPage from "./pages/TimeManagementPage";
 import PPM from "./pages/PPM";
 import EPPM from "./pages/EPPM";
 import OPC from "./pages/OPC";
@@ -24,29 +25,16 @@ import CompanyOrganization from "./pages/company/Organization";
 import CompanyHistory from "./pages/company/History";
 import CompanyPR from "./pages/company/PR";
 
-import TimeManagementOverview from "./pages/time-management/Overview";
-import TimeManagementAdvantages from "./pages/time-management/Advantages";
-import TimeManagementCases from "./pages/time-management/Cases";
 
-import PPMOverview from "./pages/ppm/Overview";
-import PPMFeatures from "./pages/ppm/Cpm";
-import PPMBenefits from "./pages/ppm/Benefits";
+import PPMPage from "./pages/PPMPage";
 
-import EPPMOverview from "./pages/eppm/Overview";
-import EPPMSolution from "./pages/eppm/Solution";
-import EPPMCases from "./pages/eppm/Cases";
+import EPPMPage from "./pages/EPPMPage";
 
-import OPCOverview from "./pages/opc/Overview";
-import OPCCore from "./pages/opc/Core";
-import OPCApplication from "./pages/opc/Application";
+import OPCPage from "./pages/OPCPage";
 
-import UnifierOverview from "./pages/unifier/Overview";
-import UnifierModules from "./pages/unifier/Modules";
-import UnifierCustomers from "./pages/unifier/Customers";
+import UnifierPage from "./pages/UnifierPage";
 
-import AconexOverview from "./pages/aconex/Overview";
-import AconexFeatures from "./pages/aconex/Features";
-import AconexProjects from "./pages/aconex/Projects";
+import AconexPage from "./pages/AconexPage";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -62,6 +50,7 @@ function App() {
   return (
     <Router>
       <Loader isLoading={isLoading} />
+      <ScrollToTop />
       <Header />
 
       <Routes>
@@ -74,56 +63,25 @@ function App() {
         <Route path="/company/history" element={<CompanyHistory />} />
         <Route path="/company/pr" element={<CompanyPR />} />
 
-        <Route
-          path="/time-management"
-          element={<Navigate to="/time-management/overview" replace />}
-        />
-        <Route
-          path="/time-management/overview"
-          element={<TimeManagementOverview />}
-        />
-        <Route
-          path="/time-management/advantages"
-          element={<TimeManagementAdvantages />}
-        />
-        <Route
-          path="/time-management/cases"
-          element={<TimeManagementCases />}
-        />
+        <Route path="/time-management" element={<TimeManagementPage />} />
+        <Route path="/time-management/:sectionId/:subId" element={<TimeManagementPage />} />
 
-        <Route path="/ppm" element={<Navigate to="/ppm/overview" replace />} />
-        <Route path="/ppm/overview" element={<PPMOverview />} />
-        <Route path="/ppm/cpm" element={<PPMFeatures />} />
-        <Route path="/ppm/benefits" element={<PPMBenefits />} />
+        <Route path="/ppm" element={<PPMPage />} />
+        <Route path="/ppm/:sectionId" element={<PPMPage />} />
+        <Route path="/ppm/:sectionId/:subId" element={<PPMPage />} />
 
-        <Route
-          path="/eppm"
-          element={<Navigate to="/eppm/overview" replace />}
-        />
-        <Route path="/eppm/overview" element={<EPPMOverview />} />
-        <Route path="/eppm/solution" element={<EPPMSolution />} />
-        <Route path="/eppm/cases" element={<EPPMCases />} />
+        <Route path="/eppm" element={<EPPMPage />} />
+        <Route path="/eppm/:sectionId" element={<EPPMPage />} />
+        <Route path="/eppm/:sectionId/:subId" element={<EPPMPage />} />
 
-        <Route path="/opc" element={<Navigate to="/opc/overview" replace />} />
-        <Route path="/opc/overview" element={<OPCOverview />} />
-        <Route path="/opc/core" element={<OPCCore />} />
-        <Route path="/opc/application" element={<OPCApplication />} />
+        <Route path="/opc" element={<OPCPage />} />
+        <Route path="/opc/:sectionId" element={<OPCPage />} />
 
-        <Route
-          path="/unifier"
-          element={<Navigate to="/unifier/overview" replace />}
-        />
-        <Route path="/unifier/overview" element={<UnifierOverview />} />
-        <Route path="/unifier/modules" element={<UnifierModules />} />
-        <Route path="/unifier/customers" element={<UnifierCustomers />} />
+        <Route path="/unifier" element={<UnifierPage />} />
+        <Route path="/unifier/:sectionId" element={<UnifierPage />} />
 
-        <Route
-          path="/aconex"
-          element={<Navigate to="/aconex/overview" replace />}
-        />
-        <Route path="/aconex/overview" element={<AconexOverview />} />
-        <Route path="/aconex/features" element={<AconexFeatures />} />
-        <Route path="/aconex/projects" element={<AconexProjects />} />
+        <Route path="/aconex" element={<AconexPage />} />
+        <Route path="/aconex/:sectionId" element={<AconexPage />} />
 
         <Route path="/contact" element={<Contact />} />
       </Routes>

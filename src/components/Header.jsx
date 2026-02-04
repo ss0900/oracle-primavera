@@ -65,21 +65,21 @@ function Header() {
         {
           id: "overview",
           title: "개요",
-          path: "/time-management/overview",
+          path: "/time-management/overview/1",
           image:
             "https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
         {
           id: "advantages",
           title: "장점",
-          path: "/time-management/advantages",
+          path: "/time-management/advantages/1",
           image:
             "https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
         {
           id: "cases",
           title: "적용 사례",
-          path: "/time-management/cases",
+          path: "/time-management/overview/1",
           image:
             "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
@@ -251,8 +251,13 @@ function Header() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <Link
-                to={link.subItems?.[0]?.path || link.path}
+                to={link.path}
                 className={`nav-link ${location.pathname.startsWith(link.path) ? "active" : ""}`}
+                onClick={() => {
+                   if (location.pathname === link.path) {
+                     window.scrollTo(0, 0);
+                   }
+                }}
               >
                 {link.label}
               </Link>
@@ -340,9 +345,14 @@ function Header() {
         {navLinks.map((link) => (
           <Link
             key={link.path}
-            to={link.subItems?.[0]?.path || link.path}
+            to={link.path}
             className="nav-link"
-            onClick={() => setMenuOpen(false)}
+            onClick={() => {
+              setMenuOpen(false);
+              if (location.pathname === link.path) {
+                window.scrollTo(0, 0);
+              }
+            }}
             style={{ padding: "0.75rem 1rem" }}
           >
             {link.label}

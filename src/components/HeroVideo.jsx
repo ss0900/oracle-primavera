@@ -55,8 +55,15 @@ function HeroVideo({ id, scrollToSection }) {
 
       <div className="container hero-content">
         <h1 className="hero-title">
-          <span style={{ display: "block" }}>솔루션의 성공을</span>
-          <span className="gradient-text">함께 만들어갑니다</span>
+          <span style={{ display: "inline-block", whiteSpace: "nowrap" }}>
+            대한민국 건설의 디지털 전환,
+          </span>
+          <span
+            className="gradient-text"
+            style={{ display: "inline-block", whiteSpace: "nowrap" }}
+          >
+            Oracle Primavera로 완성하십시오
+          </span>
         </h1>
 
         <p className="hero-subtitle">
