@@ -12,7 +12,7 @@ function TimeManagementCore() {
   const definitionBoxRef = useRef(null);
   const treeRef = useRef(null);
   const nodesRef = useRef([]);
-  const linesRef = useRef([]);
+  // const linesRef = useRef([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -52,19 +52,19 @@ function TimeManagementCore() {
         );
       }
 
-      // 4. Connection lines draw
-      linesRef.current.forEach((line, i) => {
-        if (line) {
-          tl.fromTo(
-            line,
-            { strokeDasharray: "1000", strokeDashoffset: 1000 },
-            { strokeDashoffset: 0, duration: 0.8, ease: "power2.inOut" },
-            i === 0 ? "-=0.4" : "<",
-          );
-        }
-      });
+      // // 4. Connection lines draw
+      // linesRef.current.forEach((line, i) => {
+      //   if (line) {
+      //     tl.fromTo(
+      //       line,
+      //       { strokeDasharray: "1000", strokeDashoffset: 1000 },
+      //       { strokeDashoffset: 0, duration: 0.8, ease: "power2.inOut" },
+      //       i === 0 ? "-=0.4" : "<",
+      //     );
+      //   }
+      // });
 
-      // 5. Nodes pop-up sequentially by level
+      // // 5. Nodes pop-up sequentially by level
       nodesRef.current.forEach((node, i) => {
         if (node) {
           tl.fromTo(
@@ -123,151 +123,127 @@ function TimeManagementCore() {
             xmlns="http://www.w3.org/2000/svg"
           >
             {/* Connection Lines */}
-            <g className="tm-wbs-lines">
-              {/* Level 1 (Project) to Level 2 (Design, Procurement, Construction) */}
-              <line
+            {/* <g className="tm-wbs-lines"> */}
+            {/* Level 1 (Project) to Level 2 (Design, Procurement, Construction) */}
+            {/* <path
                 ref={(el) => (linesRef.current[0] = el)}
-                x1="700"
-                y1="100"
-                x2="300"
-                y2="200"
+                d="M700 120 V160 H300 V200"
                 stroke="var(--color-accent)"
                 strokeWidth="2"
+                fill="none"
                 strokeDasharray="1000"
                 strokeDashoffset="1000"
               />
-              <line
+              <path
                 ref={(el) => (linesRef.current[1] = el)}
-                x1="700"
-                y1="100"
-                x2="700"
-                y2="200"
+                d="M700 120 V200"
                 stroke="var(--color-accent)"
                 strokeWidth="2"
+                fill="none"
                 strokeDasharray="1000"
                 strokeDashoffset="1000"
               />
-              <line
+              <path
                 ref={(el) => (linesRef.current[2] = el)}
-                x1="700"
-                y1="100"
-                x2="1100"
-                y2="200"
+                d="M700 120 V160 H1100 V200"
                 stroke="var(--color-accent)"
                 strokeWidth="2"
+                fill="none"
                 strokeDasharray="1000"
                 strokeDashoffset="1000"
-              />
+              /> */}
 
-              {/* Level 2 (Construction) to Level 3 (Zone A, Zone B) */}
-              <line
+            {/* Level 2 (Construction) to Level 3 (Zone A, Zone B) */}
+            {/* <path
                 ref={(el) => (linesRef.current[3] = el)}
-                x1="1100"
-                y1="260"
-                x2="950"
-                y2="360"
+                d="M1100 260 V310 H950 V360"
                 stroke="var(--color-accent)"
                 strokeWidth="2"
+                fill="none"
                 strokeDasharray="1000"
                 strokeDashoffset="1000"
               />
-              <line
+              <path
                 ref={(el) => (linesRef.current[4] = el)}
-                x1="1100"
-                y1="260"
-                x2="1250"
-                y2="360"
+                d="M1100 260 V310 H1250 V360"
                 stroke="var(--color-accent)"
                 strokeWidth="2"
+                fill="none"
                 strokeDasharray="1000"
                 strokeDashoffset="1000"
-              />
+              /> */}
 
-              {/* Level 3 (Zone A) to Level 4 (토목, 건축, 기계) */}
-              <line
+            {/* Level 3 (Zone A) to Level 4 (토목, 건축, 기계) */}
+            {/* <path
                 ref={(el) => (linesRef.current[5] = el)}
-                x1="950"
-                y1="420"
-                x2="750"
-                y2="520"
+                d="M950 420 V470 H750 V520"
                 stroke="var(--color-accent)"
                 strokeWidth="2"
+                fill="none"
                 strokeDasharray="1000"
                 strokeDashoffset="1000"
               />
-              <line
+              <path
                 ref={(el) => (linesRef.current[6] = el)}
-                x1="950"
-                y1="420"
-                x2="950"
-                y2="520"
+                d="M950 420 V520"
                 stroke="var(--color-accent)"
                 strokeWidth="2"
+                fill="none"
                 strokeDasharray="1000"
                 strokeDashoffset="1000"
               />
-              <line
+              <path
                 ref={(el) => (linesRef.current[7] = el)}
-                x1="950"
-                y1="420"
-                x2="1150"
-                y2="520"
+                d="M950 420 V470 H1150 V520"
                 stroke="var(--color-accent)"
                 strokeWidth="2"
+                fill="none"
                 strokeDasharray="1000"
                 strokeDashoffset="1000"
-              />
+              /> */}
 
-              {/* Level 4 (토목) to Level 5 (Activities) */}
-              <line
+            {/* Level 4 (토목) to Level 5 (Activities) */}
+            {/* <path
                 ref={(el) => (linesRef.current[8] = el)}
-                x1="750"
-                y1="580"
-                x2="650"
-                y2="680"
+                d="M750 580 V630 H550 V680"
                 stroke="var(--color-accent)"
                 strokeWidth="2"
+                fill="none"
                 strokeDasharray="1000"
                 strokeDashoffset="1000"
               />
-              <line
+              <path
                 ref={(el) => (linesRef.current[9] = el)}
-                x1="750"
-                y1="580"
-                x2="850"
-                y2="680"
+                d="M750 580 V680"
                 stroke="var(--color-accent)"
                 strokeWidth="2"
+                fill="none"
                 strokeDasharray="1000"
                 strokeDashoffset="1000"
-              />
+              /> */}
 
-              {/* Level 4 (건축) to Level 5 (Activity) */}
-              <line
+            {/* Level 4 (건축) to Level 5 (Activity) */}
+            {/* <path
                 ref={(el) => (linesRef.current[10] = el)}
-                x1="950"
-                y1="580"
-                x2="950"
-                y2="680"
+                d="M950 580 V680"
                 stroke="var(--color-accent)"
                 strokeWidth="2"
+                fill="none"
                 strokeDasharray="1000"
                 strokeDashoffset="1000"
-              />
+              /> */}
 
-              {/* Level 4 (기계) to Level 5 (Activity) */}
-              <line
+            {/* Level 4 (기계) to Level 5 (Activity) */}
+            {/* <path
                 ref={(el) => (linesRef.current[11] = el)}
-                x1="1150"
-                y1="580"
-                x2="1150"
-                y2="680"
+                d="M1150 580 V680"
                 stroke="var(--color-accent)"
                 strokeWidth="2"
+                fill="none"
                 strokeDasharray="1000"
                 strokeDashoffset="1000"
               />
-            </g>
+            </g> */}
 
             {/* Nodes */}
             <g className="tm-wbs-nodes">
@@ -517,7 +493,7 @@ function TimeManagementCore() {
               {/* 토목 activities (2개) */}
               <g ref={(el) => (nodesRef.current[9] = el)}>
                 <rect
-                  x="550"
+                  x="450"
                   y="680"
                   width="200"
                   height="50"
@@ -527,7 +503,7 @@ function TimeManagementCore() {
                   strokeWidth="2"
                 />
                 <text
-                  x="650"
+                  x="550"
                   y="710"
                   textAnchor="middle"
                   fill="#f97316"
@@ -540,7 +516,7 @@ function TimeManagementCore() {
 
               <g ref={(el) => (nodesRef.current[10] = el)}>
                 <rect
-                  x="750"
+                  x="650"
                   y="680"
                   width="200"
                   height="50"
@@ -550,7 +526,7 @@ function TimeManagementCore() {
                   strokeWidth="2"
                 />
                 <text
-                  x="850"
+                  x="750"
                   y="710"
                   textAnchor="middle"
                   fill="#f97316"

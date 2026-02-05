@@ -20,8 +20,6 @@ const sections = [
   { id: "core", label: "핵심 개념" },
 ];
 
-
-
 // Menu items for the navigation section
 const subMenuItems = [
   {
@@ -884,7 +882,7 @@ function TimeManagementPage() {
         tl.fromTo(
           coreTitleRef.current,
           { opacity: 0, y: -30 },
-          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }
+          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
         );
 
         // Definition box
@@ -893,7 +891,7 @@ function TimeManagementPage() {
             coreDefinitionRef.current,
             { opacity: 0, x: 50 },
             { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" },
-            "-=0.3"
+            "-=0.3",
           );
         }
 
@@ -904,14 +902,14 @@ function TimeManagementPage() {
               tl.fromTo(
                 node,
                 { opacity: 0, scale: 0.8, y: 20 },
-                { 
-                  opacity: 1, 
-                  scale: 1, 
-                  y: 0, 
-                  duration: 0.4, 
-                  ease: "back.out(1.4)" 
+                {
+                  opacity: 1,
+                  scale: 1,
+                  y: 0,
+                  duration: 0.4,
+                  ease: "back.out(1.4)",
                 },
-                i === 0 ? "-=0.2" : "-=0.3"
+                i === 0 ? "-=0.2" : "-=0.3",
               );
             }
           });
@@ -3535,14 +3533,17 @@ function TimeManagementPage() {
             <div className="tm-core-container">
               {/* Section Title */}
               <div className="tm-section-header" ref={coreTitleRef}>
-                <h2 className="tm-section-title">WBS (Work Breakdown Structure)</h2>
+                <h2 className="tm-section-title">
+                  WBS (Work Breakdown Structure)
+                </h2>
               </div>
 
               {/* Definition Box - Top Right */}
               <div className="tm-wbs-definition-box" ref={coreDefinitionRef}>
                 <span className="tm-wbs-definition-label">정의</span>
                 <p className="tm-wbs-definition-text">
-                  프로젝트 산출물 중심의 계층적 구조<br />
+                  프로젝트 산출물 중심의 계층적 구조
+                  <br />
                   (의사소통 및 관리의 기준)
                 </p>
               </div>
@@ -3551,7 +3552,7 @@ function TimeManagementPage() {
               <div className="tm-wbs-tree" ref={coreWbsTreeRef}>
                 {/* Level 1: Project Root */}
                 <div className="tm-wbs-level tm-wbs-level-1">
-                  <div 
+                  <div
                     className="tm-wbs-node tm-wbs-node-root"
                     ref={(el) => (coreNodesRef.current[0] = el)}
                   >
@@ -3560,30 +3561,30 @@ function TimeManagementPage() {
                   </div>
                 </div>
 
-                {/* Connector Line from Root */}
+                {/* Connector Line from Root
                 <div className="tm-wbs-connector tm-wbs-connector-vertical"></div>
-                <div className="tm-wbs-connector tm-wbs-connector-horizontal-3"></div>
+                <div className="tm-wbs-connector tm-wbs-connector-horizontal-3"></div> */}
 
                 {/* Level 2: Design, Procurement, Construction */}
                 <div className="tm-wbs-level tm-wbs-level-2">
-                  <div 
+                  <div
                     className="tm-wbs-node tm-wbs-node-main"
                     ref={(el) => (coreNodesRef.current[1] = el)}
                   >
                     <span className="tm-wbs-node-text">Design</span>
                     <span className="tm-wbs-node-subtext">(설계)</span>
                   </div>
-                  <div 
+                  <div
                     className="tm-wbs-node tm-wbs-node-main"
                     ref={(el) => (coreNodesRef.current[2] = el)}
                   >
                     <span className="tm-wbs-node-text">Procurement</span>
                     <span className="tm-wbs-node-subtext">(구매)</span>
                   </div>
-                  
+
                   {/* Construction Subtree Wrapper */}
                   <div className="tm-wbs-construction-subtree">
-                    <div 
+                    <div
                       className="tm-wbs-node tm-wbs-node-main tm-wbs-node-highlight"
                       ref={(el) => (coreNodesRef.current[3] = el)}
                     >
@@ -3591,21 +3592,26 @@ function TimeManagementPage() {
                       <span className="tm-wbs-node-subtext">(시공)</span>
                     </div>
 
-                    {/* Connector from Construction to Zones */}
+                    {/* Connector from Construction to Zones
                     <div className="tm-wbs-connector tm-wbs-connector-branch">
                       <div className="tm-wbs-branch-line"></div>
-                    </div>
+                    </div> */}
 
                     {/* Level 3: Zones */}
                     <div className="tm-wbs-level tm-wbs-level-3">
                       {/* Zone A Subtree Wrapper */}
                       <div className="tm-wbs-zone-a-subtree">
-                        <div 
+                        <div
                           className="tm-wbs-node tm-wbs-node-zone"
                           ref={(el) => (coreNodesRef.current[4] = el)}
                         >
                           <div className="tm-wbs-zone-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <svg
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                            >
                               <rect x="3" y="3" width="7" height="7" rx="1" />
                               <rect x="14" y="3" width="7" height="7" rx="1" />
                               <rect x="3" y="14" width="7" height="7" rx="1" />
@@ -3616,20 +3622,25 @@ function TimeManagementPage() {
                         </div>
 
                         {/* Connector from Zone A to Disciplines */}
-                        <div className="tm-wbs-connector tm-wbs-connector-discipline">
+                        {/* <div className="tm-wbs-connector tm-wbs-connector-discipline">
                           <div className="tm-wbs-branch-line"></div>
-                        </div>
+                        </div> */}
 
                         {/* Level 4: Disciplines (토목, 건축, 기계) */}
                         <div className="tm-wbs-level tm-wbs-level-4">
                           {/* 토목 Subtree - 2 Activities */}
                           <div className="tm-wbs-discipline-subtree">
-                            <div 
+                            <div
                               className="tm-wbs-node tm-wbs-node-discipline"
                               ref={(el) => (coreNodesRef.current[6] = el)}
                             >
                               <div className="tm-wbs-discipline-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <svg
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                >
                                   <path d="M2 20h20M4 20v-6l8-8 8 8v6" />
                                   <path d="M9 20v-4h6v4" />
                                 </svg>
@@ -3638,38 +3649,57 @@ function TimeManagementPage() {
                             </div>
 
                             {/* Connector to Activities */}
-                            <div className="tm-wbs-connector tm-wbs-connector-activity">
+                            {/* <div className="tm-wbs-connector tm-wbs-connector-activity">
                               <div className="tm-wbs-branch-line"></div>
-                            </div>
+                            </div> */}
 
                             {/* Activities for 토목 */}
                             <div className="tm-wbs-level tm-wbs-level-5">
-                              <div 
+                              <div
                                 className="tm-wbs-node tm-wbs-node-activity"
                                 ref={(el) => (coreNodesRef.current[9] = el)}
                               >
-                                <span className="tm-wbs-node-text">Activity</span>
-                                <span className="tm-wbs-node-subtext">(단위 작업)</span>
+                                <span className="tm-wbs-node-text">
+                                  Activity
+                                </span>
+                                <span className="tm-wbs-node-subtext">
+                                  (단위 작업)
+                                </span>
                               </div>
-                              <div 
+                              <div
                                 className="tm-wbs-node tm-wbs-node-activity"
                                 ref={(el) => (coreNodesRef.current[10] = el)}
                               >
-                                <span className="tm-wbs-node-text">Activity</span>
-                                <span className="tm-wbs-node-subtext">(단위 작업)</span>
+                                <span className="tm-wbs-node-text">
+                                  Activity
+                                </span>
+                                <span className="tm-wbs-node-subtext">
+                                  (단위 작업)
+                                </span>
                               </div>
                             </div>
                           </div>
 
                           {/* 건축 Subtree - 1 Activity */}
                           <div className="tm-wbs-discipline-subtree">
-                            <div 
+                            <div
                               className="tm-wbs-node tm-wbs-node-discipline"
                               ref={(el) => (coreNodesRef.current[7] = el)}
                             >
                               <div className="tm-wbs-discipline-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                  <rect x="3" y="8" width="18" height="12" rx="1" />
+                                <svg
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                >
+                                  <rect
+                                    x="3"
+                                    y="8"
+                                    width="18"
+                                    height="12"
+                                    rx="1"
+                                  />
                                   <path d="M3 8l9-5 9 5" />
                                   <rect x="8" y="13" width="3" height="7" />
                                   <rect x="13" y="13" width="3" height="4" />
@@ -3679,30 +3709,39 @@ function TimeManagementPage() {
                             </div>
 
                             {/* Connector to Activities */}
-                            <div className="tm-wbs-connector tm-wbs-connector-activity">
+                            {/* <div className="tm-wbs-connector tm-wbs-connector-activity">
                               <div className="tm-wbs-branch-line"></div>
-                            </div>
+                            </div> */}
 
                             {/* Activities for 건축 */}
                             <div className="tm-wbs-level tm-wbs-level-5">
-                              <div 
+                              <div
                                 className="tm-wbs-node tm-wbs-node-activity"
                                 ref={(el) => (coreNodesRef.current[11] = el)}
                               >
-                                <span className="tm-wbs-node-text">Activity</span>
-                                <span className="tm-wbs-node-subtext">(단위 작업)</span>
+                                <span className="tm-wbs-node-text">
+                                  Activity
+                                </span>
+                                <span className="tm-wbs-node-subtext">
+                                  (단위 작업)
+                                </span>
                               </div>
                             </div>
                           </div>
 
                           {/* 기계 Subtree - 1 Activity */}
                           <div className="tm-wbs-discipline-subtree">
-                            <div 
+                            <div
                               className="tm-wbs-node tm-wbs-node-discipline"
                               ref={(el) => (coreNodesRef.current[8] = el)}
                             >
                               <div className="tm-wbs-discipline-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <svg
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                >
                                   <circle cx="12" cy="12" r="3" />
                                   <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
                                 </svg>
@@ -3711,18 +3750,22 @@ function TimeManagementPage() {
                             </div>
 
                             {/* Connector to Activities */}
-                            <div className="tm-wbs-connector tm-wbs-connector-activity">
+                            {/* <div className="tm-wbs-connector tm-wbs-connector-activity">
                               <div className="tm-wbs-branch-line"></div>
-                            </div>
+                            </div> */}
 
                             {/* Activities for 기계 */}
                             <div className="tm-wbs-level tm-wbs-level-5">
-                              <div 
+                              <div
                                 className="tm-wbs-node tm-wbs-node-activity"
                                 ref={(el) => (coreNodesRef.current[12] = el)}
                               >
-                                <span className="tm-wbs-node-text">Activity</span>
-                                <span className="tm-wbs-node-subtext">(단위 작업)</span>
+                                <span className="tm-wbs-node-text">
+                                  Activity
+                                </span>
+                                <span className="tm-wbs-node-subtext">
+                                  (단위 작업)
+                                </span>
                               </div>
                             </div>
                           </div>
@@ -3730,12 +3773,17 @@ function TimeManagementPage() {
                       </div>
 
                       {/* Zone B - Independent */}
-                      <div 
+                      <div
                         className="tm-wbs-node tm-wbs-node-zone"
                         ref={(el) => (coreNodesRef.current[5] = el)}
                       >
                         <div className="tm-wbs-zone-icon">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                          >
                             <rect x="3" y="3" width="7" height="7" rx="1" />
                             <rect x="14" y="3" width="7" height="7" rx="1" />
                             <rect x="3" y="14" width="7" height="7" rx="1" />

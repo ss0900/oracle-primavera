@@ -8551,7 +8551,6 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   transform: translateX(-50%) translateY(-5px);
 }
 
-
 /* PPM Overview Section */
 .ppm-overview-section {
   background: var(--color-bg-primary);
@@ -8858,7 +8857,6 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 .cpm-feature-card.active .cpm-feature-title {
   color: var(--color-accent);
 }
-
 
 /* PPM Benefits Section */
 .ppm-benefits-section {
@@ -9433,13 +9431,22 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 .tm-wbs-connector-vertical {
   width: 2px;
   height: 30px;
-  background: linear-gradient(180deg, rgba(59, 130, 246, 0.6), rgba(59, 130, 246, 0.3));
+  background: linear-gradient(
+    180deg,
+    rgba(59, 130, 246, 0.6),
+    rgba(59, 130, 246, 0.3)
+  );
 }
 
 .tm-wbs-connector-horizontal-3 {
   width: 400px;
   height: 2px;
-  background: linear-gradient(90deg, rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.6), rgba(59, 130, 246, 0.3));
+  background: linear-gradient(
+    90deg,
+    rgba(59, 130, 246, 0.3),
+    rgba(59, 130, 246, 0.6),
+    rgba(59, 130, 246, 0.3)
+  );
   position: relative;
 }
 
@@ -9520,10 +9527,6 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   height: 2px;
   background: rgba(249, 115, 22, 0.4);
 }
-
-
-
-
 
 /* Animation for connector lines */
 @keyframes tm-wbs-flow {
@@ -9615,4 +9618,17 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
 .tm-wbs-tree:hover .tm-wbs-node:hover ~ .tm-wbs-connector {
   opacity: 1;
+}
+
+/* Core(WBS) SVG diagram tweaks */
+.tm-wbs-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.tm-wbs-lines path,
+.tm-wbs-lines line {
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
