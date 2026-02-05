@@ -9169,21 +9169,23 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
 .tm-wbs-level-2 {
   gap: var(--space-2xl);
+  align-items: flex-start; /* Prevent subtree from stretching sibling nodes */
 }
 
 .tm-wbs-level-3 {
   gap: var(--space-xl);
-  margin-left: 200px;
+  align-items: flex-start; /* Prevent subtree from stretching sibling nodes */
+  /* Zone A/B should be centered under Construction */
 }
 
 .tm-wbs-level-4 {
   gap: var(--space-lg);
-  margin-left: 200px;
+  /* Disciplines should be centered under Zone A */
 }
 
 .tm-wbs-level-5 {
   gap: var(--space-md);
-  margin-left: 200px;
+  /* Activities should be centered under disciplines */
 }
 
 /* WBS Nodes - Base */
@@ -9234,13 +9236,52 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   font-size: var(--text-lg);
 }
 
+/* Construction Subtree Wrapper */
+.tm-wbs-construction-subtree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* Zone A Subtree Wrapper */
+.tm-wbs-zone-a-subtree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* Discipline Subtree Wrapper */
+.tm-wbs-discipline-subtree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
 /* Main Nodes (Design, Procurement, Construction) */
 .tm-wbs-node-main {
   background: linear-gradient(135deg, #1e3a5f 0%, #0f2744 100%);
   border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: var(--space-md) var(--space-xl);
+  position: relative;
+}
+
+/* Vertical connector line above main nodes */
+.tm-wbs-node-main::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 20px;
+  background: rgba(59, 130, 246, 0.5);
 }
 
 .tm-wbs-node-main:hover {
+  background: linear-gradient(135deg, #2d5a8c 0%, #1a3a5f 100%);
   border-color: rgba(59, 130, 246, 0.6);
 }
 
@@ -9262,6 +9303,19 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   flex-direction: row;
   gap: var(--space-sm);
   padding: var(--space-sm) var(--space-lg);
+  position: relative;
+}
+
+/* Vertical connector line above zone nodes */
+.tm-wbs-node-zone::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 25px;
+  background: rgba(148, 163, 184, 0.4);
 }
 
 .tm-wbs-node-zone:hover {
@@ -9293,6 +9347,19 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   gap: var(--space-sm);
   padding: var(--space-sm) var(--space-md);
   min-width: auto;
+  position: relative;
+}
+
+/* Vertical connector line above discipline nodes */
+.tm-wbs-node-discipline::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 25px;
+  background: rgba(148, 163, 184, 0.4);
 }
 
 .tm-wbs-node-discipline:hover {
@@ -9323,16 +9390,31 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   border: 2px solid #f97316;
   padding: var(--space-sm) var(--space-md);
   min-width: 100px;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+/* Vertical connector line above activity nodes */
+.tm-wbs-node-activity::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 25px;
+  background: rgba(249, 115, 22, 0.4);
 }
 
 .tm-wbs-node-activity:hover {
   background: rgba(249, 115, 22, 0.1);
   border-color: #fb923c;
-  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
 }
 
 .tm-wbs-node-activity .tm-wbs-node-text {
-  color: #f97316;
+  color: #fb923c;
   font-size: var(--text-sm);
 }
 
@@ -9388,9 +9470,8 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 .tm-wbs-connector-branch,
 .tm-wbs-connector-discipline,
 .tm-wbs-connector-activity {
-  width: 200px;
+  width: 100%;
   height: 25px;
-  margin-left: 200px;
   position: relative;
 }
 
@@ -9407,13 +9488,24 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   background: rgba(148, 163, 184, 0.4);
 }
 
-.tm-wbs-connector-branch::after,
+.tm-wbs-connector-branch::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  /* Adjusted for 2 nodes (Zone A, Zone B) */
+  left: 23%;
+  right: 23%;
+  height: 2px;
+  background: rgba(148, 163, 184, 0.4);
+}
+
 .tm-wbs-connector-discipline::after {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 25%;
-  right: 25%;
+  /* Adjusted for 3 nodes (토목, 건축, 기계) */
+  left: 15%;
+  right: 15%;
   height: 2px;
   background: rgba(148, 163, 184, 0.4);
 }
@@ -9422,11 +9514,16 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 10%;
-  right: 10%;
+  /* Adjusted for varying numbers of activities (1-2) */
+  left: 20%;
+  right: 20%;
   height: 2px;
   background: rgba(249, 115, 22, 0.4);
 }
+
+
+
+
 
 /* Animation for connector lines */
 @keyframes tm-wbs-flow {
@@ -9466,15 +9563,6 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     transform: scale(0.75);
   }
 
-  .tm-wbs-level-3,
-  .tm-wbs-level-4,
-  .tm-wbs-level-5,
-  .tm-wbs-connector-branch,
-  .tm-wbs-connector-discipline,
-  .tm-wbs-connector-activity {
-    margin-left: 100px;
-  }
-
   .tm-wbs-level-2 {
     gap: var(--space-lg);
   }
@@ -9488,15 +9576,6 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   .tm-wbs-tree {
     transform: scale(0.6);
     overflow-x: auto;
-  }
-
-  .tm-wbs-level-3,
-  .tm-wbs-level-4,
-  .tm-wbs-level-5,
-  .tm-wbs-connector-branch,
-  .tm-wbs-connector-discipline,
-  .tm-wbs-connector-activity {
-    margin-left: 50px;
   }
 
   .tm-wbs-node {

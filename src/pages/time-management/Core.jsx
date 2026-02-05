@@ -1,45 +1,45 @@
-import { useEffect, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 function TimeManagementCore() {
-  const navigate = useNavigate()
-  const containerRef = useRef(null)
-  const titleRef = useRef(null)
-  const definitionBoxRef = useRef(null)
-  const treeRef = useRef(null)
-  const nodesRef = useRef([])
-  const linesRef = useRef([])
+  const navigate = useNavigate();
+  const containerRef = useRef(null);
+  const titleRef = useRef(null);
+  const definitionBoxRef = useRef(null);
+  const treeRef = useRef(null);
+  const nodesRef = useRef([]);
+  const linesRef = useRef([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse',
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
         },
-      })
+      });
 
       // 1. Title fade-in
       tl.fromTo(
         titleRef.current,
         { opacity: 0, y: -30 },
-        { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }
-      )
+        { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
+      );
 
       // 2. Definition box slide-in
       if (definitionBoxRef.current) {
         tl.fromTo(
           definitionBoxRef.current,
           { opacity: 0, x: 50 },
-          { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' },
-          '-=0.3'
-        )
+          { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" },
+          "-=0.3",
+        );
       }
 
       // 3. Tree container fade-in
@@ -47,9 +47,9 @@ function TimeManagementCore() {
         tl.fromTo(
           treeRef.current,
           { opacity: 0, scale: 0.95 },
-          { opacity: 1, scale: 1, duration: 0.6, ease: 'power2.out' },
-          '-=0.2'
-        )
+          { opacity: 1, scale: 1, duration: 0.6, ease: "power2.out" },
+          "-=0.2",
+        );
       }
 
       // 4. Connection lines draw
@@ -57,12 +57,12 @@ function TimeManagementCore() {
         if (line) {
           tl.fromTo(
             line,
-            { strokeDasharray: '1000', strokeDashoffset: 1000 },
-            { strokeDashoffset: 0, duration: 0.8, ease: 'power2.inOut' },
-            i === 0 ? '-=0.4' : '<'
-          )
+            { strokeDasharray: "1000", strokeDashoffset: 1000 },
+            { strokeDashoffset: 0, duration: 0.8, ease: "power2.inOut" },
+            i === 0 ? "-=0.4" : "<",
+          );
         }
-      })
+      });
 
       // 5. Nodes pop-up sequentially by level
       nodesRef.current.forEach((node, i) => {
@@ -70,30 +70,35 @@ function TimeManagementCore() {
           tl.fromTo(
             node,
             { opacity: 0, scale: 0 },
-            { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(1.7)' },
-            i === 0 ? '-=0.6' : '-=0.3'
-          )
+            { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)" },
+            i === 0 ? "-=0.6" : "-=0.3",
+          );
         }
-      })
-    }, containerRef)
+      });
+    }, containerRef);
 
-    return () => ctx.revert()
-  }, [])
+    return () => ctx.revert();
+  }, []);
 
   return (
     <div className="tm-core-page" ref={containerRef}>
       <div className="tm-core-container">
         {/* Breadcrumb */}
         <nav className="tm-breadcrumb">
-          <button onClick={() => navigate('/')} className="tm-breadcrumb-home">
+          <button onClick={() => navigate("/")} className="tm-breadcrumb-home">
             <span className="tm-breadcrumb-home-icon">H</span>
           </button>
           <span className="tm-breadcrumb-separator">&gt;</span>
-          <button onClick={() => navigate('/time-management')} className="tm-breadcrumb-item">
+          <button
+            onClick={() => navigate("/time-management")}
+            className="tm-breadcrumb-item"
+          >
             Time Management
           </button>
           <span className="tm-breadcrumb-separator">&gt;</span>
-          <span className="tm-breadcrumb-item tm-breadcrumb-current">핵심 개념</span>
+          <span className="tm-breadcrumb-item tm-breadcrumb-current">
+            핵심 개념
+          </span>
         </nav>
 
         {/* Title */}
@@ -611,7 +616,7 @@ function TimeManagementCore() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default TimeManagementCore
+export default TimeManagementCore;
