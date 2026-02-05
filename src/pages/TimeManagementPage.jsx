@@ -18,6 +18,9 @@ const sections = [
   { id: "comparison", label: "Tool 비교" },
   { id: "ppm-eppm", label: "PPM vs EPPM" },
   { id: "core", label: "핵심 개념" },
+  { id: "core-2", label: "Activity & Logic & Duration" },
+  { id: "core-3", label: "Baseline & Update" },
+  { id: "core-4", label: "Schedule Control" },
 ];
 
 // Menu items for the navigation section
@@ -104,6 +107,13 @@ function TimeManagementPage() {
   const coreDefinitionRef = useRef(null);
   const coreWbsTreeRef = useRef(null);
   const coreNodesRef = useRef([]);
+  const baselineTrackRef = useRef(null);
+  const baselineEndcapRef = useRef(null);
+  const baselineEndDateRef = useRef(null);
+  const updateEndcapRef = useRef(null);
+  const updateTitleRef = useRef(null);
+  const delayLabelRef = useRef(null);
+  const delayOverlayRef = useRef(null);
 
   // PPM vs EPPM drag-to-resize state
   const [leftRatio, setLeftRatio] = useState(50);
@@ -235,6 +245,9 @@ function TimeManagementPage() {
 
       if (sectionId === "core") {
         targetId = "core";
+        if (subId === "2") targetId = "core-2";
+        if (subId === "3") targetId = "core-3";
+        if (subId === "4") targetId = "core-4";
       }
 
       const targetIndex = sections.findIndex((s) => s.id === targetId);
@@ -260,7 +273,11 @@ function TimeManagementPage() {
       if (index === 6) path = "/time-management/advantages/1"; // advantages
       if (index === 7) path = "/time-management/advantages/2"; // comparison
       if (index === 8) path = "/time-management/advantages/3"; // ppm-eppm
-      if (index === 9) path = "/time-management/core"; // core (핵심 개념)
+      if (index === 9) path = "/time-management/core/1"; // core (핵심 개념)
+
+      if (index === 10) path = "/time-management/core/2"; // core (Activity & Logic & Duration)
+      if (index === 11) path = "/time-management/core/3"; // core (Baseline & Update)
+      if (index === 12) path = "/time-management/core/4"; // core (Schedule Control)
 
       navigate(path, { replace: true });
     },
@@ -929,6 +946,85 @@ function TimeManagementPage() {
       }, coreSectionRef);
     }
   }, [prefersReducedMotion]);
+
+  const updateDelayMetrics = useCallback(() => {
+    const baselineTrack = baselineTrackRef.current;
+    const baselineEndcap = baselineEndcapRef.current;
+    const updateEndcap = updateEndcapRef.current;
+
+    if (!baselineTrack || !baselineEndcap || !updateEndcap) return;
+
+    const trackRect = baselineTrack.getBoundingClientRect();
+    const baselineRect = baselineEndcap.getBoundingClientRect();
+    const baselineCenter = baselineRect.left + baselineRect.width / 2;
+
+    const updateRect = updateEndcap.getBoundingClientRect();
+    const updateCenter = updateRect.left + updateRect.width / 2;
+
+    const startOffset = baselineCenter - trackRect.left;
+    const length = Math.max(updateCenter - baselineCenter, 0);
+
+    baselineTrack.style.setProperty(
+      "--tm-core-delay-start",
+      `${startOffset}px`,
+    );
+    baselineTrack.style.setProperty("--tm-core-delay-length", `${length}px`);
+
+    const updateTitle = updateTitleRef.current;
+    if (updateTitle) {
+      const titleRect = updateTitle.getBoundingClientRect();
+      const titleCenter = titleRect.top + titleRect.height / 2;
+      const labelHeight =
+        delayLabelRef.current?.getBoundingClientRect().height || 0;
+      const overlayHeight =
+        delayOverlayRef.current?.getBoundingClientRect().height || 0;
+      const centerOffset =
+        overlayHeight > 0 ? overlayHeight / 2 : labelHeight / 2;
+      const delayTop = titleCenter - trackRect.top - centerOffset;
+      baselineTrack.style.setProperty("--tm-core-delay-top", `${delayTop}px`);
+
+      const baselineEndDate = baselineEndDateRef.current;
+      if (baselineEndDate) {
+        const dateRect = baselineEndDate.getBoundingClientRect();
+        const dateBottom = dateRect.bottom;
+        const leftTop = dateBottom - trackRect.top - delayTop;
+        baselineTrack.style.setProperty(
+          "--tm-core-delay-left-top",
+          `${leftTop}px`,
+        );
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    updateDelayMetrics();
+
+    const baselineTrack = baselineTrackRef.current;
+    if (!baselineTrack) return undefined;
+
+    const resizeObserver = new ResizeObserver(() => {
+      updateDelayMetrics();
+    });
+
+    resizeObserver.observe(baselineTrack);
+    if (baselineEndcapRef.current)
+      resizeObserver.observe(baselineEndcapRef.current);
+    if (baselineEndDateRef.current)
+      resizeObserver.observe(baselineEndDateRef.current);
+    if (updateEndcapRef.current)
+      resizeObserver.observe(updateEndcapRef.current);
+    if (updateTitleRef.current) resizeObserver.observe(updateTitleRef.current);
+    if (delayLabelRef.current) resizeObserver.observe(delayLabelRef.current);
+    if (delayOverlayRef.current)
+      resizeObserver.observe(delayOverlayRef.current);
+
+    window.addEventListener("resize", updateDelayMetrics);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", updateDelayMetrics);
+    };
+  }, [updateDelayMetrics]);
 
   // GSAP scroll hijacking
   useEffect(() => {
@@ -3807,6 +3903,229 @@ function TimeManagementPage() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Panel 11: Core Section - Activity & Logic & Duration */}
+        <section className="tm-panel" id="core-2">
+          <div className="tm-core-section">
+            <div className="tm-core-container">
+              {/* Section Title */}
+              <div className="tm-section-header">
+                <h2 className="tm-section-title">
+                  Activity & Logic & Duration
+                </h2>
+              </div>
+
+              <div className="tm-core-ald">
+                {/* Top: Bullet definitions */}
+                <ul className="tm-core-ald-bullets">
+                  <li>Activity: 작업의 최하위 단위</li>
+                  <li>Logic: 작업 간의 인과관계 (Sequence)</li>
+                  <li>
+                    Duration: 각 Activity를 “시작~완료”까지 수행하는 데 필요한
+                    시간 (작업일 / 시간 단위)
+                  </li>
+                </ul>
+
+                {/* Middle: Activity flow */}
+                <div className="tm-core-ald-flow">
+                  <div className="tm-core-ald-step">
+                    <div className="tm-core-ald-card tm-core-ald-card--complete card glass">
+                      <span className="tm-core-ald-status">Complete</span>
+                      <span className="tm-core-ald-duration">5d</span>
+                      <span className="tm-core-ald-activity">
+                        Design Foundation
+                      </span>
+                    </div>
+                    <span className="tm-core-ald-step-caption">
+                      Complete: Actual/As-built
+                    </span>
+                  </div>
+
+                  <div className="tm-core-ald-arrow">
+                    <span className="tm-core-ald-arrow-label">
+                      <span className="tm-core-ald-arrow-code">FS</span>
+                      <span className="tm-core-ald-arrow-sub">
+                        (Finish to Start)
+                      </span>
+                    </span>
+                    <div className="tm-core-ald-arrow-line"></div>
+                  </div>
+
+                  <div className="tm-core-ald-step">
+                    <div className="tm-core-ald-card tm-core-ald-card--progress card glass">
+                      <span className="tm-core-ald-status">In Progress</span>
+                      <span className="tm-core-ald-duration">10d</span>
+                      <span className="tm-core-ald-activity">
+                        Purchase Rebar
+                      </span>
+                    </div>
+                    <span className="tm-core-ald-step-caption">
+                      In progress: Remaining Duration
+                    </span>
+                  </div>
+
+                  <div className="tm-core-ald-arrow">
+                    <div className="tm-core-ald-arrow-line"></div>
+                  </div>
+
+                  <div className="tm-core-ald-step">
+                    <div className="tm-core-ald-card tm-core-ald-card--pending card glass">
+                      <span className="tm-core-ald-status">Not Started</span>
+                      <span className="tm-core-ald-duration">7d</span>
+                      <span className="tm-core-ald-activity">
+                        Install Rebar
+                      </span>
+                    </div>
+                    <span className="tm-core-ald-step-caption">
+                      Not started: Original Duration
+                    </span>
+                  </div>
+                </div>
+
+                {/* Bottom: Conclusion */}
+                <div className="tm-core-ald-conclusion-block">
+                  <p className="tm-core-ald-conclusion">
+                    EPC Logic: 설계가 되어야 구매하고, 자재가 있어야 시공한다.
+                  </p>
+                  <p className="tm-core-ald-caption">
+                    E(설계) Duration 확정 → P(조달) 리드타임 반영 → C(시공)
+                    작업일수 산정
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Panel 12: Core Section - Baseline & Update */}
+        <section className="tm-panel" id="core-3">
+          <div className="tm-core-section">
+            <div className="tm-core-container">
+              {/* Section Title */}
+              <div className="tm-section-header">
+                <h2 className="tm-section-title">Baseline & Update</h2>
+              </div>
+
+              <div className="tm-core-baseline-update">
+                <div className="tm-core-timeline-row">
+                  <div className="tm-core-timeline-text">
+                    <span className="tm-core-timeline-title">
+                      Baseline (기준선)
+                    </span>
+                    <p className="tm-core-timeline-desc">
+                      프로젝트 시작 시 확정된 불변의 계획 (The Ruler)
+                    </p>
+                  </div>
+                  <div className="tm-core-timeline-grid tm-core-timeline-grid--baseline">
+                    <span className="tm-core-timeline-date tm-core-timeline-date--start">
+                      <span className="tm-core-timeline-date-icon">⏱</span>
+                      2022-01-01
+                    </span>
+                    <div
+                      className="tm-core-timeline-track tm-core-timeline-track--baseline"
+                      ref={baselineTrackRef}
+                    >
+                      <span
+                        className="tm-core-endcap-anchor tm-core-endcap-anchor--start"
+                        aria-hidden="true"
+                      ></span>
+                      <span
+                        className="tm-core-endcap-anchor tm-core-endcap-anchor--end"
+                        aria-hidden="true"
+                        ref={baselineEndcapRef}
+                      ></span>
+                      <span className="tm-core-timeline-track-label">
+                        Baseline Plan
+                      </span>
+                      <div
+                        className="tm-core-delay-overlay"
+                        aria-hidden="true"
+                        ref={delayOverlayRef}
+                      >
+                        <span className="tm-core-delay-vertical tm-core-delay-vertical--start"></span>
+                        <span className="tm-core-delay-vertical tm-core-delay-vertical--end"></span>
+                        <span
+                          className="tm-core-delay-label"
+                          ref={delayLabelRef}
+                        >
+                          Delay (지연)
+                        </span>
+                        <span className="tm-core-delay-bracket"></span>
+                      </div>
+                    </div>
+                    <span
+                      className="tm-core-timeline-date tm-core-timeline-date--end"
+                      ref={baselineEndDateRef}
+                    >
+                      <span className="tm-core-timeline-date-icon">⏱</span>
+                      2022-03-01
+                    </span>
+                  </div>
+                </div>
+
+                <div className="tm-core-timeline-row">
+                  <div className="tm-core-timeline-text">
+                    <span
+                      className="tm-core-timeline-title"
+                      ref={updateTitleRef}
+                    >
+                      Update (실적)
+                    </span>
+                    <p className="tm-core-timeline-desc">
+                      현재 시점의 실제 진행 상황 (The Measurement)
+                    </p>
+                  </div>
+                  <div className="tm-core-timeline-grid tm-core-timeline-grid--update">
+                    <span className="tm-core-timeline-date tm-core-timeline-date--start">
+                      <span className="tm-core-timeline-date-icon">⏱</span>
+                      2022-01-01
+                    </span>
+                    <div className="tm-core-timeline-track tm-core-timeline-track--update">
+                      <span
+                        className="tm-core-endcap-anchor tm-core-endcap-anchor--start"
+                        aria-hidden="true"
+                      ></span>
+                      <span
+                        className="tm-core-endcap-anchor tm-core-endcap-anchor--end"
+                        aria-hidden="true"
+                        ref={updateEndcapRef}
+                      ></span>
+                      <span className="tm-core-timeline-track-label">
+                        Update (실적)
+                      </span>
+                    </div>
+                    <span className="tm-core-timeline-date tm-core-timeline-date--end">
+                      <span className="tm-core-timeline-date-icon">⏱</span>
+                      2022-04-20
+                    </span>
+                  </div>
+                </div>
+
+                <div className="tm-core-timeline-summary-wrapper">
+                  <p className="tm-core-timeline-summary">
+                    Baseline vs Update 비교를 통해 지연/단축을 판단함
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Panel 13: Core Section - Schedule Control */}
+        <section className="tm-panel" id="core-4">
+          <div className="tm-core-section">
+            <div className="tm-core-container">
+              {/* Section Title */}
+              <div className="tm-section-header">
+                <h2 className="tm-section-title">Schedule Control</h2>
+              </div>
+
+              <div className="tm-core-placeholder">
+                <p>Content coming soon.</p>
               </div>
             </div>
           </div>

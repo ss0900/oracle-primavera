@@ -79,7 +79,7 @@ function Header() {
         {
           id: "cases",
           title: "핵심 개념",
-          path: "/time-management/core",
+          path: "/time-management/core/1",
           image:
             "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
