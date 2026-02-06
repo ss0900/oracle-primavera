@@ -12,7 +12,7 @@ const sections = [
   { id: "menu", label: "메뉴" },
   { id: "integration", label: "통합 운영" },
   { id: "cpm-features", label: "CPM 공정표" },
-  { id: "solution", label: "솔루션 특징" },
+  { id: "functions", label: "기능 소개" },
   { id: "cases", label: "구축 사례" },
 ];
 
@@ -28,12 +28,12 @@ const subMenuItems = [
     link: "#integration",
   },
   {
-    id: "solution",
-    title: "솔루션 특징",
-    description: "확장성, 유연성, 통합성, 보안성",
+    id: "functions",
+    title: "기능 소개",
+    description: "Critical Path Method 기반 공정 관리 솔루션",
     image:
-      "https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg?auto=compress&cs=tinysrgb&w=600",
-    link: "#solution",
+      "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
+    link: "#functions",
   },
   {
     id: "cases",
@@ -42,6 +42,234 @@ const subMenuItems = [
     image:
       "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=600",
     link: "#cases",
+  },
+];
+
+// Feature items for Functions section (matched to PPM functions/1)
+const functionItems = [
+  {
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect
+          x="4"
+          y="8"
+          width="16"
+          height="14"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="28"
+          y="8"
+          width="16"
+          height="14"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="16"
+          y="26"
+          width="16"
+          height="14"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <line
+          x1="12"
+          y1="22"
+          x2="24"
+          y2="26"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="36"
+          y1="22"
+          x2="24"
+          y2="26"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+      </svg>
+    ),
+    title: <>일정 관리</>,
+    image: "일정 관리.png",
+    alt: "기능 소개 - 일정 관리",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle
+          cx="24"
+          cy="24"
+          r="16"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <path
+          d="M24 14 L24 24 L32 28"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <path
+          d="M16 32 L20 28 L24 30 L28 26 L32 28"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+    title: <>진척 관리</>,
+    image: "진척 관리.png",
+    alt: "기능 소개 - 진척 관리",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect
+          x="8"
+          y="4"
+          width="32"
+          height="10"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="4"
+          y="19"
+          width="18"
+          height="10"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="26"
+          y="19"
+          width="18"
+          height="10"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="8"
+          y="34"
+          width="32"
+          height="10"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <line
+          x1="24"
+          y1="14"
+          x2="13"
+          y2="19"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="24"
+          y1="14"
+          x2="35"
+          y2="19"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="13"
+          y1="29"
+          x2="24"
+          y2="34"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="35"
+          y1="29"
+          x2="24"
+          y2="34"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+      </svg>
+    ),
+    title: <>자원 관리</>,
+    image: "자원 관리.png",
+    alt: "기능 소개 - 자원 관리",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle
+          cx="24"
+          cy="12"
+          r="8"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <circle
+          cx="10"
+          cy="34"
+          r="6"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <circle
+          cx="38"
+          cy="34"
+          r="6"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <line
+          x1="20"
+          y1="18"
+          x2="13"
+          y2="29"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="28"
+          y1="18"
+          x2="35"
+          y2="29"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="16"
+          y1="34"
+          x2="32"
+          y2="34"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeDasharray="3 2"
+        />
+      </svg>
+    ),
+    title: <>공정 분석</>,
+    image: "공정 분석.png",
+    alt: "기능 소개 - 공정 분석",
   },
 ];
 
@@ -427,20 +655,6 @@ const featureItems = [
   },
 ];
 
-// Solution Features
-const solutionFeatures = [
-  {
-    title: "확장성",
-    desc: "대규모 프로젝트 및 사용자 지원이 가능한 엔터프라이즈급 확장성",
-  },
-  {
-    title: "유연성",
-    desc: "다양한 산업 및 비즈니스 프로세스에 맞춤 적용 가능",
-  },
-  { title: "통합성", desc: "ERP, CRM 등 기존 시스템과의 원활한 연동" },
-  { title: "보안성", desc: "엔터프라이즈급 보안 및 권한 관리" },
-];
-
 // Cases Data
 const caseStudies = [
   {
@@ -467,7 +681,11 @@ function EPPMPage() {
   const { sectionId, subId } = useParams();
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState(0);
+  const [activeSectionId, setActiveSectionId] = useState(sections[0].id);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [hoveredFunctionsCardIndex, setHoveredFunctionsCardIndex] =
+    useState(null);
+  const [activeSlide, setActiveSlide] = useState(0);
 
   const containerRef = useRef(null);
   const isAnimatingRef = useRef(false);
@@ -478,7 +696,7 @@ function EPPMPage() {
   const menuSectionRef = useRef(null);
   const integrationSectionRef = useRef(null);
   const cpmFeaturesSectionRef = useRef(null);
-  const solutionSectionRef = useRef(null);
+  const functionsSectionRef = useRef(null);
   const casesSectionRef = useRef(null);
 
   // Animation refs
@@ -490,7 +708,8 @@ function EPPMPage() {
   const cpmFeatureCardsRef = useRef([]);
   const [cpmHoveredIndex, setCpmHoveredIndex] = useState(null);
 
-  const solutionCardsRef = useRef([]);
+  const functionsImageCardRef = useRef(null);
+  const functionsCardsRef = useRef([]);
   const casesCardsRef = useRef([]);
 
   // Check reduced motion preference
@@ -501,6 +720,19 @@ function EPPMPage() {
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
+
+  // Auto-play carousel - only when in Functions section
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+
+    if (activeSectionId !== "functions") return;
+
+    const interval = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % functionItems.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [prefersReducedMotion, activeSectionId]);
 
   // Navigate to section
   const scrollToSection = useCallback(
@@ -513,6 +745,7 @@ function EPPMPage() {
 
       currentSectionRef.current = sectionIndex;
       setActiveSection(sectionIndex);
+      setActiveSectionId(sectionId);
 
       if (prefersReducedMotion) {
         panels[sectionIndex].scrollIntoView({ behavior: "auto" });
@@ -542,7 +775,12 @@ function EPPMPage() {
         targetId = "integration";
         if (subId === "2") targetId = "cpm-features";
       }
-      // solution matches solution
+      if (sectionId === "functions") {
+        targetId = "functions";
+      }
+      if (sectionId === "solution") {
+        targetId = "functions";
+      }
       // cases matches cases
 
       const targetIndex = sections.findIndex((s) => s.id === targetId);
@@ -562,7 +800,7 @@ function EPPMPage() {
       // index 0 (Hero), 1 (Menu) -> /eppm
       if (index === 2) path = "/eppm/overview/1";
       if (index === 3) path = "/eppm/overview/2";
-      if (index === 4) path = "/eppm/solution";
+      if (index === 4) path = "/eppm/functions/1";
       if (index === 5) path = "/eppm/cases";
 
       navigate(path, { replace: true });
@@ -589,11 +827,13 @@ function EPPMPage() {
         onEnter: () => {
           currentSectionRef.current = i;
           setActiveSection(i);
+          if (sections[i]) setActiveSectionId(sections[i].id);
           updateUrlForSection(i);
         },
         onEnterBack: () => {
           currentSectionRef.current = i;
           setActiveSection(i);
+          if (sections[i]) setActiveSectionId(sections[i].id);
           updateUrlForSection(i);
         },
       });
@@ -626,6 +866,7 @@ function EPPMPage() {
 
       currentSectionRef.current = nextSection;
       setActiveSection(nextSection);
+      if (sections[nextSection]) setActiveSectionId(sections[nextSection].id);
 
       gsap.to(window, {
         duration: 0.8,
@@ -664,6 +905,7 @@ function EPPMPage() {
 
       currentSectionRef.current = nextSection;
       setActiveSection(nextSection);
+      if (sections[nextSection]) setActiveSectionId(sections[nextSection].id);
 
       gsap.to(window, {
         duration: 0.8,
@@ -780,20 +1022,69 @@ function EPPMPage() {
           );
       });
 
-      // Solution Features
-      const solutionTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: solutionSectionRef.current,
-          start: "top 60%",
-          toggleActions: "play none none reverse",
-        },
-      });
-      if (solutionCardsRef.current.length > 0) {
-        solutionTl.fromTo(
-          solutionCardsRef.current,
-          { scale: 0.9, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.5, stagger: 0.1 },
-        );
+      // Functions
+      if (functionsSectionRef.current) {
+        const functionsTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: functionsSectionRef.current,
+            start: "top 60%",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        const functionsTitle =
+          functionsSectionRef.current.querySelector(".ppm-cpm-title");
+
+        if (functionsTitle) {
+          functionsTl.fromTo(
+            functionsTitle,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.5 },
+          );
+        }
+
+        if (functionsImageCardRef.current) {
+          functionsTl.fromTo(
+            functionsImageCardRef.current,
+            { y: -100, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, ease: "bounce.out" },
+            "-=0.2",
+          );
+        }
+
+        const cards = functionsCardsRef.current;
+        if (cards[0]) {
+          functionsTl.fromTo(
+            cards[0],
+            { x: -50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5 },
+            "-=0.5",
+          );
+        }
+        if (cards[1]) {
+          functionsTl.fromTo(
+            cards[1],
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+        if (cards[2]) {
+          functionsTl.fromTo(
+            cards[2],
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+        if (cards[3]) {
+          functionsTl.fromTo(
+            cards[3],
+            { x: 50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
       }
 
       // Cases
@@ -1004,80 +1295,83 @@ function EPPMPage() {
           </div>
         </section>
 
-        {/* 5. Solution Features Section */}
+        {/* 5. Functions Section */}
         <section
-          className="eppm-panel tm-panel"
-          id="solution"
-          ref={solutionSectionRef}
+          className="eppm-panel ppm-panel ppm-cpm-section"
+          id="functions"
+          ref={functionsSectionRef}
         >
-          <div className="tm-methods-section">
-            <div className="tm-methods-container">
-              <div className="tm-section-header">
-                <h2 className="tm-section-title">솔루션 특징</h2>
-                <p
-                  style={{
-                    textAlign: "center",
-                    color: "var(--text-secondary)",
-                    marginBottom: "40px",
-                  }}
+          <div className="ppm-cpm-container">
+            <div className="ppm-cpm-header">
+              <h2 className="ppm-cpm-title">기능 소개</h2>
+            </div>
+
+            <div className="ppm-functions-layout">
+              {/* Carousel Image Card */}
+              <div className="ppm-functions-media">
+                <div
+                  className="cpm-carousel-container"
+                  ref={functionsImageCardRef}
                 >
-                  EPPM 솔루션의 차별화된 특징
-                </p>
-              </div>
-              <div
-                className="tm-ppm-eppm-grid"
-                style={{ gridTemplateColumns: "repeat(4, 1fr)", gap: "20px" }}
-              >
-                {solutionFeatures.map((item, index) => (
-                  <div
-                    key={index}
-                    className="tm-spoke-box"
-                    style={{
-                      width: "100%",
-                      flexDirection: "column",
-                      padding: "30px 20px",
-                      height: "auto",
-                      alignItems: "center",
-                      textAlign: "center",
-                    }}
-                    ref={(el) => (solutionCardsRef.current[index] = el)}
-                  >
-                    <div
-                      className="tm-spoke-icon"
-                      style={{ marginBottom: "15px" }}
-                    >
-                      {/* Simple generic icon for now */}
-                      <svg
-                        viewBox="0 0 24 24"
-                        width="32"
-                        height="32"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
+                  <div className="cpm-carousel-wrapper">
+                    {functionItems.map((item, index) => (
+                      <div
+                        key={index}
+                        className={`cpm-carousel-slide ${index === activeSlide ? "active" : ""}`}
+                        style={{
+                          transform: `translateX(-${activeSlide * 100}%)`,
+                        }}
                       >
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                      </svg>
-                    </div>
-                    <h4
-                      style={{
-                        fontSize: "1.2rem",
-                        marginBottom: "10px",
-                        color: "var(--text-primary)",
-                      }}
-                    >
-                      {item.title}
-                    </h4>
-                    <p
-                      style={{
-                        fontSize: "0.9rem",
-                        color: "var(--text-secondary)",
-                        lineHeight: "1.5",
-                      }}
-                    >
-                      {item.desc}
-                    </p>
+                        <img
+                          src={item.image}
+                          alt={item.alt}
+                          onError={(e) => {
+                            e.target.style.display = "none";
+                            e.target.parentElement.innerHTML =
+                              '<div class="cpm-image-placeholder">CPM Screenshot</div>';
+                          }}
+                        />
+                      </div>
+                    ))}
                   </div>
-                ))}
+
+                  {/* Carousel Navigation Dots */}
+                  <div className="cpm-carousel-dots">
+                    {functionItems.map((_, index) => (
+                      <button
+                        key={index}
+                        className={`cpm-carousel-dot ${index === activeSlide ? "active" : ""}`}
+                        onClick={() => setActiveSlide(index)}
+                        aria-label={`슬라이드 ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Feature Cards */}
+              <div className="ppm-functions-cards">
+                <div
+                  className="cpm-feature-cards"
+                  onMouseLeave={() => setHoveredFunctionsCardIndex(null)}
+                >
+                  {functionItems.map((item, index) => (
+                    <button
+                      key={index}
+                      className={`cpm-feature-card ${hoveredFunctionsCardIndex !== null && hoveredFunctionsCardIndex !== index ? "dimmed" : ""} ${index === activeSlide ? "active" : ""}`}
+                      ref={(el) => (functionsCardsRef.current[index] = el)}
+                      onClick={() => setActiveSlide(index)}
+                      onMouseEnter={() => setHoveredFunctionsCardIndex(index)}
+                    >
+                      <div className="cpm-feature-icon">{item.icon}</div>
+                      <h4 className="cpm-feature-title">{item.title}</h4>
+
+                      {index < functionItems.length - 1 && (
+                        <div className="cpm-feature-divider-line" />
+                      )}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

@@ -99,7 +99,7 @@ function Header() {
         {
           id: "functions",
           title: "기능 소개",
-          path: "/ppm/functions",
+          path: "/ppm/functions/1",
           image:
             "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
@@ -124,11 +124,11 @@ function Header() {
             "https://images.pexels.com/photos/5989932/pexels-photo-5989932.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
         {
-          id: "solution",
-          title: "솔루션 특징",
-          path: "/eppm/solution",
+          id: "functions",
+          title: "기능 소개",
+          path: "/eppm/functions/1",
           image:
-            "https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
         {
           id: "cases",

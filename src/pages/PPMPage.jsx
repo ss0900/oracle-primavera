@@ -13,6 +13,7 @@ const sections = [
   { id: "overview-content", label: "개요" },
   { id: "overview-features-2", label: "PPM 개요 2" },
   { id: "functions", label: "기능 소개" },
+  { id: "functions-2", label: "기능 소개 2" },
   { id: "benefits", label: "도입 효과" },
 ];
 
@@ -45,7 +46,7 @@ const subMenuItems = [
 ];
 
 // Feature items for CPM section with carousel images
-const featureItems = [
+const featureItems2 = [
   {
     icon: (
       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -98,7 +99,7 @@ const featureItems = [
       </svg>
     ),
     title: <>포트폴리오 구성</>,
-    image: "포트폴리오 구성(PortfolioProgramProject 인벤토리 & 계층).png",
+    image: "/포트폴리오 구성(PortfolioProgramProject 인벤토리 & 계층).png",
     alt: "기능 소개 - 포트폴리오 구성",
   },
   {
@@ -134,7 +135,7 @@ const featureItems = [
         평가/선정
       </>
     ),
-    image: "우선순위 매트릭스(Prioritization Matrix)로 평가선정.png",
+    image: "/우선순위 매트릭스(Prioritization Matrix)로 평가선정.png",
     alt: "기능 소개 - 우선순위 매트릭스",
   },
   {
@@ -221,7 +222,7 @@ const featureItems = [
         포트폴리오 분석
       </>
     ),
-    image: "Investor Map  Scorecard 기반 포트폴리오 분석(시각 분석).png",
+    image: "/Investor Map  Scorecard 기반 포트폴리오 분석(시각 분석).png",
     alt: "기능 소개 - 포트폴리오 분석",
   },
   {
@@ -279,8 +280,241 @@ const featureItems = [
       </svg>
     ),
     title: <>시나리오 플래닝 & 비교</>,
-    image: "시나리오 플래닝 & 비교(What-if  Scenario Comparison).png",
+    image: "/시나리오 플래닝 & 비교(What-if  Scenario Comparison).png",
     alt: "기능 소개 - 시나리오 플래닝 & 비교",
+  },
+];
+
+// Feature items for CPM section 2 (separate content)
+const featureItems = [
+  {
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect
+          x="4"
+          y="8"
+          width="16"
+          height="14"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="28"
+          y="8"
+          width="16"
+          height="14"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="16"
+          y="26"
+          width="16"
+          height="14"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <line
+          x1="12"
+          y1="22"
+          x2="24"
+          y2="26"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="36"
+          y1="22"
+          x2="24"
+          y2="26"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+      </svg>
+    ),
+    title: <>리소스 시나리오 최적화</>,
+    image: "/리소스 시나리오 최적화(Resource Scenario Optimization).png",
+    alt: "기능 소개 - 리소스 시나리오 최적화",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle
+          cx="24"
+          cy="24"
+          r="16"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <path
+          d="M24 14 L24 24 L32 28"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <path
+          d="M16 32 L20 28 L24 30 L28 26 L32 28"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+    title: <>예산 계획과 분석 뷰</>,
+    image: "/예산 계획(Budget Planning)과 분석 뷰(Analysis Views).png",
+    alt: "기능 소개 - 예산 계획과 분석 뷰",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect
+          x="8"
+          y="4"
+          width="32"
+          height="10"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="4"
+          y="19"
+          width="18"
+          height="10"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="26"
+          y="19"
+          width="18"
+          height="10"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <rect
+          x="8"
+          y="34"
+          width="32"
+          height="10"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <line
+          x1="24"
+          y1="14"
+          x2="13"
+          y2="19"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="24"
+          y1="14"
+          x2="35"
+          y2="19"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="13"
+          y1="29"
+          x2="24"
+          y2="34"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="35"
+          y1="29"
+          x2="24"
+          y2="34"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+      </svg>
+    ),
+    title: (
+      <>
+        지출 추적과 <br />
+        포트폴리오 모니터링
+      </>
+    ),
+    image: "/지출 추적(Spending)과 포트폴리오 모니터링.png",
+    alt: "기능 소개 - 지출 추적과 포트폴리오 모니터링",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle
+          cx="24"
+          cy="12"
+          r="8"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <circle
+          cx="10"
+          cy="34"
+          r="6"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <circle
+          cx="38"
+          cy="34"
+          r="6"
+          stroke="currentColor"
+          strokeWidth="2"
+          fill="rgba(99, 102, 241, 0.1)"
+        />
+        <line
+          x1="20"
+          y1="18"
+          x2="13"
+          y2="29"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="28"
+          y1="18"
+          x2="35"
+          y2="29"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <line
+          x1="16"
+          y1="34"
+          x2="32"
+          y2="34"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeDasharray="3 2"
+        />
+      </svg>
+    ),
+    title: <>경영층/PMO용 커스텀 모니터링</>,
+    image: "/대시보드(Dashboards) 경영층PMO용 커스텀 모니터링.png",
+    alt: "기능 소개 - 경영층/PMO용 커스텀 모니터링",
   },
 ];
 
@@ -558,6 +792,8 @@ function PPMPage() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [hoveredCardIndex, setHoveredCardIndex] = useState(null);
   const [activeSlide, setActiveSlide] = useState(0);
+  const [hoveredCardIndex2, setHoveredCardIndex2] = useState(null);
+  const [activeSlide2, setActiveSlide2] = useState(0);
   const [activeOverviewSlide, setActiveOverviewSlide] = useState(0);
   const [hoveredOverviewCardIndex, setHoveredOverviewCardIndex] =
     useState(null);
@@ -574,9 +810,12 @@ function PPMPage() {
   const overviewSectionRef = useRef(null);
   const overviewContentSectionRef = useRef(null);
   const cpmSectionRef = useRef(null);
+  const cpmSectionRef2 = useRef(null);
   const benefitsSectionRef = useRef(null);
   const imageCardRef = useRef(null);
   const featureCardsRef = useRef([]);
+  const imageCardRef2 = useRef(null);
+  const featureCardsRef2 = useRef([]);
   const overviewImageCardRef = useRef(null);
   const overviewCardsRef = useRef([]);
   const benefitsImageCardRef = useRef(null);
@@ -595,18 +834,25 @@ function PPMPage() {
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
-  // Auto-play carousel - only when in Functions section
+  // Auto-play carousel - only when in Functions sections
   useEffect(() => {
     if (prefersReducedMotion) return;
 
-    // Only auto-play when in Functions section (id: functions)
-    if (activeSectionId !== "functions") return;
+    if (activeSectionId === "functions") {
+      const interval = setInterval(() => {
+        setActiveSlide((prev) => (prev + 1) % featureItems.length);
+      }, 4000); // 4 seconds
 
-    const interval = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % featureItems.length);
-    }, 4000); // 4 seconds
+      return () => clearInterval(interval);
+    }
 
-    return () => clearInterval(interval);
+    if (activeSectionId === "functions-2") {
+      const interval = setInterval(() => {
+        setActiveSlide2((prev) => (prev + 1) % featureItems2.length);
+      }, 4000); // 4 seconds
+
+      return () => clearInterval(interval);
+    }
   }, [prefersReducedMotion, activeSectionId]);
 
   // Auto-play carousel for Overview Content - only when in Overview Content section
@@ -675,22 +921,27 @@ function PPMPage() {
   useEffect(() => {
     if (sectionId) {
       let targetId = sectionId;
+      let isFunctionsSectionNumber = false;
       if (sectionId === "overview") {
         targetId = "overview-content";
         if (subId === "2") targetId = "overview-features-2";
       }
-      if (sectionId === "functions") targetId = "functions";
+      if (sectionId === "functions") {
+        isFunctionsSectionNumber = subId === "1" || subId === "2";
+        targetId = subId === "2" ? "functions-2" : "functions";
+      }
       // benefits matches benefits
 
       const targetIndex = sections.findIndex((s) => s.id === targetId);
 
       // Handle subId for slide navigation (1-based index from URL)
-      // Note: Overview treats subId 1/2 as SECTIONS, so we skip carousel linking for it here.
-      if (subId && sectionId !== "overview") {
+      // Note: Overview and Functions treat some subId values as SECTIONS, so we skip carousel linking for them here.
+      if (subId && sectionId !== "overview" && !isFunctionsSectionNumber) {
         const slideIndex = parseInt(subId, 10) - 1;
         if (!isNaN(slideIndex) && slideIndex >= 0) {
           // if (targetId === "overview-content") setActiveOverviewSlide(slideIndex); // Overridden by Section logic
           if (targetId === "functions") setActiveSlide(slideIndex);
+          if (targetId === "functions-2") setActiveSlide2(slideIndex);
           if (targetId === "benefits") setActiveBenefitsSlide(slideIndex);
         }
       }
@@ -713,8 +964,9 @@ function PPMPage() {
       // Index 0 (Hero) and 1 (Menu) stay as /ppm to avoid confusion
       if (index === 2) path = "/ppm/overview/1";
       if (index === 3) path = "/ppm/overview/2";
-      if (index === 4) path = "/ppm/functions";
-      if (index === 5) path = "/ppm/benefits";
+      if (index === 4) path = "/ppm/functions/1";
+      if (index === 5) path = "/ppm/functions/2";
+      if (index === 6) path = "/ppm/benefits";
 
       // Only navigate if path is different from current params
       // Use replace to avoid filling history with scroll events
@@ -1015,6 +1267,70 @@ function PPMPage() {
         );
       }
 
+      // CPM Features section 2 animations
+      if (cpmSectionRef2.current) {
+        const featuresTl2 = gsap.timeline({
+          scrollTrigger: {
+            trigger: cpmSectionRef2.current,
+            start: "top 60%",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        // Scope key elements within CPM section 2
+        const cpmTitle2 =
+          cpmSectionRef2.current.querySelector(".ppm-cpm-title");
+
+        if (cpmTitle2) {
+          featuresTl2.fromTo(
+            cpmTitle2,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.5 },
+          );
+        }
+
+        featuresTl2.fromTo(
+          imageCardRef2.current,
+          { y: -100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, ease: "bounce.out" },
+          "-=0.2",
+        );
+
+        const cards2 = featureCardsRef2.current;
+        if (cards2[0]) {
+          featuresTl2.fromTo(
+            cards2[0],
+            { x: -50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5 },
+            "-=0.5",
+          );
+        }
+        if (cards2[1]) {
+          featuresTl2.fromTo(
+            cards2[1],
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+        if (cards2[2]) {
+          featuresTl2.fromTo(
+            cards2[2],
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+        if (cards2[3]) {
+          featuresTl2.fromTo(
+            cards2[3],
+            { x: 50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+      }
+
       // Benefits section animations
       const benefitsTl = gsap.timeline({
         scrollTrigger: {
@@ -1302,62 +1618,149 @@ function PPMPage() {
               <h2 className="ppm-cpm-title">기능 소개</h2>
             </div>
 
-            {/* Carousel Image Card */}
-            <div className="cpm-carousel-container" ref={imageCardRef}>
-              <div className="cpm-carousel-wrapper">
-                {featureItems.map((item, index) => (
-                  <div
-                    key={index}
-                    className={`cpm-carousel-slide ${index === activeSlide ? "active" : ""}`}
-                    style={{ transform: `translateX(-${activeSlide * 100}%)` }}
-                  >
-                    <img
-                      src={item.image}
-                      alt={item.alt}
-                      onError={(e) => {
-                        e.target.style.display = "none";
-                        e.target.parentElement.innerHTML =
-                          '<div class="cpm-image-placeholder">CPM Screenshot</div>';
-                      }}
-                    />
+            <div className="ppm-functions-layout">
+              {/* Carousel Image Card */}
+              <div className="ppm-functions-media">
+                <div className="cpm-carousel-container" ref={imageCardRef}>
+                  <div className="cpm-carousel-wrapper">
+                    {featureItems2.map((item, index) => (
+                      <div
+                        key={index}
+                        className={`cpm-carousel-slide ${index === activeSlide ? "active" : ""}`}
+                        style={{
+                          transform: `translateX(-${activeSlide * 100}%)`,
+                        }}
+                      >
+                        <img
+                          src={item.image}
+                          alt={item.alt}
+                          onError={(e) => {
+                            e.target.style.display = "none";
+                            e.target.parentElement.innerHTML =
+                              '<div class="cpm-image-placeholder">CPM Screenshot</div>';
+                          }}
+                        />
+                      </div>
+                    ))}
                   </div>
-                ))}
+
+                  {/* Carousel Navigation Dots */}
+                  <div className="cpm-carousel-dots">
+                    {featureItems2.map((_, index) => (
+                      <button
+                        key={index}
+                        className={`cpm-carousel-dot ${index === activeSlide ? "active" : ""}`}
+                        onClick={() => setActiveSlide(index)}
+                        aria-label={`슬라이드 ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
 
-              {/* Carousel Navigation Dots */}
-              <div className="cpm-carousel-dots">
-                {featureItems.map((_, index) => (
-                  <button
-                    key={index}
-                    className={`cpm-carousel-dot ${index === activeSlide ? "active" : ""}`}
-                    onClick={() => setActiveSlide(index)}
-                    aria-label={`슬라이드 ${index + 1}`}
-                  />
-                ))}
+              {/* Feature Cards */}
+              <div className="ppm-functions-cards">
+                <div
+                  className="cpm-feature-cards"
+                  onMouseLeave={() => setHoveredCardIndex(null)}
+                >
+                  {featureItems2.map((item, index) => (
+                    <button
+                      key={index}
+                      className={`cpm-feature-card ${hoveredCardIndex !== null && hoveredCardIndex !== index ? "dimmed" : ""} ${index === activeSlide ? "active" : ""}`}
+                      ref={(el) => (featureCardsRef.current[index] = el)}
+                      onClick={() => setActiveSlide(index)}
+                      onMouseEnter={() => setHoveredCardIndex(index)}
+                    >
+                      <div className="cpm-feature-icon">{item.icon}</div>
+                      <h4 className="cpm-feature-title">{item.title}</h4>
+
+                      {index < featureItems.length - 1 && (
+                        <div className="cpm-feature-divider-line" />
+                      )}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
+          </div>
+        </section>
 
-            {/* Feature Cards */}
-            <div
-              className="cpm-feature-cards"
-              onMouseLeave={() => setHoveredCardIndex(null)}
-            >
-              {featureItems.map((item, index) => (
-                <button
-                  key={index}
-                  className={`cpm-feature-card ${hoveredCardIndex !== null && hoveredCardIndex !== index ? "dimmed" : ""} ${index === activeSlide ? "active" : ""}`}
-                  ref={(el) => (featureCardsRef.current[index] = el)}
-                  onClick={() => setActiveSlide(index)}
-                  onMouseEnter={() => setHoveredCardIndex(index)}
+        {/* Functions Section 2 */}
+        <section
+          className="ppm-panel ppm-cpm-section"
+          id="functions-2"
+          ref={cpmSectionRef2}
+        >
+          <div className="ppm-cpm-container">
+            <div className="ppm-cpm-header">
+              <h2 className="ppm-cpm-title">기능 소개</h2>
+            </div>
+
+            <div className="ppm-functions-layout">
+              {/* Carousel Image Card */}
+              <div className="ppm-functions-media">
+                <div className="cpm-carousel-container" ref={imageCardRef2}>
+                  <div className="cpm-carousel-wrapper">
+                    {featureItems.map((item, index) => (
+                      <div
+                        key={index}
+                        className={`cpm-carousel-slide ${index === activeSlide2 ? "active" : ""}`}
+                        style={{
+                          transform: `translateX(-${activeSlide2 * 100}%)`,
+                        }}
+                      >
+                        <img
+                          src={item.image}
+                          alt={item.alt}
+                          onError={(e) => {
+                            e.target.style.display = "none";
+                            e.target.parentElement.innerHTML =
+                              '<div class="cpm-image-placeholder">CPM Screenshot</div>';
+                          }}
+                        />
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Carousel Navigation Dots */}
+                  <div className="cpm-carousel-dots">
+                    {featureItems.map((_, index) => (
+                      <button
+                        key={index}
+                        className={`cpm-carousel-dot ${index === activeSlide2 ? "active" : ""}`}
+                        onClick={() => setActiveSlide2(index)}
+                        aria-label={`슬라이드 ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Feature Cards */}
+              <div className="ppm-functions-cards">
+                <div
+                  className="cpm-feature-cards"
+                  onMouseLeave={() => setHoveredCardIndex2(null)}
                 >
-                  <div className="cpm-feature-icon">{item.icon}</div>
-                  <h4 className="cpm-feature-title">{item.title}</h4>
+                  {featureItems.map((item, index) => (
+                    <button
+                      key={index}
+                      className={`cpm-feature-card ${hoveredCardIndex2 !== null && hoveredCardIndex2 !== index ? "dimmed" : ""} ${index === activeSlide2 ? "active" : ""}`}
+                      ref={(el) => (featureCardsRef2.current[index] = el)}
+                      onClick={() => setActiveSlide2(index)}
+                      onMouseEnter={() => setHoveredCardIndex2(index)}
+                    >
+                      <div className="cpm-feature-icon">{item.icon}</div>
+                      <h4 className="cpm-feature-title">{item.title}</h4>
 
-                  {index < featureItems.length - 1 && (
-                    <div className="cpm-feature-divider-line" />
-                  )}
-                </button>
-              ))}
+                      {index < featureItems.length - 1 && (
+                        <div className="cpm-feature-divider-line" />
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
