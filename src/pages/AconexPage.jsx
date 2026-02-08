@@ -1,9 +1,16 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+﻿import { useEffect, useRef, useState, useCallback } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import SectionIndicator from "../components/SectionIndicator";
+import EppmFunctionsSection from "../components/EppmFunctionsSection";
+import { aconexFunctionsIntro } from "../data/aconexFunctionsData";
+import {
+  aconexFunctions2FeatureItems,
+  aconexFunctions2Images,
+  aconexFunctions2Title,
+} from "../data/aconexFunctions2Data";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -11,8 +18,9 @@ const sections = [
   { id: "hero", label: "Aconex" },
   { id: "menu", label: "메뉴" },
   { id: "overview-content", label: "개요" },
-  { id: "features", label: "기능" },
-  { id: "projects", label: "사례" },
+  { id: "functions", label: "기능 소개" },
+  { id: "functions-2", label: "기능 소개 2" },
+  { id: "projects", label: "프로젝트 사례" },
 ];
 
 const subMenuItems = [
@@ -20,86 +28,85 @@ const subMenuItems = [
     id: "overview",
     title: "개요",
     description: "건설 프로젝트 협업을 위한 클라우드 플랫폼",
-    image: "https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image:
+      "https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=600",
     link: "#overview-content",
   },
   {
-    id: "features",
-    title: "주요 기능",
-    description: "문서 관리, 메일, BIM, 현장 관리",
-    image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=600",
-    link: "#features",
+    id: "functions",
+    title: "기능 소개",
+    description: "문서 관리, 메일, 워크플로우, 협업",
+    image:
+      "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=600",
+    link: "#functions",
   },
   {
     id: "projects",
     title: "프로젝트 사례",
     description: "글로벌 대형 프로젝트 적용 사례",
-    image: "https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image:
+      "https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=600",
     link: "#projects",
   },
 ];
 
-// Overview Features Data
 const overviewFeatures = [
-    { title: "문서 관리", desc: "프로젝트 문서의 중앙 집중 관리" },
-    { title: "워크플로우", desc: "승인 및 검토 프로세스 자동화" },
-    { title: "협업", desc: "프로젝트 참여자간 실시간 협업" },
-    { title: "추적성", desc: "모든 커뮤니케이션 이력 관리" }
+  { title: "문서 관리", desc: "프로젝트 문서의 중앙 집중 관리" },
+  { title: "워크플로우", desc: "승인 및 검토 프로세스 자동화" },
+  { title: "협업", desc: "프로젝트 참여자 간 실시간 협업" },
+  { title: "추적성", desc: "모든 커뮤니케이션 이력 관리" },
 ];
 
-// Features Data
-const featuresData = [
-    { number: "01", title: "Document Control", desc: "버전 관리, 개정 이력, 배포 관리가 통합된 문서 제어" },
-    { number: "02", title: "Mail & Correspondence", desc: "프로젝트 관련 모든 서신의 추적 및 관리" },
-    { number: "03", title: "BIM Collaboration", desc: "BIM 모델 협업 및 조정 도구" },
-    { number: "04", title: "Field Management", desc: "현장 이슈, 안전, 품질 관리" }
-];
-
-// Projects Data
 const projectsData = [
-    { 
-        tag: "건축",
-        title: "대형 복합 건물", 
-        desc: "초고층 복합 건물 프로젝트의 문서 협업 관리",
-        img: "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    { 
-        tag: "교통",
-        title: "철도 인프라", 
-        desc: "고속철도 건설 프로젝트 문서 관리",
-        img: "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=600"
-    },
-    { 
-        tag: "에너지",
-        title: "발전소 건설", 
-        desc: "해외 발전소 EPC 프로젝트 협업",
-        img: "https://images.pexels.com/photos/1036936/pexels-photo-1036936.jpeg?auto=compress&cs=tinysrgb&w=600"
-    }
+  {
+    tag: "건축",
+    title: "대형 복합 건물",
+    desc: "초고층 복합 건물 프로젝트의 문서 협업 관리",
+    img: "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    tag: "교통",
+    title: "철도 인프라",
+    desc: "고속철도 건설 프로젝트 문서 관리",
+    img: "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    tag: "에너지",
+    title: "발전소 건설",
+    desc: "해외 발전소 EPC 프로젝트 협업",
+    img: "https://images.pexels.com/photos/1036936/pexels-photo-1036936.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
 ];
+
+const { title: functionsTitle, items: functionItems } = aconexFunctionsIntro;
 
 function AconexPage() {
-  const { sectionId } = useParams();
+  const { sectionId, subId } = useParams();
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState(0);
+  const [activeSectionId, setActiveSectionId] = useState(sections[0].id);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  
+  const [hoveredCardIndex2, setHoveredCardIndex2] = useState(null);
+  const [activeSlide2, setActiveSlide2] = useState(0);
+
   const containerRef = useRef(null);
   const isAnimatingRef = useRef(false);
   const currentSectionRef = useRef(0);
 
-  // Section refs
   const heroSectionRef = useRef(null);
   const menuSectionRef = useRef(null);
   const overviewSectionRef = useRef(null);
-  const featuresSectionRef = useRef(null);
+  const functionsSectionRef = useRef(null);
+  const functionsSectionRef2 = useRef(null);
   const projectsSectionRef = useRef(null);
-  
-  // Animation refs
+
   const overviewCardsRef = useRef([]);
-  const featuresCardsRef = useRef([]);
+  const functionsImageCardRef = useRef(null);
+  const functionsImageCardRef2 = useRef(null);
+  const functionsCardsRef = useRef([]);
+  const functionsCardsRef2 = useRef([]);
   const projectsCardsRef = useRef([]);
 
-  // Check reduced motion preference
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReducedMotion(mediaQuery.matches);
@@ -108,109 +115,123 @@ function AconexPage() {
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
-  // Navigate to section
-  const scrollToSection = useCallback((sectionId) => {
-    const sectionIndex = sections.findIndex((s) => s.id === sectionId);
-    if (sectionIndex === -1) return;
-
-    const panels = gsap.utils.toArray(".aconex-panel");
-    if (!panels[sectionIndex]) return;
-
-    currentSectionRef.current = sectionIndex;
-    setActiveSection(sectionIndex);
-
-    if (prefersReducedMotion) {
-      panels[sectionIndex].scrollIntoView({ behavior: "auto" });
-    } else {
-      isAnimatingRef.current = true;
-      gsap.to(window, {
-        duration: 0.8,
-        scrollTo: { y: panels[sectionIndex], autoKill: false },
-        ease: "power3.inOut",
-        onComplete: () => {
-          setTimeout(() => {
-            isAnimatingRef.current = false;
-          }, 100);
-        },
-      });
-    }
-  }, [prefersReducedMotion]);
-
-  // Deep linking logic
   useEffect(() => {
-    if (sectionId) {
-       // Only scroll if we are not already at the right section (to avoid loops if param matches)
-       const targetIndex = sections.findIndex((s) => s.id === sectionId); // Simple mapping for strict ids like 'features', 'projects'
-       
-       // Handle mapping if necessary, or just rely on direct ID match
-       // The user requested /aconex/overview, /aconex/features, /aconex/projects
-       // Our IDs are: overview-content, features, projects
-       
-       let targetId = sectionId;
-       if (sectionId === "overview") targetId = "overview-content";
-       
-       const foundIndex = sections.findIndex((s) => s.id === targetId);
+    if (prefersReducedMotion) return;
+    if (activeSectionId !== "functions-2") return;
+    if (!aconexFunctions2Images.length) return;
 
-      if (foundIndex !== -1 && foundIndex !== currentSectionRef.current) {
-        setTimeout(() => {
-          scrollToSection(targetId);
-        }, 100);
+    const interval = setInterval(() => {
+      setActiveSlide2((prev) => (prev + 1) % aconexFunctions2Images.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [prefersReducedMotion, activeSectionId]);
+
+  const scrollToSection = useCallback(
+    (targetSectionId) => {
+      const sectionIndex = sections.findIndex(
+        (section) => section.id === targetSectionId,
+      );
+      if (sectionIndex === -1) return;
+
+      const panels = gsap.utils.toArray(".aconex-panel");
+      if (!panels[sectionIndex]) return;
+
+      currentSectionRef.current = sectionIndex;
+      setActiveSection(sectionIndex);
+      setActiveSectionId(targetSectionId);
+
+      if (prefersReducedMotion) {
+        panels[sectionIndex].scrollIntoView({ behavior: "auto" });
+      } else {
+        isAnimatingRef.current = true;
+        gsap.to(window, {
+          duration: 0.8,
+          scrollTo: { y: panels[sectionIndex], autoKill: false },
+          ease: "power3.inOut",
+          onComplete: () => {
+            setTimeout(() => {
+              isAnimatingRef.current = false;
+            }, 100);
+          },
+        });
       }
+    },
+    [prefersReducedMotion],
+  );
+
+  useEffect(() => {
+    if (!sectionId) return;
+
+    let targetId = sectionId;
+    if (sectionId === "overview") targetId = "overview-content";
+    if (sectionId === "features") targetId = "functions";
+    if (sectionId === "functions")
+      targetId = subId === "2" ? "functions-2" : "functions";
+
+    const foundIndex = sections.findIndex((section) => section.id === targetId);
+
+    if (foundIndex !== -1 && foundIndex !== currentSectionRef.current) {
+      setTimeout(() => {
+        scrollToSection(targetId);
+      }, 100);
     }
-  }, [sectionId, scrollToSection]);
+  }, [sectionId, subId, scrollToSection]);
 
-  // Update URL based on section
-  const updateUrlForSection = useCallback((index) => {
-    let path = "/aconex";
-    // index 0(Hero), 1(Menu) -> /aconex
-    if (index === 2) path = "/aconex/overview";
-    if (index === 3) path = "/aconex/features";
-    if (index === 4) path = "/aconex/projects";
+  const updateUrlForSection = useCallback(
+    (index) => {
+      let path = "/aconex";
+      if (index === 2) path = "/aconex/overview";
+      if (index === 3) path = "/aconex/functions/1";
+      if (index === 4) path = "/aconex/functions/2";
+      if (index === 5) path = "/aconex/projects";
 
-    navigate(path, { replace: true });
-  }, [navigate]);
+      navigate(path, { replace: true });
+    },
+    [navigate],
+  );
 
-   // GSAP scroll hijacking
-   useEffect(() => {
+  useEffect(() => {
     if (prefersReducedMotion) {
       initContentAnimations();
       return () => {
-        ScrollTrigger.getAll().forEach((t) => t.kill());
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
     }
 
     const panels = gsap.utils.toArray(".aconex-panel");
 
-    panels.forEach((panel, i) => {
+    panels.forEach((panel, index) => {
       ScrollTrigger.create({
         trigger: panel,
         start: "top center",
         end: "bottom center",
         onEnter: () => {
-          currentSectionRef.current = i;
-          setActiveSection(i);
-          updateUrlForSection(i);
+          currentSectionRef.current = index;
+          setActiveSection(index);
+          setActiveSectionId(sections[index].id);
+          updateUrlForSection(index);
         },
         onEnterBack: () => {
-          currentSectionRef.current = i;
-          setActiveSection(i);
-          updateUrlForSection(i);
+          currentSectionRef.current = index;
+          setActiveSection(index);
+          setActiveSectionId(sections[index].id);
+          updateUrlForSection(index);
         },
       });
     });
 
-    const handleWheel = (e) => {
+    const handleWheel = (event) => {
       if (isAnimatingRef.current) {
-        e.preventDefault();
+        event.preventDefault();
         return;
       }
 
-      const delta = e.deltaY;
+      const delta = event.deltaY;
       const threshold = 50;
-
       if (Math.abs(delta) < threshold) return;
 
-      e.preventDefault();
+      event.preventDefault();
       isAnimatingRef.current = true;
 
       let nextSection = currentSectionRef.current;
@@ -226,6 +247,7 @@ function AconexPage() {
 
       currentSectionRef.current = nextSection;
       setActiveSection(nextSection);
+      setActiveSectionId(sections[nextSection].id);
 
       gsap.to(window, {
         duration: 0.8,
@@ -239,12 +261,15 @@ function AconexPage() {
       });
     };
 
-    // Touch events
     let touchStartY = 0;
-    const handleTouchStart = (e) => { touchStartY = e.touches[0].clientY; };
-    const handleTouchEnd = (e) => {
+    const handleTouchStart = (event) => {
+      touchStartY = event.touches[0].clientY;
+    };
+
+    const handleTouchEnd = (event) => {
       if (isAnimatingRef.current) return;
-      const touchEndY = e.changedTouches[0].clientY;
+
+      const touchEndY = event.changedTouches[0].clientY;
       const delta = touchStartY - touchEndY;
       if (Math.abs(delta) < 50) return;
 
@@ -262,6 +287,7 @@ function AconexPage() {
 
       currentSectionRef.current = nextSection;
       setActiveSection(nextSection);
+      setActiveSectionId(sections[nextSection].id);
 
       gsap.to(window, {
         duration: 0.8,
@@ -282,19 +308,17 @@ function AconexPage() {
     initContentAnimations();
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       window.removeEventListener("wheel", handleWheel);
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchend", handleTouchEnd);
     };
-  }, [prefersReducedMotion]);
+  }, [prefersReducedMotion, updateUrlForSection]);
 
-  // Content Animations
   const initContentAnimations = () => {
     if (prefersReducedMotion) return;
 
-    const ctx = gsap.context(() => {
-      // Hero
+    const context = gsap.context(() => {
       gsap.fromTo(
         ".aconex-hero-title",
         { opacity: 0, y: 30 },
@@ -311,7 +335,6 @@ function AconexPage() {
         },
       );
 
-      // Menu Stagger
       if (menuSectionRef.current) {
         gsap.fromTo(
           ".aconex-menu-card",
@@ -330,57 +353,194 @@ function AconexPage() {
         );
       }
 
-      // Overview Features
       if (overviewSectionRef.current) {
-          gsap.fromTo(overviewCardsRef.current, 
-              { y: 30, opacity: 0 },
-              { y: 0, opacity: 1, duration: 0.5, stagger: 0.1,
-                scrollTrigger: { trigger: overviewSectionRef.current, start: 'top 60%', toggleActions: 'play none none reverse'}
-              }
-          );
+        gsap.fromTo(
+          overviewCardsRef.current,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: overviewSectionRef.current,
+              start: "top 60%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
       }
 
-      // Features
-      if (featuresSectionRef.current) {
-          gsap.fromTo(featuresCardsRef.current,
-              { x: -30, opacity: 0 },
-              { x: 0, opacity: 1, duration: 0.5, stagger: 0.1,
-                scrollTrigger: { trigger: featuresSectionRef.current, start: 'top 60%', toggleActions: 'play none none reverse'}
-              }
+      if (functionsSectionRef.current) {
+        const featuresTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: functionsSectionRef.current,
+            start: "top 60%",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        const functionsTitleElement =
+          functionsSectionRef.current.querySelector(".ppm-cpm-title");
+
+        if (functionsTitleElement) {
+          featuresTimeline.fromTo(
+            functionsTitleElement,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.5 },
           );
+        }
+
+        if (functionsImageCardRef.current) {
+          featuresTimeline.fromTo(
+            functionsImageCardRef.current,
+            { y: -100, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, ease: "bounce.out" },
+            "-=0.2",
+          );
+        }
+
+        const cards = functionsCardsRef.current;
+        if (cards[0]) {
+          featuresTimeline.fromTo(
+            cards[0],
+            { x: -50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5 },
+            "-=0.5",
+          );
+        }
+        if (cards[1]) {
+          featuresTimeline.fromTo(
+            cards[1],
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+        if (cards[2]) {
+          featuresTimeline.fromTo(
+            cards[2],
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+        if (cards[3]) {
+          featuresTimeline.fromTo(
+            cards[3],
+            { x: 50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
       }
 
-       // Projects
-       if (projectsSectionRef.current) {
-          gsap.fromTo(projectsCardsRef.current,
-              { y: 50, opacity: 0 },
-              { y: 0, opacity: 1, duration: 0.6, stagger: 0.2,
-                scrollTrigger: { trigger: projectsSectionRef.current, start: 'top 60%', toggleActions: 'play none none reverse'}
-              }
+      if (functionsSectionRef2.current) {
+        const featuresTimeline2 = gsap.timeline({
+          scrollTrigger: {
+            trigger: functionsSectionRef2.current,
+            start: "top 60%",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        const functionsTitleElement2 =
+          functionsSectionRef2.current.querySelector(".ppm-cpm-title");
+
+        if (functionsTitleElement2) {
+          featuresTimeline2.fromTo(
+            functionsTitleElement2,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.5 },
           );
-       }
+        }
+
+        if (functionsImageCardRef2.current) {
+          featuresTimeline2.fromTo(
+            functionsImageCardRef2.current,
+            { y: -100, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, ease: "bounce.out" },
+            "-=0.2",
+          );
+        }
+
+        const cards2 = functionsCardsRef2.current;
+        if (cards2[0]) {
+          featuresTimeline2.fromTo(
+            cards2[0],
+            { x: -50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5 },
+            "-=0.5",
+          );
+        }
+        if (cards2[1]) {
+          featuresTimeline2.fromTo(
+            cards2[1],
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+        if (cards2[2]) {
+          featuresTimeline2.fromTo(
+            cards2[2],
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+        if (cards2[3]) {
+          featuresTimeline2.fromTo(
+            cards2[3],
+            { x: 50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+      }
+
+      if (projectsSectionRef.current) {
+        gsap.fromTo(
+          projectsCardsRef.current,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.2,
+            scrollTrigger: {
+              trigger: projectsSectionRef.current,
+              start: "top 60%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+      }
     });
-    return () => ctx.revert();
+
+    return () => context.revert();
   };
 
   return (
     <>
       <div className="ppm-page aconex-page-container" ref={containerRef}>
-        {/* 1. Hero Section */}
-        <section className="aconex-panel tm-panel" id="hero" ref={heroSectionRef}>
+        <section
+          className="aconex-panel tm-panel"
+          id="hero"
+          ref={heroSectionRef}
+        >
           <div
             className="tm-hero-section"
             style={{
-              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.6), rgba(10, 10, 15, 0.8)), url(https://images.pexels.com/photos/3774503/pexels-photo-3774503.jpeg?auto=compress&cs=tinysrgb&w=1200)`,
+              backgroundImage:
+                "linear-gradient(rgba(10, 10, 15, 0.6), rgba(10, 10, 15, 0.8)), url(https://images.pexels.com/photos/3774503/pexels-photo-3774503.jpeg?auto=compress&cs=tinysrgb&w=1200)",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
             <div className="tm-hero-content">
               <h1 className="aconex-hero-title tm-hero-title">Aconex</h1>
-              <p className="tm-hero-subtitle">
-                Oracle Aconex
-              </p>
+              <p className="tm-hero-subtitle">Oracle Aconex</p>
             </div>
             <button
               className="scroll-indicator"
@@ -393,7 +553,6 @@ function AconexPage() {
           </div>
         </section>
 
-        {/* 2. Menu Section (Structure matched to PPM 2nd section) */}
         <section
           className="aconex-panel ppm-panel ppm-overview-section"
           id="menu"
@@ -401,7 +560,6 @@ function AconexPage() {
         >
           <div className="ppm-overview-container">
             <div className="ppm-overview-content">
-              {/* Breadcrumb */}
               <nav className="ppm-breadcrumb">
                 <Link to="/" className="ppm-breadcrumb-home">
                   <span className="ppm-breadcrumb-home-icon">H</span>
@@ -412,14 +570,12 @@ function AconexPage() {
                 </span>
               </nav>
 
-              {/* Main Title */}
               <h2 className="ppm-overview-title">
                 건설 프로젝트 협업 및
                 <br />
                 문서 관리 플랫폼
               </h2>
 
-              {/* Description */}
               <p className="ppm-overview-description">
                 Oracle Aconex는 모든 프로젝트 참여자를 연결하고
                 <br />
@@ -428,12 +584,10 @@ function AconexPage() {
                 프로젝트의 가시성과 제어를 강화합니다.
               </p>
 
-              {/* Divider */}
               <div className="ppm-overview-divider"></div>
 
-              {/* Sub-menu Cards (PPM Style) */}
               <div className="ppm-submenu-grid">
-                {subMenuItems.map((item, index) => (
+                {subMenuItems.map((item) => (
                   <button
                     key={item.id}
                     className="ppm-submenu-card aconex-menu-card"
@@ -465,88 +619,273 @@ function AconexPage() {
           </div>
         </section>
 
-        {/* 3. Overview Section */}
         <section
           className="aconex-panel tm-panel"
           id="overview-content"
           ref={overviewSectionRef}
         >
-            <div className="tm-methods-section">
-                <div className="tm-methods-container">
-                    <div className="tm-section-header">
-                        <h2 className="tm-section-title">Aconex 개요</h2>
-                        <p style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '40px' }}>프로젝트 문서 관리와 협업을 위한 클라우드 플랫폼</p>
+          <div className="tm-methods-section">
+            <div className="tm-methods-container">
+              <div className="tm-section-header">
+                <h2 className="tm-section-title">Aconex 개요</h2>
+                <p
+                  style={{
+                    textAlign: "center",
+                    color: "var(--text-secondary)",
+                    marginBottom: "40px",
+                  }}
+                >
+                  프로젝트 문서 관리와 협업을 위한 클라우드 플랫폼
+                </p>
+              </div>
+              <div
+                className="tm-ppm-eppm-grid"
+                style={{ gridTemplateColumns: "repeat(4, 1fr)", gap: "20px" }}
+              >
+                {overviewFeatures.map((item, index) => (
+                  <div
+                    key={index}
+                    className="tm-spoke-box"
+                    style={{
+                      width: "100%",
+                      flexDirection: "column",
+                      padding: "30px 20px",
+                      height: "auto",
+                      alignItems: "center",
+                      textAlign: "center",
+                    }}
+                    ref={(element) =>
+                      (overviewCardsRef.current[index] = element)
+                    }
+                  >
+                    <div
+                      className="tm-spoke-icon"
+                      style={{ marginBottom: "15px" }}
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        width="32"
+                        height="32"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                      </svg>
                     </div>
-                    <div className="tm-ppm-eppm-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }}>
-                        {overviewFeatures.map((item, index) => (
-                           <div key={index} className="tm-spoke-box" style={{ width: '100%', flexDirection: 'column', padding: '30px 20px', height: 'auto', alignItems: 'center', textAlign: 'center' }} ref={el => overviewCardsRef.current[index] = el}>
-                               <div className="tm-spoke-icon" style={{ marginBottom: '15px' }}>
-                                   {/* Icon */}
-                                   <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                               </div>
-                               <h4 style={{ fontSize: '1.2rem', marginBottom: '10px', color: 'var(--text-primary)' }}>{item.title}</h4>
-                               <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>{item.desc}</p>
-                           </div>
-                       ))}
-                    </div>
-                </div>
+                    <h4
+                      style={{
+                        fontSize: "1.2rem",
+                        marginBottom: "10px",
+                        color: "var(--text-primary)",
+                      }}
+                    >
+                      {item.title}
+                    </h4>
+                    <p
+                      style={{
+                        fontSize: "0.9rem",
+                        color: "var(--text-secondary)",
+                        lineHeight: "1.5",
+                      }}
+                    >
+                      {item.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
+          </div>
         </section>
 
-        {/* 4. Features Section */}
+        <EppmFunctionsSection
+          sectionId="functions"
+          title={functionsTitle}
+          items={functionItems}
+          sectionRef={functionsSectionRef}
+          imageCardRef={functionsImageCardRef}
+          cardRefs={functionsCardsRef}
+          prefersReducedMotion={prefersReducedMotion}
+          isActive={activeSectionId === "functions"}
+          panelClassName="aconex-panel"
+        />
+
         <section
-          className="aconex-panel tm-panel"
-          id="features"
-          ref={featuresSectionRef}
+          className="aconex-panel ppm-panel ppm-cpm-section"
+          id="functions-2"
+          ref={functionsSectionRef2}
         >
-             <div className="tm-advantages-section">
-                <div className="tm-advantages-container">
-                    <div className="tm-section-header">
-                        <h2 className="tm-section-title">주요 기능</h2>
-                        <p style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '40px' }}>성공적인 프로젝트를 위한 핵심 기능</p>
-                    </div>
-                    <div className="tm-ppm-eppm-grid" style={{ gridTemplateColumns: 'repeat(2, 1fr)', gap: '30px' }}>
-                        {featuresData.map((item, index) => (
-                            <div key={index} className="tm-ppm-eppm-card" style={{ padding: '30px', display: 'flex', alignItems: 'flex-start' }} ref={el => featuresCardsRef.current[index] = el}>
-                                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-accent)', marginRight: '20px', opacity: 0.5 }}>{item.number}</div>
-                                <div>
-                                    <h3 style={{ fontSize: '1.4rem', marginBottom: '10px', color: 'var(--text-primary)' }}>{item.title}</h3>
-                                    <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>{item.desc}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+          <div className="ppm-cpm-container">
+            <div className="ppm-cpm-header">
+              <h2 className="ppm-cpm-title">{aconexFunctions2Title}</h2>
+            </div>
+
+            <div className="ppm-functions-layout">
+              <div
+                className="ppm-functions-media"
+                style={{ marginTop: "-12px" }}
+              >
+                <div
+                  className="cpm-carousel-container"
+                  ref={functionsImageCardRef2}
+                >
+                  <div className="cpm-carousel-wrapper">
+                    {aconexFunctions2Images.map((item, index) => (
+                      <div
+                        key={index}
+                        className={`cpm-carousel-slide ${index === activeSlide2 ? "active" : ""}`}
+                        style={{
+                          transform: `translateX(-${activeSlide2 * 100}%)`,
+                        }}
+                      >
+                        <img
+                          src={item.src}
+                          alt={item.alt}
+                          onError={(event) => {
+                            event.target.style.display = "none";
+                            event.target.parentElement.innerHTML =
+                              '<div class="cpm-image-placeholder">OPC Screenshot</div>';
+                          }}
+                        />
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="cpm-carousel-dots">
+                    {aconexFunctions2Images.map((_, index) => (
+                      <button
+                        key={index}
+                        className={`cpm-carousel-dot ${index === activeSlide2 ? "active" : ""}`}
+                        onClick={() => setActiveSlide2(index)}
+                        aria-label={`슬라이드 ${index + 1}`}
+                      />
+                    ))}
+                  </div>
                 </div>
-             </div>
+              </div>
+
+              <div className="ppm-functions-cards">
+                <div
+                  className="cpm-feature-cards"
+                  onMouseLeave={() => setHoveredCardIndex2(null)}
+                >
+                  {aconexFunctions2FeatureItems.map((item, index) => (
+                    <button
+                      key={index}
+                      className={`cpm-feature-card ${hoveredCardIndex2 !== null && hoveredCardIndex2 !== index ? "dimmed" : ""} ${index === activeSlide2 ? "active" : ""}`}
+                      ref={(element) =>
+                        (functionsCardsRef2.current[index] = element)
+                      }
+                      onClick={() => setActiveSlide2(index)}
+                      onMouseEnter={() => setHoveredCardIndex2(index)}
+                    >
+                      <div className="cpm-feature-icon">{item.icon}</div>
+                      <h4 className="cpm-feature-title">{item.title}</h4>
+
+                      {index < aconexFunctions2FeatureItems.length - 1 && (
+                        <div className="cpm-feature-divider-line" />
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
-        {/* 5. Projects Section */}
         <section
           className="aconex-panel tm-panel"
           id="projects"
           ref={projectsSectionRef}
         >
-             <div className="tm-methods-section" style={{ background: 'var(--bg-darker)' }}>
-                <div className="tm-methods-container">
-                    <div className="tm-section-header">
-                        <h2 className="tm-section-title">프로젝트 사례</h2>
+          <div
+            className="tm-methods-section"
+            style={{ background: "var(--bg-darker)" }}
+          >
+            <div className="tm-methods-container">
+              <div className="tm-section-header">
+                <h2 className="tm-section-title">프로젝트 사례</h2>
+              </div>
+              <div
+                className="tm-ppm-eppm-grid"
+                style={{
+                  gridTemplateColumns: "repeat(3, 1fr)",
+                  gap: "30px",
+                  marginTop: "40px",
+                }}
+              >
+                {projectsData.map((item, index) => (
+                  <div
+                    key={index}
+                    className="tm-ppm-eppm-card"
+                    style={{ padding: "0", overflow: "hidden", height: "auto" }}
+                    ref={(element) =>
+                      (projectsCardsRef.current[index] = element)
+                    }
+                  >
+                    <div
+                      className="tm-card-image"
+                      style={{
+                        height: "200px",
+                        overflow: "hidden",
+                        position: "relative",
+                      }}
+                    >
+                      <img
+                        src={item.img}
+                        alt={item.title}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                        }}
+                      />
+                      <span
+                        style={{
+                          position: "absolute",
+                          top: "15px",
+                          left: "15px",
+                          background: "rgba(0,0,0,0.7)",
+                          color: "white",
+                          padding: "5px 10px",
+                          borderRadius: "4px",
+                          fontSize: "0.8rem",
+                        }}
+                      >
+                        {item.tag}
+                      </span>
                     </div>
-                    <div className="tm-ppm-eppm-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px', marginTop: '40px' }}>
-                        {projectsData.map((item, index) => (
-                             <div key={index} className="tm-ppm-eppm-card" style={{ padding: '0', overflow: 'hidden', height: 'auto' }} ref={el => projectsCardsRef.current[index] = el}>
-                                 <div className="tm-card-image" style={{ height: '200px', overflow: 'hidden', position: 'relative' }}>
-                                     <img src={item.img} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                                     <span style={{ position: 'absolute', top: '15px', left: '15px', background: 'rgba(0,0,0,0.7)', color: 'white', padding: '5px 10px', borderRadius: '4px', fontSize: '0.8rem' }}>{item.tag}</span>
-                                 </div>
-                                 <div className="tm-card-content" style={{ padding: '25px' }}>
-                                     <h3 style={{ fontSize: '1.25rem', marginBottom: '15px', color: 'var(--text-primary)' }}>{item.title}</h3>
-                                     <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>{item.desc}</p>
-                                 </div>
-                             </div>
-                        ))}
+                    <div
+                      className="tm-card-content"
+                      style={{ padding: "25px" }}
+                    >
+                      <h3
+                        style={{
+                          fontSize: "1.25rem",
+                          marginBottom: "15px",
+                          color: "var(--text-primary)",
+                        }}
+                      >
+                        {item.title}
+                      </h3>
+                      <p
+                        style={{
+                          fontSize: "0.95rem",
+                          color: "var(--text-secondary)",
+                          lineHeight: "1.6",
+                        }}
+                      >
+                        {item.desc}
+                      </p>
                     </div>
-                </div>
-             </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </section>
       </div>
 

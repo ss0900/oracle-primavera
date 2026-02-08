@@ -6,6 +6,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import SectionIndicator from "../components/SectionIndicator";
 import EppmFunctionsSection from "../components/EppmFunctionsSection";
 import { unifierFunctionsIntro } from "../data/functionsIntroData";
+import { unifierFunctions2Intro } from "../data/unifierFunctions2Data";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -14,6 +15,7 @@ const sections = [
   { id: "menu", label: "메뉴" },
   { id: "overview-content", label: "개요" },
   { id: "functions", label: "기능 소개" },
+  { id: "functions-2", label: "기능 소개 2" },
   { id: "customers", label: "사례" },
 ];
 
@@ -58,6 +60,7 @@ const {
   items: functionItems,
   heroImages: functionHeroImages,
 } = unifierFunctionsIntro;
+const { title: functionsTitle2, items: functionItems2 } = unifierFunctions2Intro;
 
 // Customers Data
 const customersData = [
@@ -96,12 +99,15 @@ function UnifierPage() {
   const menuSectionRef = useRef(null);
   const overviewSectionRef = useRef(null);
   const functionsSectionRef = useRef(null);
+  const functionsSectionRef2 = useRef(null);
   const customersSectionRef = useRef(null);
 
   // Animation refs
   const overviewCardsRef = useRef([]);
   const functionsImageCardRef = useRef(null);
+  const functionsImageCardRef2 = useRef(null);
   const functionsCardsRef = useRef([]);
+  const functionsCardsRef2 = useRef([]);
   const customersCardsRef = useRef([]);
 
   // Check reduced motion preference
@@ -147,17 +153,14 @@ function UnifierPage() {
   // Deep linking logic
   useEffect(() => {
     if (sectionId) {
-      // Only scroll if we are not already at the right section (to avoid loops if param matches)
-      const targetIndex = sections.findIndex((s) => s.id === sectionId); // Simple mapping for strict ids
-
       // Handle mapping if necessary, or just rely on direct ID match
-      // The user requested /unifier/overview, /unifier/functions/1, /unifier/customers
-      // Our IDs are: overview-content, functions, customers
+      // The user requested /unifier/overview, /unifier/functions/1, /unifier/functions/2, /unifier/customers
+      // Our IDs are: overview-content, functions, functions-2, customers
 
       let targetId = sectionId;
       if (sectionId === "overview") targetId = "overview-content";
       if (sectionId === "modules") targetId = "functions";
-      if (sectionId === "functions" && subId) targetId = "functions";
+      if (sectionId === "functions") targetId = subId === "2" ? "functions-2" : "functions";
 
       const foundIndex = sections.findIndex((s) => s.id === targetId);
 
@@ -176,7 +179,8 @@ function UnifierPage() {
       // index 0(Hero), 1(Menu) -> /unifier
       if (index === 2) path = "/unifier/overview";
       if (index === 3) path = "/unifier/functions/1";
-      if (index === 4) path = "/unifier/customers";
+      if (index === 4) path = "/unifier/functions/2";
+      if (index === 5) path = "/unifier/customers";
 
       navigate(path, { replace: true });
     },
@@ -429,6 +433,70 @@ function UnifierPage() {
         }
       }
 
+      if (functionsSectionRef2.current) {
+        const functionsTl2 = gsap.timeline({
+          scrollTrigger: {
+            trigger: functionsSectionRef2.current,
+            start: "top 60%",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        const functionsTitle2 =
+          functionsSectionRef2.current.querySelector(".ppm-cpm-title");
+
+        if (functionsTitle2) {
+          functionsTl2.fromTo(
+            functionsTitle2,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.5 },
+          );
+        }
+
+        if (functionsImageCardRef2.current) {
+          functionsTl2.fromTo(
+            functionsImageCardRef2.current,
+            { y: -100, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, ease: "bounce.out" },
+            "-=0.2",
+          );
+        }
+
+        const cards2 = functionsCardsRef2.current;
+        if (cards2[0]) {
+          functionsTl2.fromTo(
+            cards2[0],
+            { x: -50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5 },
+            "-=0.5",
+          );
+        }
+        if (cards2[1]) {
+          functionsTl2.fromTo(
+            cards2[1],
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+        if (cards2[2]) {
+          functionsTl2.fromTo(
+            cards2[2],
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+        if (cards2[3]) {
+          functionsTl2.fromTo(
+            cards2[3],
+            { x: 50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5 },
+            "-=0.3",
+          );
+        }
+      }
+
       // Customers
       if (customersSectionRef.current) {
         gsap.fromTo(
@@ -655,7 +723,20 @@ function UnifierPage() {
           isActive={sections[activeSection]?.id === "functions"}
         />
 
-        {/* 5. Customers Section */}
+        {/* 5. Functions Section 2 */}
+        <EppmFunctionsSection
+          panelClassName="unifier-panel"
+          sectionId="functions-2"
+          title={functionsTitle2}
+          items={functionItems2}
+          sectionRef={functionsSectionRef2}
+          imageCardRef={functionsImageCardRef2}
+          cardRefs={functionsCardsRef2}
+          prefersReducedMotion={prefersReducedMotion}
+          isActive={sections[activeSection]?.id === "functions-2"}
+        />
+
+        {/* 6. Customers Section */}
         <section
           className="unifier-panel tm-panel"
           id="customers"

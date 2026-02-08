@@ -88,7 +88,12 @@ function App() {
         <Route path="/unifier/:sectionId/:subId" element={<UnifierPage />} />
 
         <Route path="/aconex" element={<AconexPage />} />
+        <Route
+          path="/aconex/features"
+          element={<Navigate to="/aconex/functions/1" replace />}
+        />
         <Route path="/aconex/:sectionId" element={<AconexPage />} />
+        <Route path="/aconex/:sectionId/:subId" element={<AconexPage />} />
 
         <Route path="/contact" element={<Contact />} />
       </Routes>

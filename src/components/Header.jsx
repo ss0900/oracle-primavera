@@ -205,9 +205,9 @@ function Header() {
             "https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
         {
-          id: "features",
-          title: "기능 안내",
-          path: "/aconex/features",
+          id: "functions",
+          title: "기능 소개",
+          path: "/aconex/functions/1",
           image:
             "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=600",
         },
