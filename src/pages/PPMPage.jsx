@@ -1455,11 +1455,11 @@ function PPMPage() {
 
               {/* Description */}
               <p className="ppm-overview-description">
-                PPM(Project Portfolio Management)은 조직의 전체 프로젝트
-                포트폴리오를 통합 관리하여
+                조직의 프로젝트 / 프로그램 포트폴리오를 평가 · 우선순위화 ·
+                선정하고,
                 <br />
-                전략적 의사결정을 지원하는 솔루션입니다. CPM 공정관리를 통해
-                정밀한 일정 관리가 가능합니다.
+                Scorecard / Investor Map / Spending/Dashboard로 성과를
+                모니터링하여 전략적 의사결정을 지원하는 솔루션입니다.
               </p>
 
               {/* Divider */}

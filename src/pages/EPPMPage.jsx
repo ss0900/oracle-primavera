@@ -1103,11 +1103,13 @@ function EPPMPage() {
 
               {/* Description */}
               <p className="ppm-overview-description">
-                EPPM(Enterprise Project Portfolio Management)은 전사 차원의
+                전사적 프로젝트 · 프로그램 · 포트폴리오를 통합적으로
+                우선순위화하고,
                 <br />
-                프로젝트, 프로그램, 포트폴리오를 통합 관리하여
+                계획 · 관리 · 실행 / 평가까지 지원하는 PPM 솔루션으로,
                 <br />
-                최적의 의사결정과 리스크 관리를 지원합니다.
+                일정 · 자원 · 성과 (및 리스크 정보)를 기반으로 의사결정을
+                돕습니다.
               </p>
 
               {/* Divider */}

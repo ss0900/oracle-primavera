@@ -22,6 +22,7 @@ const sections = [
   { id: "core-3", label: "Baseline & Update" },
   { id: "core-4", label: "Schedule Control" },
   { id: "core-5", label: "자원 관리 및 S-Curve" },
+  { id: "core-6", label: "문서화 및 보고" },
 ];
 
 // Menu items for the navigation section
@@ -45,6 +46,69 @@ const subMenuItems = [
       "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
 ];
+
+const coreDocumentationItems = [
+  {
+    iconKey: "periodic-reports",
+    title: "Periodic Reports",
+    description: "일간/주간/월간 보고 (Client 및 내부용)",
+  },
+  {
+    iconKey: "as-built-schedule",
+    title: "As-built Schedule",
+    description: "착공부터 준공까지의 이력 관리 (History)",
+  },
+  {
+    iconKey: "claim-eot",
+    title: "Claim & EOT",
+    description: (
+      <>
+        공기 연장(Extension of Time) 및
+        <br />
+        클레임의 핵심 근거 자료
+      </>
+    ),
+  },
+];
+
+function CoreDocumentationIcon({ iconKey }) {
+  if (iconKey === "periodic-reports") {
+    return (
+      <svg viewBox="0 0 64 64" className="tm-core-docs-icon" aria-hidden="true">
+        <rect x="10" y="14" width="44" height="40" rx="8" />
+        <path d="M10 24H54" />
+        <path d="M22 10V20" />
+        <path d="M32 10V20" />
+        <path d="M42 10V20" />
+        <path d="M20 32H26M30 32H36M40 32H46" />
+        <path d="M20 40H26M30 40H36M40 40H46" />
+      </svg>
+    );
+  }
+
+  if (iconKey === "as-built-schedule") {
+    return (
+      <svg viewBox="0 0 64 64" className="tm-core-docs-icon" aria-hidden="true">
+        <path d="M8 48H54" />
+        <path d="M8 48V16" />
+        <path d="M14 42L24 32L32 36L44 24L52 28" />
+        <circle cx="46" cy="18" r="10" />
+        <path d="M46 12V18L50 20" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 64 64" className="tm-core-docs-icon" aria-hidden="true">
+      <path d="M18 8H40L50 18V50A6 6 0 0 1 44 56H18A6 6 0 0 1 12 50V14A6 6 0 0 1 18 8Z" />
+      <path d="M40 8V18H50" />
+      <path d="M24 28H38M24 36H38M24 44H34" />
+      <circle cx="46" cy="44" r="8" />
+      <path d="M46 40V45" />
+      <circle cx="46" cy="48" r="0.8" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
 
 function TimeManagementPage() {
   const { sectionId, subId } = useParams();
@@ -317,6 +381,7 @@ function TimeManagementPage() {
         if (subId === "3") targetId = "core-3";
         if (subId === "4") targetId = "core-4";
         if (subId === "5") targetId = "core-5";
+        if (subId === "6") targetId = "core-6";
       }
 
       const targetIndex = sections.findIndex((s) => s.id === targetId);
@@ -348,6 +413,7 @@ function TimeManagementPage() {
       if (index === 11) path = "/time-management/core/3"; // core (Baseline & Update)
       if (index === 12) path = "/time-management/core/4"; // core (Schedule Control)
       if (index === 13) path = "/time-management/core/5"; // core (S-Curve)
+      if (index === 14) path = "/time-management/core/6"; // core (Documentation & Reporting)
 
       navigate(path, { replace: true });
     },
@@ -4462,6 +4528,47 @@ function TimeManagementPage() {
                       기준
                     </li>
                   </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Panel 15: Core Section - Documentation & Reporting */}
+        <section className="tm-panel" id="core-6">
+          <div className="tm-core-section">
+            <div className="tm-core-container">
+              <div className="tm-section-header">
+                <h2
+                  className="tm-section-title"
+                  style={{ transform: "translateY(-30px)" }}
+                >
+                  문서화 및 보고
+                </h2>
+              </div>
+
+              <div className="tm-core-docs-layout">
+                <div className="tm-core-docs-grid grid grid-3">
+                  {coreDocumentationItems.map((item) => (
+                    <article
+                      key={item.title}
+                      className="tm-core-docs-card card glass"
+                    >
+                      <div className="tm-core-docs-icon-shell">
+                        <CoreDocumentationIcon iconKey={item.iconKey} />
+                      </div>
+                      <h3 className="tm-core-docs-card-title">{item.title}</h3>
+                      <p className="tm-core-docs-card-desc">
+                        {item.description}
+                      </p>
+                    </article>
+                  ))}
+                </div>
+
+                <div className="tm-core-docs-banner card glass">
+                  <p>
+                    정확한 업데이트가 없으면 지연 사유를 입증할 수 없습니다.
+                  </p>
                 </div>
               </div>
             </div>

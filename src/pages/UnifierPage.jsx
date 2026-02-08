@@ -60,7 +60,8 @@ const {
   items: functionItems,
   heroImages: functionHeroImages,
 } = unifierFunctionsIntro;
-const { title: functionsTitle2, items: functionItems2 } = unifierFunctions2Intro;
+const { title: functionsTitle2, items: functionItems2 } =
+  unifierFunctions2Intro;
 
 // Customers Data
 const customersData = [
@@ -160,7 +161,8 @@ function UnifierPage() {
       let targetId = sectionId;
       if (sectionId === "overview") targetId = "overview-content";
       if (sectionId === "modules") targetId = "functions";
-      if (sectionId === "functions") targetId = subId === "2" ? "functions-2" : "functions";
+      if (sectionId === "functions")
+        targetId = subId === "2" ? "functions-2" : "functions";
 
       const foundIndex = sections.findIndex((s) => s.id === targetId);
 
@@ -582,11 +584,11 @@ function UnifierPage() {
 
               {/* Description */}
               <p className="ppm-overview-description">
-                Oracle Primavera Unifier는 프로젝트 생애주기 전반에 걸친
+                프로젝트(자본사업) 생애주기 전반에서 비용 · 계약 · 변경 · 자금 /
+                현금 흐름 · 문서를
                 <br />
-                비용, 계약, 문서 관리의 완벽한 통합을 지원하는
-                <br />
-                엔터프라이즈급 관리 플랫폼입니다.
+                워크플로우 기반의 연결된 프로세스로 통합 관리하는 엔터프라이즈급
+                Project Controls/PMIS 플랫폼입니다.
               </p>
 
               {/* Divider */}

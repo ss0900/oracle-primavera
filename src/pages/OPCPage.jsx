@@ -666,7 +666,7 @@ function OPCPage() {
     (index) => {
       let path = "/opc";
       // index 0(Hero), 1(Menu) -> /opc
-      if (index === 2) path = "/opc/overview";
+      if (index === 2) path = "/opc/overview/1";
       if (index === 3) path = "/opc/functions/1";
       if (index === 4) path = "/opc/functions/2";
       if (index === 5) path = "/opc/application";
@@ -1067,9 +1067,11 @@ function OPCPage() {
 
               {/* Description */}
               <p className="ppm-overview-description">
-                OPC(Oracle Primavera Cloud)는 언제 어디서나 프로젝트를
+                Oracle Cloud 기반의 프로젝트 / 포트폴리오 관리(프로젝트 컨트롤)
+                솔루션으로,
                 <br />
-                통합 관리할 수 있는 최적의 클라우드 솔루션입니다.
+                일정 · 리소스 · 리스크 등 핵심 관리 기능을 통합해 사무실과 현장
+                팀이 협업하며 프로젝트를 관리할 수 있도록 지원합니다.
               </p>
 
               {/* Divider */}

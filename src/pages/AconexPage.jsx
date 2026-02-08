@@ -577,11 +577,11 @@ function AconexPage() {
               </h2>
 
               <p className="ppm-overview-description">
-                Oracle Aconex는 모든 프로젝트 참여자를 연결하고
+                건설 프로젝트의 모든 참여자를 단일 플랫폼(CDE)에서 연결해 문서 ·
+                커뮤니케이션 · 프로세스를 표준화하고,
                 <br />
-                정보와 프로세스를 통합하여
-                <br />
-                프로젝트의 가시성과 제어를 강화합니다.
+                완전한 프로젝트 기록과 감사추적을 기반으로 프로젝트의 가시성과
+                통제를 강화합니다.
               </p>
 
               <div className="ppm-overview-divider"></div>
