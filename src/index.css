@@ -8828,9 +8828,19 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 #functions .ppm-functions-layout,
 #functions-2 .ppm-functions-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 250px;
+  grid-template-columns: minmax(0, 1fr) var(--functions-cards-width, 250px);
   gap: var(--space-xl);
   align-items: stretch;
+}
+
+/* Shared card width token for functions layout */
+.eppm-page-container {
+  --functions-cards-width: 170px;
+}
+
+.opc-page-container,
+.unifier-page-container {
+  --functions-cards-width: 250px;
 }
 
 /* EPPM Functions: swap layout (cards left, image right) on desktop */
@@ -8859,7 +8869,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
 .eppm-page-container #functions .ppm-functions-cards,
 .eppm-page-container #functions-2 .ppm-functions-cards {
-  flex: 0 0 170px;
+  flex: 0 0 var(--functions-cards-width, 170px);
   order: 1;
   margin-top: 25px;
 }

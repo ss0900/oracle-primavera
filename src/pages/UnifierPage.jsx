@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import SectionIndicator from "../components/SectionIndicator";
 import EppmFunctionsSection from "../components/EppmFunctionsSection";
+import { unifierFunctionsIntro } from "../data/functionsIntroData";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -52,90 +53,11 @@ const overviewFeatures = [
 ];
 
 // Functions Data (mirrors Unifier modules - 4 cards)
-const functionItems = [
-  {
-    icon: (
-      <svg
-        viewBox="0 0 40 40"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
-        <circle cx="20" cy="20" r="16" />
-        <path d="M20 10v20M14 14h8c2 0 4 2 4 4s-2 4-4 4h-6c-2 0-4 2-4 4s2 4 4 4h8" />
-      </svg>
-    ),
-    title: (
-      <>
-        비즈니스 프로세스와
-        <br /> 워크플로우 자동화
-      </>
-    ),
-    image:
-      "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "기능 소개 - Cost Management",
-  },
-  {
-    icon: (
-      <svg
-        viewBox="0 0 40 40"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
-        <rect x="8" y="4" width="24" height="32" rx="2" />
-        <line x1="14" y1="12" x2="26" y2="12" />
-        <line x1="14" y1="18" x2="26" y2="18" />
-        <line x1="14" y1="24" x2="20" y2="24" />
-        <path d="M22 28l2 2 4-4" />
-      </svg>
-    ),
-    title: "Contract Management",
-    image:
-      "https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "기능 소개 - Contract Management",
-  },
-  {
-    icon: (
-      <svg
-        viewBox="0 0 40 40"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
-        <path d="M8 6h16l8 8v22a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
-        <path d="M24 6v8h8" />
-        <line x1="14" y1="20" x2="26" y2="20" />
-        <line x1="14" y1="26" x2="26" y2="26" />
-        <line x1="14" y1="32" x2="20" y2="32" />
-      </svg>
-    ),
-    title: "Document Management",
-    image:
-      "https://images.pexels.com/photos/1181316/pexels-photo-1181316.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "기능 소개 - Document Management",
-  },
-  {
-    icon: (
-      <svg
-        viewBox="0 0 40 40"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
-        <rect x="4" y="16" width="10" height="8" rx="2" />
-        <rect x="26" y="8" width="10" height="8" rx="2" />
-        <rect x="26" y="24" width="10" height="8" rx="2" />
-        <path d="M14 20h6l4-8h2" />
-        <path d="M20 20l4 8h2" />
-      </svg>
-    ),
-    title: "Workflow Automation",
-    image:
-      "https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    alt: "기능 소개 - Workflow Automation",
-  },
-];
+const {
+  title: functionsTitle,
+  items: functionItems,
+  heroImages: functionHeroImages,
+} = unifierFunctionsIntro;
 
 // Customers Data
 const customersData = [
@@ -723,8 +645,9 @@ function UnifierPage() {
         <EppmFunctionsSection
           panelClassName="unifier-panel"
           sectionId="functions"
-          title="기능 소개"
+          title={functionsTitle}
           items={functionItems}
+          heroImages={functionHeroImages}
           sectionRef={functionsSectionRef}
           imageCardRef={functionsImageCardRef}
           cardRefs={functionsCardsRef}

@@ -4,6 +4,7 @@ function EppmFunctionsSection({
   sectionId,
   title,
   items = [],
+  heroImages = [],
   sectionRef,
   imageCardRef,
   cardRefs,
@@ -14,24 +15,35 @@ function EppmFunctionsSection({
   const [activeSlide, setActiveSlide] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
+  const resolvedSlides =
+    heroImages.length > 0
+      ? heroImages
+      : items.map((item) => ({
+          src: item.image,
+          alt:
+            item.alt ||
+            (typeof item.title === "string" ? item.title : "Feature Image"),
+        }));
+  const slideCount = resolvedSlides.length;
+
   useEffect(() => {
-    if (!items.length) return;
-    if (activeSlide >= items.length) {
+    if (!slideCount) return;
+    if (activeSlide >= slideCount) {
       setActiveSlide(0);
     }
-  }, [activeSlide, items.length]);
+  }, [activeSlide, slideCount]);
 
   useEffect(() => {
     if (prefersReducedMotion) return;
     if (!isActive) return;
-    if (!items.length) return;
+    if (!slideCount) return;
 
     const interval = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % items.length);
+      setActiveSlide((prev) => (prev + 1) % slideCount);
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [prefersReducedMotion, isActive, items.length]);
+  }, [prefersReducedMotion, isActive, slideCount]);
 
   return (
     <section
@@ -48,21 +60,21 @@ function EppmFunctionsSection({
           <div className="ppm-functions-media">
             <div className="cpm-carousel-container" ref={imageCardRef}>
               <div className="cpm-carousel-wrapper">
-                {items.map((item, index) => (
+                {resolvedSlides.map((slide, index) => (
                   <div
-                    key={item.id || index}
+                    key={slide.id || index}
                     className={`cpm-carousel-slide ${index === activeSlide ? "active" : ""}`}
                     style={{
                       transform: `translateX(-${activeSlide * 100}%)`,
                     }}
                   >
                     <img
-                      src={item.image}
-                      alt={item.alt}
+                      src={slide.src}
+                      alt={slide.alt}
                       onError={(e) => {
                         e.target.style.display = "none";
                         e.target.parentElement.innerHTML =
-                          '<div class="cpm-image-placeholder">EPPM Screenshot</div>';
+                          '<div class="cpm-image-placeholder">Product Screenshot</div>';
                       }}
                     />
                   </div>
@@ -70,7 +82,7 @@ function EppmFunctionsSection({
               </div>
 
               <div className="cpm-carousel-dots">
-                {items.map((_, index) => (
+                {resolvedSlides.map((_, index) => (
                   <button
                     key={index}
                     className={`cpm-carousel-dot ${index === activeSlide ? "active" : ""}`}
