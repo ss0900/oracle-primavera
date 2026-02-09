@@ -1399,7 +1399,7 @@ function PPMPage() {
 
   return (
     <>
-      <div className="ppm-page" ref={containerRef}>
+      <div className="ppm-page ppm-page-container" ref={containerRef}>
         {/* Hero Section */}
         <section
           className="ppm-panel ppm-hero-section"

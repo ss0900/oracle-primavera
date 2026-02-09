@@ -132,8 +132,8 @@ function Header() {
         },
         {
           id: "cases",
-          title: "구축 사례",
-          path: "/eppm/cases",
+          title: "과정",
+          path: "/eppm/process/1",
           image:
             "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=600",
         },

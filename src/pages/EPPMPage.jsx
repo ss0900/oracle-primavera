@@ -40,7 +40,7 @@ const subMenuItems = [
   },
   {
     id: "cases",
-    title: "구축 사례",
+    title: "과정",
     description: "제조, 에너지, 건설 등 다양한 구축 사례",
     image:
       "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -304,240 +304,112 @@ const integrationItems = [
   },
 ];
 
-// CPM Feature items
-const featureItems = [
+const eppmCoreChallenges = [
   {
+    title: "포트폴리오 관점 의사결정",
+    bullets: [
+      "전략, 자본, 자원 제약 하에서 '무엇을 먼저 할지' 결정",
+      "후보 및 진행 프로젝트의 다차원 비교",
+    ],
     icon: (
-      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect
-          x="4"
-          y="8"
-          width="16"
-          height="14"
-          rx="2"
-          stroke="currentColor"
-          strokeWidth="2"
-          fill="rgba(99, 102, 241, 0.1)"
+          x="14"
+          y="34"
+          width="8"
+          height="22"
+          rx="1.5"
+          fill="currentColor"
         />
         <rect
           x="28"
-          y="8"
-          width="16"
-          height="14"
-          rx="2"
-          stroke="currentColor"
-          strokeWidth="2"
-          fill="rgba(99, 102, 241, 0.1)"
+          y="25"
+          width="8"
+          height="28"
+          rx="1.5"
+          fill="currentColor"
         />
         <rect
-          x="16"
-          y="26"
-          width="16"
-          height="14"
-          rx="2"
-          stroke="currentColor"
-          strokeWidth="2"
-          fill="rgba(99, 102, 241, 0.1)"
+          x="42"
+          y="17"
+          width="8"
+          height="34"
+          rx="1.5"
+          fill="currentColor"
         />
-        <line
-          x1="12"
-          y1="22"
-          x2="24"
-          y2="26"
+        <rect x="56" y="8" width="8" height="40" rx="1.5" fill="currentColor" />
+        <path
+          d="M12 60L68 50"
           stroke="currentColor"
-          strokeWidth="1.5"
+          strokeWidth="3"
+          strokeLinecap="round"
         />
-        <line
-          x1="36"
-          y1="22"
-          x2="24"
-          y2="26"
+        <path d="M40 55L32 70H48L40 55Z" fill="currentColor" opacity="0.9" />
+        <path
+          d="M12 58V16"
           stroke="currentColor"
-          strokeWidth="1.5"
+          strokeWidth="3"
+          strokeLinecap="round"
         />
       </svg>
     ),
-    title: (
-      <>
-        대규모와 개별 프로젝트
-        <br />
-        계획 및 공정 관리
-      </>
-    ),
   },
   {
+    title: "표준화된 일정 및 통제",
+    bullets: [
+      "대형 프로젝트의 WBS 및 크리티컬 패스(Critical Path) 관리",
+      "계획과 실행의 유기적 연결",
+    ],
     icon: (
-      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle
-          cx="24"
-          cy="24"
-          r="16"
-          stroke="currentColor"
-          strokeWidth="2"
-          fill="rgba(99, 102, 241, 0.1)"
-        />
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
-          d="M24 14 L24 24 L32 28"
+          d="M14 62V16H62"
           stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <path
-          d="M16 32 L20 28 L24 30 L28 26 L32 28"
-          stroke="currentColor"
-          strokeWidth="1.5"
+          strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-      </svg>
-    ),
-    title: (
-      <>
-        프로젝트와 연동된
-        <br />
-        Costs 관리
-      </>
-    ),
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect
-          x="8"
-          y="4"
-          width="32"
-          height="10"
-          rx="2"
-          stroke="currentColor"
-          strokeWidth="2"
-          fill="rgba(99, 102, 241, 0.1)"
+          x="22"
+          y="25"
+          width="14"
+          height="8"
+          rx="1.5"
+          fill="currentColor"
+          opacity="0.95"
         />
         <rect
-          x="4"
-          y="19"
-          width="18"
-          height="10"
-          rx="2"
-          stroke="currentColor"
-          strokeWidth="2"
-          fill="rgba(99, 102, 241, 0.1)"
+          x="34"
+          y="38"
+          width="14"
+          height="8"
+          rx="1.5"
+          fill="currentColor"
+          opacity="0.95"
         />
         <rect
-          x="26"
-          y="19"
-          width="18"
-          height="10"
-          rx="2"
-          stroke="currentColor"
-          strokeWidth="2"
-          fill="rgba(99, 102, 241, 0.1)"
+          x="46"
+          y="51"
+          width="14"
+          height="8"
+          rx="1.5"
+          fill="currentColor"
+          opacity="0.95"
         />
-        <rect
-          x="8"
-          y="34"
-          width="32"
-          height="10"
-          rx="2"
+        <path
+          d="M36 31H44V39M48 44H56V52"
           stroke="currentColor"
-          strokeWidth="2"
-          fill="rgba(99, 102, 241, 0.1)"
+          strokeWidth="2.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
-        <line
-          x1="24"
-          y1="14"
-          x2="13"
-          y2="19"
+        <path
+          d="M44 39L38 39M56 52L50 52"
           stroke="currentColor"
-          strokeWidth="1.5"
-        />
-        <line
-          x1="24"
-          y1="14"
-          x2="35"
-          y2="19"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        />
-        <line
-          x1="13"
-          y1="29"
-          x2="24"
-          y2="34"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        />
-        <line
-          x1="35"
-          y1="29"
-          x2="24"
-          y2="34"
-          stroke="currentColor"
-          strokeWidth="1.5"
+          strokeWidth="2.6"
+          strokeLinecap="round"
         />
       </svg>
-    ),
-    title: "전사적 프로젝트 관리",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle
-          cx="24"
-          cy="12"
-          r="8"
-          stroke="currentColor"
-          strokeWidth="2"
-          fill="rgba(99, 102, 241, 0.1)"
-        />
-        <circle
-          cx="10"
-          cy="34"
-          r="6"
-          stroke="currentColor"
-          strokeWidth="2"
-          fill="rgba(99, 102, 241, 0.1)"
-        />
-        <circle
-          cx="38"
-          cy="34"
-          r="6"
-          stroke="currentColor"
-          strokeWidth="2"
-          fill="rgba(99, 102, 241, 0.1)"
-        />
-        <line
-          x1="20"
-          y1="18"
-          x2="13"
-          y2="29"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        />
-        <line
-          x1="28"
-          y1="18"
-          x2="35"
-          y2="29"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        />
-        <line
-          x1="16"
-          y1="34"
-          x2="32"
-          y2="34"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeDasharray="3 2"
-        />
-      </svg>
-    ),
-    title: (
-      <>
-        원활한 실적 업데이트를
-        <br />
-        위한 팀 네트워크
-      </>
     ),
   },
 ];
@@ -590,7 +462,6 @@ function EPPMPage() {
 
   const cpmImageCardRef = useRef(null);
   const cpmFeatureCardsRef = useRef([]);
-  const [cpmHoveredIndex, setCpmHoveredIndex] = useState(null);
 
   const functionsImageCardRef = useRef(null);
   const functionsImageCardRef2 = useRef(null);
@@ -654,6 +525,9 @@ function EPPMPage() {
       if (sectionId === "solution") {
         targetId = "functions";
       }
+      if (sectionId === "process") {
+        targetId = "cases";
+      }
       // cases matches cases
 
       const targetIndex = sections.findIndex((s) => s.id === targetId);
@@ -675,7 +549,7 @@ function EPPMPage() {
       if (index === 3) path = "/eppm/overview/2";
       if (index === 4) path = "/eppm/functions/1";
       if (index === 5) path = "/eppm/functions/2";
-      if (index === 6) path = "/eppm/cases";
+      if (index === 6) path = "/eppm/process/1";
 
       navigate(path, { replace: true });
     },
@@ -1159,7 +1033,10 @@ function EPPMPage() {
               <h2 className="cpm-section-title">전략과 실행 사이의 간극</h2>
             </div>
 
-            <div className="eppm-overview-gap-frame" ref={integrationImageCardRef}>
+            <div
+              className="eppm-overview-gap-frame"
+              ref={integrationImageCardRef}
+            >
               <header className="eppm-overview-gap-headline-wrap">
                 <h3 className="eppm-overview-gap-headline">
                   (Headline Placeholder)
@@ -1228,7 +1105,7 @@ function EPPMPage() {
           </div>
         </section>
 
-        {/* 4. CPM Features Section */}
+        {/* 4. Core Challenges Section */}
         <section
           className="eppm-panel tm-panel cpm-features-section"
           id="cpm-features"
@@ -1236,36 +1113,28 @@ function EPPMPage() {
         >
           <div className="cpm-features-container">
             <div className="cpm-section-header">
-              <h2 className="cpm-section-title">CPM 공정표</h2>
+              <h2 className="cpm-section-title">
+                EPPM이 해결하는 2가지 핵심 과제
+              </h2>
             </div>
-            <div className="cpm-image-card" ref={cpmImageCardRef}>
-              <img
-                src="/cpm-gantt-chart.png"
-                alt="CPM 공정표"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  e.target.parentElement.innerHTML =
-                    '<div class="cpm-image-placeholder">CPM Gantt Chart Screenshot</div>';
-                }}
-              />
-            </div>
-            <div
-              className="cpm-feature-cards"
-              onMouseLeave={() => setCpmHoveredIndex(null)}
-            >
-              {featureItems.map((item, index) => (
-                <div
-                  key={index}
-                  className={`cpm-feature-card ${cpmHoveredIndex !== null && cpmHoveredIndex !== index ? "dimmed" : ""}`}
+
+            <div className="eppm-overview-core-grid" ref={cpmImageCardRef}>
+              {eppmCoreChallenges.map((item, index) => (
+                <article
+                  key={item.title}
+                  className="eppm-overview-core-card"
                   ref={(el) => (cpmFeatureCardsRef.current[index] = el)}
-                  onMouseEnter={() => setCpmHoveredIndex(index)}
                 >
-                  <div className="cpm-feature-icon">{item.icon}</div>
-                  <h4 className="cpm-feature-title">{item.title}</h4>
-                  {index < featureItems.length - 1 && (
-                    <div className="cpm-feature-divider-line" />
-                  )}
-                </div>
+                  <div className="eppm-overview-core-icon" aria-hidden="true">
+                    {item.icon}
+                  </div>
+                  <h3 className="eppm-overview-core-title">{item.title}</h3>
+                  <ul className="eppm-overview-core-list">
+                    {item.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                </article>
               ))}
             </div>
           </div>
@@ -1389,4 +1258,3 @@ function EPPMPage() {
 }
 
 export default EPPMPage;
-

@@ -72,6 +72,10 @@ function App() {
         <Route path="/ppm/:sectionId/:subId" element={<PPMPage />} />
 
         <Route path="/eppm" element={<EPPMPage />} />
+        <Route
+          path="/eppm/cases"
+          element={<Navigate to="/eppm/process/1" replace />}
+        />
         <Route path="/eppm/:sectionId" element={<EPPMPage />} />
         <Route path="/eppm/:sectionId/:subId" element={<EPPMPage />} />
 
