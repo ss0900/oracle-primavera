@@ -587,7 +587,6 @@ function EPPMPage() {
   // Animation refs
   const integrationImageCardRef = useRef(null);
   const integrationCardsRef = useRef([]);
-  const [integrationHoveredIndex, setIntegrationHoveredIndex] = useState(null);
 
   const cpmImageCardRef = useRef(null);
   const cpmFeatureCardsRef = useRef([]);
@@ -1157,38 +1156,74 @@ function EPPMPage() {
         >
           <div className="cpm-features-container">
             <div className="cpm-section-header">
-              <h2 className="cpm-section-title">통합 운영</h2>
+              <h2 className="cpm-section-title">전략과 실행 사이의 간극</h2>
             </div>
-            <div className="cpm-image-card" ref={integrationImageCardRef}>
-              <img
-                src="/EPPM.png"
-                alt="EPPM 통합 운영 대시보드"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  e.target.parentElement.innerHTML =
-                    '<div class="cpm-image-placeholder">EPPM Dashboard Screenshot</div>';
-                }}
-              />
-            </div>
-            <div
-              className="cpm-feature-cards"
-              style={{ gridTemplateColumns: "repeat(2, 1fr)" }}
-              onMouseLeave={() => setIntegrationHoveredIndex(null)}
-            >
-              {integrationItems.map((item, index) => (
+
+            <div className="eppm-overview-gap-frame" ref={integrationImageCardRef}>
+              <header className="eppm-overview-gap-headline-wrap">
+                <h3 className="eppm-overview-gap-headline">
+                  (Headline Placeholder)
+                </h3>
+              </header>
+
+              <div className="eppm-overview-gap-visuals">
                 <div
-                  key={index}
-                  className={`cpm-feature-card ${integrationHoveredIndex !== null && integrationHoveredIndex !== index ? "dimmed" : ""}`}
-                  ref={(el) => (integrationCardsRef.current[index] = el)}
-                  onMouseEnter={() => setIntegrationHoveredIndex(index)}
+                  className="eppm-overview-gap-visual-column"
+                  ref={(el) => (integrationCardsRef.current[0] = el)}
                 >
-                  <div className="cpm-feature-icon">{item.icon}</div>
-                  <h4 className="cpm-feature-title">{item.title}</h4>
-                  {index < integrationItems.length - 1 && (
-                    <div className="cpm-feature-divider-line" />
-                  )}
+                  <div className="eppm-overview-gap-visual-card">
+                    <span>(Simple Icon Placeholder)</span>
+                  </div>
                 </div>
-              ))}
+                <div className="eppm-overview-gap-divider" aria-hidden="true" />
+                <div
+                  className="eppm-overview-gap-visual-column"
+                  ref={(el) => (integrationCardsRef.current[1] = el)}
+                >
+                  <div className="eppm-overview-gap-visual-card">
+                    <span>(Blueprint Placeholder)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="eppm-overview-gap-bottom">
+                <article
+                  className="eppm-overview-gap-text-block"
+                  ref={(el) => (integrationCardsRef.current[2] = el)}
+                >
+                  <h4>The Challenge</h4>
+                  <p>
+                    Portfolio priorities and field execution context drift apart
+                    over time.
+                  </p>
+                  <p>
+                    Teams need one view that links planning assumptions to
+                    changing on-site reality.
+                  </p>
+                </article>
+
+                <div
+                  className="eppm-overview-gap-conclusion"
+                  ref={(el) => (integrationCardsRef.current[3] = el)}
+                >
+                  <p>단일 플랫폼에서의 통합된 시각 필요.</p>
+                </div>
+
+                <article
+                  className="eppm-overview-gap-text-block"
+                  ref={(el) => (integrationCardsRef.current[4] = el)}
+                >
+                  <h4>The Disconnect</h4>
+                  <p>
+                    Executive-level intent and WBS-based execution data often
+                    fail to stay aligned.
+                  </p>
+                  <p>
+                    Without a shared operational layer, decisions become delayed
+                    and fragmented.
+                  </p>
+                </article>
+              </div>
             </div>
           </div>
         </section>
@@ -1354,3 +1389,4 @@ function EPPMPage() {
 }
 
 export default EPPMPage;
+

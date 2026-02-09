@@ -16,6 +16,7 @@ const sections = [
   { id: "functions", label: "기능 소개" },
   { id: "functions-2", label: "기능 소개 2" },
   { id: "application", label: "비교" },
+  { id: "application-2", label: "비교 2" },
 ];
 
 const subMenuItems = [
@@ -676,6 +677,150 @@ const comparisonGroups = {
   },
 };
 
+const comparisonRoleColumns = [
+  {
+    id: "p6",
+    header: "Primavera P6",
+    accentClass: "is-p6",
+    caption: "“최고의 일정 엔진”",
+    rows: [
+      {
+        iconKey: "schedule-tool",
+        ko: "일정 관리 전문 도구",
+        en: "(Expert Scheduling Tool)",
+      },
+      {
+        iconKey: "expert",
+        ko: "공정관리 전문가",
+        en: "(Scheduling Expert)",
+      },
+      {
+        iconKey: "cpm",
+        ko: "일정(CPM) 중심",
+        en: "(Schedule-centric (CPM))",
+      },
+      {
+        iconKey: "local-file",
+        ko: "로컬/파일 기반",
+        en: "(Local/File-based)",
+      },
+    ],
+  },
+  {
+    id: "opc",
+    header: "Oracle Primavera Cloud",
+    accentClass: "is-opc",
+    caption: "“프로젝트 경영 플랫폼”",
+    rows: [
+      {
+        iconKey: "platform",
+        ko: "통합 프로젝트 관리 플랫폼",
+        en: "(Integrated Project Mgmt Platform)",
+      },
+      {
+        iconKey: "stakeholders",
+        ko: "발주처·경영진·PMO 포함",
+        en: "(Incl. Owners, Execs, PMO)",
+      },
+      {
+        iconKey: "cost-risk",
+        ko: "일정 + 비용 + 리스크",
+        en: "(Schedule + Cost + Risk)",
+      },
+      {
+        iconKey: "cloud-collab",
+        ko: "클라우드 기반 실시간 협업",
+        en: "(Cloud-based Real-time Collab)",
+      },
+    ],
+  },
+];
+
+function OPCComparisonRoleIcon({ iconKey }) {
+  if (iconKey === "schedule-tool") {
+    return (
+      <svg viewBox="0 0 64 64" className="opc-comparison-2-item-icon" aria-hidden="true">
+        <rect x="8" y="18" width="30" height="24" rx="5" />
+        <path d="M38 30H56" />
+        <path d="M48 20V40" />
+        <circle cx="23" cy="30" r="8" />
+      </svg>
+    );
+  }
+
+  if (iconKey === "expert") {
+    return (
+      <svg viewBox="0 0 64 64" className="opc-comparison-2-item-icon" aria-hidden="true">
+        <circle cx="32" cy="19" r="9" />
+        <path d="M14 50C14 40 22 33 32 33C42 33 50 40 50 50" />
+        <rect x="24" y="43" width="16" height="9" rx="2" />
+      </svg>
+    );
+  }
+
+  if (iconKey === "cpm") {
+    return (
+      <svg viewBox="0 0 64 64" className="opc-comparison-2-item-icon" aria-hidden="true">
+        <rect x="8" y="10" width="48" height="44" rx="6" />
+        <path d="M16 18H48M16 26H34M16 34H30M16 42H26" />
+        <path d="M40 42L46 36L52 39" />
+      </svg>
+    );
+  }
+
+  if (iconKey === "local-file") {
+    return (
+      <svg viewBox="0 0 64 64" className="opc-comparison-2-item-icon" aria-hidden="true">
+        <rect x="8" y="12" width="34" height="24" rx="4" />
+        <rect x="18" y="42" width="14" height="4" rx="2" />
+        <rect x="46" y="12" width="10" height="32" rx="2" />
+      </svg>
+    );
+  }
+
+  if (iconKey === "platform") {
+    return (
+      <svg viewBox="0 0 64 64" className="opc-comparison-2-item-icon" aria-hidden="true">
+        <path d="M11 30C11 20 19 12 29 12C36 12 41 16 44 22C45 22 46 22 47 22C53 22 58 27 58 33C58 39 53 44 47 44H18C13 44 9 40 9 35C9 32 10 31 11 30Z" />
+        <rect x="20" y="30" width="16" height="10" rx="2" />
+        <path d="M42 30H52M42 36H52" />
+      </svg>
+    );
+  }
+
+  if (iconKey === "stakeholders") {
+    return (
+      <svg viewBox="0 0 64 64" className="opc-comparison-2-item-icon" aria-hidden="true">
+        <circle cx="17" cy="22" r="6" />
+        <circle cx="32" cy="18" r="7" />
+        <circle cx="47" cy="22" r="6" />
+        <path d="M8 48C8 40 12 34 17 34C22 34 26 40 26 48" />
+        <path d="M20 48C20 38 26 31 32 31C38 31 44 38 44 48" />
+        <path d="M38 48C38 40 42 34 47 34C52 34 56 40 56 48" />
+      </svg>
+    );
+  }
+
+  if (iconKey === "cost-risk") {
+    return (
+      <svg viewBox="0 0 64 64" className="opc-comparison-2-item-icon" aria-hidden="true">
+        <circle cx="24" cy="24" r="10" />
+        <circle cx="39" cy="24" r="10" />
+        <circle cx="32" cy="39" r="10" />
+        <path d="M24 24H39M28 31L35 31" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 64 64" className="opc-comparison-2-item-icon" aria-hidden="true">
+      <path d="M16 36V22C16 17 20 13 25 13C29 13 32 15 34 18C35 17 38 16 40 16C46 16 50 20 50 26V36" />
+      <rect x="12" y="36" width="40" height="14" rx="3" />
+      <path d="M22 50V56M42 50V56" />
+    </svg>
+  );
+}
+
 function StarRating({ count, label }) {
   return (
     <div
@@ -720,6 +865,7 @@ function OPCPage() {
   const functionsSectionRef = useRef(null);
   const functionsSectionRef2 = useRef(null);
   const applicationSectionRef = useRef(null);
+  const applicationSectionRef2 = useRef(null);
 
   // Animation refs
   const overviewCardsRef = useRef([]);
@@ -833,7 +979,7 @@ function OPCPage() {
     if (!sectionId) return;
 
     // Supported deep links:
-    // /opc/overview/1, /opc/overview/2, /opc/functions/1, /opc/functions/2, /opc/comparison/1
+    // /opc/overview/1, /opc/overview/2, /opc/functions/1, /opc/functions/2, /opc/comparison/1, /opc/comparison/2
     let targetId = sectionId;
     let isFunctionsSectionNumber = false;
     if (sectionId === "overview") {
@@ -844,7 +990,7 @@ function OPCPage() {
       targetId = subId === "2" ? "functions-2" : "functions";
     }
     if (sectionId === "comparison") {
-      targetId = "application";
+      targetId = subId === "2" ? "application-2" : "application";
     }
 
     if (subId && sectionId !== "overview" && !isFunctionsSectionNumber) {
@@ -874,6 +1020,7 @@ function OPCPage() {
       if (index === 4) path = "/opc/functions/1";
       if (index === 5) path = "/opc/functions/2";
       if (index === 6) path = "/opc/comparison/1";
+      if (index === 7) path = "/opc/comparison/2";
 
       navigate(path, { replace: true });
     },
@@ -1256,6 +1403,29 @@ function OPCPage() {
             stagger: 0.2,
             scrollTrigger: {
               trigger: applicationSectionRef.current,
+              start: "top 60%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+      }
+
+      if (applicationSectionRef2.current) {
+        const comparisonRoleElements =
+          applicationSectionRef2.current.querySelectorAll(
+            ".opc-comparison-2-animate",
+          );
+
+        gsap.fromTo(
+          comparisonRoleElements,
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            stagger: 0.14,
+            scrollTrigger: {
+              trigger: applicationSectionRef2.current,
               start: "top 60%",
               toggleActions: "play none none reverse",
             },
@@ -1730,6 +1900,60 @@ function OPCPage() {
                     </tbody>
                   </table>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 8. Comparison Section 2 */}
+        <section
+          className="opc-panel tm-panel"
+          id="application-2"
+          ref={applicationSectionRef2}
+        >
+          <div className="tm-core-section opc-comparison-2-section">
+            <div className="tm-core-container opc-comparison-2-container">
+              <div className="tm-section-header opc-comparison-2-header opc-comparison-2-animate">
+                <h2 className="tm-section-title">P6와 OPC의 역할</h2>
+              </div>
+
+              <div className="opc-comparison-2-grid opc-comparison-2-animate">
+                {comparisonRoleColumns.map((column) => (
+                  <article
+                    key={column.id}
+                    className={`card glass opc-comparison-2-column ${column.accentClass} opc-comparison-2-animate`}
+                  >
+                    <header className="opc-comparison-2-column-header">
+                      <h3 className="opc-comparison-2-column-title">
+                        {column.header}
+                      </h3>
+                    </header>
+
+                    <ul
+                      className="opc-comparison-2-list"
+                      aria-label={`${column.header} 역할 요약`}
+                    >
+                      {column.rows.map((row) => (
+                        <li key={row.ko} className="opc-comparison-2-item">
+                          <span
+                            className="tm-core-docs-icon-shell opc-comparison-2-icon-shell"
+                            aria-hidden="true"
+                          >
+                            <OPCComparisonRoleIcon iconKey={row.iconKey} />
+                          </span>
+                          <div className="opc-comparison-2-item-copy">
+                            <p className="opc-comparison-2-item-ko">{row.ko}</p>
+                            <p className="opc-comparison-2-item-en">{row.en}</p>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="opc-comparison-2-caption-bar">
+                      <p>{column.caption}</p>
+                    </div>
+                  </article>
+                ))}
               </div>
             </div>
           </div>
