@@ -32,19 +32,19 @@ const subMenuItems = [
     id: "overview",
     title: "개요",
     image:
-      "https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "/일정 관리.png",
   },
   {
     id: "advantages",
     title: "장점",
     image:
-      "https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "/진척 관리.png",
   },
   {
     id: "core",
     title: "핵심 개념",
     image:
-      "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "/자원 관리.png",
   },
 ];
 
@@ -1305,7 +1305,7 @@ function TimeManagementPage() {
           id="hero"
           ref={heroSectionRef}
           style={{
-            backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200)`,
+            backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(/공정 분석.png)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

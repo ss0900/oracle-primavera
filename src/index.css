@@ -8879,6 +8879,117 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   box-shadow: none;
 }
 
+.eppm-page-container #cases .eppm-process-container {
+  position: relative;
+}
+
+.eppm-process-focus-layout {
+  width: 100%;
+  min-height: clamp(560px, 78vh, 800px);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: clamp(22px, 3vh, 38px);
+}
+
+.eppm-process-focus-header {
+  max-width: 460px;
+}
+
+.eppm-process-focus-subtitle {
+  margin: var(--space-lg) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--color-text-secondary);
+  font-size: clamp(var(--text-base), 1.6vw, var(--text-xl));
+  line-height: 1.55;
+}
+
+.eppm-process-focus-subtitle span {
+  display: block;
+}
+
+.eppm-process-focus-visual {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eppm-process-focus-svg {
+  width: min(72vw, 620px);
+  max-width: 620px;
+  min-width: 300px;
+  height: auto;
+  overflow: visible;
+}
+
+.eppm-process-focus-ring-segment {
+  fill: none;
+  stroke: url(#eppmHubRingGradient);
+  stroke-width: 52;
+  stroke-linecap: round;
+}
+
+.eppm-process-focus-inner-segment {
+  fill: none;
+  stroke: rgba(158, 218, 255, 0.72);
+  stroke-width: 28;
+  stroke-linecap: round;
+}
+
+.eppm-process-focus-connector {
+  stroke: rgba(141, 214, 255, 0.74);
+  stroke-width: 2.8;
+  stroke-linecap: round;
+}
+
+.eppm-process-focus-core-outer {
+  fill: rgba(8, 22, 40, 0.86);
+  stroke: rgba(151, 217, 255, 0.58);
+  stroke-width: 3;
+}
+
+.eppm-process-focus-core-inner {
+  fill: url(#eppmHubCoreGradient);
+  stroke: rgba(163, 226, 255, 0.9);
+  stroke-width: 2.6;
+}
+
+.eppm-process-focus-db-line {
+  fill: none;
+  stroke: rgba(211, 242, 255, 0.95);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.eppm-process-focus-core-text {
+  fill: rgba(235, 249, 255, 0.95);
+  font-family: var(--font-display);
+  font-size: 54px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.eppm-process-focus-label {
+  fill: rgba(237, 248, 255, 0.95);
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.eppm-process-focus-key-message {
+  margin: 0;
+  text-align: center;
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-xl), 2vw, var(--text-3xl));
+  font-weight: 700;
+  line-height: 1.35;
+}
+
 .eppm-process-shell {
   position: relative;
   width: 100%;
@@ -8990,13 +9101,12 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   height: clamp(52px, 4.3vw, 70px);
   border-radius: 50%;
   border: 1px solid rgba(0, 212, 255, 0.35);
-  background:
-    radial-gradient(
-      circle at 34% 30%,
-      rgba(0, 212, 255, 0.2),
-      rgba(0, 212, 255, 0.08) 52%,
-      rgba(10, 14, 24, 0.9) 100%
-    );
+  background: radial-gradient(
+    circle at 34% 30%,
+    rgba(0, 212, 255, 0.2),
+    rgba(0, 212, 255, 0.08) 52%,
+    rgba(10, 14, 24, 0.9) 100%
+  );
   box-shadow:
     0 12px 24px -18px rgba(0, 212, 255, 0.65),
     inset 0 0 0 5px rgba(6, 14, 24, 0.78);
@@ -9087,6 +9197,28 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     max-width: 100%;
   }
 
+  .eppm-page-container #cases .eppm-process-section {
+    padding: clamp(96px, 11vh, 124px) var(--space-lg);
+  }
+
+  .eppm-process-focus-layout {
+    min-height: clamp(520px, 74vh, 760px);
+    gap: clamp(20px, 2.4vh, 30px);
+  }
+
+  .eppm-process-focus-svg {
+    width: min(82vw, 560px);
+    min-width: 280px;
+  }
+
+  .eppm-process-focus-label {
+    font-size: 31px;
+  }
+
+  .eppm-process-focus-core-text {
+    font-size: 50px;
+  }
+
   .eppm-process-grid {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
@@ -9159,6 +9291,38 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   .eppm-page-container #cases-2 .eppm-process-section,
   .eppm-page-container #cases-3 .eppm-process-section {
     padding: 88px var(--space-md) var(--space-2xl);
+  }
+
+  .eppm-process-focus-layout {
+    min-height: clamp(500px, 70vh, 680px);
+    gap: var(--space-lg);
+  }
+
+  .eppm-process-focus-header {
+    max-width: 100%;
+  }
+
+  .eppm-process-focus-subtitle {
+    margin-top: var(--space-md);
+    font-size: var(--text-base);
+    line-height: 1.6;
+  }
+
+  .eppm-process-focus-svg {
+    width: min(94vw, 430px);
+    min-width: 250px;
+  }
+
+  .eppm-process-focus-label {
+    font-size: 29px;
+  }
+
+  .eppm-process-focus-core-text {
+    font-size: 46px;
+  }
+
+  .eppm-process-focus-key-message {
+    font-size: clamp(var(--text-lg), 5vw, var(--text-2xl));
   }
 
   .eppm-process-shell {
@@ -10134,89 +10298,284 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   background: var(--color-bg-secondary);
   padding: 120px var(--space-xl);
   display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.ppm-benefits-infographic {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.72fr) minmax(
+      0,
+      1.2fr
+    );
+  gap: clamp(16px, 2.1vw, 36px);
+  align-items: stretch;
+  padding: clamp(18px, 2vw, 30px);
+  border-radius: var(--radius-2xl);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.08), transparent 52%),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.015)
+    ),
+    var(--color-bg-primary);
+  box-shadow: 0 24px 46px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.ppm-benefits-column {
+  position: relative;
+  z-index: 1;
+}
+
+.ppm-benefits-column-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  justify-content: space-between;
+}
+
+.ppm-benefits-column-center {
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.ppm-benefits-container {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.ppm-benefits-header {
-  text-align: center;
-  margin-bottom: var(--space-3xl);
-}
-
-.ppm-benefits-title {
-  font-family: var(--font-display);
-  font-size: var(--text-4xl);
-  font-weight: 700;
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-md);
-}
-
-.ppm-benefits-subtitle {
-  font-size: var(--text-lg);
-  color: var(--color-text-secondary);
-}
-
-.ppm-benefits-grid {
+.ppm-benefits-column-right {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-xl);
+  grid-template-rows: auto 1fr;
+  gap: var(--space-md);
+  align-content: start;
 }
 
-.ppm-benefits-card {
-  background: var(--color-bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: var(--radius-xl);
-  padding: var(--space-xl);
-  text-align: center;
-  transition: all var(--duration-base) var(--ease-out-quart);
-}
-
-.ppm-benefits-card:hover {
-  border-color: rgba(0, 212, 255, 0.3);
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
-}
-
-.ppm-benefits-icon {
-  width: 48px;
-  height: 48px;
-  margin: 0 auto var(--space-lg);
-  color: var(--color-accent);
-}
-
-.ppm-benefits-icon svg {
+.ppm-benefits-connectors {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.ppm-benefits-card-title {
+.ppm-benefits-node {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(6, 12, 24, 0.88);
+  padding: clamp(14px, 1.2vw, 18px);
+  min-height: 142px;
+}
+
+.ppm-benefits-node-right {
+  min-height: 128px;
+}
+
+.ppm-benefits-node-icon {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid currentColor;
+}
+
+.ppm-benefits-node-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.ppm-benefits-node-copy {
+  flex: 1;
+}
+
+.ppm-benefits-node-title {
   font-family: var(--font-display);
-  font-size: var(--text-lg);
-  font-weight: 600;
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-sm);
+  font-size: var(--text-xl);
+  line-height: 1.25;
+  margin: 0 0 var(--space-sm);
 }
 
-.ppm-benefits-card-desc {
-  font-size: var(--text-sm);
+.ppm-benefits-node-description {
+  margin: 0;
+  font-size: var(--text-base);
+  line-height: 1.5;
   color: var(--color-text-secondary);
-  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.ppm-benefits-node-gold .ppm-benefits-node-title {
+  color: #f4d566;
+}
+
+.ppm-benefits-node-red .ppm-benefits-node-title {
+  color: #ff7f7f;
+}
+
+.ppm-benefits-node-violet .ppm-benefits-node-title {
+  color: #cb95ff;
+}
+
+.ppm-benefits-node-orange .ppm-benefits-node-title {
+  color: #ffb45c;
+}
+
+.ppm-benefits-node-pink .ppm-benefits-node-title {
+  color: #f996e1;
+}
+
+.ppm-tone-gold {
+  color: #f4d566;
+  background: rgba(244, 213, 102, 0.12);
+}
+
+.ppm-tone-red {
+  color: #ff7f7f;
+  background: rgba(255, 127, 127, 0.12);
+}
+
+.ppm-tone-violet {
+  color: #cb95ff;
+  background: rgba(203, 149, 255, 0.12);
+}
+
+.ppm-tone-orange {
+  color: #ffb45c;
+  background: rgba(255, 180, 92, 0.12);
+}
+
+.ppm-tone-pink {
+  color: #f996e1;
+  background: rgba(249, 150, 225, 0.12);
+}
+
+.ppm-benefits-hub {
+  width: 100%;
+  min-height: 460px;
+  border-radius: var(--radius-2xl);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(
+      circle at 50% 16%,
+      rgba(0, 212, 255, 0.12),
+      transparent 58%
+    ),
+    rgba(8, 14, 28, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.ppm-benefits-hub-frame {
+  width: min(100%, 260px);
+}
+
+.ppm-benefits-hub-frame svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ppm-benefits-hub-caption {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  letter-spacing: 0.1em;
+  color: rgba(188, 223, 245, 0.9);
+}
+
+.ppm-benefits-keyword-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.ppm-benefits-keyword {
+  min-height: 72px;
+  padding: 10px 8px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(95, 182, 240, 0.35);
+  background: linear-gradient(
+    180deg,
+    rgba(12, 90, 154, 0.65),
+    rgba(10, 66, 121, 0.55)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1.3;
+  color: #e9f5ff;
+  word-break: keep-all;
+}
+
+.ppm-benefits-results {
+  display: grid;
+  gap: var(--space-md);
 }
 
 /* Responsive - PPM Page */
+@media (max-width: 1320px) {
+  .ppm-benefits-section {
+    padding-inline: var(--space-lg);
+  }
+
+  .ppm-benefits-node-title {
+    font-size: var(--text-lg);
+  }
+
+  .ppm-benefits-node-description {
+    font-size: var(--text-sm);
+  }
+}
+
 @media (max-width: 1024px) {
   .ppm-submenu-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .ppm-benefits-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .ppm-benefits-infographic {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .ppm-benefits-connectors {
+    display: none;
+  }
+
+  .ppm-benefits-column-left {
+    order: 1;
+  }
+
+  .ppm-benefits-column-center {
+    order: 2;
+  }
+
+  .ppm-benefits-column-right {
+    order: 3;
+  }
+
+  .ppm-benefits-hub {
+    min-height: 320px;
+  }
+
+  .ppm-benefits-keyword-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ppm-benefits-results {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -10235,10 +10594,6 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     height: 140px;
   }
 
-  .ppm-benefits-grid {
-    grid-template-columns: 1fr;
-  }
-
   .ppm-overview-title {
     font-size: var(--text-2xl);
   }
@@ -10247,8 +10602,20 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     font-size: var(--text-base);
   }
 
-  .ppm-benefits-title {
-    font-size: var(--text-3xl);
+  .ppm-benefits-node {
+    min-height: auto;
+  }
+
+  .ppm-benefits-keyword-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ppm-benefits-keyword {
+    min-height: 56px;
+  }
+
+  .ppm-benefits-hub {
+    min-height: 260px;
   }
 }
 
@@ -10259,6 +10626,237 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.ppm-overview-infographic {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-2xl);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.01)
+    ),
+    var(--color-bg-primary);
+  overflow: hidden;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.35);
+}
+
+.ppm-overview-infographic-row {
+  display: grid;
+}
+
+.ppm-overview-infographic-row-top {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ppm-overview-infographic-row-bottom {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ppm-overview-infographic-divider {
+  height: 1px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ppm-overview-value-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-sm);
+  padding: 44px 30px 40px;
+}
+
+.ppm-overview-infographic-row-top .ppm-overview-value-item:not(:last-child),
+.ppm-overview-infographic-row-bottom .ppm-overview-value-item:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ppm-overview-value-icon {
+  width: 72px;
+  height: 72px;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+
+.ppm-overview-value-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ppm-overview-value-title {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  font-family: var(--font-display);
+  color: var(--color-text-primary);
+}
+
+.ppm-overview-value-title-ko {
+  font-size: clamp(var(--text-xl), 1.6vw, var(--text-2xl));
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.ppm-overview-value-title-en {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.ppm-overview-value-description {
+  margin: 0;
+  max-width: 360px;
+  color: var(--color-text-secondary);
+  font-size: var(--text-base);
+  line-height: 1.75;
+  word-break: keep-all;
+}
+
+/* PPM Overview 2 - Precision Planning */
+.ppm-overview-precision-layout {
+  --ppm-critical-path-color: var(--color-warning, #ff8f3d);
+  display: grid;
+  grid-template-columns: minmax(0, 31fr) minmax(0, 38fr) minmax(0, 31fr);
+  align-items: center;
+  gap: clamp(var(--space-lg), 2.3vw, var(--space-2xl));
+  padding: clamp(var(--space-xl), 3.5vw, var(--space-3xl));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-2xl);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.01)
+    ),
+    var(--color-bg-primary);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.35);
+}
+
+.ppm-overview-precision-module {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: var(--space-md);
+}
+
+.ppm-overview-precision-module-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--color-accent);
+}
+
+.ppm-overview-precision-module-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ppm-overview-precision-module-title {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-display);
+  color: var(--color-text-primary);
+}
+
+.ppm-overview-precision-module-title-ko {
+  font-size: clamp(var(--text-xl), 1.45vw, var(--text-2xl));
+  font-weight: 700;
+  line-height: 1.35;
+  word-break: keep-all;
+}
+
+.ppm-overview-precision-module-title-en {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+
+.ppm-overview-precision-module-description {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--text-base);
+  line-height: 1.75;
+  word-break: keep-all;
+}
+
+.ppm-overview-precision-diagram {
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ppm-overview-precision-svg {
+  width: 100%;
+  height: auto;
+  max-height: 430px;
+}
+
+.ppm-overview-precision-line {
+  fill: none;
+  stroke: rgba(215, 225, 235, 0.44);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ppm-overview-precision-critical-path {
+  fill: none;
+  stroke: var(--ppm-critical-path-color);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ppm-overview-precision-critical-dot,
+.ppm-overview-precision-critical-arrow {
+  fill: var(--ppm-critical-path-color);
+}
+
+.ppm-overview-precision-critical-badge rect {
+  fill: var(--ppm-critical-path-color);
+}
+
+.ppm-overview-precision-critical-badge text {
+  fill: #f8fbff;
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.ppm-overview-precision-node {
+  fill: rgba(14, 44, 94, 0.88);
+  stroke: rgba(133, 183, 255, 0.35);
+  stroke-width: 1.2;
+}
+
+.ppm-overview-precision-node.is-main {
+  fill: rgba(16, 53, 113, 0.92);
+}
+
+.ppm-overview-precision-node.is-core {
+  fill: rgba(18, 58, 122, 0.94);
+}
+
+.ppm-overview-precision-project-box {
+  fill: rgba(17, 58, 122, 0.95);
+  stroke: rgba(133, 183, 255, 0.38);
+  stroke-width: 1.4;
+}
+
+.ppm-overview-precision-project-text {
+  fill: var(--color-text-primary);
+  font-family: var(--font-display);
+  font-size: 35px;
+  font-weight: 700;
 }
 
 .ppm-overview-content-container {
@@ -10321,10 +10919,287 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   line-height: 1.6;
 }
 
+/* PPM Benefits 2 - Primavera P6 vs. MS Project */
+.ppm-benefits-compare-section {
+  align-items: flex-start;
+}
+
+.ppm-benefits-compare-shell {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(15px, 2.3vh, 21px);
+}
+
+.ppm-benefits-compare-card {
+  padding: clamp(13px, 1.55vw, 19px);
+}
+
+.ppm-benefits-compare-table-wrap {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: rgba(8, 16, 32, 0.68);
+}
+
+.ppm-benefits-compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.ppm-benefits-compare-table thead th {
+  padding: 16px 20px;
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-base), 1.12vw, var(--text-lg));
+  font-weight: 700;
+  color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.04);
+  text-align: left;
+}
+
+.ppm-benefits-compare-table thead th:nth-child(1) {
+  width: 30%;
+}
+
+.ppm-benefits-compare-table thead th:nth-child(2),
+.ppm-benefits-compare-table thead th:nth-child(3) {
+  width: 35%;
+}
+
+.ppm-benefits-compare-table tbody th,
+.ppm-benefits-compare-table tbody td {
+  padding: 16px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  vertical-align: middle;
+}
+
+.ppm-benefits-compare-table tbody th {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-sm), 1.02vw, var(--text-base));
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-align: left;
+  background: rgba(255, 255, 255, 0.02);
+  line-height: 1.36;
+}
+
+.ppm-benefits-compare-table tbody td {
+  font-size: clamp(var(--text-sm), 1vw, var(--text-base));
+  color: var(--color-text-secondary);
+  line-height: 1.36;
+}
+
+.ppm-benefits-compare-cell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 13px;
+  line-height: 1.36;
+  white-space: nowrap;
+}
+
+.ppm-benefits-compare-icon {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  color: rgba(167, 223, 255, 0.95);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ppm-benefits-compare-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ppm-benefits-compare-summary {
+  max-width: 100%;
+  margin: clamp(12px, 1.8vh, 18px) auto 0;
+  width: 100%;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: clamp(16px, 2.3vh, 25px) clamp(20px, 2.6vw, 32px);
+  text-align: center;
+  background:
+    linear-gradient(
+      150deg,
+      rgba(255, 255, 255, 0.03),
+      rgba(255, 255, 255, 0.01)
+    ),
+    rgba(6, 12, 24, 0.65);
+}
+
+.ppm-benefits-compare-summary p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-base), 1.84vw, var(--text-xl));
+  font-weight: 700;
+  line-height: 1.34;
+  color: var(--color-text-primary);
+  word-break: keep-all;
+}
+
+.ppm-benefits-compare-summary p + p {
+  margin-top: 10px;
+}
+
+@media (max-height: 920px) and (min-width: 1025px) {
+  .ppm-benefits-compare-shell {
+    gap: 12px;
+  }
+
+  .ppm-benefits-compare-card {
+    padding: 9px;
+  }
+
+  .ppm-benefits-compare-table thead th,
+  .ppm-benefits-compare-table tbody th,
+  .ppm-benefits-compare-table tbody td {
+    padding: 13px 16px;
+  }
+
+  .ppm-benefits-compare-summary {
+    margin-top: 20px;
+    padding: 13px 17px;
+  }
+
+  .ppm-benefits-compare-summary p {
+    font-size: clamp(var(--text-sm), 1.45vw, var(--text-lg));
+  }
+}
+
+@media (max-height: 820px) and (min-width: 1025px) {
+  .ppm-benefits-compare-table thead th,
+  .ppm-benefits-compare-table tbody th,
+  .ppm-benefits-compare-table tbody td {
+    padding: 12px 15px;
+  }
+
+  .ppm-benefits-compare-icon {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+  }
+
+  .ppm-benefits-compare-summary p + p {
+    margin-top: 7px;
+  }
+
+  .ppm-benefits-compare-summary {
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ppm-benefits-compare-table thead th,
+  .ppm-benefits-compare-table tbody th,
+  .ppm-benefits-compare-table tbody td {
+    padding: 14px 16px;
+  }
+
+  .ppm-benefits-compare-table thead th {
+    font-size: var(--text-base);
+  }
+
+  .ppm-benefits-compare-cell {
+    font-size: var(--text-sm);
+  }
+}
+
+@media (max-width: 768px) {
+  .ppm-benefits-compare-table-wrap {
+    border: none;
+    background: transparent;
+    overflow: visible;
+  }
+
+  .ppm-benefits-compare-table thead {
+    display: none;
+  }
+
+  .ppm-benefits-compare-table,
+  .ppm-benefits-compare-table tbody,
+  .ppm-benefits-compare-table tr,
+  .ppm-benefits-compare-table th,
+  .ppm-benefits-compare-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .ppm-benefits-compare-table tbody tr {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: rgba(8, 16, 32, 0.68);
+  }
+
+  .ppm-benefits-compare-table tbody tr + tr {
+    margin-top: 10px;
+  }
+
+  .ppm-benefits-compare-table tbody th {
+    border-top: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 14px 16px;
+  }
+
+  .ppm-benefits-compare-table tbody td {
+    border-top: none;
+    padding: 12px 16px 14px;
+  }
+
+  .ppm-benefits-compare-table tbody td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 8px;
+    font-size: var(--text-xs);
+    color: rgba(176, 198, 224, 0.9);
+    letter-spacing: 0.02em;
+  }
+
+  .ppm-benefits-compare-cell {
+    white-space: normal;
+  }
+}
+
 /* Responsive - Overview Content */
 @media (max-width: 1024px) {
+  .ppm-overview-infographic-row-top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ppm-overview-infographic-row-top .ppm-overview-value-item {
+    border-right: none;
+  }
+
+  .ppm-overview-infographic-row-top .ppm-overview-value-item:nth-child(odd) {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .ppm-overview-infographic-row-top .ppm-overview-value-item:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .ppm-overview-infographic-row-top .ppm-overview-value-item:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
   .ppm-overview-features-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ppm-overview-precision-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    padding: var(--space-xl);
+  }
+
+  .ppm-overview-precision-diagram {
+    min-height: 320px;
   }
 }
 
@@ -10333,12 +11208,64 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     padding: 100px var(--space-md) var(--space-2xl);
   }
 
+  .ppm-overview-infographic-row-top,
+  .ppm-overview-infographic-row-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .ppm-overview-infographic-row-top .ppm-overview-value-item,
+  .ppm-overview-infographic-row-bottom .ppm-overview-value-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 36px 24px;
+  }
+
+  .ppm-overview-infographic-row-top .ppm-overview-value-item:last-child,
+  .ppm-overview-infographic-row-bottom .ppm-overview-value-item:last-child {
+    border-bottom: none;
+  }
+
+  .ppm-overview-value-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .ppm-overview-value-title-en {
+    font-size: var(--text-base);
+  }
+
   .ppm-overview-features-grid {
     grid-template-columns: 1fr;
   }
 
   .ppm-section-title {
     font-size: var(--text-3xl);
+  }
+
+  .ppm-overview-precision-layout {
+    padding: 24px 18px;
+    gap: var(--space-lg);
+  }
+
+  .ppm-overview-precision-module-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .ppm-overview-precision-module-title-en {
+    font-size: var(--text-base);
+  }
+
+  .ppm-overview-precision-diagram {
+    min-height: 250px;
+  }
+
+  .ppm-overview-precision-critical-badge text {
+    font-size: 24px;
+  }
+
+  .ppm-overview-precision-project-text {
+    font-size: 30px;
   }
 }
 /* ============================================

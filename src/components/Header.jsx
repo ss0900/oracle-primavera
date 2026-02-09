@@ -22,8 +22,7 @@ function Header() {
     //   label: "Company",
     //   subItems: [
     //     {
-    //       id: "intro",
-    //       title: "회사소개",
+      //       title: "회사소개",
     //       path: "/company/intro",
     //       image:
     //         "https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=600",
