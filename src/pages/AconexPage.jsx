@@ -69,7 +69,7 @@ const roleCompareData = [
   },
   {
     id: "aconex",
-    title: "Oracle Aconex",
+    title: "Oracle Primavera Aconex",
     summary: [
       "실행과 기록 (Execution & Records)",
       "실행 과정의 모든 기록 (All Execution Records)",
@@ -284,6 +284,127 @@ function AconexRecordsIcon() {
           transform="rotate(30 150 95)"
         />
       </g>
+    </svg>
+  );
+}
+
+function IntegrationScheduleGlyph() {
+  return (
+    <svg
+      viewBox="0 0 48 48"
+      role="img"
+      aria-label="일정 데이터 아이콘"
+      focusable="false"
+    >
+      <rect
+        x="7"
+        y="8"
+        width="34"
+        height="32"
+        rx="6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <line
+        x1="7"
+        y1="16"
+        x2="41"
+        y2="16"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <line
+        x1="16"
+        y1="16"
+        x2="16"
+        y2="40"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <line
+        x1="24"
+        y1="16"
+        x2="24"
+        y2="40"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <line
+        x1="32"
+        y1="16"
+        x2="32"
+        y2="40"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <line
+        x1="7"
+        y1="24"
+        x2="41"
+        y2="24"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <line
+        x1="7"
+        y1="32"
+        x2="41"
+        y2="32"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <rect x="18" y="27" width="12" height="4" rx="2" fill="currentColor" />
+      <rect x="25" y="19" width="8" height="4" rx="2" fill="currentColor" />
+    </svg>
+  );
+}
+
+function IntegrationInformationGlyph() {
+  return (
+    <svg
+      viewBox="0 0 48 48"
+      role="img"
+      aria-label="문서 정보 아이콘"
+      focusable="false"
+    >
+      <path
+        d="M12 31L23 23L36 29L25 37Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10 25L21 17L34 23L23 31Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8 19L19 11L32 17L21 25Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+      <line
+        x1="20"
+        y1="17"
+        x2="27"
+        y2="22"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <line
+        x1="16.5"
+        y1="19.5"
+        x2="23.5"
+        y2="24.5"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
     </svg>
   );
 }
@@ -762,11 +883,11 @@ function AconexPage() {
       }
 
       if (benefitsSectionRef2.current) {
-        const placeholderItems = benefitsCardsRef2.current.filter(Boolean);
-        if (!placeholderItems.length) return;
+        const benefits2Items = benefitsCardsRef2.current.filter(Boolean);
+        if (!benefits2Items.length) return;
 
         gsap.fromTo(
-          placeholderItems,
+          benefits2Items,
           { y: 40, opacity: 0 },
           {
             y: 0,
@@ -804,7 +925,9 @@ function AconexPage() {
             }}
           >
             <div className="tm-hero-content">
-              <h1 className="aconex-hero-title tm-hero-title">Oracle Aconex</h1>
+              <h1 className="aconex-hero-title tm-hero-title">
+                Oracle Primavera Aconex
+              </h1>
               <p className="tm-hero-subtitle">Aconex</p>
             </div>
             <button
@@ -964,7 +1087,7 @@ function AconexPage() {
                         <circle cx="390" cy="252" r="90" />
                         <text x="390" y="248" textAnchor="middle">
                           <tspan x="390" dy="0">
-                            Oracle Aconex
+                            Oracle Primavera Aconex
                           </tspan>
                           <tspan x="390" dy="36">
                             (CDE)
@@ -1197,8 +1320,8 @@ function AconexPage() {
           id="benefits-2"
           ref={benefitsSectionRef2}
         >
-          <div className="tm-methods-section aconex-overview-shell">
-            <div className="tm-methods-container aconex-overview-frame">
+          <div className="tm-methods-section aconex-overview-shell aconex-benefits-integration-shell">
+            <div className="tm-methods-container aconex-overview-frame aconex-benefits-integration-frame">
               <div
                 className="tm-section-header"
                 ref={(element) => (benefitsCardsRef2.current[0] = element)}
@@ -1209,10 +1332,99 @@ function AconexPage() {
               </div>
 
               <article
-                className="tm-ppm-eppm-card aconex-benefits-placeholder-card"
+                className="tm-ppm-eppm-card aconex-benefits-integration-card"
                 ref={(element) => (benefitsCardsRef2.current[1] = element)}
               >
-                <p className="aconex-benefits-placeholder-text">콘텐츠 준비 중</p>
+                <div
+                  className="aconex-benefits-integration-diagram"
+                  role="img"
+                  aria-label="Primavera와 Aconex 사이 일정 데이터와 진척 및 이슈가 양방향으로 연동되는 다이어그램"
+                >
+                  <article
+                    className="aconex-benefits-node aconex-benefits-node-left"
+                    aria-label="Primavera 일정 블록"
+                  >
+                    <span
+                      className="aconex-benefits-node-icon"
+                      aria-hidden="true"
+                    >
+                      <IntegrationScheduleGlyph />
+                    </span>
+                    <p className="aconex-benefits-node-title">
+                      Primavera
+                      <span>(Schedule)</span>
+                    </p>
+                  </article>
+
+                  <div className="aconex-benefits-sync-ring" aria-hidden="true">
+                    <svg
+                      className="aconex-benefits-sync-ring-svg"
+                      viewBox="0 0 420 420"
+                      role="presentation"
+                    >
+                      <defs>
+                        <marker
+                          id="aconex-benefits-sync-arrow"
+                          markerWidth="9"
+                          markerHeight="9"
+                          refX="8"
+                          refY="4.5"
+                          orient="auto"
+                        >
+                          <path d="M1,1 L8,4.5 L1,8" />
+                        </marker>
+                      </defs>
+                      <path
+                        d="M84 124 A156 156 0 0 1 336 124"
+                        markerEnd="url(#aconex-benefits-sync-arrow)"
+                      />
+                      <path
+                        d="M336 296 A156 156 0 0 1 84 296"
+                        markerEnd="url(#aconex-benefits-sync-arrow)"
+                      />
+                    </svg>
+                    <p className="aconex-benefits-sync-label aconex-benefits-sync-label-top">
+                      일정 데이터
+                      <span>(Schedule Data)</span>
+                    </p>
+                    <p className="aconex-benefits-sync-label aconex-benefits-sync-label-bottom">
+                      진척 및 이슈
+                      <span>(Progress &amp; Issues)</span>
+                    </p>
+                  </div>
+
+                  <article
+                    className="aconex-benefits-node aconex-benefits-node-right"
+                    aria-label="Aconex 정보 블록"
+                  >
+                    <span
+                      className="aconex-benefits-node-icon"
+                      aria-hidden="true"
+                    >
+                      <IntegrationInformationGlyph />
+                    </span>
+                    <p className="aconex-benefits-node-title">
+                      Aconex
+                      <span>(Information)</span>
+                    </p>
+                  </article>
+                </div>
+
+                <div
+                  className="aconex-benefits-summary"
+                  ref={(element) => (benefitsCardsRef2.current[2] = element)}
+                >
+                  <p className="aconex-benefits-summary-line">
+                    <span className="aconex-benefits-summary-label">
+                      상호 보완
+                    </span>
+                    : Primavera의 일정 통제 + Aconex의 프로세스/정보 통제
+                  </p>
+                  <p className="aconex-benefits-summary-line">
+                    <span className="aconex-benefits-summary-label">결과</span>:
+                    계획된 일정에 맞춰 분쟁 없이 프로젝트를 인도
+                  </p>
+                </div>
               </article>
             </div>
           </div>
