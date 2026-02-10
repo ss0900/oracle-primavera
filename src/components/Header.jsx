@@ -164,8 +164,7 @@ function Header() {
           id: "overview",
           title: "개요",
           path: "/unifier/overview/1",
-          image:
-            "https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg?auto=compress&cs=tinysrgb&w=600",
+          image: "/Unifier%20개요.png",
         },
         {
           id: "functions",

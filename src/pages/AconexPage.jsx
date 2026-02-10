@@ -18,6 +18,7 @@ const sections = [
   { id: "hero", label: "Aconex" },
   { id: "menu", label: "메뉴" },
   { id: "overview-content", label: "개요" },
+  { id: "overview-content-2", label: "개요 2" },
   { id: "functions", label: "기능 소개" },
   { id: "functions-2", label: "기능 소개 2" },
   { id: "projects", label: "프로젝트 사례" },
@@ -50,11 +51,10 @@ const subMenuItems = [
   },
 ];
 
-const overviewFeatures = [
-  { title: "문서 관리", desc: "프로젝트 문서의 중앙 집중 관리" },
-  { title: "워크플로우", desc: "승인 및 검토 프로세스 자동화" },
-  { title: "협업", desc: "프로젝트 참여자 간 실시간 협업" },
-  { title: "추적성", desc: "모든 커뮤니케이션 이력 관리" },
+const overviewRiskBullets = [
+  "수천 명의 참여자와 수백만 건의 문서",
+  "파편화된 커뮤니케이션으로 인한 책임 소재 불분명",
+  "데이터 누락이 초래하는 분쟁 및 클레임 비용",
 ];
 
 const projectsData = [
@@ -96,11 +96,13 @@ function AconexPage() {
   const heroSectionRef = useRef(null);
   const menuSectionRef = useRef(null);
   const overviewSectionRef = useRef(null);
+  const overviewSectionRef2 = useRef(null);
   const functionsSectionRef = useRef(null);
   const functionsSectionRef2 = useRef(null);
   const projectsSectionRef = useRef(null);
 
   const overviewCardsRef = useRef([]);
+  const overviewCardsRef2 = useRef([]);
   const functionsImageCardRef = useRef(null);
   const functionsImageCardRef2 = useRef(null);
   const functionsCardsRef = useRef([]);
@@ -164,7 +166,8 @@ function AconexPage() {
     if (!sectionId) return;
 
     let targetId = sectionId;
-    if (sectionId === "overview") targetId = "overview-content";
+    if (sectionId === "overview")
+      targetId = subId === "2" ? "overview-content-2" : "overview-content";
     if (sectionId === "features") targetId = "functions";
     if (sectionId === "functions")
       targetId = subId === "2" ? "functions-2" : "functions";
@@ -182,9 +185,10 @@ function AconexPage() {
     (index) => {
       let path = "/aconex";
       if (index === 2) path = "/aconex/overview/1";
-      if (index === 3) path = "/aconex/functions/1";
-      if (index === 4) path = "/aconex/functions/2";
-      if (index === 5) path = "/aconex/projects";
+      if (index === 3) path = "/aconex/overview/2";
+      if (index === 4) path = "/aconex/functions/1";
+      if (index === 5) path = "/aconex/functions/2";
+      if (index === 6) path = "/aconex/projects";
 
       navigate(path, { replace: true });
     },
@@ -354,21 +358,45 @@ function AconexPage() {
       }
 
       if (overviewSectionRef.current) {
-        gsap.fromTo(
-          overviewCardsRef.current,
-          { y: 30, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.5,
-            stagger: 0.1,
-            scrollTrigger: {
-              trigger: overviewSectionRef.current,
-              start: "top 60%",
-              toggleActions: "play none none reverse",
+        const overviewCards = overviewCardsRef.current.filter(Boolean);
+        if (overviewCards.length) {
+          gsap.fromTo(
+            overviewCards,
+            { y: 30, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.5,
+              stagger: 0.1,
+              scrollTrigger: {
+                trigger: overviewSectionRef.current,
+                start: "top 60%",
+                toggleActions: "play none none reverse",
+              },
             },
-          },
-        );
+          );
+        }
+      }
+
+      if (overviewSectionRef2.current) {
+        const overviewCards2 = overviewCardsRef2.current.filter(Boolean);
+        if (overviewCards2.length) {
+          gsap.fromTo(
+            overviewCards2,
+            { y: 30, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.5,
+              stagger: 0.1,
+              scrollTrigger: {
+                trigger: overviewSectionRef2.current,
+                start: "top 60%",
+                toggleActions: "play none none reverse",
+              },
+            },
+          );
+        }
       }
 
       if (functionsSectionRef.current) {
@@ -624,78 +652,74 @@ function AconexPage() {
           id="overview-content"
           ref={overviewSectionRef}
         >
-          <div className="tm-methods-section">
-            <div className="tm-methods-container">
-              <div className="tm-section-header">
-                <h2 className="tm-section-title">Aconex 개요</h2>
-                <p
-                  style={{
-                    textAlign: "center",
-                    color: "var(--text-secondary)",
-                    marginBottom: "40px",
-                  }}
-                >
-                  프로젝트 문서 관리와 협업을 위한 클라우드 플랫폼
-                </p>
-              </div>
+          <div className="tm-methods-section aconex-overview-shell">
+            <div className="tm-methods-container aconex-overview-frame">
               <div
-                className="tm-ppm-eppm-grid"
-                style={{ gridTemplateColumns: "repeat(4, 1fr)", gap: "20px" }}
+                className="tm-section-header"
+                ref={(element) => (overviewCardsRef.current[0] = element)}
               >
-                {overviewFeatures.map((item, index) => (
-                  <div
-                    key={index}
-                    className="tm-spoke-box"
-                    style={{
-                      width: "100%",
-                      flexDirection: "column",
-                      padding: "30px 20px",
-                      height: "auto",
-                      alignItems: "center",
-                      textAlign: "center",
-                    }}
-                    ref={(element) =>
-                      (overviewCardsRef.current[index] = element)
-                    }
-                  >
-                    <div
-                      className="tm-spoke-icon"
-                      style={{ marginBottom: "15px" }}
-                    >
-                      <svg
-                        viewBox="0 0 24 24"
-                        width="32"
-                        height="32"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                      </svg>
-                    </div>
-                    <h4
-                      style={{
-                        fontSize: "1.2rem",
-                        marginBottom: "10px",
-                        color: "var(--text-primary)",
-                      }}
-                    >
-                      {item.title}
-                    </h4>
-                    <p
-                      style={{
-                        fontSize: "0.9rem",
-                        color: "var(--text-secondary)",
-                        lineHeight: "1.5",
-                      }}
-                    >
-                      {item.desc}
-                    </p>
+                <h2 className="tm-section-title">
+                  건설 리스크의 핵심은 ‘정보의 단절’입니다.
+                </h2>
+              </div>
+
+              <div className="aconex-overview-layout">
+                <article
+                  className="aconex-overview-copy"
+                  ref={(element) => (overviewCardsRef.current[1] = element)}
+                >
+                  <ul className="aconex-overview-bullets">
+                    {overviewRiskBullets.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </article>
+
+                <article
+                  className="tm-ppm-eppm-card aconex-overview-diagram-card"
+                  ref={(element) => (overviewCardsRef.current[2] = element)}
+                >
+                  <img
+                    className="aconex-overview-diagram-image"
+                    src="/Information Silos.png"
+                    alt="Information Silos 다이어그램"
+                  />
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="aconex-panel tm-panel"
+          id="overview-content-2"
+          ref={overviewSectionRef2}
+        >
+          <div className="tm-methods-section aconex-overview-shell">
+            <div className="tm-methods-container aconex-overview-frame">
+              <div
+                className="tm-section-header"
+                ref={(element) => (overviewCardsRef2.current[0] = element)}
+              >
+                <h2 className="tm-section-title">공통 데이터 환경(CDE)의 완성</h2>
+              </div>
+
+              <div className="aconex-overview-layout">
+                <article
+                  className="aconex-overview-copy"
+                  ref={(element) => (overviewCardsRef2.current[1] = element)}
+                >
+                  <div className="tm-ppm-eppm-card tm-core-placeholder">
+                    <p>Placeholder</p>
                   </div>
-                ))}
+                </article>
+
+                <article
+                  className="tm-ppm-eppm-card aconex-overview-diagram-card"
+                  ref={(element) => (overviewCardsRef2.current[2] = element)}
+                >
+                  <div className="cpm-image-placeholder">Placeholder</div>
+                </article>
               </div>
             </div>
           </div>

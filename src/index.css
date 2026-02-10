@@ -11008,6 +11008,167 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   --functions-media-offset-y: 37px;
 }
 
+/* Aconex Overview - shared scaffold for overview 1 and 2 */
+.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-shell {
+  padding: clamp(20px, 4vh, 44px) var(--space-xl);
+}
+
+.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-frame {
+  max-width: 1160px;
+  min-height: calc(100vh - clamp(72px, 12vh, 140px) - 40px);
+  margin-top: 200px;
+  justify-content: flex-start;
+  gap: clamp(18px, 2vh, 28px);
+}
+
+.aconex-page-container :is(#overview-content, #overview-content-2) .tm-section-header {
+  margin-bottom: clamp(50px, 3vh, 40px);
+}
+
+.aconex-page-container :is(#overview-content, #overview-content-2) .tm-section-title {
+  max-width: 920px;
+  line-height: 1.2;
+}
+
+.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
+  gap: clamp(18px, 2.2vw, 34px);
+  align-items: center;
+}
+
+.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(18px, 2.2vh, 30px);
+}
+
+.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-headline {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-xl), 1.8vw, var(--text-3xl));
+  font-weight: 700;
+  line-height: 1.36;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-headline-accent {
+  color: var(--color-accent-secondary);
+}
+
+.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-bullets {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: clamp(var(--space-xl), 4vh, var(--space-2xl));
+}
+
+.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-bullets li {
+  position: relative;
+  margin: 0;
+  padding-left: 22px;
+  font-size: clamp(var(--text-lg), 1.35vw, var(--text-xl));
+  line-height: 1.55;
+  color: var(--color-text-primary);
+  word-break: keep-all;
+}
+
+.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--color-accent-secondary);
+  transform: translateY(-50%);
+}
+
+.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-diagram-card {
+  margin: 0;
+  padding: clamp(8px, 0.8vw, 12px);
+  align-self: start;
+  border-color: rgba(255, 255, 255, 0.1);
+  background: transparent;
+}
+
+.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-diagram-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2816 / 1536;
+  border-radius: calc(var(--radius-xl) - 6px);
+  object-fit: cover;
+}
+
+@media (max-height: 900px) and (min-width: 1025px) {
+  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-frame {
+    min-height: calc(100vh - 84px - 40px);
+    gap: var(--space-md);
+  }
+
+  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-headline {
+    font-size: clamp(1.08rem, 1.45vw, 1.42rem);
+  }
+
+  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-bullets li {
+    font-size: clamp(0.92rem, 1.08vw, 1.02rem);
+  }
+}
+
+@media (max-width: 1024px) {
+  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-frame {
+    min-height: auto;
+    margin-top: clamp(152px, 10vh, 188px);
+    gap: var(--space-lg);
+  }
+
+  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-copy {
+    order: 1;
+  }
+
+  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-diagram-card {
+    order: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-shell {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-frame {
+    margin-top: 136px;
+  }
+
+  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-headline {
+    font-size: clamp(1.02rem, 4.7vw, 1.26rem);
+  }
+
+  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-bullets li {
+    padding-left: 20px;
+    font-size: var(--text-lg);
+  }
+
+  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-bullets li::before {
+    width: 7px;
+    height: 7px;
+  }
+
+  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-diagram-card {
+    padding: var(--space-md);
+  }
+}
+
 /* Unifier Overview 1 - Structured infographic layout */
 #overview-content .unifier-overview-shell {
   padding: clamp(20px, 4vh, 44px) var(--space-xl);
