@@ -176,8 +176,7 @@ function Header() {
           id: "benefits",
           title: "효과",
           path: "/unifier/benefits/1",
-          image:
-            "https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=600",
+          image: "/Unifier%20효과.png",
         },
       ],
     },
@@ -201,8 +200,8 @@ function Header() {
         },
         {
           id: "projects",
-          title: "프로젝트 사례",
-          path: "/aconex/projects",
+          title: "효과",
+          path: "/aconex/benefits/1",
           image:
             "https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=600",
         },

@@ -21,7 +21,8 @@ const sections = [
   { id: "overview-content-2", label: "개요 2" },
   { id: "functions", label: "기능 소개" },
   { id: "functions-2", label: "기능 소개 2" },
-  { id: "projects", label: "프로젝트 사례" },
+  { id: "projects", label: "효과" },
+  { id: "benefits-2", label: "효과 2" },
 ];
 
 const subMenuItems = [
@@ -42,9 +43,9 @@ const subMenuItems = [
     link: "#functions",
   },
   {
-    id: "projects",
-    title: "프로젝트 사례",
-    description: "글로벌 대형 프로젝트 적용 사례",
+    id: "benefits",
+    title: "효과",
+    description: "Primavera와 Aconex 역할 비교",
     image:
       "https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=600",
     link: "#projects",
@@ -57,28 +58,235 @@ const overviewRiskBullets = [
   "데이터 누락이 초래하는 분쟁 및 클레임 비용",
 ];
 
-const projectsData = [
+const roleCompareData = [
   {
-    tag: "건축",
-    title: "대형 복합 건물",
-    desc: "초고층 복합 건물 프로젝트의 문서 협업 관리",
-    img: "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600",
+    id: "primavera",
+    title: "Oracle Primavera",
+    summary: [
+      "계획과 통제 (Planning & Control)",
+      "언제 무엇을 할지 (When & What)",
+    ],
   },
   {
-    tag: "교통",
-    title: "철도 인프라",
-    desc: "고속철도 건설 프로젝트 문서 관리",
-    img: "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
-  {
-    tag: "에너지",
-    title: "발전소 건설",
-    desc: "해외 발전소 EPC 프로젝트 협업",
-    img: "https://images.pexels.com/photos/1036936/pexels-photo-1036936.jpeg?auto=compress&cs=tinysrgb&w=600",
+    id: "aconex",
+    title: "Oracle Aconex",
+    summary: [
+      "실행과 기록 (Execution & Records)",
+      "실행 과정의 모든 기록 (All Execution Records)",
+    ],
   },
 ];
 
 const { title: functionsTitle, items: functionItems } = aconexFunctionsIntro;
+
+function PrimaveraScheduleIcon() {
+  return (
+    <svg viewBox="0 0 260 180" role="img" aria-label="일정 간트 보드 아이콘">
+      <rect
+        x="20"
+        y="20"
+        width="220"
+        height="140"
+        rx="12"
+        className="aconex-role-icon-outline"
+      />
+      <rect
+        x="20"
+        y="20"
+        width="220"
+        height="22"
+        rx="12"
+        className="aconex-role-icon-accent-soft"
+      />
+      <rect
+        x="20"
+        y="34"
+        width="220"
+        height="8"
+        className="aconex-role-icon-accent-soft"
+      />
+
+      <line
+        x1="66"
+        y1="42"
+        x2="66"
+        y2="160"
+        className="aconex-role-icon-line"
+      />
+      <line
+        x1="98"
+        y1="42"
+        x2="98"
+        y2="160"
+        className="aconex-role-icon-line"
+      />
+      <line
+        x1="130"
+        y1="42"
+        x2="130"
+        y2="160"
+        className="aconex-role-icon-line"
+      />
+      <line
+        x1="162"
+        y1="42"
+        x2="162"
+        y2="160"
+        className="aconex-role-icon-line"
+      />
+      <line
+        x1="194"
+        y1="42"
+        x2="194"
+        y2="160"
+        className="aconex-role-icon-line"
+      />
+
+      <line
+        x1="20"
+        y1="70"
+        x2="240"
+        y2="70"
+        className="aconex-role-icon-line"
+      />
+      <line
+        x1="20"
+        y1="96"
+        x2="240"
+        y2="96"
+        className="aconex-role-icon-line"
+      />
+      <line
+        x1="20"
+        y1="122"
+        x2="240"
+        y2="122"
+        className="aconex-role-icon-line"
+      />
+
+      <rect
+        x="28"
+        y="54"
+        width="30"
+        height="7"
+        rx="3.5"
+        className="aconex-role-icon-text-line"
+      />
+      <rect
+        x="28"
+        y="80"
+        width="30"
+        height="7"
+        rx="3.5"
+        className="aconex-role-icon-text-line"
+      />
+      <rect
+        x="28"
+        y="106"
+        width="30"
+        height="7"
+        rx="3.5"
+        className="aconex-role-icon-text-line"
+      />
+      <rect
+        x="28"
+        y="132"
+        width="30"
+        height="7"
+        rx="3.5"
+        className="aconex-role-icon-text-line"
+      />
+
+      <rect
+        x="76"
+        y="78"
+        width="48"
+        height="11"
+        rx="5.5"
+        className="aconex-role-icon-accent"
+      />
+      <rect
+        x="108"
+        y="104"
+        width="58"
+        height="11"
+        rx="5.5"
+        className="aconex-role-icon-accent"
+      />
+      <rect
+        x="150"
+        y="130"
+        width="56"
+        height="11"
+        rx="5.5"
+        className="aconex-role-icon-accent"
+      />
+
+      <polyline
+        points="124,84 138,84 138,109"
+        className="aconex-role-icon-connector"
+      />
+      <polyline
+        points="166,110 178,110 178,135"
+        className="aconex-role-icon-connector"
+      />
+    </svg>
+  );
+}
+
+function AconexRecordsIcon() {
+  return (
+    <svg viewBox="0 0 260 180" role="img" aria-label="문서 기록 아이콘">
+      <path
+        d="M55 112 L138 62 L205 106 L122 156 Z"
+        className="aconex-role-icon-outline"
+      />
+      <path
+        d="M47 98 L130 48 L197 92 L114 142 Z"
+        className="aconex-role-icon-outline"
+      />
+      <path
+        d="M39 84 L122 34 L189 78 L106 128 Z"
+        className="aconex-role-icon-outline"
+      />
+
+      <path
+        d="M39 84 L122 34 L189 78 L106 128 Z"
+        className="aconex-role-icon-paper"
+      />
+      <line
+        x1="83"
+        y1="72"
+        x2="150"
+        y2="111"
+        className="aconex-role-icon-text-line"
+      />
+      <line
+        x1="95"
+        y1="64"
+        x2="162"
+        y2="103"
+        className="aconex-role-icon-text-line"
+      />
+      <line
+        x1="107"
+        y1="57"
+        x2="174"
+        y2="96"
+        className="aconex-role-icon-text-line"
+      />
+
+      <g transform="translate(-45, 0)">
+        <circle cx="143" cy="104" r="16" className="aconex-role-icon-seal" />
+        <path
+          d="M138 116 L133 146 L142 140 L152 150 L157 120 Z"
+          className="aconex-role-icon-ribbon"
+          transform="rotate(30 150 95)"
+        />
+      </g>
+    </svg>
+  );
+}
 
 function AconexPage() {
   const { sectionId, subId } = useParams();
@@ -100,6 +308,7 @@ function AconexPage() {
   const functionsSectionRef = useRef(null);
   const functionsSectionRef2 = useRef(null);
   const projectsSectionRef = useRef(null);
+  const benefitsSectionRef2 = useRef(null);
 
   const overviewCardsRef = useRef([]);
   const overviewCardsRef2 = useRef([]);
@@ -108,6 +317,7 @@ function AconexPage() {
   const functionsCardsRef = useRef([]);
   const functionsCardsRef2 = useRef([]);
   const projectsCardsRef = useRef([]);
+  const benefitsCardsRef2 = useRef([]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -171,6 +381,8 @@ function AconexPage() {
     if (sectionId === "features") targetId = "functions";
     if (sectionId === "functions")
       targetId = subId === "2" ? "functions-2" : "functions";
+    if (sectionId === "benefits")
+      targetId = subId === "2" ? "benefits-2" : "projects";
 
     const foundIndex = sections.findIndex((section) => section.id === targetId);
 
@@ -188,7 +400,8 @@ function AconexPage() {
       if (index === 3) path = "/aconex/overview/2";
       if (index === 4) path = "/aconex/functions/1";
       if (index === 5) path = "/aconex/functions/2";
-      if (index === 6) path = "/aconex/projects";
+      if (index === 6) path = "/aconex/benefits/1";
+      if (index === 7) path = "/aconex/benefits/2";
 
       navigate(path, { replace: true });
     },
@@ -528,8 +741,11 @@ function AconexPage() {
       }
 
       if (projectsSectionRef.current) {
+        const roleCompareItems = projectsCardsRef.current.filter(Boolean);
+        if (!roleCompareItems.length) return;
+
         gsap.fromTo(
-          projectsCardsRef.current,
+          roleCompareItems,
           { y: 50, opacity: 0 },
           {
             y: 0,
@@ -538,6 +754,27 @@ function AconexPage() {
             stagger: 0.2,
             scrollTrigger: {
               trigger: projectsSectionRef.current,
+              start: "top 60%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+      }
+
+      if (benefitsSectionRef2.current) {
+        const placeholderItems = benefitsCardsRef2.current.filter(Boolean);
+        if (!placeholderItems.length) return;
+
+        gsap.fromTo(
+          placeholderItems,
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.12,
+            scrollTrigger: {
+              trigger: benefitsSectionRef2.current,
               start: "top 60%",
               toggleActions: "play none none reverse",
             },
@@ -904,89 +1141,79 @@ function AconexPage() {
           id="projects"
           ref={projectsSectionRef}
         >
-          <div
-            className="tm-methods-section"
-            style={{ background: "var(--bg-darker)" }}
-          >
-            <div className="tm-methods-container">
-              <div className="tm-section-header">
-                <h2 className="tm-section-title">프로젝트 사례</h2>
-              </div>
+          <div className="tm-methods-section aconex-role-compare-section">
+            <div className="tm-methods-container aconex-role-compare-container">
               <div
-                className="tm-ppm-eppm-grid"
-                style={{
-                  gridTemplateColumns: "repeat(3, 1fr)",
-                  gap: "30px",
-                  marginTop: "40px",
-                }}
+                className="tm-section-header"
+                ref={(element) => (projectsCardsRef.current[0] = element)}
               >
-                {projectsData.map((item, index) => (
+                <h2 className="tm-section-title">
+                  Primavera와 Aconex 역할 비교
+                </h2>
+              </div>
+
+              <div className="aconex-role-compare-grid">
+                {roleCompareData.map((item, index) => (
                   <div
-                    key={index}
-                    className="tm-ppm-eppm-card"
-                    style={{ padding: "0", overflow: "hidden", height: "auto" }}
+                    key={item.id}
+                    className="tm-ppm-eppm-card aconex-role-compare-card"
                     ref={(element) =>
-                      (projectsCardsRef.current[index] = element)
+                      (projectsCardsRef.current[index + 1] = element)
                     }
                   >
+                    <h3 className="aconex-role-compare-card-title">
+                      {item.title}
+                    </h3>
+
                     <div
-                      className="tm-card-image"
-                      style={{
-                        height: "200px",
-                        overflow: "hidden",
-                        position: "relative",
-                      }}
+                      className="aconex-role-compare-card-icon"
+                      aria-hidden="true"
                     >
-                      <img
-                        src={item.img}
-                        alt={item.title}
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                        }}
-                      />
-                      <span
-                        style={{
-                          position: "absolute",
-                          top: "15px",
-                          left: "15px",
-                          background: "rgba(0,0,0,0.7)",
-                          color: "white",
-                          padding: "5px 10px",
-                          borderRadius: "4px",
-                          fontSize: "0.8rem",
-                        }}
-                      >
-                        {item.tag}
-                      </span>
+                      {item.id === "primavera" ? (
+                        <PrimaveraScheduleIcon />
+                      ) : (
+                        <AconexRecordsIcon />
+                      )}
                     </div>
-                    <div
-                      className="tm-card-content"
-                      style={{ padding: "25px" }}
-                    >
-                      <h3
-                        style={{
-                          fontSize: "1.25rem",
-                          marginBottom: "15px",
-                          color: "var(--text-primary)",
-                        }}
-                      >
-                        {item.title}
-                      </h3>
-                      <p
-                        style={{
-                          fontSize: "0.95rem",
-                          color: "var(--text-secondary)",
-                          lineHeight: "1.6",
-                        }}
-                      >
-                        {item.desc}
-                      </p>
+
+                    <div className="aconex-role-compare-card-description">
+                      <p>{item.summary[0]}</p>
+                      <p>{item.summary[1]}</p>
                     </div>
                   </div>
                 ))}
+
+                <span
+                  className="aconex-role-compare-divider"
+                  aria-hidden="true"
+                />
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="aconex-panel tm-panel"
+          id="benefits-2"
+          ref={benefitsSectionRef2}
+        >
+          <div className="tm-methods-section aconex-overview-shell">
+            <div className="tm-methods-container aconex-overview-frame">
+              <div
+                className="tm-section-header"
+                ref={(element) => (benefitsCardsRef2.current[0] = element)}
+              >
+                <h2 className="tm-section-title">
+                  완벽한 프로젝트 관리를 위한 통합
+                </h2>
+              </div>
+
+              <article
+                className="tm-ppm-eppm-card aconex-benefits-placeholder-card"
+                ref={(element) => (benefitsCardsRef2.current[1] = element)}
+              >
+                <p className="aconex-benefits-placeholder-text">콘텐츠 준비 중</p>
+              </article>
             </div>
           </div>
         </section>

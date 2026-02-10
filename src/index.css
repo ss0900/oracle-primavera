@@ -11010,13 +11010,13 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
 /* Aconex Overview - shared scaffold for overview 1 and 2 */
 .aconex-page-container
-  :is(#overview-content, #overview-content-2)
+  :is(#overview-content, #overview-content-2, #benefits-2)
   .aconex-overview-shell {
   padding: clamp(20px, 4vh, 44px) var(--space-xl);
 }
 
 .aconex-page-container
-  :is(#overview-content, #overview-content-2)
+  :is(#overview-content, #overview-content-2, #benefits-2)
   .aconex-overview-frame {
   max-width: 1160px;
   min-height: calc(100vh - clamp(72px, 12vh, 140px) - 40px);
@@ -11026,20 +11026,20 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 .aconex-page-container
-  :is(#overview-content, #overview-content-2)
+  :is(#overview-content, #overview-content-2, #benefits-2)
   .tm-section-header {
   margin-bottom: clamp(50px, 3vh, 40px);
 }
 
 .aconex-page-container
-  :is(#overview-content, #overview-content-2)
+  :is(#overview-content, #overview-content-2, #benefits-2)
   .tm-section-title {
   max-width: 920px;
   line-height: 1.2;
 }
 
 .aconex-page-container
-  :is(#overview-content, #overview-content-2)
+  :is(#overview-content, #overview-content-2, #benefits-2)
   .aconex-overview-layout {
   display: grid;
   grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
@@ -11048,7 +11048,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 .aconex-page-container
-  :is(#overview-content, #overview-content-2)
+  :is(#overview-content, #overview-content-2, #benefits-2)
   .aconex-overview-copy {
   display: flex;
   flex-direction: column;
@@ -11057,7 +11057,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 .aconex-page-container
-  :is(#overview-content, #overview-content-2)
+  :is(#overview-content, #overview-content-2, #benefits-2)
   .aconex-overview-headline {
   margin: 0;
   font-family: var(--font-display);
@@ -11069,13 +11069,13 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 .aconex-page-container
-  :is(#overview-content, #overview-content-2)
+  :is(#overview-content, #overview-content-2, #benefits-2)
   .aconex-overview-headline-accent {
   color: var(--color-accent-secondary);
 }
 
 .aconex-page-container
-  :is(#overview-content, #overview-content-2)
+  :is(#overview-content, #overview-content-2, #benefits-2)
   .aconex-overview-bullets {
   margin: 0;
   padding: 0;
@@ -11085,7 +11085,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 .aconex-page-container
-  :is(#overview-content, #overview-content-2)
+  :is(#overview-content, #overview-content-2, #benefits-2)
   .aconex-overview-bullets
   li {
   position: relative;
@@ -11098,7 +11098,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 .aconex-page-container
-  :is(#overview-content, #overview-content-2)
+  :is(#overview-content, #overview-content-2, #benefits-2)
   .aconex-overview-bullets
   li::before {
   content: "";
@@ -11113,7 +11113,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 .aconex-page-container
-  :is(#overview-content, #overview-content-2)
+  :is(#overview-content, #overview-content-2, #benefits-2)
   .aconex-overview-diagram-card {
   margin: 0;
   padding: clamp(8px, 0.8vw, 12px);
@@ -11123,7 +11123,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 .aconex-page-container
-  :is(#overview-content, #overview-content-2)
+  :is(#overview-content, #overview-content-2, #benefits-2)
   .aconex-overview-diagram-image {
   display: block;
   width: 100%;
@@ -11135,20 +11135,20 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
 @media (max-height: 900px) and (min-width: 1025px) {
   .aconex-page-container
-    :is(#overview-content, #overview-content-2)
+    :is(#overview-content, #overview-content-2, #benefits-2)
     .aconex-overview-frame {
     min-height: calc(100vh - 84px - 40px);
     gap: var(--space-md);
   }
 
   .aconex-page-container
-    :is(#overview-content, #overview-content-2)
+    :is(#overview-content, #overview-content-2, #benefits-2)
     .aconex-overview-headline {
     font-size: clamp(1.08rem, 1.45vw, 1.42rem);
   }
 
   .aconex-page-container
-    :is(#overview-content, #overview-content-2)
+    :is(#overview-content, #overview-content-2, #benefits-2)
     .aconex-overview-bullets
     li {
     font-size: clamp(0.92rem, 1.08vw, 1.02rem);
@@ -11157,7 +11157,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
 @media (max-width: 1024px) {
   .aconex-page-container
-    :is(#overview-content, #overview-content-2)
+    :is(#overview-content, #overview-content-2, #benefits-2)
     .aconex-overview-frame {
     min-height: auto;
     margin-top: clamp(152px, 10vh, 188px);
@@ -11165,20 +11165,20 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   }
 
   .aconex-page-container
-    :is(#overview-content, #overview-content-2)
+    :is(#overview-content, #overview-content-2, #benefits-2)
     .aconex-overview-layout {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
   }
 
   .aconex-page-container
-    :is(#overview-content, #overview-content-2)
+    :is(#overview-content, #overview-content-2, #benefits-2)
     .aconex-overview-copy {
     order: 1;
   }
 
   .aconex-page-container
-    :is(#overview-content, #overview-content-2)
+    :is(#overview-content, #overview-content-2, #benefits-2)
     .aconex-overview-diagram-card {
     order: 2;
   }
@@ -11186,25 +11186,25 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
 @media (max-width: 768px) {
   .aconex-page-container
-    :is(#overview-content, #overview-content-2)
+    :is(#overview-content, #overview-content-2, #benefits-2)
     .aconex-overview-shell {
     padding: var(--space-xl) var(--space-md);
   }
 
   .aconex-page-container
-    :is(#overview-content, #overview-content-2)
+    :is(#overview-content, #overview-content-2, #benefits-2)
     .aconex-overview-frame {
     margin-top: 136px;
   }
 
   .aconex-page-container
-    :is(#overview-content, #overview-content-2)
+    :is(#overview-content, #overview-content-2, #benefits-2)
     .aconex-overview-headline {
     font-size: clamp(1.02rem, 4.7vw, 1.26rem);
   }
 
   .aconex-page-container
-    :is(#overview-content, #overview-content-2)
+    :is(#overview-content, #overview-content-2, #benefits-2)
     .aconex-overview-bullets
     li {
     padding-left: 20px;
@@ -11212,7 +11212,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   }
 
   .aconex-page-container
-    :is(#overview-content, #overview-content-2)
+    :is(#overview-content, #overview-content-2, #benefits-2)
     .aconex-overview-bullets
     li::before {
     width: 7px;
@@ -11220,9 +11220,37 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   }
 
   .aconex-page-container
-    :is(#overview-content, #overview-content-2)
+    :is(#overview-content, #overview-content-2, #benefits-2)
     .aconex-overview-diagram-card {
     padding: var(--space-md);
+  }
+}
+
+.aconex-page-container #benefits-2 .aconex-benefits-placeholder-card {
+  margin: 0;
+  min-height: clamp(220px, 35vh, 320px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 2.2vw, 30px);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.015) 100%
+  );
+}
+
+.aconex-page-container #benefits-2 .aconex-benefits-placeholder-text {
+  margin: 0;
+  color: rgba(224, 235, 255, 0.85);
+  font-size: clamp(var(--text-lg), 1.2vw, var(--text-xl));
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 768px) {
+  .aconex-page-container #benefits-2 .aconex-benefits-placeholder-card {
+    min-height: 190px;
   }
 }
 
@@ -11410,6 +11438,210 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
   .aconex-page-container #overview-content-2 .aconex-cde-description-card p {
     font-size: var(--text-base);
+  }
+}
+
+/* Aconex Benefits 1 - Primavera vs Aconex Role Comparison */
+.aconex-page-container #projects .aconex-role-compare-section {
+  padding: clamp(20px, 4vh, 44px) var(--space-xl);
+  background: var(--color-bg-primary);
+}
+
+.aconex-page-container #projects .aconex-role-compare-container {
+  max-width: 1160px;
+  min-height: calc(100vh - clamp(72px, 12vh, 140px) - 40px);
+  margin-top: clamp(164px, 12vh, 208px);
+  justify-content: flex-start;
+  gap: clamp(24px, 3vh, 40px);
+}
+
+.aconex-page-container #projects .aconex-role-compare-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
+  column-gap: clamp(18px, 2vw, 32px);
+  align-items: stretch;
+  margin-top: 20px;
+}
+
+.aconex-page-container #projects .aconex-role-compare-card:first-of-type {
+  grid-column: 1;
+  order: 1;
+}
+
+.aconex-page-container #projects .aconex-role-compare-card:last-of-type {
+  grid-column: 3;
+  order: 3;
+}
+
+.aconex-page-container #projects .aconex-role-compare-card {
+  min-height: clamp(420px, 54vh, 520px);
+  padding: clamp(24px, 2vw, 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(20px, 2.4vh, 30px);
+  text-align: center;
+  border-color: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+}
+
+.aconex-page-container #projects .aconex-role-compare-card-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-2xl), 2vw, var(--text-4xl));
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.aconex-page-container #projects .aconex-role-compare-card-icon {
+  width: min(100%, clamp(190px, 22vw, 280px));
+  color: var(--color-text-primary);
+}
+
+.aconex-page-container #projects .aconex-role-compare-card-icon svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.aconex-page-container #projects .aconex-role-compare-card-description {
+  display: grid;
+  gap: clamp(8px, 1vh, 12px);
+}
+
+.aconex-page-container #projects .aconex-role-compare-card-description p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-lg), 1.45vw, var(--text-2xl));
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--color-text-primary);
+}
+
+.aconex-page-container #projects .aconex-role-compare-divider {
+  grid-column: 2;
+  grid-row: 1;
+  order: 2;
+  border-radius: var(--radius-full);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 12%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0.2) 88%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.aconex-page-container #projects .aconex-role-icon-outline {
+  fill: rgba(255, 255, 255, 0.025);
+  stroke: rgba(224, 235, 255, 0.85);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.aconex-page-container #projects .aconex-role-icon-line {
+  stroke: rgba(224, 235, 255, 0.45);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.aconex-page-container #projects .aconex-role-icon-text-line {
+  fill: rgba(224, 235, 255, 0.78);
+  stroke: rgba(224, 235, 255, 0.78);
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+.aconex-page-container #projects .aconex-role-icon-accent-soft {
+  fill: rgba(0, 212, 255, 0.18);
+}
+
+.aconex-page-container #projects .aconex-role-icon-accent {
+  fill: rgba(0, 212, 255, 0.88);
+}
+
+.aconex-page-container #projects .aconex-role-icon-connector {
+  fill: none;
+  stroke: rgba(0, 212, 255, 0.8);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.aconex-page-container #projects .aconex-role-icon-paper {
+  fill: rgba(255, 255, 255, 0.06);
+}
+
+.aconex-page-container #projects .aconex-role-icon-seal {
+  fill: rgba(239, 68, 68, 0.88);
+  stroke: rgba(248, 113, 113, 0.95);
+  stroke-width: 0;
+}
+
+.aconex-page-container #projects .aconex-role-icon-ribbon {
+  fill: rgba(220, 38, 38, 0.9);
+}
+
+@media (max-width: 1024px) {
+  .aconex-page-container #projects .aconex-role-compare-container {
+    margin-top: clamp(132px, 11vh, 164px);
+    min-height: auto;
+  }
+
+  .aconex-page-container #projects .aconex-role-compare-card {
+    min-height: clamp(380px, 50vh, 460px);
+    padding: clamp(20px, 2.2vw, 28px);
+  }
+}
+
+@media (max-width: 768px) {
+  .aconex-page-container #projects .aconex-role-compare-section {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .aconex-page-container #projects .aconex-role-compare-container {
+    margin-top: 136px;
+    gap: var(--space-lg);
+  }
+
+  .aconex-page-container #projects .aconex-role-compare-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .aconex-page-container #projects .aconex-role-compare-card:first-of-type,
+  .aconex-page-container #projects .aconex-role-compare-card:last-of-type {
+    grid-column: auto;
+  }
+
+  .aconex-page-container #projects .aconex-role-compare-divider {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+    height: 1px;
+    margin: 0;
+  }
+
+  .aconex-page-container #projects .aconex-role-compare-card {
+    min-height: auto;
+    gap: var(--space-lg);
+  }
+
+  .aconex-page-container #projects .aconex-role-compare-card-title {
+    font-size: clamp(var(--text-xl), 5vw, var(--text-2xl));
+  }
+
+  .aconex-page-container #projects .aconex-role-compare-card-description p {
+    font-size: clamp(var(--text-base), 4vw, var(--text-lg));
   }
 }
 
@@ -15709,3 +15941,4 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+

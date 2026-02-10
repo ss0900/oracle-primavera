@@ -27,24 +27,21 @@ const subMenuItems = [
     id: "overview",
     title: "개요",
     description: "비용, 계약, 문서 관리의 완벽한 통합",
-    image:
-      "/Unifier%20개요.png",
+    image: "/Unifier%20개요.png",
     link: "#overview-content",
   },
   {
     id: "functions",
     title: "기능 소개",
     description: "프로젝트 통제와 비용 관리 핵심 기능",
-    image:
-      "/Unifier%20기능%20소개.png",
+    image: "/Unifier%20기능%20소개.png",
     link: "#functions",
   },
   {
     id: "benefits",
     title: "효과",
     description: "공공, 부동산, 인프라 도입 효과",
-    image:
-      "https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=600",
+    image: "/Unifier%20효과.png",
     link: "#customers",
   },
 ];
@@ -175,7 +172,11 @@ function UnifierPage() {
         targetId = subId === "2" ? "functions-2" : "functions";
       if (sectionId === "benefits")
         targetId =
-          subId === "3" ? "benefits-3" : subId === "2" ? "benefits-2" : "customers";
+          subId === "3"
+            ? "benefits-3"
+            : subId === "2"
+              ? "benefits-2"
+              : "customers";
 
       const foundIndex = sections.findIndex((s) => s.id === targetId);
 
@@ -1080,7 +1081,10 @@ function UnifierPage() {
                   </div>
                 </article>
 
-                <span className="unifier-benefits-3-divider" aria-hidden="true" />
+                <span
+                  className="unifier-benefits-3-divider"
+                  aria-hidden="true"
+                />
 
                 <article className="tm-ppm-eppm-card unifier-benefits-3-option">
                   <div className="unifier-benefits-3-option-layout">

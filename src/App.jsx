@@ -105,6 +105,10 @@ function App() {
           path="/aconex/features"
           element={<Navigate to="/aconex/functions/1" replace />}
         />
+        <Route
+          path="/aconex/projects"
+          element={<Navigate to="/aconex/benefits/1" replace />}
+        />
         <Route path="/aconex/:sectionId" element={<AconexPage />} />
         <Route path="/aconex/:sectionId/:subId" element={<AconexPage />} />
 
