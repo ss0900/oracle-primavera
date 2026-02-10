@@ -170,8 +170,7 @@ function Header() {
           id: "functions",
           title: "기능 소개",
           path: "/unifier/functions/1",
-          image:
-            "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
+          image: "/Unifier%20기능%20소개.png",
         },
         {
           id: "benefits",

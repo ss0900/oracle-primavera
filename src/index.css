@@ -11009,11 +11009,15 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 /* Aconex Overview - shared scaffold for overview 1 and 2 */
-.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-shell {
+.aconex-page-container
+  :is(#overview-content, #overview-content-2)
+  .aconex-overview-shell {
   padding: clamp(20px, 4vh, 44px) var(--space-xl);
 }
 
-.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-frame {
+.aconex-page-container
+  :is(#overview-content, #overview-content-2)
+  .aconex-overview-frame {
   max-width: 1160px;
   min-height: calc(100vh - clamp(72px, 12vh, 140px) - 40px);
   margin-top: 200px;
@@ -11021,30 +11025,40 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   gap: clamp(18px, 2vh, 28px);
 }
 
-.aconex-page-container :is(#overview-content, #overview-content-2) .tm-section-header {
+.aconex-page-container
+  :is(#overview-content, #overview-content-2)
+  .tm-section-header {
   margin-bottom: clamp(50px, 3vh, 40px);
 }
 
-.aconex-page-container :is(#overview-content, #overview-content-2) .tm-section-title {
+.aconex-page-container
+  :is(#overview-content, #overview-content-2)
+  .tm-section-title {
   max-width: 920px;
   line-height: 1.2;
 }
 
-.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-layout {
+.aconex-page-container
+  :is(#overview-content, #overview-content-2)
+  .aconex-overview-layout {
   display: grid;
   grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
   gap: clamp(18px, 2.2vw, 34px);
   align-items: center;
 }
 
-.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-copy {
+.aconex-page-container
+  :is(#overview-content, #overview-content-2)
+  .aconex-overview-copy {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: clamp(18px, 2.2vh, 30px);
 }
 
-.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-headline {
+.aconex-page-container
+  :is(#overview-content, #overview-content-2)
+  .aconex-overview-headline {
   margin: 0;
   font-family: var(--font-display);
   font-size: clamp(var(--text-xl), 1.8vw, var(--text-3xl));
@@ -11054,11 +11068,15 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   letter-spacing: -0.01em;
 }
 
-.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-headline-accent {
+.aconex-page-container
+  :is(#overview-content, #overview-content-2)
+  .aconex-overview-headline-accent {
   color: var(--color-accent-secondary);
 }
 
-.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-bullets {
+.aconex-page-container
+  :is(#overview-content, #overview-content-2)
+  .aconex-overview-bullets {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -11066,7 +11084,10 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   gap: clamp(var(--space-xl), 4vh, var(--space-2xl));
 }
 
-.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-bullets li {
+.aconex-page-container
+  :is(#overview-content, #overview-content-2)
+  .aconex-overview-bullets
+  li {
   position: relative;
   margin: 0;
   padding-left: 22px;
@@ -11076,7 +11097,10 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   word-break: keep-all;
 }
 
-.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-bullets li::before {
+.aconex-page-container
+  :is(#overview-content, #overview-content-2)
+  .aconex-overview-bullets
+  li::before {
   content: "";
   position: absolute;
   left: 0;
@@ -11088,7 +11112,9 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   transform: translateY(-50%);
 }
 
-.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-diagram-card {
+.aconex-page-container
+  :is(#overview-content, #overview-content-2)
+  .aconex-overview-diagram-card {
   margin: 0;
   padding: clamp(8px, 0.8vw, 12px);
   align-self: start;
@@ -11096,7 +11122,9 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   background: transparent;
 }
 
-.aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-diagram-image {
+.aconex-page-container
+  :is(#overview-content, #overview-content-2)
+  .aconex-overview-diagram-image {
   display: block;
   width: 100%;
   height: auto;
@@ -11106,66 +11134,282 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 @media (max-height: 900px) and (min-width: 1025px) {
-  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-frame {
+  .aconex-page-container
+    :is(#overview-content, #overview-content-2)
+    .aconex-overview-frame {
     min-height: calc(100vh - 84px - 40px);
     gap: var(--space-md);
   }
 
-  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-headline {
+  .aconex-page-container
+    :is(#overview-content, #overview-content-2)
+    .aconex-overview-headline {
     font-size: clamp(1.08rem, 1.45vw, 1.42rem);
   }
 
-  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-bullets li {
+  .aconex-page-container
+    :is(#overview-content, #overview-content-2)
+    .aconex-overview-bullets
+    li {
     font-size: clamp(0.92rem, 1.08vw, 1.02rem);
   }
 }
 
 @media (max-width: 1024px) {
-  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-frame {
+  .aconex-page-container
+    :is(#overview-content, #overview-content-2)
+    .aconex-overview-frame {
     min-height: auto;
     margin-top: clamp(152px, 10vh, 188px);
     gap: var(--space-lg);
   }
 
-  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-layout {
+  .aconex-page-container
+    :is(#overview-content, #overview-content-2)
+    .aconex-overview-layout {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
   }
 
-  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-copy {
+  .aconex-page-container
+    :is(#overview-content, #overview-content-2)
+    .aconex-overview-copy {
     order: 1;
   }
 
-  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-diagram-card {
+  .aconex-page-container
+    :is(#overview-content, #overview-content-2)
+    .aconex-overview-diagram-card {
     order: 2;
   }
 }
 
 @media (max-width: 768px) {
-  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-shell {
+  .aconex-page-container
+    :is(#overview-content, #overview-content-2)
+    .aconex-overview-shell {
     padding: var(--space-xl) var(--space-md);
   }
 
-  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-frame {
+  .aconex-page-container
+    :is(#overview-content, #overview-content-2)
+    .aconex-overview-frame {
     margin-top: 136px;
   }
 
-  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-headline {
+  .aconex-page-container
+    :is(#overview-content, #overview-content-2)
+    .aconex-overview-headline {
     font-size: clamp(1.02rem, 4.7vw, 1.26rem);
   }
 
-  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-bullets li {
+  .aconex-page-container
+    :is(#overview-content, #overview-content-2)
+    .aconex-overview-bullets
+    li {
     padding-left: 20px;
     font-size: var(--text-lg);
   }
 
-  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-bullets li::before {
+  .aconex-page-container
+    :is(#overview-content, #overview-content-2)
+    .aconex-overview-bullets
+    li::before {
     width: 7px;
     height: 7px;
   }
 
-  .aconex-page-container :is(#overview-content, #overview-content-2) .aconex-overview-diagram-card {
+  .aconex-page-container
+    :is(#overview-content, #overview-content-2)
+    .aconex-overview-diagram-card {
     padding: var(--space-md);
+  }
+}
+
+/* Aconex Overview 2 - CDE hub and spoke */
+.aconex-page-container #overview-content-2 .aconex-cde-shell {
+  padding-top: clamp(12px, 2vh, 20px);
+  padding-bottom: clamp(12px, 2vh, 20px);
+}
+
+.aconex-page-container #overview-content-2 .aconex-cde-frame {
+  min-height: auto;
+  margin-top: clamp(84px, 9.2vh, 118px);
+  gap: clamp(12px, 1.5vh, 18px);
+}
+
+.aconex-page-container #overview-content-2 .tm-section-header {
+  margin-bottom: clamp(16px, 2.1vh, 24px);
+}
+
+.aconex-page-container #overview-content-2 .aconex-cde-layout {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.5vh, 18px);
+}
+
+.aconex-page-container #overview-content-2 .aconex-cde-diagram-card {
+  margin: 0;
+  padding: clamp(10px, 1.15vw, 15px) clamp(10px, 1.15vw, 15px)
+    clamp(7px, 0.9vw, 11px);
+  border-color: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.015) 100%
+  );
+}
+
+.aconex-page-container #overview-content-2 .aconex-cde-diagram-wrap {
+  width: 100%;
+  max-width: clamp(520px, 46vw, 690px);
+  margin: 0 auto;
+  aspect-ratio: 16 / 10;
+}
+
+.aconex-page-container #overview-content-2 .aconex-cde-diagram-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+  transform: translateY(18px);
+}
+
+.aconex-page-container #overview-content-2 .aconex-cde-diagram-svg line {
+  stroke: rgba(224, 235, 255, 0.38);
+  stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
+}
+
+.aconex-page-container
+  #overview-content-2
+  .aconex-cde-node
+  circle:first-of-type {
+  fill: rgba(8, 12, 20, 0.88);
+  stroke: rgba(224, 235, 255, 0.33);
+  stroke-width: 1.9;
+}
+
+.aconex-page-container
+  #overview-content-2
+  .aconex-cde-node
+  circle:last-of-type {
+  fill: transparent;
+  stroke: rgba(224, 235, 255, 0.18);
+  stroke-width: 1;
+}
+
+.aconex-page-container
+  #overview-content-2
+  .aconex-cde-node-hub
+  circle:first-of-type {
+  fill: rgba(10, 18, 34, 0.95);
+  stroke: rgba(0, 212, 255, 0.6);
+  stroke-width: 2.4;
+}
+
+.aconex-page-container
+  #overview-content-2
+  .aconex-cde-node-hub
+  circle:last-of-type {
+  stroke: rgba(0, 212, 255, 0.32);
+  stroke-width: 1.4;
+}
+
+.aconex-page-container #overview-content-2 .aconex-cde-node text {
+  fill: var(--color-text-primary);
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.aconex-page-container #overview-content-2 .aconex-cde-node-hub text {
+  font-size: 29px;
+  font-weight: 800;
+}
+
+.aconex-page-container #overview-content-2 .aconex-cde-description-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 1.2vw, 18px);
+}
+
+.aconex-page-container #overview-content-2 .aconex-cde-description-card {
+  min-height: clamp(132px, 15vh, 162px);
+  padding: clamp(14px, 1.2vw, 18px) clamp(16px, 1.8vw, 22px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.025);
+  text-align: center;
+}
+
+.aconex-page-container #overview-content-2 .aconex-cde-description-card h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-xl), 1.45vw, var(--text-2xl));
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.aconex-page-container #overview-content-2 .aconex-cde-description-card p {
+  margin: clamp(6px, 0.8vh, 10px) 0 0;
+  font-size: clamp(var(--text-base), 1.1vw, var(--text-lg));
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 1280px) {
+  .aconex-page-container #overview-content-2 .aconex-cde-diagram-wrap {
+    max-width: clamp(460px, 56vw, 620px);
+  }
+
+  .aconex-page-container #overview-content-2 .aconex-cde-node text {
+    font-size: 19px;
+  }
+
+  .aconex-page-container #overview-content-2 .aconex-cde-node-hub text {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .aconex-page-container #overview-content-2 .aconex-cde-frame {
+    margin-top: clamp(112px, 11vh, 148px);
+    gap: var(--space-lg);
+  }
+
+  .aconex-page-container #overview-content-2 .aconex-cde-diagram-wrap {
+    max-width: min(100%, 560px);
+  }
+
+  .aconex-page-container #overview-content-2 .aconex-cde-description-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .aconex-page-container #overview-content-2 .aconex-cde-frame {
+    margin-top: 136px;
+  }
+
+  .aconex-page-container #overview-content-2 .aconex-cde-node text {
+    font-size: 18px;
+  }
+
+  .aconex-page-container #overview-content-2 .aconex-cde-node-hub text {
+    font-size: 25px;
+  }
+
+  .aconex-page-container #overview-content-2 .aconex-cde-description-card h3 {
+    font-size: var(--text-xl);
+  }
+
+  .aconex-page-container #overview-content-2 .aconex-cde-description-card p {
+    font-size: var(--text-base);
   }
 }
 

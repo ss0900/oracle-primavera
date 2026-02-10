@@ -695,31 +695,110 @@ function AconexPage() {
           id="overview-content-2"
           ref={overviewSectionRef2}
         >
-          <div className="tm-methods-section aconex-overview-shell">
-            <div className="tm-methods-container aconex-overview-frame">
+          <div className="tm-methods-section aconex-overview-shell aconex-cde-shell">
+            <div className="tm-methods-container aconex-overview-frame aconex-cde-frame">
               <div
                 className="tm-section-header"
                 ref={(element) => (overviewCardsRef2.current[0] = element)}
               >
-                <h2 className="tm-section-title">공통 데이터 환경(CDE)의 완성</h2>
+                <h2 className="tm-section-title">
+                  공통 데이터 환경(CDE)의 완성
+                </h2>
               </div>
 
-              <div className="aconex-overview-layout">
+              <div className="aconex-cde-layout">
                 <article
-                  className="aconex-overview-copy"
+                  className="tm-ppm-eppm-card aconex-cde-diagram-card"
                   ref={(element) => (overviewCardsRef2.current[1] = element)}
                 >
-                  <div className="tm-ppm-eppm-card tm-core-placeholder">
-                    <p>Placeholder</p>
+                  <div className="aconex-cde-diagram-wrap">
+                    <svg
+                      className="aconex-cde-diagram-svg"
+                      viewBox="0 0 780 470"
+                      aria-label="Aconex CDE hub and spoke diagram"
+                      role="img"
+                    >
+                      <line x1="390" y1="148" x2="390" y2="140" />
+                      <line x1="300" y1="305" x2="259" y2="330" />
+                      <line x1="480" y1="305" x2="521" y2="330" />
+
+                      <g className="aconex-cde-node aconex-cde-node-hub">
+                        <circle cx="390" cy="252" r="104" />
+                        <circle cx="390" cy="252" r="90" />
+                        <text x="390" y="248" textAnchor="middle">
+                          <tspan x="390" dy="0">
+                            Oracle Aconex
+                          </tspan>
+                          <tspan x="390" dy="36">
+                            (CDE)
+                          </tspan>
+                        </text>
+                      </g>
+
+                      <g className="aconex-cde-node">
+                        <circle cx="390" cy="70" r="70" />
+                        <circle cx="390" cy="70" r="59" />
+                        <text x="390" y="63" textAnchor="middle">
+                          <tspan x="390" dy="0">
+                            Collaboration
+                          </tspan>
+                          <tspan x="390" dy="30">
+                            (협업)
+                          </tspan>
+                        </text>
+                      </g>
+
+                      <g className="aconex-cde-node">
+                        <circle cx="250" cy="366" r="70" />
+                        <circle cx="250" cy="366" r="59" />
+                        <text x="250" y="359" textAnchor="middle">
+                          <tspan x="250" dy="0">
+                            Documents
+                          </tspan>
+                          <tspan x="250" dy="30">
+                            (문서)
+                          </tspan>
+                        </text>
+                      </g>
+
+                      <g className="aconex-cde-node">
+                        <circle cx="530" cy="366" r="70" />
+                        <circle cx="530" cy="366" r="59" />
+                        <text x="530" y="359" textAnchor="middle">
+                          <tspan x="530" dy="0">
+                            Process
+                          </tspan>
+                          <tspan x="530" dy="30">
+                            (프로세스)
+                          </tspan>
+                        </text>
+                      </g>
+                    </svg>
                   </div>
                 </article>
 
-                <article
-                  className="tm-ppm-eppm-card aconex-overview-diagram-card"
+                <div
+                  className="aconex-cde-description-grid"
                   ref={(element) => (overviewCardsRef2.current[2] = element)}
                 >
-                  <div className="cpm-image-placeholder">Placeholder</div>
-                </article>
+                  <article className="tm-ppm-eppm-card aconex-cde-description-card">
+                    <h3>정의 (Definition)</h3>
+                    <p>
+                      프로젝트 전 생애주기의 정보와 공식 기록(Record)을
+                      <br />
+                      표준화하는 단일 중앙 플랫폼
+                    </p>
+                  </article>
+
+                  <article className="tm-ppm-eppm-card aconex-cde-description-card">
+                    <h3>핵심 역할 (Key Role)</h3>
+                    <p>
+                      발주처, CM, 설계, 시공사 간의
+                      <br />
+                      정보 흐름 통합
+                    </p>
+                  </article>
+                </div>
               </div>
             </div>
           </div>

@@ -36,7 +36,7 @@ const subMenuItems = [
     title: "기능 소개",
     description: "프로젝트 통제와 비용 관리 핵심 기능",
     image:
-      "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "/Unifier%20기능%20소개.png",
     link: "#functions",
   },
   {
