@@ -649,6 +649,10 @@ function EPPMPage() {
     }
 
     const panels = gsap.utils.toArray(".eppm-panel");
+    const footerSection = document.querySelector(".footer");
+    const snapTargets = footerSection ? [...panels, footerSection] : panels;
+    const lastPanelIndex = panels.length - 1;
+    const lastSnapIndex = snapTargets.length - 1;
 
     panels.forEach((panel, i) => {
       ScrollTrigger.create({
@@ -670,6 +674,52 @@ function EPPMPage() {
       });
     });
 
+    if (footerSection) {
+      ScrollTrigger.create({
+        trigger: footerSection,
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => {
+          currentSectionRef.current = lastSnapIndex;
+          setActiveSection(lastPanelIndex);
+          if (sections[lastPanelIndex]) {
+            setActiveSectionId(sections[lastPanelIndex].id);
+          }
+        },
+        onEnterBack: () => {
+          currentSectionRef.current = lastSnapIndex;
+          setActiveSection(lastPanelIndex);
+          if (sections[lastPanelIndex]) {
+            setActiveSectionId(sections[lastPanelIndex].id);
+          }
+        },
+      });
+    }
+
+    const snapToIndex = (targetIndex) => {
+      const target = snapTargets[targetIndex];
+      if (!target) {
+        isAnimatingRef.current = false;
+        return;
+      }
+
+      const boundedIndex = Math.min(targetIndex, lastPanelIndex);
+      currentSectionRef.current = targetIndex;
+      setActiveSection(boundedIndex);
+      if (sections[boundedIndex]) setActiveSectionId(sections[boundedIndex].id);
+
+      gsap.to(window, {
+        duration: 0.8,
+        scrollTo: { y: target, autoKill: false },
+        ease: "power3.inOut",
+        onComplete: () => {
+          setTimeout(() => {
+            isAnimatingRef.current = false;
+          }, 100);
+        },
+      });
+    };
+
     const handleWheel = (e) => {
       if (isAnimatingRef.current) {
         e.preventDefault();
@@ -681,34 +731,19 @@ function EPPMPage() {
 
       if (Math.abs(delta) < threshold) return;
 
-      e.preventDefault();
-      isAnimatingRef.current = true;
-
       let nextSection = currentSectionRef.current;
 
-      if (delta > 0 && currentSectionRef.current < panels.length - 1) {
+      if (delta > 0 && currentSectionRef.current < lastSnapIndex) {
         nextSection = currentSectionRef.current + 1;
       } else if (delta < 0 && currentSectionRef.current > 0) {
         nextSection = currentSectionRef.current - 1;
       } else {
-        isAnimatingRef.current = false;
         return;
       }
 
-      currentSectionRef.current = nextSection;
-      setActiveSection(nextSection);
-      if (sections[nextSection]) setActiveSectionId(sections[nextSection].id);
-
-      gsap.to(window, {
-        duration: 0.8,
-        scrollTo: { y: panels[nextSection], autoKill: false },
-        ease: "power3.inOut",
-        onComplete: () => {
-          setTimeout(() => {
-            isAnimatingRef.current = false;
-          }, 100);
-        },
-      });
+      e.preventDefault();
+      isAnimatingRef.current = true;
+      snapToIndex(nextSection);
     };
 
     // Touch events
@@ -725,7 +760,7 @@ function EPPMPage() {
       isAnimatingRef.current = true;
       let nextSection = currentSectionRef.current;
 
-      if (delta > 0 && currentSectionRef.current < panels.length - 1) {
+      if (delta > 0 && currentSectionRef.current < lastSnapIndex) {
         nextSection = currentSectionRef.current + 1;
       } else if (delta < 0 && currentSectionRef.current > 0) {
         nextSection = currentSectionRef.current - 1;
@@ -734,20 +769,7 @@ function EPPMPage() {
         return;
       }
 
-      currentSectionRef.current = nextSection;
-      setActiveSection(nextSection);
-      if (sections[nextSection]) setActiveSectionId(sections[nextSection].id);
-
-      gsap.to(window, {
-        duration: 0.8,
-        scrollTo: { y: panels[nextSection], autoKill: false },
-        ease: "power3.inOut",
-        onComplete: () => {
-          setTimeout(() => {
-            isAnimatingRef.current = false;
-          }, 100);
-        },
-      });
+      snapToIndex(nextSection);
     };
 
     window.addEventListener("wheel", handleWheel, { passive: false });
@@ -1606,7 +1628,7 @@ function EPPMPage() {
               </div>
 
               <div className="eppm-process-shell">
-                <div className="eppm-process-badge" aria-hidden="true">
+                {/* <div className="eppm-process-badge" aria-hidden="true">
                   <svg
                     className="eppm-process-badge-icon"
                     viewBox="0 0 24 24"
@@ -1635,7 +1657,7 @@ function EPPMPage() {
                       strokeLinejoin="round"
                     />
                   </svg>
-                </div>
+                </div> */}
 
                 <div className="eppm-process-grid">
                   <article
@@ -1644,7 +1666,9 @@ function EPPMPage() {
                   >
                     <div className="eppm-process-visual-media">
                       <img
-                        src={encodeURI("/1단계 우선순위 결정 및 투자 최적화.png")}
+                        src={encodeURI(
+                          "/1단계 우선순위 결정 및 투자 최적화.png",
+                        )}
                         alt="1단계 우선순위 결정 및 투자 최적화"
                       />
                     </div>
@@ -1684,9 +1708,9 @@ function EPPMPage() {
                   </p>
                 </div>
 
-                <div className="eppm-process-badge eppm-process-step3-badge">
+                {/* <div className="eppm-process-badge eppm-process-step3-badge">
                   STEP 2
-                </div>
+                </div> */}
 
                 <div className="eppm-process-step3-grid">
                   {processStep2ComparisonCards.map((item) => (
@@ -1738,7 +1762,7 @@ function EPPMPage() {
                   </h2>
                 </div>
 
-                <div
+                {/* <div
                   className="eppm-process-badge eppm-process-step4-badge"
                   aria-hidden="true"
                 >
@@ -1770,7 +1794,7 @@ function EPPMPage() {
                       strokeLinejoin="round"
                     />
                   </svg>
-                </div>
+                </div> */}
 
                 <div className="eppm-process-step4-grid">
                   <article className="eppm-process-step4-frame eppm-process-step4-visual-frame tm-ppm-eppm-card">
@@ -1838,7 +1862,7 @@ function EPPMPage() {
                 </div>
 
                 <article className="eppm-process-step5-panel tm-ppm-eppm-card">
-                  <div className="eppm-process-step5-badge" aria-hidden="true">
+                  {/* <div className="eppm-process-step5-badge" aria-hidden="true">
                     <span className="eppm-process-step5-badge-icon-wrap">
                       <svg
                         className="eppm-process-step5-badge-icon"
@@ -1865,7 +1889,7 @@ function EPPMPage() {
                     <span className="eppm-process-step5-badge-text">
                       STEP 4
                     </span>
-                  </div>
+                  </div> */}
 
                   <div className="eppm-process-step5-layout">
                     <div

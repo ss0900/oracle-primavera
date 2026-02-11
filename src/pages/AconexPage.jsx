@@ -721,6 +721,10 @@ function AconexPage() {
     }
 
     const panels = gsap.utils.toArray(".aconex-panel");
+    const footerSection = document.querySelector(".footer");
+    const snapTargets = footerSection ? [...panels, footerSection] : panels;
+    const lastPanelIndex = panels.length - 1;
+    const lastSnapIndex = snapTargets.length - 1;
 
     panels.forEach((panel, index) => {
       ScrollTrigger.create({
@@ -742,6 +746,54 @@ function AconexPage() {
       });
     });
 
+    if (footerSection) {
+      ScrollTrigger.create({
+        trigger: footerSection,
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => {
+          currentSectionRef.current = lastSnapIndex;
+          setActiveSection(lastPanelIndex);
+          if (sections[lastPanelIndex]) {
+            setActiveSectionId(sections[lastPanelIndex].id);
+          }
+        },
+        onEnterBack: () => {
+          currentSectionRef.current = lastSnapIndex;
+          setActiveSection(lastPanelIndex);
+          if (sections[lastPanelIndex]) {
+            setActiveSectionId(sections[lastPanelIndex].id);
+          }
+        },
+      });
+    }
+
+    const snapToIndex = (targetIndex) => {
+      const target = snapTargets[targetIndex];
+      if (!target) {
+        isAnimatingRef.current = false;
+        return;
+      }
+
+      const boundedIndex = Math.min(targetIndex, lastPanelIndex);
+      currentSectionRef.current = targetIndex;
+      setActiveSection(boundedIndex);
+      if (sections[boundedIndex]) {
+        setActiveSectionId(sections[boundedIndex].id);
+      }
+
+      gsap.to(window, {
+        duration: 0.8,
+        scrollTo: { y: target, autoKill: false },
+        ease: "power3.inOut",
+        onComplete: () => {
+          setTimeout(() => {
+            isAnimatingRef.current = false;
+          }, 100);
+        },
+      });
+    };
+
     const handleWheel = (event) => {
       if (isAnimatingRef.current) {
         event.preventDefault();
@@ -752,34 +804,19 @@ function AconexPage() {
       const threshold = 50;
       if (Math.abs(delta) < threshold) return;
 
-      event.preventDefault();
-      isAnimatingRef.current = true;
-
       let nextSection = currentSectionRef.current;
 
-      if (delta > 0 && currentSectionRef.current < panels.length - 1) {
+      if (delta > 0 && currentSectionRef.current < lastSnapIndex) {
         nextSection = currentSectionRef.current + 1;
       } else if (delta < 0 && currentSectionRef.current > 0) {
         nextSection = currentSectionRef.current - 1;
       } else {
-        isAnimatingRef.current = false;
         return;
       }
 
-      currentSectionRef.current = nextSection;
-      setActiveSection(nextSection);
-      setActiveSectionId(sections[nextSection].id);
-
-      gsap.to(window, {
-        duration: 0.8,
-        scrollTo: { y: panels[nextSection], autoKill: false },
-        ease: "power3.inOut",
-        onComplete: () => {
-          setTimeout(() => {
-            isAnimatingRef.current = false;
-          }, 100);
-        },
-      });
+      event.preventDefault();
+      isAnimatingRef.current = true;
+      snapToIndex(nextSection);
     };
 
     let touchStartY = 0;
@@ -797,7 +834,7 @@ function AconexPage() {
       isAnimatingRef.current = true;
       let nextSection = currentSectionRef.current;
 
-      if (delta > 0 && currentSectionRef.current < panels.length - 1) {
+      if (delta > 0 && currentSectionRef.current < lastSnapIndex) {
         nextSection = currentSectionRef.current + 1;
       } else if (delta < 0 && currentSectionRef.current > 0) {
         nextSection = currentSectionRef.current - 1;
@@ -806,20 +843,7 @@ function AconexPage() {
         return;
       }
 
-      currentSectionRef.current = nextSection;
-      setActiveSection(nextSection);
-      setActiveSectionId(sections[nextSection].id);
-
-      gsap.to(window, {
-        duration: 0.8,
-        scrollTo: { y: panels[nextSection], autoKill: false },
-        ease: "power3.inOut",
-        onComplete: () => {
-          setTimeout(() => {
-            isAnimatingRef.current = false;
-          }, 100);
-        },
-      });
+      snapToIndex(nextSection);
     };
 
     window.addEventListener("wheel", handleWheel, { passive: false });
