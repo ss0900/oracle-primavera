@@ -1685,7 +1685,7 @@ function EPPMPage() {
                     <div className="eppm-process-visual-media">
                       <img
                         src={encodeURI(
-                          getAssetPath("/1단계 우선순위 결정 및 투자 최적화.png"),
+                          getAssetPath("/process_step1_priority.png"),
                         )}
                         alt="1단계 우선순위 결정 및 투자 최적화"
                       />
