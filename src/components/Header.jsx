@@ -167,22 +167,20 @@ function Header() {
           id: "overview",
           title: "개요",
           path: "/aconex/overview/1",
-          image:
-            "https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=600",
+          image: "/Aconex%20개요.png",
         },
         {
           id: "functions",
           title: "기능 소개",
           path: "/aconex/functions/1",
-          image:
-            "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=600",
+          image: "/Aconex%20기능%20소개.png",
         },
         {
           id: "projects",
           title: "효과",
           path: "/aconex/benefits/1",
           image:
-            "https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=600",
+            "/Aconex%20효과.png",
         },
       ],
     },

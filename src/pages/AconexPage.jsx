@@ -32,7 +32,7 @@ const subMenuItems = [
     title: "개요",
     description: "건설 프로젝트 협업을 위한 클라우드 플랫폼",
     image:
-      "https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "/Aconex%20개요.png",
     link: "#overview-content",
   },
   {
@@ -40,7 +40,7 @@ const subMenuItems = [
     title: "기능 소개",
     description: "문서 관리, 메일, 워크플로우, 협업",
     image:
-      "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "/Aconex%20기능%20소개.png",
     link: "#functions",
   },
   {
@@ -48,7 +48,7 @@ const subMenuItems = [
     title: "효과",
     description: "Primavera와 Aconex 역할 비교",
     image:
-      "https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "/Aconex%20효과.png",
     link: "#projects",
   },
 ];
@@ -1123,7 +1123,7 @@ function AconexPage() {
             className="tm-hero-section"
             style={{
               backgroundImage:
-                "linear-gradient(rgba(10, 10, 15, 0.6), rgba(10, 10, 15, 0.8)), url(https://images.pexels.com/photos/3774503/pexels-photo-3774503.jpeg?auto=compress&cs=tinysrgb&w=1200)",
+                "linear-gradient(rgba(10, 10, 15, 0.6), rgba(10, 10, 15, 0.8)), url(/Aconex.png)",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
