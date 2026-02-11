@@ -218,7 +218,7 @@ function Header() {
                 to={link.path}
                 className={`nav-link ${location.pathname.startsWith(link.path) ? "active" : ""}`}
                 onClick={() => {
-                  if (location.pathname === link.path) {
+                  if (location.pathname.startsWith(link.path)) {
                     window.scrollTo(0, 0);
                   }
                 }}
@@ -313,7 +313,7 @@ function Header() {
             className="nav-link"
             onClick={() => {
               setMenuOpen(false);
-              if (location.pathname === link.path) {
+              if (location.pathname.startsWith(link.path)) {
                 window.scrollTo(0, 0);
               }
             }}
