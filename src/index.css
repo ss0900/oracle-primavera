@@ -17030,11 +17030,75 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 .home-opc-menu-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1rem, 1.8vw, 1.6rem);
+  max-width: clamp(940px, 84vw, 1160px);
+  margin-inline: 0;
+  gap: clamp(0.85rem, 1.55vw, 1.35rem);
 }
 
 .home-opc-menu-card {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.4rem, 0.7vw, 0.58rem);
+}
+
+.home-opc-menu-item-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.home-opc-menu-card.is-head-bottom .home-opc-menu-card-link {
+  order: 1;
+}
+
+.home-opc-menu-card.is-head-bottom .home-opc-menu-item-head {
+  order: 2;
+}
+
+.home-opc-menu-item-title {
+  margin: 0;
+  color: #f4f8ff;
+  font-size: clamp(1.32rem, 1.75vw, 1.7rem);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.home-opc-menu-item-cta {
+  flex: 0 0 auto;
+  width: clamp(2rem, 2.15vw, 2.35rem);
+  height: clamp(2rem, 2.15vw, 2.35rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.66rem;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  background: rgba(6, 14, 30, 0.58);
+  color: #f6fbff;
+  line-height: 1;
+  transition:
+    background-color 300ms var(--ease-in-out),
+    border-color 300ms var(--ease-in-out),
+    transform 300ms var(--ease-in-out);
+}
+
+.home-opc-menu-item-cta svg {
+  width: clamp(0.9rem, 1.1vw, 1rem);
+  height: clamp(0.9rem, 1.1vw, 1rem);
+}
+
+.home-opc-menu-item-cta:hover,
+.home-opc-menu-item-cta:focus-visible,
+.home-opc-menu-card:hover .home-opc-menu-item-cta {
+  border-color: rgba(255, 255, 255, 0.52);
+  background: rgba(20, 38, 78, 0.75);
+  transform: translateY(-1px);
+}
+
+.home-opc-menu-item-cta:focus-visible {
+  outline: 2px solid rgba(83, 224, 255, 0.95);
+  outline-offset: 2px;
 }
 
 .home-opc-menu-card-link {
@@ -17043,7 +17107,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   width: 100%;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  border-radius: clamp(20px, 2.1vw, 28px);
+  border-radius: clamp(18px, 1.8vw, 24px);
   border: 1px solid rgba(138, 165, 220, 0.28);
   background: #0a1220;
   box-shadow: 0 18px 42px rgba(2, 7, 18, 0.5);
@@ -17074,47 +17138,6 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   );
 }
 
-.home-opc-menu-card-content {
-  position: absolute;
-  left: clamp(1rem, 1.5vw, 1.4rem);
-  right: clamp(1rem, 1.5vw, 1.4rem);
-  bottom: clamp(1rem, 1.5vw, 1.4rem);
-  display: flex;
-  align-items: center;
-}
-
-.home-opc-menu-card-title {
-  margin: 0;
-  color: #f4f8ff;
-  font-size: clamp(1.5rem, 2vw, 1.95rem);
-  letter-spacing: -0.02em;
-}
-
-.home-opc-menu-card-arrow {
-  position: absolute;
-  right: clamp(0.95rem, 1.2vw, 1.2rem);
-  bottom: clamp(0.95rem, 1.2vw, 1.2rem);
-  width: clamp(2.25rem, 2.5vw, 2.7rem);
-  height: clamp(2.25rem, 2.5vw, 2.7rem);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.26);
-  background: rgba(6, 14, 30, 0.58);
-  color: #f6fbff;
-  line-height: 1;
-  pointer-events: none;
-  transition:
-    background-color 300ms var(--ease-in-out),
-    border-color 300ms var(--ease-in-out);
-}
-
-.home-opc-menu-card-arrow svg {
-  width: clamp(1rem, 1.3vw, 1.1rem);
-  height: clamp(1rem, 1.3vw, 1.1rem);
-}
-
 .home-opc-menu-card-link:hover,
 .home-opc-menu-card-link:focus-visible {
   border-color: rgba(182, 221, 255, 0.84);
@@ -17128,12 +17151,6 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   transform: scale(1.07);
 }
 
-.home-opc-menu-card-link:hover .home-opc-menu-card-arrow,
-.home-opc-menu-card-link:focus-visible .home-opc-menu-card-arrow {
-  border-color: rgba(255, 255, 255, 0.52);
-  background: rgba(20, 38, 78, 0.75);
-}
-
 .home-opc-menu-card-link:focus-visible {
   outline: 2px solid rgba(83, 224, 255, 0.95);
   outline-offset: 3px;
@@ -17142,6 +17159,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 @media (max-width: 1100px) {
   .home-opc-menu-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 100%;
   }
 }
 
@@ -17164,7 +17182,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 @media (prefers-reduced-motion: reduce) {
   .home-opc-menu-card-link,
   .home-opc-menu-card-image,
-  .home-opc-menu-card-arrow {
+  .home-opc-menu-item-cta {
     transition: none;
   }
 

@@ -7,8 +7,8 @@ import HeroVideo from '../components/HeroVideo'
 import PpmMenuSection from '../components/panels/PpmMenuSection'
 import EppmMenuSection from '../components/panels/EppmMenuSection'
 import HomeOpcSection from '../components/panels/HomeOpcSection'
-import UnifierPanel from '../components/panels/UnifierPanel'
-import AconexPanel from '../components/panels/AconexPanel'
+import UnifierMenuSection from '../components/panels/UnifierMenuSection'
+import AconexMenuSection from '../components/panels/AconexMenuSection'
 import SectionIndicator from '../components/SectionIndicator'
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
@@ -253,10 +253,10 @@ function Home() {
           <HomeOpcSection id="opc" />
         </section>
         <section className="panel">
-          <UnifierPanel id="unifier" />
+          <UnifierMenuSection id="unifier" />
         </section>
         <section className="panel">
-          <AconexPanel id="aconex" />
+          <AconexMenuSection id="aconex" />
         </section>
       </main>
     </>

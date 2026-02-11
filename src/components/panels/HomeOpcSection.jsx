@@ -32,7 +32,29 @@ function HomeOpcSection({ id }) {
 
         <div className="home-opc-menu-grid stagger-cards">
           {opcHomeMenuCards.map((card) => (
-            <article key={card.key} className="home-opc-menu-card card-item">
+            <article
+              key={card.key}
+              className={`home-opc-menu-card card-item ${card.key === 'functions' ? 'is-head-bottom' : ''}`}
+            >
+              <div className="home-opc-menu-item-head">
+                <h3 className="home-opc-menu-item-title">{card.title}</h3>
+                <Link
+                  to={card.href}
+                  className="home-opc-menu-item-cta"
+                  aria-label={`OPC ${card.title} 페이지로 이동`}
+                >
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M8 16L16 8M16 8H10M16 8V14"
+                      stroke="currentColor"
+                      strokeWidth="2.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              </div>
+
               <Link
                 to={card.href}
                 className="home-opc-menu-card-link"
@@ -45,22 +67,6 @@ function HomeOpcSection({ id }) {
                   loading="lazy"
                 />
                 <div className="home-opc-menu-card-overlay" />
-
-                <div className="home-opc-menu-card-content">
-                  <h3 className="home-opc-menu-card-title">{card.title}</h3>
-                </div>
-
-                <span className="home-opc-menu-card-arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M8 16L16 8M16 8H10M16 8V14"
-                      stroke="currentColor"
-                      strokeWidth="2.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
               </Link>
             </article>
           ))}
