@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { eppmMenuItems } from "../data/eppmMenuData";
+import { getAssetPath } from "../utils/assetPath";
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -66,19 +67,19 @@ function Header() {
           id: "overview",
           title: "개요",
           path: "/time-management/overview/1",
-          image: "/공정관리%20개요.png",
+          image: getAssetPath("/공정관리%20개요.png"),
         },
         {
           id: "advantages",
           title: "장점",
           path: "/time-management/advantages/1",
-          image: "/공정관리%20장점.png",
+          image: getAssetPath("/공정관리%20장점.png"),
         },
         {
           id: "cases",
           title: "핵심 개념",
           path: "/time-management/core/1",
-          image: "/공정관리%20핵심%20개념.png",
+          image: getAssetPath("/공정관리%20핵심%20개념.png"),
         },
       ],
     },
@@ -90,19 +91,19 @@ function Header() {
           id: "overview",
           title: "개요",
           path: "/ppm/overview",
-          image: "/PPM%20개요.png",
+          image: getAssetPath("/PPM%20개요.png"),
         },
         {
           id: "functions",
           title: "기능 소개",
           path: "/ppm/functions/1",
-          image: "/PPM%20기능%20소개.png",
+          image: getAssetPath("/PPM%20기능%20소개.png"),
         },
         {
           id: "benefits",
           title: "효과",
           path: "/ppm/benefits",
-          image: "/PPM%20효과.png",
+          image: getAssetPath("/PPM%20효과.png"),
         },
       ],
     },
@@ -119,19 +120,19 @@ function Header() {
           id: "overview",
           title: "개요",
           path: "/opc/overview/1",
-          image: "/OPC%20개요.png",
+          image: getAssetPath("/OPC%20개요.png"),
         },
         {
           id: "functions",
           title: "기능 소개",
           path: "/opc/functions/1",
-          image: "/OPC%20기능%20소개.png",
+          image: getAssetPath("/OPC%20기능%20소개.png"),
         },
         {
           id: "comparison",
           title: "비교",
           path: "/opc/comparison/1",
-          image: "/OPC%20비교.png",
+          image: getAssetPath("/OPC%20비교.png"),
         },
       ],
     },
@@ -143,19 +144,19 @@ function Header() {
           id: "overview",
           title: "개요",
           path: "/unifier/overview/1",
-          image: "/Unifier%20개요.png",
+          image: getAssetPath("/Unifier%20개요.png"),
         },
         {
           id: "functions",
           title: "기능 소개",
           path: "/unifier/functions/1",
-          image: "/Unifier%20기능%20소개.png",
+          image: getAssetPath("/Unifier%20기능%20소개.png"),
         },
         {
           id: "benefits",
           title: "효과",
           path: "/unifier/benefits/1",
-          image: "/Unifier%20효과.png",
+          image: getAssetPath("/Unifier%20효과.png"),
         },
       ],
     },
@@ -167,20 +168,19 @@ function Header() {
           id: "overview",
           title: "개요",
           path: "/aconex/overview/1",
-          image: "/Aconex%20개요.png",
+          image: getAssetPath("/Aconex%20개요.png"),
         },
         {
           id: "functions",
           title: "기능 소개",
           path: "/aconex/functions/1",
-          image: "/Aconex%20기능%20소개.png",
+          image: getAssetPath("/Aconex%20기능%20소개.png"),
         },
         {
           id: "projects",
           title: "효과",
           path: "/aconex/benefits/1",
-          image:
-            "/Aconex%20효과.png",
+          image: getAssetPath("/Aconex%20효과.png"),
         },
       ],
     },
@@ -195,12 +195,12 @@ function Header() {
           style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}
         >
           <img
-            src="/피식스에스씨_rgb_06.좌우국영문화이트.png"
+            src={getAssetPath("/피식스에스씨_rgb_06.좌우국영문화이트.png")}
             alt="Company Logo"
             style={{ height: "2.5rem", objectFit: "contain" }}
           />
           <img
-            src="/image.png"
+            src={getAssetPath("/image.png")}
             alt="Partner Logo"
             style={{ height: "2.5rem", objectFit: "contain" }}
           />

@@ -1,3 +1,4 @@
+import { getAssetPath } from "../utils/assetPath";
 function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -8,7 +9,7 @@ function Footer() {
           <div className="footer-brand">
             <div className="footer-logo">
               <img
-                src="/피식스에스씨_rgb_06.좌우국영문화이트.png"
+                src={getAssetPath("/피식스에스씨_rgb_06.좌우국영문화이트.png")}
                 alt="P6ix SC Logo"
                 className="footer-logo-img"
               />

@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import SectionIndicator from "../components/SectionIndicator";
 import CoreDocsCard from "../components/CoreDocsCard";
+import { getAssetPath } from "../utils/assetPath";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -24,21 +25,21 @@ const subMenuItems = [
     id: "overview",
     title: "개요",
     description: "클라우드 기반의 유연한 프로젝트 관리",
-    image: "/OPC%20개요.png",
+    image: getAssetPath("/OPC%20개요.png"),
     link: "#overview-content",
   },
   {
     id: "functions",
     title: "기능 소개",
     description: "일정, 리스크, 포트폴리오, Lean 관리",
-    image: "/OPC%20기능%20소개.png",
+    image: getAssetPath("/OPC%20기능%20소개.png"),
     link: "#functions",
   },
   {
     id: "comparison",
     title: "비교",
     description: "P6와 OPC의 역할 기반 기능 전문성 비교",
-    image: "/OPC%20비교.png",
+    image: getAssetPath("/OPC%20비교.png"),
     link: "#application",
   },
 ];
@@ -234,7 +235,7 @@ const functionItems1 = [
       </svg>
     ),
     title: <>일정 관리</>,
-    image: "/일정 관리(Schedule  CPM).png",
+    image: getAssetPath("/일정 관리(Schedule  CPM).png"),
     alt: "기능 소개 - 일정 관리",
   },
   {
@@ -264,7 +265,7 @@ const functionItems1 = [
       </svg>
     ),
     title: <>리스크 관리</>,
-    image: "/리스크 관리(Risk 정성 + 정량, Monte Carlo).png",
+    image: getAssetPath("/리스크 관리(Risk 정성 + 정량, Monte Carlo).png"),
     alt: "기능 소개 - 리스크 관리",
   },
   {
@@ -349,7 +350,7 @@ const functionItems1 = [
         포트폴리오와 <br /> 자본 · 예산 계획
       </>
     ),
-    image: "/포트폴리오자본·예산 계획(Portfolio & Capital Planning).png",
+    image: getAssetPath("/포트폴리오자본·예산 계획(Portfolio & Capital Planning).png"),
     alt: "기능 소개 - 포트폴리오와 자본 · 예산 계획",
   },
   {
@@ -407,7 +408,7 @@ const functionItems1 = [
       </svg>
     ),
     title: <>대시보드 & 분석</>,
-    image: "/대시보드 & 분석(Ops Dashboard  Primavera Analytics).png",
+    image: getAssetPath("/대시보드 & 분석(Ops Dashboard  Primavera Analytics).png"),
     alt: "기능 소개 - 대시보드 & 분석",
   },
 ];
@@ -466,7 +467,7 @@ const functionItems2 = [
       </svg>
     ),
     title: <>워크플로우 & 폼</>,
-    image: "/워크플로우 & 폼(Workflow  Forms).png",
+    image: getAssetPath("/워크플로우 & 폼(Workflow  Forms).png"),
     alt: "기능 소개 - 워크플로우 & 폼",
   },
   {
@@ -496,7 +497,7 @@ const functionItems2 = [
       </svg>
     ),
     title: <>작업 관리</>,
-    image: "/작업관리(Task Management Lean 보드핸드오프제약).png",
+    image: getAssetPath("/작업관리(Task Management Lean 보드핸드오프제약).png"),
     alt: "기능 소개 - 작업 관리",
   },
   {
@@ -577,7 +578,7 @@ const functionItems2 = [
       </svg>
     ),
     title: <>타임시트</>,
-    image: "/타임시트(Timesheets).png",
+    image: getAssetPath("/타임시트(Timesheets).png"),
     alt: "기능 소개 - 타임시트",
   },
   {
@@ -635,8 +636,7 @@ const functionItems2 = [
       </svg>
     ),
     title: <>범위 관리</>,
-    image:
-      "/범위 관리(Scope Management Scope Items  Work Packages  Assignments).png",
+    image: getAssetPath("/범위 관리(Scope Management Scope Items  Work Packages  Assignments).png"),
     alt: "기능 소개 - 범위 관리",
   },
 ];
@@ -1500,7 +1500,7 @@ function OPCPage() {
           <div
             className="tm-hero-section"
             style={{
-              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(/OPC.png)`,
+              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(${getAssetPath("/OPC.png")})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

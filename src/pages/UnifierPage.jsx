@@ -7,6 +7,7 @@ import SectionIndicator from "../components/SectionIndicator";
 import EppmFunctionsSection from "../components/EppmFunctionsSection";
 import { unifierFunctionsIntro } from "../data/functionsIntroData";
 import { unifierFunctions2Intro } from "../data/unifierFunctions2Data";
+import { getAssetPath } from "../utils/assetPath";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -27,21 +28,21 @@ const subMenuItems = [
     id: "overview",
     title: "개요",
     description: "비용, 계약, 문서 관리의 완벽한 통합",
-    image: "/Unifier%20개요.png",
+    image: getAssetPath("/Unifier%20개요.png"),
     link: "#overview-content",
   },
   {
     id: "functions",
     title: "기능 소개",
     description: "프로젝트 통제와 비용 관리 핵심 기능",
-    image: "/Unifier%20기능%20소개.png",
+    image: getAssetPath("/Unifier%20기능%20소개.png"),
     link: "#functions",
   },
   {
     id: "benefits",
     title: "효과",
     description: "공공, 부동산, 인프라 도입 효과",
-    image: "/Unifier%20효과.png",
+    image: getAssetPath("/Unifier%20효과.png"),
     link: "#customers",
   },
 ];
@@ -623,7 +624,7 @@ function UnifierPage() {
           <div
             className="tm-hero-section"
             style={{
-              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(/Unifier.png)`,
+              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(${getAssetPath("/Unifier.png")})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

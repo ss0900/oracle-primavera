@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import SectionIndicator from '../../components/SectionIndicator'
+import { getAssetPath } from "../../utils/assetPath";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
@@ -425,7 +426,7 @@ function EPPMOverview() {
               ref={integrationImageCardRef}
             >
               <img 
-                src="/EPPM.png"
+                src={getAssetPath("/EPPM.png")}
                 alt="EPPM 통합 운영 대시보드"
                 onError={(e) => {
                   e.target.style.display = 'none'
@@ -479,7 +480,7 @@ function EPPMOverview() {
               ref={imageCardRef}
             >
               <img 
-                src="/cpm-gantt-chart.png"
+                src={getAssetPath("/cpm-gantt-chart.png")}
                 alt="CPM 공정표 - Primavera P6 간트 차트"
                 onError={(e) => {
                   e.target.style.display = 'none'

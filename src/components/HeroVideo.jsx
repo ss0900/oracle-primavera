@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { getAssetPath } from "../utils/assetPath";
 
 function HeroVideo({ id, scrollToSection }) {
   const videoRef = useRef(null);
@@ -48,7 +49,7 @@ function HeroVideo({ id, scrollToSection }) {
           loop
           playsInline
         >
-          <source src="/hero.mp4" type="video/mp4" />
+          <source src={getAssetPath("/hero.mp4")} type="video/mp4" />
         </video>
         <div className="hero-video-overlay" />
       </div>

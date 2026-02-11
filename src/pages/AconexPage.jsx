@@ -11,6 +11,7 @@ import {
   aconexFunctions2Images,
   aconexFunctions2Title,
 } from "../data/aconexFunctions2Data";
+import { getAssetPath } from "../utils/assetPath";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -31,24 +32,21 @@ const subMenuItems = [
     id: "overview",
     title: "개요",
     description: "건설 프로젝트 협업을 위한 클라우드 플랫폼",
-    image:
-      "/Aconex%20개요.png",
+    image: getAssetPath("/Aconex%20개요.png"),
     link: "#overview-content",
   },
   {
     id: "functions",
     title: "기능 소개",
     description: "문서 관리, 메일, 워크플로우, 협업",
-    image:
-      "/Aconex%20기능%20소개.png",
+    image: getAssetPath("/Aconex%20기능%20소개.png"),
     link: "#functions",
   },
   {
     id: "benefits",
     title: "효과",
     description: "Primavera와 Aconex 역할 비교",
-    image:
-      "/Aconex%20효과.png",
+    image: getAssetPath("/Aconex%20효과.png"),
     link: "#projects",
   },
 ];
@@ -1147,7 +1145,7 @@ function AconexPage() {
             className="tm-hero-section"
             style={{
               backgroundImage:
-                "linear-gradient(rgba(10, 10, 15, 0.6), rgba(10, 10, 15, 0.8)), url(/Aconex.png)",
+                `linear-gradient(rgba(10, 10, 15, 0.6), rgba(10, 10, 15, 0.8)), url(${getAssetPath("/Aconex.png")})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -1269,7 +1267,7 @@ function AconexPage() {
                 >
                   <img
                     className="aconex-overview-diagram-image"
-                    src="/Information Silos.png"
+                    src={getAssetPath("/Information Silos.png")}
                     alt="Information Silos 다이어그램"
                   />
                 </article>

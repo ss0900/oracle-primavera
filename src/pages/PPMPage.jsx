@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import SectionIndicator from "../components/SectionIndicator";
+import { getAssetPath } from "../utils/assetPath";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -25,21 +26,21 @@ const subMenuItems = [
     id: "overview",
     title: "개요",
     description: "PPM(Project Portfolio Management) 개요 및 핵심 기능",
-    image: "/PPM%20개요.png",
+    image: getAssetPath("/PPM%20개요.png"),
     link: "#overview",
   },
   {
     id: "functions",
     title: "기능 소개",
     description: "Critical Path Method 기반 공정 관리 중심 기능",
-    image: "/PPM%20기능%20소개.png",
+    image: getAssetPath("/PPM%20기능%20소개.png"),
     link: "#functions",
   },
   {
     id: "benefits",
     title: "효과",
     description: "PPM 솔루션 도입으로 기대할 수 있는 효과",
-    image: "/PPM%20효과.png",
+    image: getAssetPath("/PPM%20효과.png"),
     link: "#benefits",
   },
 ];
@@ -366,7 +367,7 @@ const overviewContentItems = [
     ),
     title: "포트폴리오 관리",
     description: "전사 프로젝트 현황 통합 관리",
-    image: "/포트폴리오자본·예산 계획(Portfolio & Capital Planning).png",
+    image: getAssetPath("/포트폴리오자본·예산 계획(Portfolio & Capital Planning).png"),
     alt: "PPM 개요 - 포트폴리오 관리",
   },
   {
@@ -388,7 +389,7 @@ const overviewContentItems = [
     ),
     title: "우선순위 결정",
     description: "전략 기반 프로젝트 우선순위 설정",
-    image: "/우선순위 매트릭스(Prioritization Matrix)로 평가선정.png",
+    image: getAssetPath("/우선순위 매트릭스(Prioritization Matrix)로 평가선정.png"),
     alt: "PPM 개요 - 우선순위 결정",
   },
   {
@@ -408,7 +409,7 @@ const overviewContentItems = [
     ),
     title: "자원 최적화",
     description: "전사 자원의 효율적 배분",
-    image: "/리소스 시나리오 최적화(Resource Scenario Optimization).png",
+    image: getAssetPath("/리소스 시나리오 최적화(Resource Scenario Optimization).png"),
     alt: "PPM 개요 - 자원 최적화",
   },
   {
@@ -454,7 +455,7 @@ const overviewContentItems = [
     ),
     title: "성과 분석",
     description: "프로젝트 성과 측정 및 분석",
-    image: "/대시보드·리포팅·분석(Analytics  Dashboards).png",
+    image: getAssetPath("/대시보드·리포팅·분석(Analytics  Dashboards).png"),
     alt: "PPM 개요 - 성과 분석",
   },
 ];
@@ -2040,7 +2041,7 @@ function PPMPage() {
           id="hero"
           ref={heroSectionRef}
           style={{
-            backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(/PPM.png)`,
+            backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(${getAssetPath("/PPM.png")})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

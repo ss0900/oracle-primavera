@@ -7,6 +7,7 @@ import SectionIndicator from "../components/SectionIndicator";
 import EppmFunctionsSection from "../components/EppmFunctionsSection";
 import { eppmFunctionsIntro } from "../data/functionsIntroData";
 import { eppmMenuItems } from "../data/eppmMenuData";
+import { getAssetPath } from "../utils/assetPath";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -58,7 +59,7 @@ const functionItems2 = [
         <br />- WBS 코드, Activity 코드 설정
       </>
     ),
-    image: "/코드 관리.png",
+    image: getAssetPath("/코드 관리.png"),
     alt: "기능 소개 - 코드 관리",
   },
   {
@@ -111,7 +112,7 @@ const functionItems2 = [
         커스터마이징 뷰 제공
       </>
     ),
-    image: "/보고 기능.png",
+    image: getAssetPath("/보고 기능.png"),
     alt: "기능 소개 - 보고 기능",
   },
   {
@@ -149,7 +150,7 @@ const functionItems2 = [
         <br />- 사용자별 Role/Project Access 설정
       </>
     ),
-    image: "/권한 관리.png",
+    image: getAssetPath("/권한 관리.png"),
     alt: "기능 소개 - 권한 관리",
   },
 ];
@@ -1049,7 +1050,7 @@ function EPPMPage() {
           <div
             className="tm-hero-section"
             style={{
-              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(/EPPM.png)`,
+              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.7), rgba(10, 10, 15, 0.9)), url(${getAssetPath("/EPPM.png")})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

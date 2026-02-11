@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import SectionIndicator from "../../components/SectionIndicator";
+import { getAssetPath } from "../../utils/assetPath";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -581,7 +582,7 @@ function PPMFeatures() {
             {/* Gantt Chart Image Card */}
             <div className="cpm-image-card" ref={imageCardRef}>
               <img
-                src="/cpm-gantt-chart.png"
+                src={getAssetPath("/cpm-gantt-chart.png")}
                 alt="CPM 공정표 - Primavera P6 간트 차트"
                 onError={(e) => {
                   e.target.style.display = "none";
