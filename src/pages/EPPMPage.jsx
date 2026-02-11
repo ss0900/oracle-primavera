@@ -51,7 +51,13 @@ const functionItems2 = [
         />
       </svg>
     ),
-    title: "코드 관리",
+    title: (
+      <>
+        코드 관리
+        <br />
+        <br />- WBS 코드, Activity 코드 설정
+      </>
+    ),
     image: "/코드 관리.png",
     alt: "기능 소개 - 코드 관리",
   },
@@ -98,7 +104,13 @@ const functionItems2 = [
         />
       </svg>
     ),
-    title: "보고 기능",
+    title: (
+      <>
+        보고 기능
+        <br />- Gantt Chart 및<br />
+        커스터마이징 뷰 제공
+      </>
+    ),
     image: "/보고 기능.png",
     alt: "기능 소개 - 보고 기능",
   },
@@ -130,7 +142,13 @@ const functionItems2 = [
         />
       </svg>
     ),
-    title: "권한 관리",
+    title: (
+      <>
+        권한 관리
+        <br />
+        <br />- 사용자별 Role/Project Access 설정
+      </>
+    ),
     image: "/권한 관리.png",
     alt: "기능 소개 - 권한 관리",
   },

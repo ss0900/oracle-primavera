@@ -55,6 +55,7 @@ export const eppmFunctionsIntro = {
       title: (
         <>
           일정 관리
+          <br />- EPS, WBS, Activity 구조 관리
         </>
       ),
     },
@@ -84,7 +85,12 @@ export const eppmFunctionsIntro = {
           />
         </svg>
       ),
-      title: <>진척 관리</>,
+      title: (
+        <>
+          진척 관리
+          <br />- Activity%Complete 관리
+        </>
+      ),
     },
     {
       icon: (
@@ -163,7 +169,12 @@ export const eppmFunctionsIntro = {
           />
         </svg>
       ),
-      title: <>자원 관리</>,
+      title: (
+        <>
+          자원 관리
+          <br />- 작업에 필요한 자원 연결
+        </>
+      ),
     },
     {
       icon: (
@@ -222,6 +233,7 @@ export const eppmFunctionsIntro = {
       title: (
         <>
           공정 분석
+          <br />- Critical Path 및 Float 분석
         </>
       ),
     },

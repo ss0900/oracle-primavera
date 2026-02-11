@@ -8893,6 +8893,10 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   margin: 0 auto;
 }
 
+.eppm-page-container #cases-2 .tm-section-header {
+  margin-bottom: clamp(20px, 3vh, 40px);
+}
+
 .eppm-page-container #cases .eppm-process-focus-section {
   align-items: center;
   justify-content: center;
@@ -13348,6 +13352,26 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   align-items: flex-start;
   justify-content: center;
   gap: var(--space-xl);
+}
+
+.eppm-page-container #functions .ppm-functions-layout {
+  align-items: center;
+}
+
+.eppm-page-container #functions {
+  --functions-cards-width: 250px;
+}
+
+.eppm-page-container #functions .ppm-cpm-header {
+  margin-bottom: clamp(12px, 1.6vw, 20px);
+}
+
+.eppm-page-container #functions-2 {
+  --functions-cards-width: 250px;
+}
+
+.unifier-page-container #functions {
+  --functions-media-offset-y: 0px;
 }
 
 /* Functions-2: stretch cards to match media height */
