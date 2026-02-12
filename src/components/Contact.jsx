@@ -1,6 +1,160 @@
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
 function Contact({ id }) {
+  const sectionRef = useRef(null);
+  const currentSectionRef = useRef(0);
+  const isAnimatingRef = useRef(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
+
+    const handleChange = (event) => {
+      setPrefersReducedMotion(event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+
+    const contactSection = sectionRef.current;
+    const footerSection = document.querySelector(".footer");
+
+    if (!contactSection || !footerSection) return;
+
+    const snapTargets = [contactSection, footerSection];
+    const lastSnapIndex = snapTargets.length - 1;
+    const triggers = [];
+
+    currentSectionRef.current =
+      window.scrollY >= footerSection.offsetTop - window.innerHeight * 0.5
+        ? lastSnapIndex
+        : 0;
+
+    triggers.push(
+      ScrollTrigger.create({
+        trigger: contactSection,
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => {
+          currentSectionRef.current = 0;
+        },
+        onEnterBack: () => {
+          currentSectionRef.current = 0;
+        },
+      }),
+    );
+
+    triggers.push(
+      ScrollTrigger.create({
+        trigger: footerSection,
+        start: "top top",
+        end: "bottom center",
+        onEnter: () => {
+          currentSectionRef.current = lastSnapIndex;
+        },
+        onEnterBack: () => {
+          currentSectionRef.current = lastSnapIndex;
+        },
+      }),
+    );
+
+    const snapToIndex = (targetIndex) => {
+      const target = snapTargets[targetIndex];
+
+      if (!target) {
+        isAnimatingRef.current = false;
+        return;
+      }
+
+      currentSectionRef.current = targetIndex;
+
+      gsap.to(window, {
+        duration: 0.8,
+        scrollTo: { y: target, autoKill: false },
+        ease: "power3.inOut",
+        onComplete: () => {
+          setTimeout(() => {
+            isAnimatingRef.current = false;
+          }, 100);
+        },
+      });
+    };
+
+    const handleWheel = (event) => {
+      if (isAnimatingRef.current) {
+        event.preventDefault();
+        return;
+      }
+
+      const delta = event.deltaY;
+      if (Math.abs(delta) < 50) return;
+
+      let nextSection = currentSectionRef.current;
+
+      if (delta > 0 && currentSectionRef.current < lastSnapIndex) {
+        nextSection = currentSectionRef.current + 1;
+      } else if (delta < 0 && currentSectionRef.current > 0) {
+        nextSection = currentSectionRef.current - 1;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+      isAnimatingRef.current = true;
+      snapToIndex(nextSection);
+    };
+
+    let touchStartY = 0;
+
+    const handleTouchStart = (event) => {
+      touchStartY = event.touches[0].clientY;
+    };
+
+    const handleTouchEnd = (event) => {
+      if (isAnimatingRef.current) return;
+
+      const delta = touchStartY - event.changedTouches[0].clientY;
+      if (Math.abs(delta) < 50) return;
+
+      let nextSection = currentSectionRef.current;
+      if (delta > 0 && currentSectionRef.current < lastSnapIndex) {
+        nextSection = currentSectionRef.current + 1;
+      } else if (delta < 0 && currentSectionRef.current > 0) {
+        nextSection = currentSectionRef.current - 1;
+      } else {
+        return;
+      }
+
+      isAnimatingRef.current = true;
+      snapToIndex(nextSection);
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd, { passive: true });
+
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+      triggers.forEach((trigger) => trigger.kill());
+      gsap.killTweensOf(window);
+    };
+  }, [prefersReducedMotion]);
+
   return (
     <section
+      ref={sectionRef}
       id={id}
       className="section"
       style={{ background: "var(--color-bg-primary)" }}

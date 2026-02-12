@@ -460,11 +460,31 @@ function CoreValuePlatformGlyph() {
       />
 
       <circle cx="17" cy="20" r="8" className="aconex-core-value-icon-stroke" />
-      <circle cx="103" cy="20" r="8" className="aconex-core-value-icon-stroke" />
-      <circle cx="17" cy="100" r="8" className="aconex-core-value-icon-stroke" />
-      <circle cx="103" cy="100" r="8" className="aconex-core-value-icon-stroke" />
+      <circle
+        cx="103"
+        cy="20"
+        r="8"
+        className="aconex-core-value-icon-stroke"
+      />
+      <circle
+        cx="17"
+        cy="100"
+        r="8"
+        className="aconex-core-value-icon-stroke"
+      />
+      <circle
+        cx="103"
+        cy="100"
+        r="8"
+        className="aconex-core-value-icon-stroke"
+      />
       <circle cx="60" cy="16" r="6" className="aconex-core-value-icon-accent" />
-      <circle cx="60" cy="104" r="6" className="aconex-core-value-icon-accent" />
+      <circle
+        cx="60"
+        cy="104"
+        r="6"
+        className="aconex-core-value-icon-accent"
+      />
 
       <path d="M25 24 L39 37" className="aconex-core-value-icon-stroke" />
       <path d="M95 24 L81 37" className="aconex-core-value-icon-stroke" />
@@ -498,7 +518,12 @@ function CoreValueShieldGlyph() {
 function CoreValueGlobalGlyph() {
   return (
     <svg viewBox="0 0 120 120" role="img" aria-label="표준화 아이콘">
-      <circle cx="49" cy="60" r="30" className="aconex-core-value-icon-stroke" />
+      <circle
+        cx="49"
+        cy="60"
+        r="30"
+        className="aconex-core-value-icon-stroke"
+      />
       <ellipse
         cx="49"
         cy="60"
@@ -683,7 +708,11 @@ function AconexPage() {
       targetId = subId === "2" ? "functions-2" : "functions";
     if (sectionId === "benefits")
       targetId =
-        subId === "3" ? "benefits-3" : subId === "2" ? "benefits-2" : "projects";
+        subId === "3"
+          ? "benefits-3"
+          : subId === "2"
+            ? "benefits-2"
+            : "projects";
 
     const foundIndex = sections.findIndex((section) => section.id === targetId);
 
@@ -1144,8 +1173,7 @@ function AconexPage() {
           <div
             className="tm-hero-section"
             style={{
-              backgroundImage:
-                `linear-gradient(rgba(10, 10, 15, 0.6), rgba(10, 10, 15, 0.8)), url(${getAssetPath("/Aconex.png")})`,
+              backgroundImage: `linear-gradient(rgba(10, 10, 15, 0.6), rgba(10, 10, 15, 0.8)), url(${getAssetPath("/Aconex.png")})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -1680,9 +1708,13 @@ function AconexPage() {
                     }
                   >
                     <div className="aconex-core-value-icon" aria-hidden="true">
-                      {item.id === "single-platform" && <CoreValuePlatformGlyph />}
+                      {item.id === "single-platform" && (
+                        <CoreValuePlatformGlyph />
+                      )}
                       {item.id === "risk-reduction" && <CoreValueShieldGlyph />}
-                      {item.id === "standardization" && <CoreValueGlobalGlyph />}
+                      {item.id === "standardization" && (
+                        <CoreValueGlobalGlyph />
+                      )}
                     </div>
 
                     <h3 className="aconex-core-value-title">{item.title}</h3>
