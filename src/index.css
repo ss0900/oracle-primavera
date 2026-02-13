@@ -15174,7 +15174,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 #core-2 .tm-core-ald-bullets {
-  padding-top: calc(var(--space-sm));
+  padding-top: calc(var(--space-xs));
 }
 
 .tm-core-ald-bullets li {
@@ -16250,6 +16250,14 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   box-shadow: var(--shadow-sm);
 }
 
+.tm-core-mobile-summary {
+  display: none;
+}
+
+.tm-core-mobile-summary-item {
+  margin: 0;
+}
+
 /* WBS Definition Box - Top Right Position */
 .tm-wbs-definition-box {
   position: absolute;
@@ -16949,6 +16957,83 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
   .tm-core-timeline-summary-wrapper {
     margin-top: var(--space-xl);
+  }
+
+  #core-3 .tm-core-baseline-update {
+    gap: var(--space-2xl);
+  }
+
+  #core-3 .tm-core-timeline-row {
+    gap: var(--space-sm);
+  }
+
+  #core-3 .tm-core-timeline-text {
+    max-width: 100%;
+  }
+
+  #core-3 .tm-core-timeline-grid {
+    --tm-core-grid-width: 100%;
+    padding-bottom: 0;
+  }
+
+  #core-3 .tm-core-timeline-date,
+  #core-3 .tm-core-delay-overlay {
+    display: none;
+  }
+
+  #core-3 .tm-core-mobile-summary {
+    display: grid;
+    gap: var(--space-sm);
+    width: 100%;
+    margin-top: var(--space-sm);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  #core-3 .tm-core-mobile-summary-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    font-size: var(--text-sm);
+    line-height: 1.45;
+    color: var(--color-text-secondary);
+  }
+
+  #core-3 .tm-core-mobile-summary-label {
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+
+  #core-3 .tm-core-mobile-summary-range {
+    white-space: nowrap;
+    color: var(--color-text-secondary);
+  }
+
+  #core-3 .tm-core-mobile-summary-item--delay .tm-core-mobile-summary-range {
+    color: rgba(248, 113, 113, 0.95);
+  }
+
+  #core-3 .tm-core-mobile-delay-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(248, 113, 113, 0.6);
+    background: rgba(239, 68, 68, 0.12);
+    color: rgba(252, 165, 165, 1);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+
+  #core-3 .tm-core-timeline-summary {
+    font-size: var(--text-base);
+    line-height: 1.55;
+    padding: var(--space-md);
   }
 
   .tm-wbs-tree-scroll {

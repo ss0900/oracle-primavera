@@ -4232,7 +4232,7 @@ function TimeManagementPage() {
                   <div className="tm-core-timeline-grid tm-core-timeline-grid--baseline">
                     <span className="tm-core-timeline-date tm-core-timeline-date--start">
                       <span className="tm-core-timeline-date-icon">⏱</span>
-                      2022-01-01
+                      {baselineStartDate}
                     </span>
                     <div
                       className="tm-core-timeline-track tm-core-timeline-track--baseline"
@@ -4271,7 +4271,7 @@ function TimeManagementPage() {
                       ref={baselineEndDateRef}
                     >
                       <span className="tm-core-timeline-date-icon">⏱</span>
-                      2022-03-01
+                      {baselineEndDate}
                     </span>
                   </div>
                 </div>
@@ -4291,7 +4291,7 @@ function TimeManagementPage() {
                   <div className="tm-core-timeline-grid tm-core-timeline-grid--update">
                     <span className="tm-core-timeline-date tm-core-timeline-date--start">
                       <span className="tm-core-timeline-date-icon">⏱</span>
-                      2022-01-01
+                      {updateStartDate}
                     </span>
                     <div className="tm-core-timeline-track tm-core-timeline-track--update">
                       <span
@@ -4309,11 +4309,34 @@ function TimeManagementPage() {
                     </div>
                     <span className="tm-core-timeline-date tm-core-timeline-date--end">
                       <span className="tm-core-timeline-date-icon">⏱</span>
-                      2022-04-20
+                      {updateEndDate}
                     </span>
                   </div>
                 </div>
 
+                <div className="tm-core-mobile-summary" aria-label="Timeline summary">
+                  <p className="tm-core-mobile-summary-item">
+                    <span className="tm-core-mobile-summary-label">Baseline:</span>
+                    <span className="tm-core-mobile-summary-range">
+                      {baselineStartDate} -&gt; {baselineEndDate}
+                    </span>
+                  </p>
+                  <p className="tm-core-mobile-summary-item">
+                    <span className="tm-core-mobile-summary-label">Update:</span>
+                    <span className="tm-core-mobile-summary-range">
+                      {updateStartDate} -&gt; {updateEndDate}
+                    </span>
+                  </p>
+                  <p className="tm-core-mobile-summary-item tm-core-mobile-summary-item--delay">
+                    <span className="tm-core-mobile-summary-label">Delay:</span>
+                    <span className="tm-core-mobile-summary-range">
+                      {baselineEndDate} -&gt; {updateEndDate}
+                    </span>
+                    <span className="tm-core-mobile-delay-badge">
+                      Delay +{delayDays} days
+                    </span>
+                  </p>
+                </div>
                 <div className="tm-core-timeline-summary-wrapper">
                   <p className="tm-core-timeline-summary">
                     Baseline vs Update 비교를 통해 지연/단축을 판단함
