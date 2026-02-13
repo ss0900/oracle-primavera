@@ -4411,38 +4411,41 @@ function TimeManagementPage() {
                     />
                   </svg>
 
-                  <span className="tm-core-flow-branch-label tm-core-flow-branch-label--left">
-                    Logic 변경 (Change Logic)
-                  </span>
-                  <span className="tm-core-flow-branch-label tm-core-flow-branch-label--right tm-core-flow-branch-label--emphasis">
-                    자원 투입 (Add Resources)
-                  </span>
-
-                  <div className="tm-core-flow-branch tm-core-flow-branch--left">
-                    <div className="tm-core-flow-result card glass">
-                      <span
-                        className="tm-core-flow-result-icon"
-                        aria-hidden="true"
-                      >
-                        🧱
-                      </span>
-                      <span className="tm-core-flow-result-text">
-                        공정 중첩 (Fast Tracking)
-                      </span>
+                  <div className="tm-core-flow-option tm-core-flow-option--left">
+                    <span className="tm-core-flow-branch-label tm-core-flow-branch-label--left">
+                      Logic 변경 (Change Logic)
+                    </span>
+                    <div className="tm-core-flow-branch tm-core-flow-branch--left">
+                      <div className="tm-core-flow-result card glass">
+                        <span
+                          className="tm-core-flow-result-icon"
+                          aria-hidden="true"
+                        >
+                          🧱
+                        </span>
+                        <span className="tm-core-flow-result-text">
+                          공정 중첩 (Fast Tracking)
+                        </span>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="tm-core-flow-branch tm-core-flow-branch--right">
-                    <div className="tm-core-flow-result tm-core-flow-result--emphasis card glass">
-                      <span
-                        className="tm-core-flow-result-icon"
-                        aria-hidden="true"
-                      >
-                        🪙
-                      </span>
-                      <span className="tm-core-flow-result-text">
-                        공정 압축 (Crashing)
-                      </span>
+                  <div className="tm-core-flow-option tm-core-flow-option--right">
+                    <span className="tm-core-flow-branch-label tm-core-flow-branch-label--right tm-core-flow-branch-label--emphasis">
+                      자원 투입 (Add Resources)
+                    </span>
+                    <div className="tm-core-flow-branch tm-core-flow-branch--right">
+                      <div className="tm-core-flow-result tm-core-flow-result--emphasis card glass">
+                        <span
+                          className="tm-core-flow-result-icon"
+                          aria-hidden="true"
+                        >
+                          🪙
+                        </span>
+                        <span className="tm-core-flow-result-text">
+                          공정 압축 (Crashing)
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
