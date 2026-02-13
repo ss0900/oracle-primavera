@@ -5671,6 +5671,10 @@ a:hover {
   white-space: nowrap;
 }
 
+.tm-arrow-label-line {
+  display: inline;
+}
+
 .tm-arrow-line {
   width: 112px;
   height: 24px;
@@ -5941,33 +5945,108 @@ a:hover {
 
 /* Responsive Styles */
 @media (max-width: 992px) {
-  .tm-flow-container {
+  .tm-definition-section .tm-flow-container-definition {
     flex-direction: column;
-    gap: var(--space-xl);
+    align-items: center;
+    gap: clamp(0.75rem, 2.8vw, 1.15rem);
   }
 
-  .tm-flow-arrow {
-    transform: rotate(90deg);
-    min-width: auto;
+  .tm-definition-section .tm-flow-input {
+    width: min(100%, 420px);
+    min-width: 0;
   }
 
-  .tm-flow-arrow-right {
-    transform: rotate(90deg);
+  .tm-definition-section .tm-flow-control {
+    padding: var(--space-xs) 0;
   }
 
-  .tm-arrow-label {
-    transform: rotate(-90deg);
+  .tm-definition-section .tm-flow-results {
+    width: min(100%, 360px);
+    min-width: 0;
+    gap: 0.72rem;
+  }
+
+  .tm-definition-section .tm-result-item {
+    justify-content: center;
+    min-height: 58px;
+  }
+
+  .tm-definition-section .tm-result-item:hover {
+    transform: none;
+    border-width: 2px;
+  }
+
+  .tm-definition-section .tm-flow-arrow {
+    transform: none;
+    min-width: 0;
+    width: auto;
+    gap: 0.58rem;
+    padding: 0;
+  }
+
+  .tm-definition-section .tm-flow-arrow:not(.tm-flow-arrow-right)::before {
+    content: "";
+    width: 4px;
+    height: 28px;
+    border-radius: 999px;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 212, 255, 0.95) 0%,
+      rgba(0, 212, 255, 0.34) 100%
+    );
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+  }
+
+  .tm-definition-section .tm-arrow-label {
+    transform: none;
     white-space: normal;
-    width: 120px;
+    width: auto;
+    max-width: 190px;
+    line-height: 1.35;
+    text-align: center;
+    word-break: keep-all;
+    overflow-wrap: normal;
+    font-size: clamp(0.86rem, 2.8vw, 0.96rem);
   }
 
-  .tm-icon-wrapper::before {
+  .tm-definition-section .tm-flow-arrow .tm-arrow-line {
+    width: 4px;
+    height: 44px;
+    border-radius: 999px;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 212, 255, 0.98) 0%,
+      rgba(0, 212, 255, 0.36) 100%
+    );
+    position: relative;
+    filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.45));
+  }
+
+  .tm-definition-section .tm-flow-arrow .tm-arrow-line::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 12px solid rgba(0, 212, 255, 0.96);
+    filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.55));
+  }
+
+  .tm-definition-section .tm-flow-arrow .tm-arrow-line svg {
+    display: none;
+  }
+
+  .tm-definition-section .tm-icon-wrapper::before {
     bottom: auto;
     top: calc(100% + 10px);
     left: 50%;
   }
 
-  .tm-icon-wrapper::after {
+  .tm-definition-section .tm-icon-wrapper::after {
     bottom: auto;
     top: calc(100% + 4px);
     border-top-color: transparent;
@@ -6001,6 +6080,27 @@ a:hover {
   .tm-shield-icon {
     width: 80px;
     height: 96px;
+  }
+
+  .tm-definition-section .tm-flow-container-definition {
+    gap: 0.66rem;
+  }
+
+  .tm-definition-section .tm-flow-arrow:not(.tm-flow-arrow-right)::before {
+    height: 24px;
+  }
+
+  .tm-definition-section .tm-flow-arrow .tm-arrow-line {
+    height: 34px;
+  }
+
+  .tm-definition-section .tm-arrow-label-line {
+    display: block;
+  }
+
+  .tm-definition-section .tm-flow-results {
+    width: min(100%, 320px);
+    gap: 0.62rem;
   }
 
   .tm-result-item {
@@ -6795,19 +6895,19 @@ a:hover {
 }
 
 /* Flow Arrows */
-.tm-flow-arrow {
+.tm-methods-section .tm-flow-arrow {
   display: flex;
   justify-content: center;
   padding: var(--space-sm) 0;
 }
 
-.tm-flow-arrow svg {
+.tm-methods-section .tm-flow-arrow svg {
   width: 100%;
   max-width: 800px;
   height: 30px;
 }
 
-.tm-arrow-backward svg text {
+.tm-methods-section .tm-arrow-backward svg text {
   font-weight: 500;
 }
 
@@ -6995,7 +7095,7 @@ a:hover {
     padding-left: 0;
   }
 
-  .tm-flow-arrow {
+  .tm-methods-section .tm-flow-arrow {
     transform: rotate(90deg);
   }
 }

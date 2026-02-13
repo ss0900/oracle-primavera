@@ -1299,7 +1299,9 @@ function TimeManagementPage() {
 
     if (shouldHijackScroll) {
       window.addEventListener("wheel", handleWheel, { passive: false });
-      window.addEventListener("touchstart", handleTouchStart, { passive: true });
+      window.addEventListener("touchstart", handleTouchStart, {
+        passive: true,
+      });
       window.addEventListener("touchend", handleTouchEnd, { passive: true });
     }
 
@@ -1453,7 +1455,7 @@ function TimeManagementPage() {
               </div>
 
               {/* Visual Flow Diagram */}
-              <div className="tm-flow-container">
+              <div className="tm-flow-container tm-flow-container-definition">
                 {/* Input Section - Left */}
                 <div className="tm-flow-input">
                   <div className="tm-input-icons">
@@ -1598,7 +1600,8 @@ function TimeManagementPage() {
                 {/* Arrow with Management Label */}
                 <div className="tm-flow-arrow" ref={arrowLeftRef}>
                   <span className="tm-arrow-label">
-                    경제적 운용 + 총괄적 관리
+                    <span className="tm-arrow-label-line">경제적 운용 +</span>
+                    <span className="tm-arrow-label-line">총괄적 관리</span>
                   </span>
                   <div className="tm-arrow-line">
                     <svg viewBox="0 0 100 24" preserveAspectRatio="none">
@@ -2409,7 +2412,7 @@ function TimeManagementPage() {
                 <div className="tm-goals-callout" ref={goalsCalloutRef}>
                   <div className="tm-callout-content">
                     <p className="tm-callout-text">
-                      단순한 일정 준수를 넘어,
+                      단순한 일정 준수를 넘어
                       <br />
                       <strong>비용과 품질을 동시에 만족</strong>시켜야 함
                     </p>
