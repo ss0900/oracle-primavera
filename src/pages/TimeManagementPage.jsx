@@ -179,6 +179,24 @@ function TimeManagementPage() {
   const delayLabelRef = useRef(null);
   const delayOverlayRef = useRef(null);
 
+  const baselineStartDate = "2022-01-01";
+  const baselineEndDate = "2022-03-01";
+  const updateStartDate = "2022-01-01";
+  const updateEndDate = "2022-04-20";
+
+  const toUtcTimestamp = (isoDate) => {
+    const [year, month, day] = isoDate.split("-").map(Number);
+    return Date.UTC(year, month - 1, day);
+  };
+
+  const delayDays = Math.max(
+    0,
+    Math.round(
+      (toUtcTimestamp(updateEndDate) - toUtcTimestamp(baselineEndDate)) /
+        (1000 * 60 * 60 * 24),
+    ),
+  );
+
   // PPM vs EPPM drag-to-resize state
   const [leftRatio, setLeftRatio] = useState(50);
   const [isResizing, setIsResizing] = useState(false);
@@ -3646,7 +3664,10 @@ function TimeManagementPage() {
                     <ul className="tm-ppm-eppm-features">
                       <li ref={(el) => (ppmEppmBulletsRef.current[0] = el)}>
                         <span className="tm-bullet"></span>
-                        <span>Client-based (PC 설치형)</span>
+                        <span>
+                          <span className="tm-term-nowrap">Client-based</span>{" "}
+                          (PC 설치형)
+                        </span>
                       </li>
                       <li ref={(el) => (ppmEppmBulletsRef.current[1] = el)}>
                         <span className="tm-bullet"></span>
@@ -3771,7 +3792,10 @@ function TimeManagementPage() {
                     <ul className="tm-ppm-eppm-features">
                       <li ref={(el) => (ppmEppmBulletsRef.current[3] = el)}>
                         <span className="tm-bullet"></span>
-                        <span>Web-based (설치 불필요)</span>
+                        <span>
+                          <span className="tm-term-nowrap">Web-based</span>{" "}
+                          (설치 불필요)
+                        </span>
                       </li>
                       <li ref={(el) => (ppmEppmBulletsRef.current[4] = el)}>
                         <span className="tm-bullet"></span>
@@ -3822,61 +3846,252 @@ function TimeManagementPage() {
               </div>
 
               {/* WBS Tree Diagram */}
-              <div className="tm-wbs-tree" ref={coreWbsTreeRef}>
-                {/* Level 1: Project Root */}
-                <div className="tm-wbs-level tm-wbs-level-1">
-                  <div
-                    className="tm-wbs-node tm-wbs-node-root"
-                    ref={(el) => (coreNodesRef.current[0] = el)}
-                  >
-                    <span className="tm-wbs-node-text">Project</span>
-                    <span className="tm-wbs-node-subtext">(EPC 공사)</span>
+              <div className="tm-wbs-tree-scroll">
+                <div className="tm-wbs-tree" ref={coreWbsTreeRef}>
+                  {/* Level 1: Project Root */}
+                  <div className="tm-wbs-level tm-wbs-level-1">
+                    <div
+                      className="tm-wbs-node tm-wbs-node-root"
+                      ref={(el) => (coreNodesRef.current[0] = el)}
+                    >
+                      <span className="tm-wbs-node-text">Project</span>
+                      <span className="tm-wbs-node-subtext">(EPC 공사)</span>
+                    </div>
                   </div>
-                </div>
 
-                {/* Connector Line from Root
+                  {/* Connector Line from Root
                 <div className="tm-wbs-connector tm-wbs-connector-vertical"></div>
                 <div className="tm-wbs-connector tm-wbs-connector-horizontal-3"></div> */}
 
-                {/* Level 2: Engineering, Procurement, Construction */}
-                <div className="tm-wbs-level tm-wbs-level-2 tm-wbs-sibling-group tm-wbs-sibling-group--multi tm-wbs-sibling-group--level-2">
-                  <div
-                    className="tm-wbs-node tm-wbs-node-main tm-wbs-sibling"
-                    ref={(el) => (coreNodesRef.current[1] = el)}
-                  >
-                    <span className="tm-wbs-node-text">Engineering</span>
-                    <span className="tm-wbs-node-subtext">(설계)</span>
-                  </div>
-                  <div
-                    className="tm-wbs-node tm-wbs-node-main tm-wbs-sibling"
-                    ref={(el) => (coreNodesRef.current[2] = el)}
-                  >
-                    <span className="tm-wbs-node-text">Procurement</span>
-                    <span className="tm-wbs-node-subtext">(구매)</span>
-                  </div>
-
-                  {/* Construction Subtree Wrapper */}
-                  <div className="tm-wbs-construction-subtree tm-wbs-sibling">
+                  {/* Level 2: Engineering, Procurement, Construction */}
+                  <div className="tm-wbs-level tm-wbs-level-2 tm-wbs-sibling-group tm-wbs-sibling-group--multi tm-wbs-sibling-group--level-2">
                     <div
-                      className="tm-wbs-node tm-wbs-node-main tm-wbs-node-highlight"
-                      ref={(el) => (coreNodesRef.current[3] = el)}
+                      className="tm-wbs-node tm-wbs-node-main tm-wbs-sibling"
+                      ref={(el) => (coreNodesRef.current[1] = el)}
                     >
-                      <span className="tm-wbs-node-text">Construction</span>
-                      <span className="tm-wbs-node-subtext">(시공)</span>
+                      <span className="tm-wbs-node-text">Engineering</span>
+                      <span className="tm-wbs-node-subtext">(설계)</span>
+                    </div>
+                    <div
+                      className="tm-wbs-node tm-wbs-node-main tm-wbs-sibling"
+                      ref={(el) => (coreNodesRef.current[2] = el)}
+                    >
+                      <span className="tm-wbs-node-text">Procurement</span>
+                      <span className="tm-wbs-node-subtext">(구매)</span>
                     </div>
 
-                    {/* Connector from Construction to Zones
+                    {/* Construction Subtree Wrapper */}
+                    <div className="tm-wbs-construction-subtree tm-wbs-sibling">
+                      <div
+                        className="tm-wbs-node tm-wbs-node-main tm-wbs-node-highlight"
+                        ref={(el) => (coreNodesRef.current[3] = el)}
+                      >
+                        <span className="tm-wbs-node-text">Construction</span>
+                        <span className="tm-wbs-node-subtext">(시공)</span>
+                      </div>
+
+                      {/* Connector from Construction to Zones
                     <div className="tm-wbs-connector tm-wbs-connector-branch">
                       <div className="tm-wbs-branch-line"></div>
                     </div> */}
 
-                    {/* Level 3: Zones */}
-                    <div className="tm-wbs-level tm-wbs-level-3 tm-wbs-sibling-group tm-wbs-sibling-group--multi tm-wbs-sibling-group--level-3">
-                      {/* Zone A Subtree Wrapper */}
-                      <div className="tm-wbs-zone-a-subtree tm-wbs-sibling">
+                      {/* Level 3: Zones */}
+                      <div className="tm-wbs-level tm-wbs-level-3 tm-wbs-sibling-group tm-wbs-sibling-group--multi tm-wbs-sibling-group--level-3">
+                        {/* Zone A Subtree Wrapper */}
+                        <div className="tm-wbs-zone-a-subtree tm-wbs-sibling">
+                          <div
+                            className="tm-wbs-node tm-wbs-node-zone"
+                            ref={(el) => (coreNodesRef.current[4] = el)}
+                          >
+                            <div className="tm-wbs-zone-icon">
+                              <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                              >
+                                <rect x="3" y="3" width="7" height="7" rx="1" />
+                                <rect
+                                  x="14"
+                                  y="3"
+                                  width="7"
+                                  height="7"
+                                  rx="1"
+                                />
+                                <rect
+                                  x="3"
+                                  y="14"
+                                  width="7"
+                                  height="7"
+                                  rx="1"
+                                />
+                                <rect
+                                  x="14"
+                                  y="14"
+                                  width="7"
+                                  height="7"
+                                  rx="1"
+                                />
+                              </svg>
+                            </div>
+                            <span className="tm-wbs-node-text">Zone A</span>
+                          </div>
+
+                          {/* Connector from Zone A to Disciplines */}
+                          {/* <div className="tm-wbs-connector tm-wbs-connector-discipline">
+                          <div className="tm-wbs-branch-line"></div>
+                        </div> */}
+
+                          {/* Level 4: Disciplines (토목, 건축, 기계) */}
+                          <div className="tm-wbs-level tm-wbs-level-4 tm-wbs-sibling-group tm-wbs-sibling-group--multi tm-wbs-sibling-group--level-4">
+                            {/* 토목 Subtree - 2 Activities */}
+                            <div className="tm-wbs-discipline-subtree tm-wbs-sibling">
+                              <div
+                                className="tm-wbs-node tm-wbs-node-discipline"
+                                ref={(el) => (coreNodesRef.current[6] = el)}
+                              >
+                                <div className="tm-wbs-discipline-icon">
+                                  <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                  >
+                                    <path d="M2 20h20M4 20v-6l8-8 8 8v6" />
+                                    <path d="M9 20v-4h6v4" />
+                                  </svg>
+                                </div>
+                                <span className="tm-wbs-node-text">토목</span>
+                              </div>
+
+                              {/* Connector to Activities */}
+                              {/* <div className="tm-wbs-connector tm-wbs-connector-activity">
+                              <div className="tm-wbs-branch-line"></div>
+                            </div> */}
+
+                              {/* Activities for 토목 */}
+                              <div className="tm-wbs-level tm-wbs-level-5 tm-wbs-activity-group tm-wbs-sibling-group tm-wbs-sibling-group--multi tm-wbs-sibling-group--level-5">
+                                <div
+                                  className="tm-wbs-node tm-wbs-node-activity tm-wbs-sibling"
+                                  ref={(el) => (coreNodesRef.current[9] = el)}
+                                >
+                                  <span className="tm-wbs-node-text">
+                                    Activity
+                                  </span>
+                                  <span className="tm-wbs-node-subtext">
+                                    (단위 작업)
+                                  </span>
+                                </div>
+                                <div
+                                  className="tm-wbs-node tm-wbs-node-activity tm-wbs-sibling"
+                                  ref={(el) => (coreNodesRef.current[10] = el)}
+                                >
+                                  <span className="tm-wbs-node-text">
+                                    Activity
+                                  </span>
+                                  <span className="tm-wbs-node-subtext">
+                                    (단위 작업)
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* 건축 Subtree - 1 Activity */}
+                            <div className="tm-wbs-discipline-subtree tm-wbs-sibling">
+                              <div
+                                className="tm-wbs-node tm-wbs-node-discipline"
+                                ref={(el) => (coreNodesRef.current[7] = el)}
+                              >
+                                <div className="tm-wbs-discipline-icon">
+                                  <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                  >
+                                    <rect
+                                      x="3"
+                                      y="8"
+                                      width="18"
+                                      height="12"
+                                      rx="1"
+                                    />
+                                    <path d="M3 8l9-5 9 5" />
+                                    <rect x="8" y="13" width="3" height="7" />
+                                    <rect x="13" y="13" width="3" height="4" />
+                                  </svg>
+                                </div>
+                                <span className="tm-wbs-node-text">건축</span>
+                              </div>
+
+                              {/* Connector to Activities */}
+                              {/* <div className="tm-wbs-connector tm-wbs-connector-activity">
+                              <div className="tm-wbs-branch-line"></div>
+                            </div> */}
+
+                              {/* Activities for 건축 */}
+                              <div className="tm-wbs-level tm-wbs-level-5 tm-wbs-activity-group tm-wbs-sibling-group tm-wbs-sibling-group--level-5">
+                                <div
+                                  className="tm-wbs-node tm-wbs-node-activity tm-wbs-sibling"
+                                  ref={(el) => (coreNodesRef.current[11] = el)}
+                                >
+                                  <span className="tm-wbs-node-text">
+                                    Activity
+                                  </span>
+                                  <span className="tm-wbs-node-subtext">
+                                    (단위 작업)
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* 기계 Subtree - 1 Activity */}
+                            <div className="tm-wbs-discipline-subtree tm-wbs-sibling">
+                              <div
+                                className="tm-wbs-node tm-wbs-node-discipline"
+                                ref={(el) => (coreNodesRef.current[8] = el)}
+                              >
+                                <div className="tm-wbs-discipline-icon">
+                                  <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                  >
+                                    <circle cx="12" cy="12" r="3" />
+                                    <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+                                  </svg>
+                                </div>
+                                <span className="tm-wbs-node-text">기계</span>
+                              </div>
+
+                              {/* Connector to Activities */}
+                              {/* <div className="tm-wbs-connector tm-wbs-connector-activity">
+                              <div className="tm-wbs-branch-line"></div>
+                            </div> */}
+
+                              {/* Activities for 기계 */}
+                              <div className="tm-wbs-level tm-wbs-level-5 tm-wbs-activity-group tm-wbs-sibling-group tm-wbs-sibling-group--level-5">
+                                <div
+                                  className="tm-wbs-node tm-wbs-node-activity tm-wbs-sibling"
+                                  ref={(el) => (coreNodesRef.current[12] = el)}
+                                >
+                                  <span className="tm-wbs-node-text">
+                                    Activity
+                                  </span>
+                                  <span className="tm-wbs-node-subtext">
+                                    (단위 작업)
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Zone B - Independent */}
                         <div
-                          className="tm-wbs-node tm-wbs-node-zone"
-                          ref={(el) => (coreNodesRef.current[4] = el)}
+                          className="tm-wbs-node tm-wbs-node-zone tm-wbs-sibling"
+                          ref={(el) => (coreNodesRef.current[5] = el)}
                         >
                           <div className="tm-wbs-zone-icon">
                             <svg
@@ -3891,179 +4106,8 @@ function TimeManagementPage() {
                               <rect x="14" y="14" width="7" height="7" rx="1" />
                             </svg>
                           </div>
-                          <span className="tm-wbs-node-text">Zone A</span>
+                          <span className="tm-wbs-node-text">Zone B</span>
                         </div>
-
-                        {/* Connector from Zone A to Disciplines */}
-                        {/* <div className="tm-wbs-connector tm-wbs-connector-discipline">
-                          <div className="tm-wbs-branch-line"></div>
-                        </div> */}
-
-                        {/* Level 4: Disciplines (토목, 건축, 기계) */}
-                        <div className="tm-wbs-level tm-wbs-level-4 tm-wbs-sibling-group tm-wbs-sibling-group--multi tm-wbs-sibling-group--level-4">
-                          {/* 토목 Subtree - 2 Activities */}
-                          <div className="tm-wbs-discipline-subtree tm-wbs-sibling">
-                            <div
-                              className="tm-wbs-node tm-wbs-node-discipline"
-                              ref={(el) => (coreNodesRef.current[6] = el)}
-                            >
-                              <div className="tm-wbs-discipline-icon">
-                                <svg
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  strokeWidth="2"
-                                >
-                                  <path d="M2 20h20M4 20v-6l8-8 8 8v6" />
-                                  <path d="M9 20v-4h6v4" />
-                                </svg>
-                              </div>
-                              <span className="tm-wbs-node-text">토목</span>
-                            </div>
-
-                            {/* Connector to Activities */}
-                            {/* <div className="tm-wbs-connector tm-wbs-connector-activity">
-                              <div className="tm-wbs-branch-line"></div>
-                            </div> */}
-
-                            {/* Activities for 토목 */}
-                            <div className="tm-wbs-level tm-wbs-level-5 tm-wbs-activity-group tm-wbs-sibling-group tm-wbs-sibling-group--multi tm-wbs-sibling-group--level-5">
-                              <div
-                                className="tm-wbs-node tm-wbs-node-activity tm-wbs-sibling"
-                                ref={(el) => (coreNodesRef.current[9] = el)}
-                              >
-                                <span className="tm-wbs-node-text">
-                                  Activity
-                                </span>
-                                <span className="tm-wbs-node-subtext">
-                                  (단위 작업)
-                                </span>
-                              </div>
-                              <div
-                                className="tm-wbs-node tm-wbs-node-activity tm-wbs-sibling"
-                                ref={(el) => (coreNodesRef.current[10] = el)}
-                              >
-                                <span className="tm-wbs-node-text">
-                                  Activity
-                                </span>
-                                <span className="tm-wbs-node-subtext">
-                                  (단위 작업)
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* 건축 Subtree - 1 Activity */}
-                          <div className="tm-wbs-discipline-subtree tm-wbs-sibling">
-                            <div
-                              className="tm-wbs-node tm-wbs-node-discipline"
-                              ref={(el) => (coreNodesRef.current[7] = el)}
-                            >
-                              <div className="tm-wbs-discipline-icon">
-                                <svg
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  strokeWidth="2"
-                                >
-                                  <rect
-                                    x="3"
-                                    y="8"
-                                    width="18"
-                                    height="12"
-                                    rx="1"
-                                  />
-                                  <path d="M3 8l9-5 9 5" />
-                                  <rect x="8" y="13" width="3" height="7" />
-                                  <rect x="13" y="13" width="3" height="4" />
-                                </svg>
-                              </div>
-                              <span className="tm-wbs-node-text">건축</span>
-                            </div>
-
-                            {/* Connector to Activities */}
-                            {/* <div className="tm-wbs-connector tm-wbs-connector-activity">
-                              <div className="tm-wbs-branch-line"></div>
-                            </div> */}
-
-                            {/* Activities for 건축 */}
-                            <div className="tm-wbs-level tm-wbs-level-5 tm-wbs-activity-group tm-wbs-sibling-group tm-wbs-sibling-group--level-5">
-                              <div
-                                className="tm-wbs-node tm-wbs-node-activity tm-wbs-sibling"
-                                ref={(el) => (coreNodesRef.current[11] = el)}
-                              >
-                                <span className="tm-wbs-node-text">
-                                  Activity
-                                </span>
-                                <span className="tm-wbs-node-subtext">
-                                  (단위 작업)
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* 기계 Subtree - 1 Activity */}
-                          <div className="tm-wbs-discipline-subtree tm-wbs-sibling">
-                            <div
-                              className="tm-wbs-node tm-wbs-node-discipline"
-                              ref={(el) => (coreNodesRef.current[8] = el)}
-                            >
-                              <div className="tm-wbs-discipline-icon">
-                                <svg
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  strokeWidth="2"
-                                >
-                                  <circle cx="12" cy="12" r="3" />
-                                  <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
-                                </svg>
-                              </div>
-                              <span className="tm-wbs-node-text">기계</span>
-                            </div>
-
-                            {/* Connector to Activities */}
-                            {/* <div className="tm-wbs-connector tm-wbs-connector-activity">
-                              <div className="tm-wbs-branch-line"></div>
-                            </div> */}
-
-                            {/* Activities for 기계 */}
-                            <div className="tm-wbs-level tm-wbs-level-5 tm-wbs-activity-group tm-wbs-sibling-group tm-wbs-sibling-group--level-5">
-                              <div
-                                className="tm-wbs-node tm-wbs-node-activity tm-wbs-sibling"
-                                ref={(el) => (coreNodesRef.current[12] = el)}
-                              >
-                                <span className="tm-wbs-node-text">
-                                  Activity
-                                </span>
-                                <span className="tm-wbs-node-subtext">
-                                  (단위 작업)
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Zone B - Independent */}
-                      <div
-                        className="tm-wbs-node tm-wbs-node-zone tm-wbs-sibling"
-                        ref={(el) => (coreNodesRef.current[5] = el)}
-                      >
-                        <div className="tm-wbs-zone-icon">
-                          <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                          >
-                            <rect x="3" y="3" width="7" height="7" rx="1" />
-                            <rect x="14" y="3" width="7" height="7" rx="1" />
-                            <rect x="3" y="14" width="7" height="7" rx="1" />
-                            <rect x="14" y="14" width="7" height="7" rx="1" />
-                          </svg>
-                        </div>
-                        <span className="tm-wbs-node-text">Zone B</span>
                       </div>
                     </div>
                   </div>
@@ -4110,7 +4154,7 @@ function TimeManagementPage() {
                     </span>
                   </div>
 
-                  <div className="tm-core-ald-arrow">
+                  <div className="tm-core-ald-arrow tm-core-ald-arrow--fs">
                     <span className="tm-core-ald-arrow-label">
                       <span className="tm-core-ald-arrow-code">FS</span>
                       <span className="tm-core-ald-arrow-sub">
