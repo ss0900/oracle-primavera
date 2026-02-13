@@ -1602,27 +1602,12 @@ function TimeManagementPage() {
                   </span>
                   <div className="tm-arrow-line">
                     <svg viewBox="0 0 100 24" preserveAspectRatio="none">
-                      <defs>
-                        <linearGradient
-                          id="arrowGradient"
-                          x1="0%"
-                          y1="0%"
-                          x2="100%"
-                          y2="0%"
-                        >
-                          <stop
-                            offset="0%"
-                            stopColor="var(--color-accent)"
-                            stopOpacity="0.3"
-                          />
-                          <stop offset="100%" stopColor="var(--color-accent)" />
-                        </linearGradient>
-                      </defs>
                       <path
                         className="tm-arrow-path"
                         d="M0 12 L85 12"
-                        stroke="url(#arrowGradient)"
-                        strokeWidth="3"
+                        stroke="rgba(0, 212, 255, 0.95)"
+                        strokeWidth="3.8"
+                        strokeLinecap="round"
                         fill="none"
                       />
                       <polygon
@@ -1724,8 +1709,9 @@ function TimeManagementPage() {
                       <path
                         className="tm-arrow-path"
                         d="M0 12 L85 12"
-                        stroke="url(#arrowGradient)"
-                        strokeWidth="3"
+                        stroke="rgba(0, 212, 255, 0.95)"
+                        strokeWidth="3.8"
+                        strokeLinecap="round"
                         fill="none"
                       />
                       <polygon

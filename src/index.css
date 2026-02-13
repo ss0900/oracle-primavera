@@ -5672,7 +5672,7 @@ a:hover {
 }
 
 .tm-arrow-line {
-  width: 100px;
+  width: 112px;
   height: 24px;
 }
 
@@ -5682,8 +5682,13 @@ a:hover {
 }
 
 .tm-arrow-path {
-  stroke-dasharray: 85;
+  stroke-dasharray: none;
   stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.55));
+}
+
+.tm-arrow-head {
+  filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.6));
 }
 
 .tm-flow-arrow-right .tm-arrow-label {
@@ -17475,6 +17480,15 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
   .home-opc-menu-card-link {
     aspect-ratio: 16 / 10;
+  }
+
+  /* Keep card heading (title + CTA) at the top on mobile for all OPC cards */
+  .home-opc-menu-card.is-head-bottom .home-opc-menu-item-head {
+    order: 1;
+  }
+
+  .home-opc-menu-card.is-head-bottom .home-opc-menu-card-link {
+    order: 2;
   }
 }
 
