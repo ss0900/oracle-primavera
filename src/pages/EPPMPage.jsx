@@ -792,17 +792,25 @@ function EPPMPage() {
       snapToIndex(nextSection);
     };
 
-    window.addEventListener("wheel", handleWheel, { passive: false });
-    window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchend", handleTouchEnd, { passive: true });
+    const shouldHijackScroll = !window.matchMedia(
+      "(hover: none), (pointer: coarse)",
+    ).matches;
+
+    if (shouldHijackScroll) {
+      window.addEventListener("wheel", handleWheel, { passive: false });
+      window.addEventListener("touchstart", handleTouchStart, { passive: true });
+      window.addEventListener("touchend", handleTouchEnd, { passive: true });
+    }
 
     initContentAnimations();
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
-      window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchend", handleTouchEnd);
+      if (shouldHijackScroll) {
+        window.removeEventListener("wheel", handleWheel);
+        window.removeEventListener("touchstart", handleTouchStart);
+        window.removeEventListener("touchend", handleTouchEnd);
+      }
     };
   }, [prefersReducedMotion]);
 
