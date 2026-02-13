@@ -1,10 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { getAssetPath } from "../utils/assetPath";
 
+const PRIMAVERA_STRUCTURE_SECTION_ID = "ppm";
+
 function HeroVideo({ id, scrollToSection }) {
   const videoRef = useRef(null);
   const containerRef = useRef(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const handleScrollToStructure = () => {
+    scrollToSection(PRIMAVERA_STRUCTURE_SECTION_ID);
+  };
 
   useEffect(() => {
     const video = videoRef.current;
@@ -57,26 +62,42 @@ function HeroVideo({ id, scrollToSection }) {
       <div className="container hero-content">
         <h1 className="hero-title">
           <span style={{ display: "inline-block", whiteSpace: "nowrap" }}>
-            대한민국 건설의 디지털 전환,
+            Primavera는 하나의 툴이 아니라
           </span>
           <span
             className="gradient-text"
             style={{ display: "inline-block", whiteSpace: "nowrap" }}
           >
-            Oracle Primavera로 완성하십시오
+            프로젝트 관리 체계입니다.
           </span>
         </h1>
 
-        <p className="hero-subtitle">
-          Oracle Primavera 전문 파트너로서 건설 프로젝트의
-          <br />
-          체계적인 관리와 성공적인 완수를 지원합니다.
+        <p
+          className="hero-subtitle"
+          style={{ maxWidth: "none", fontSize: "clamp(0.85rem, 1.7vw, var(--text-xl))" }}
+        >
+          <span style={{ display: "block", whiteSpace: "nowrap" }}>
+            현장 공정 관리에서 프로젝트 통합 관리, 기업 포트폴리오 관리까지
+          </span>
+          <span style={{ display: "block", whiteSpace: "nowrap" }}>
+            단계적으로 확장되며, P6IX는 이를 목적 중심의 하나의 흐름으로 설계합니다.
+          </span>
         </p>
+
+        <div className="hero-cta">
+          <button
+            className="btn btn-primary"
+            onClick={handleScrollToStructure}
+            aria-label="Primavera 제품군 전체 구조 보기"
+          >
+            Primavera 제품군 전체 구조 보기
+          </button>
+        </div>
       </div>
 
       <button
         className="scroll-indicator"
-        onClick={() => scrollToSection("services")}
+        onClick={handleScrollToStructure}
         aria-label="Scroll to next section"
       >
         <span>Scroll Down</span>
