@@ -61,13 +61,10 @@ function HeroVideo({ id, scrollToSection }) {
 
       <div className="container hero-content">
         <h1 className="hero-title">
-          <span style={{ display: "inline-block", whiteSpace: "nowrap" }}>
+          <span className="hero-title-line">
             Primavera는 하나의 툴이 아니라
           </span>
-          <span
-            className="gradient-text"
-            style={{ display: "inline-block", whiteSpace: "nowrap" }}
-          >
+          <span className="hero-title-line gradient-text">
             프로젝트 관리 체계입니다.
           </span>
         </h1>
@@ -76,10 +73,10 @@ function HeroVideo({ id, scrollToSection }) {
           className="hero-subtitle"
           style={{ maxWidth: "none", fontSize: "clamp(0.85rem, 1.7vw, var(--text-xl))" }}
         >
-          <span style={{ display: "block", whiteSpace: "nowrap" }}>
+          <span className="hero-subtitle-line">
             현장 공정 관리에서 프로젝트 통합 관리, 기업 포트폴리오 관리까지
           </span>
-          <span style={{ display: "block", whiteSpace: "nowrap" }}>
+          <span className="hero-subtitle-line">
             단계적으로 확장되며, P6IX는 이를 목적 중심의 하나의 흐름으로 설계합니다.
           </span>
         </p>

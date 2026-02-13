@@ -14,7 +14,7 @@ function Footer() {
             </div>
             <p className="footer-desc">
               공정·공기·원가·안전·BIM 등 건설 현장 운영을 <br />
-              <span style={{ whiteSpace: "nowrap" }}>
+              <span className="footer-breakable">
                 데이터/AI와 PMIS(예: PMIS X)로 고도화하는 ‘스마트건설’
                 솔루션·컨설팅 전문기업입니다.
               </span>
@@ -74,7 +74,7 @@ function Footer() {
             </ul>
           </div> */}
           <p className="footer-desc footer-contact">
-            <span style={{ whiteSpace: "nowrap" }}>
+            <span className="footer-breakable">
               서울특별시 금천구 가산디지털1로 128, STX V - Tower 910호
             </span>{" "}
             <br />

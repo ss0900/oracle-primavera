@@ -170,7 +170,6 @@ function Contact({ id }) {
             style={{
               margin: "0 auto",
               maxWidth: "none",
-              whiteSpace: "nowrap",
             }}
           >
             제품을 나열하지 않고, 프로젝트 목적에 맞춘 Primavera 설계와
