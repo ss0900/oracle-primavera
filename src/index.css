@@ -14418,6 +14418,13 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   justify-content: center;
 }
 
+/* PPM: Keep overview slides 1/2/3 on the same base tone as functions sections */
+#overview-content.ppm-overview-content-section,
+#overview-features-2.ppm-overview-content-section,
+#overview-features-3.ppm-overview-content-section {
+  background: var(--color-bg-primary);
+}
+
 /* PPM: Match benefits backgrounds to functions section tone */
 #benefits.ppm-benefits-section,
 #benefits-2.ppm-overview-content-section {
