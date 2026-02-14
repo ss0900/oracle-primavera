@@ -2443,7 +2443,7 @@ function PPMPage() {
                     />
                     <polygon
                       className="ppm-overview-precision-critical-arrow"
-                      points="312,168 320,152 328,168"
+                      points="312,160 328,168 312,176"
                     />
                     <g className="ppm-overview-precision-critical-badge">
                       <rect x="112" y="188" width="198" height="46" rx="10" />
