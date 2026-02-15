@@ -1363,26 +1363,26 @@ const overviewPrecisionDiagram = {
   ],
   criticalPathPoints: [
     { x: 74, y: 283 },
-    { x: 154, y: 283 },
-    { x: 154, y: 350 },
-    { x: 250, y: 350 },
-    { x: 250, y: 283 },
-    { x: 320, y: 283 },
-    { x: 320, y: 180 },
-    { x: 372, y: 180 },
-    { x: 372, y: 86 },
+    { x: 106, y: 283 },
+    { x: 106, y: 350 },
+    { x: 246, y: 350 },
+    { x: 246, y: 283 },
+    { x: 316, y: 283 },
+    { x: 316, y: 180 },
+    { x: 386, y: 180 },
     { x: 386, y: 86 },
   ],
-  criticalArrows: ["286,275 302,283 286,291", "356,78 372,86 356,94"],
+  criticalArrows: ["182,342 198,350 182,358", "342,172 358,180 342,188"],
   criticalStartDot: { cx: 74, cy: 283, r: 8 },
   criticalBadge: { x: 112, y: 188, width: 198, height: 46, textX: 211, textY: 218 },
   project: { x: 642, y: 248, width: 104, height: 86, textX: 694, textY: 301 },
 };
 
-const overviewPrecisionCriticalPathD = buildRoundedOrthPath(
+const overviewPrecisionCriticalBasePathD = buildRoundedOrthPath(
   overviewPrecisionDiagram.criticalPathPoints,
   12,
 );
+const overviewPrecisionCriticalPathD = overviewPrecisionCriticalBasePathD;
 function PPMPage() {
   const { sectionId, subId } = useParams();
   const navigate = useNavigate();
@@ -2353,6 +2353,10 @@ function PPMPage() {
                   <title>CPM 및 WBS 네트워크 로직 다이어그램</title>
 
                   <g className="ppm-overview-precision-line-group" aria-hidden="true">
+                    <path
+                      className="ppm-overview-precision-line"
+                      d={overviewPrecisionCriticalBasePathD}
+                    />
                     {overviewPrecisionDiagram.links.map((points, index) => (
                       <path
                         key={`precision-link-${index}`}
