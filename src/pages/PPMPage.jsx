@@ -1499,7 +1499,11 @@ const overviewPrecisionDiagram = {
     { x: 386, y: 180 },
     { x: 386, y: 86 },
   ],
-  criticalArrows: ["182,342 198,350 182,358", "342,172 358,180 342,188"],
+  criticalArrows: [
+    "126,342 142,350 126,358",
+    "182,342 198,350 182,358",
+    "342,172 358,180 342,188",
+  ],
   criticalStartDot: { cx: 64, cy: 283, r: 8 },
   criticalBadge: {
     x: 112,
