@@ -2193,6 +2193,14 @@ function PPMPage() {
       const benefitsLeftNodes = benefitsSectionRef.current.querySelectorAll(
         ".ppm-benefits-column-left .ppm-benefits-node",
       );
+      const benefitsTopNodes = [
+        ...benefitsSectionRef.current.querySelectorAll(
+          ".ppm-benefits-column-left .ppm-benefits-node",
+        ),
+        ...benefitsSectionRef.current.querySelectorAll(
+          ".ppm-benefits-column-right .ppm-benefits-node",
+        ),
+      ];
       const benefitsHub =
         benefitsSectionRef.current.querySelector(".ppm-benefits-hub");
       const benefitsKeywordCards = benefitsSectionRef.current.querySelectorAll(
@@ -2201,6 +2209,9 @@ function PPMPage() {
       const benefitsRightNodes = benefitsSectionRef.current.querySelectorAll(
         ".ppm-benefits-column-right .ppm-benefits-node",
       );
+      const isMobileBenefits =
+        typeof window !== "undefined" &&
+        window.matchMedia("(max-width: 768px)").matches;
 
       if (benefitsInfographic) {
         benefitsTl.fromTo(
@@ -2211,40 +2222,69 @@ function PPMPage() {
         );
       }
 
-      if (benefitsLeftNodes.length) {
-        benefitsTl.fromTo(
-          benefitsLeftNodes,
-          { x: -36, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.45, stagger: 0.12 },
-          "-=0.4",
-        );
-      }
+      if (isMobileBenefits) {
+        if (benefitsTopNodes.length) {
+          benefitsTl.fromTo(
+            benefitsTopNodes,
+            { y: 22, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.42, stagger: 0.1 },
+            "-=0.4",
+          );
+        }
 
-      if (benefitsHub) {
-        benefitsTl.fromTo(
-          benefitsHub,
-          { scale: 0.9, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.55, ease: "power2.out" },
-          "-=0.35",
-        );
-      }
+        if (benefitsHub) {
+          benefitsTl.fromTo(
+            benefitsHub,
+            { scale: 0.94, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.5, ease: "power2.out" },
+            "-=0.2",
+          );
+        }
 
-      if (benefitsKeywordCards.length) {
-        benefitsTl.fromTo(
-          benefitsKeywordCards,
-          { y: 16, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.34, stagger: 0.05 },
-          "-=0.3",
-        );
-      }
+        if (benefitsKeywordCards.length) {
+          benefitsTl.fromTo(
+            benefitsKeywordCards,
+            { y: 14, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.32, stagger: 0.05 },
+            "-=0.2",
+          );
+        }
+      } else {
+        if (benefitsLeftNodes.length) {
+          benefitsTl.fromTo(
+            benefitsLeftNodes,
+            { x: -36, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.45, stagger: 0.12 },
+            "-=0.4",
+          );
+        }
 
-      if (benefitsRightNodes.length) {
-        benefitsTl.fromTo(
-          benefitsRightNodes,
-          { x: 36, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.44, stagger: 0.14 },
-          "-=0.2",
-        );
+        if (benefitsHub) {
+          benefitsTl.fromTo(
+            benefitsHub,
+            { scale: 0.9, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.55, ease: "power2.out" },
+            "-=0.35",
+          );
+        }
+
+        if (benefitsKeywordCards.length) {
+          benefitsTl.fromTo(
+            benefitsKeywordCards,
+            { y: 16, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.34, stagger: 0.05 },
+            "-=0.3",
+          );
+        }
+
+        if (benefitsRightNodes.length) {
+          benefitsTl.fromTo(
+            benefitsRightNodes,
+            { x: 36, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.44, stagger: 0.14 },
+            "-=0.2",
+          );
+        }
       }
     });
 
