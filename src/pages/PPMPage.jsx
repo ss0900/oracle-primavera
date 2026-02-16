@@ -1516,7 +1516,7 @@ const overviewPrecisionDiagram = {
     textX: 211,
     textY: 218,
   },
-  project: { x: 642, y: 248, width: 104, height: 86, textX: 694, textY: 301 },
+  project: { x: 645, y: 230, width: 115, height: 86, textX: 701, textY: 286 },
 };
 
 const overviewPrecisionCriticalBasePathD = buildRoundedOrthPath(
