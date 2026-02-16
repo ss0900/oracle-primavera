@@ -14569,6 +14569,35 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   }
 }
 
+@media (max-width: 768px) {
+  #benefits .ppm-benefits-infographic {
+    gap: var(--space-md);
+  }
+
+  #benefits .ppm-benefits-column-left {
+    order: 1;
+  }
+
+  #benefits .ppm-benefits-column-right {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  #benefits .ppm-benefits-results {
+    order: 1;
+  }
+
+  #benefits .ppm-benefits-keyword-grid {
+    order: 2;
+  }
+
+  #benefits .ppm-benefits-column-center {
+    order: 3;
+  }
+}
+
 /* PPM Overview Content Section */
 .ppm-overview-content-section {
   background: var(--color-bg-secondary);
