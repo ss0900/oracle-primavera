@@ -14217,13 +14217,17 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     opacity: 0.75;
   }
 
-  .eppm-page-container #functions .ppm-functions-media {
+  .eppm-page-container :is(#functions, #functions-2) .ppm-functions-media {
     order: 1;
     flex: 1 1 auto;
     width: 100%;
   }
 
-  .eppm-page-container #functions .ppm-functions-cards {
+  .eppm-page-container :is(#functions, #functions-2) .ppm-cpm-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .eppm-page-container :is(#functions, #functions-2) .ppm-functions-cards {
     order: 2;
     flex: 1 1 auto;
     width: 100%;
