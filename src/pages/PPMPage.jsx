@@ -1314,9 +1314,9 @@ const overviewPrecisionDiagram = {
     { x: 540, y: 110, width: 90, height: 32, rx: 7, tone: "is-main" },
     { x: 540, y: 150, width: 74, height: 20, rx: 6 },
     { x: 540, y: 176, width: 74, height: 20, rx: 6 },
-    { x: 540, y: 222, width: 92, height: 34, rx: 7, tone: "is-main" },
-    { x: 540, y: 300, width: 92, height: 34, rx: 7, tone: "is-main" },
-    { x: 540, y: 375, width: 92, height: 34, rx: 7, tone: "is-main" },
+    { x: 540, y: 221, width: 92, height: 34, rx: 7, tone: "is-main" },
+    { x: 540, y: 302, width: 92, height: 34, rx: 7, tone: "is-main" },
+    { x: 540, y: 376, width: 92, height: 34, rx: 7, tone: "is-main" },
   ],
   links: [
     [
@@ -1352,6 +1352,10 @@ const overviewPrecisionDiagram = {
     [
       { x: 425, y: 86 },
       { x: 425, y: 420 },
+    ],
+    [
+      { x: 411, y: 180 },
+      { x: 425, y: 180 },
     ],
     [
       { x: 425, y: 86 },
@@ -1411,27 +1415,37 @@ const overviewPrecisionDiagram = {
     ],
     [
       { x: 513, y: 159 },
-      { x: 540, y: 159 },
+      { x: 526, y: 159 },
+      { x: 526, y: 160 },
+      { x: 540, y: 160 },
     ],
     [
       { x: 513, y: 185 },
-      { x: 540, y: 185 },
+      { x: 526, y: 185 },
+      { x: 526, y: 186 },
+      { x: 540, y: 186 },
     ],
     [
       { x: 509, y: 238 },
+      { x: 526, y: 238 },
+      { x: 526, y: 237 },
       { x: 540, y: 237 },
     ],
     [
       { x: 517, y: 316 },
+      { x: 528, y: 316 },
+      { x: 528, y: 312 },
       { x: 540, y: 312 },
     ],
     [
       { x: 517, y: 394 },
-      { x: 540, y: 395 },
+      { x: 528, y: 394 },
+      { x: 528, y: 392 },
+      { x: 540, y: 392 },
     ],
     [
       { x: 640, y: 126 },
-      { x: 640, y: 395 },
+      { x: 640, y: 392 },
     ],
     [
       { x: 630, y: 126 },
@@ -1454,8 +1468,8 @@ const overviewPrecisionDiagram = {
       { x: 640, y: 312 },
     ],
     [
-      { x: 636, y: 395 },
-      { x: 640, y: 395 },
+      { x: 632, y: 392 },
+      { x: 640, y: 392 },
     ],
     [
       { x: 640, y: 273 },
