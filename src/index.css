@@ -3743,8 +3743,12 @@ a:hover {
     overflow-wrap: break-word;
   }
 
-  .opc-page-container #application .opc-comparison-mobile-item.is-emphasized {
-    color: #7dd3fc;
+  .opc-page-container #application .opc-comparison-mobile-item.is-execution-group {
+    color: #00d4ff;
+  }
+
+  .opc-page-container #application .opc-comparison-mobile-item.is-management-group {
+    color: #fbbf24;
   }
 
   .opc-page-container #application .opc-comparison-mobile-rating-row {

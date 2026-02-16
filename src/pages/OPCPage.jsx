@@ -2012,10 +2012,18 @@ function OPCPage() {
                   </div>
 
                   <ul className="opc-comparison-mobile-list">
-                    {comparisonRows.map((row) => (
+                    {comparisonRows.map((row, index) => {
+                      const isExecutionGroup =
+                        index >= comparisonGroups.left.startIndex &&
+                        index <= comparisonGroups.left.endIndex;
+                      const isManagementGroup =
+                        index >= comparisonGroups.right.startIndex &&
+                        index <= comparisonGroups.right.endIndex;
+
+                      return (
                       <li key={`${row.item}-mobile`} className="opc-comparison-mobile-card">
                         <h3
-                          className={`opc-comparison-mobile-item ${row.emphasized ? "is-emphasized" : ""}`}
+                          className={`opc-comparison-mobile-item ${isExecutionGroup ? "is-execution-group" : ""} ${isManagementGroup ? "is-management-group" : ""}`}
                         >
                           {row.item}
                         </h3>
@@ -2030,7 +2038,8 @@ function OPCPage() {
                           <MobileStarRating count={row.opcStars} label={`OPC ${row.item}`} />
                         </div>
                       </li>
-                    ))}
+                      );
+                    })}
                   </ul>
                 </div>
               </div>
