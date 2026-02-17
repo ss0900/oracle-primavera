@@ -10328,7 +10328,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   top: 18%;
   left: 52%;
   color: rgba(235, 248, 255, 0.95);
-  transform: translateX(-40px) translateY(60px);
+  transform: translateX(-60px) translateY(60px);
 }
 
 .eppm-page-container #cases-5 .eppm-process-step5-chart-label--actual {
