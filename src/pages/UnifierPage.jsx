@@ -966,6 +966,14 @@ function UnifierPage() {
                       />
                     </div>
                   </div>
+                  <div className="unifier-benefits-2-inline-summary">
+                    <h3 className="unifier-benefits-2-summary-title">
+                      Primavera P6 EPPM
+                    </h3>
+                    <p className="unifier-benefits-2-summary-text">
+                      일정 및 자원 계획 중심
+                    </p>
+                  </div>
                 </article>
 
                 <article className="tm-ppm-eppm-card unifier-benefits-2-connector-card">
@@ -998,6 +1006,14 @@ function UnifierPage() {
                         loading="lazy"
                       />
                     </div>
+                  </div>
+                  <div className="unifier-benefits-2-inline-summary">
+                    <h3 className="unifier-benefits-2-summary-title">
+                      Primavera Unifier
+                    </h3>
+                    <p className="unifier-benefits-2-summary-text">
+                      비용, 계약, 워크플로우 중심
+                    </p>
                   </div>
                 </article>
               </div>
