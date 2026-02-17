@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { eppmMenuItems } from "../data/eppmMenuData";
 import { getAssetPath } from "../utils/assetPath";
@@ -8,6 +8,8 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const location = useLocation();
+  const mobileMenuButtonRef = useRef(null);
+  const mobileMenuPanelRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +28,31 @@ function Header() {
   useEffect(() => {
     document.body.classList.toggle("mobile-menu-open", menuOpen);
     return () => document.body.classList.remove("mobile-menu-open");
+  }, [menuOpen]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handleOutsidePointer = (event) => {
+      const target = event.target;
+      if (
+        mobileMenuPanelRef.current?.contains(target) ||
+        mobileMenuButtonRef.current?.contains(target)
+      ) {
+        return;
+      }
+      setMenuOpen(false);
+    };
+
+    document.addEventListener("mousedown", handleOutsidePointer);
+    document.addEventListener("touchstart", handleOutsidePointer, {
+      passive: true,
+    });
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsidePointer);
+      document.removeEventListener("touchstart", handleOutsidePointer);
+    };
   }, [menuOpen]);
 
   const navLinks = [
@@ -288,6 +315,7 @@ function Header() {
         </nav>
 
         <button
+          ref={mobileMenuButtonRef}
           className="mobile-menu-btn"
           type="button"
           onClick={() => setMenuOpen((prev) => !prev)}
@@ -309,6 +337,7 @@ function Header() {
       />
 
       <div
+        ref={mobileMenuPanelRef}
         id="mobile-menu-panel"
         className={`mobile-menu ${menuOpen ? "open" : ""}`}
         aria-hidden={!menuOpen}
