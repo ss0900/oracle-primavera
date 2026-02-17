@@ -12165,6 +12165,10 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 @media (max-width: 768px) {
+  .aconex-page-container #benefits-2 .tm-section-header {
+    margin-bottom: clamp(10px, 3.8vw, 18px);
+  }
+
   .aconex-page-container #benefits-2 .aconex-benefits-integration-card {
     padding: clamp(14px, 4.4vw, 22px);
     gap: clamp(12px, 3vw, 18px);
