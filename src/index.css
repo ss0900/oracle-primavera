@@ -6261,6 +6261,10 @@ a:hover {
     height: 34px;
   }
 
+  .tm-definition-section .tm-flow-arrow-right {
+    margin-bottom: 1rem;
+  }
+
   .tm-definition-section .tm-arrow-label-line {
     display: block;
   }
