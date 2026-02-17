@@ -1622,6 +1622,27 @@ function AconexPage() {
                     </p>
                   </article>
 
+                  <div
+                    className="aconex-benefits-mobile-connector"
+                    aria-hidden="true"
+                  >
+                    <div className="aconex-benefits-mobile-connector-row is-down">
+                      <span className="aconex-benefits-mobile-arrow" />
+                      <p className="aconex-benefits-mobile-connector-copy">
+                        일정 데이터
+                        <span>(Schedule Data)</span>
+                      </p>
+                    </div>
+
+                    <div className="aconex-benefits-mobile-connector-row is-up">
+                      <span className="aconex-benefits-mobile-arrow" />
+                      <p className="aconex-benefits-mobile-connector-copy">
+                        진척 및 이슈
+                        <span>(Progress &amp; Issues)</span>
+                      </p>
+                    </div>
+                  </div>
+
                   <div className="aconex-benefits-sync-ring" aria-hidden="true">
                     <svg
                       className="aconex-benefits-sync-ring-svg"

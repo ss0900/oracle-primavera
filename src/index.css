@@ -12032,6 +12032,10 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   margin: 0 auto;
 }
 
+.aconex-page-container #benefits-2 .aconex-benefits-mobile-connector {
+  display: none;
+}
+
 .aconex-page-container #benefits-2 .aconex-benefits-sync-ring-svg {
   width: 100%;
   height: 100%;
@@ -12163,19 +12167,21 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 @media (max-width: 768px) {
   .aconex-page-container #benefits-2 .aconex-benefits-integration-card {
     padding: clamp(14px, 4.4vw, 22px);
-    gap: var(--space-lg);
+    gap: clamp(12px, 3vw, 18px);
   }
 
   .aconex-page-container #benefits-2 .aconex-benefits-integration-diagram {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "ring"
       "left"
+      "mobile-connector"
       "right";
+    gap: clamp(14px, 3.2vw, 22px);
+    justify-items: center;
   }
 
   .aconex-page-container #benefits-2 .aconex-benefits-sync-ring {
-    width: min(100%, clamp(214px, 66vw, 294px));
+    display: none;
   }
 
   .aconex-page-container #benefits-2 .aconex-benefits-sync-label {
@@ -12183,8 +12189,86 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     width: 72%;
   }
 
+  .aconex-page-container #benefits-2 .aconex-benefits-mobile-connector {
+    grid-area: mobile-connector;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: min(100%, 290px);
+    margin: 0 auto;
+  }
+
+  .aconex-page-container #benefits-2 .aconex-benefits-mobile-connector-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .aconex-page-container
+    #benefits-2
+    .aconex-benefits-mobile-connector-row.is-up {
+    flex-direction: row-reverse;
+  }
+
+  .aconex-page-container #benefits-2 .aconex-benefits-mobile-arrow {
+    position: relative;
+    width: 2px;
+    height: 28px;
+    border-radius: 999px;
+    background: rgba(0, 212, 255, 0.72);
+    flex-shrink: 0;
+  }
+
+  .aconex-page-container #benefits-2 .aconex-benefits-mobile-arrow::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  }
+
+  .aconex-page-container
+    #benefits-2
+    .aconex-benefits-mobile-connector-row.is-down
+    .aconex-benefits-mobile-arrow::after {
+    bottom: -1px;
+    border-top: 7px solid rgba(0, 212, 255, 0.86);
+  }
+
+  .aconex-page-container
+    #benefits-2
+    .aconex-benefits-mobile-connector-row.is-up
+    .aconex-benefits-mobile-arrow::after {
+    top: -1px;
+    border-bottom: 7px solid rgba(0, 212, 255, 0.86);
+  }
+
+  .aconex-page-container #benefits-2 .aconex-benefits-mobile-connector-copy {
+    margin: 0;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(0.92rem, 3.6vw, 1.02rem);
+    font-weight: 700;
+    line-height: 1.28;
+    letter-spacing: -0.01em;
+    color: var(--color-text-primary);
+    word-break: keep-all;
+  }
+
+  .aconex-page-container #benefits-2 .aconex-benefits-mobile-connector-copy span {
+    display: block;
+    margin-top: 3px;
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+
   .aconex-page-container #benefits-2 .aconex-benefits-node {
-    width: min(100%, clamp(176px, 64vw, 228px));
+    width: min(100%, clamp(170px, 58vw, 214px));
   }
 
   .aconex-page-container #benefits-2 .aconex-benefits-node-title {
@@ -12197,6 +12281,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
   .aconex-page-container #benefits-2 .aconex-benefits-summary-line {
     font-size: clamp(var(--text-sm), 3.8vw, var(--text-base));
+    word-break: keep-all;
   }
 }
 
