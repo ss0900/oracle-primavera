@@ -13317,6 +13317,14 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   #overview-content-2 .unifier-overview2-flowline-caption {
     font-size: clamp(0.9rem, 3.6vw, 1.02rem);
   }
+
+  #overview-content-2 .unifier-overview2-flowline-track {
+    display: none;
+  }
+
+  #overview-content-2 .unifier-overview2-flowline {
+    gap: var(--space-sm);
+  }
 }
 
 /* Unifier Benefits (KPI 2-card layout) */
