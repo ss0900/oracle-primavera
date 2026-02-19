@@ -617,11 +617,12 @@ const overviewEvmsItems = [
     titleEn: "Resource & Code-based Planning",
     description: (
       <>
-        인력, 장비, 자재 등 모든 자원을
+        인력/장비/자재 같은 리소스를
         <br />
-        세밀하게 할당하고 커스텀 코드를 통해
+        세부적으로 배치하고,
+        <br />그 리소스를 코드로 분류해서
         <br />
-        데이터를 다각적으로 분류 및 분석합니다.
+        필터링·집계·분석이 가능합니다.
       </>
     ),
     icon: (
@@ -732,11 +733,13 @@ const overviewEvmsItems = [
     titleEn: "Baseline & Change History Management",
     description: (
       <>
-        원본 계획(Baseline)을 설정하고
+        원본 계획을 Baseline으로 고정해 두고,
         <br />
-        모든 변경 사항을 추적하여 계획과 실적의 차이를
+        이후의 변경/업데이트 결과를
         <br />
-        명확하게 비교하고 원인을 분석합니다.
+        '현재 일정(Current)'과 비교해서
+        <br />
+        "얼마나 달라졌는지"를 추적합니다.
       </>
     ),
     icon: (
@@ -790,11 +793,10 @@ const overviewEvmsItems = [
     titleEn: "Powerful Earned Value Analysis",
     description: (
       <>
-        EVM(획득 가치 관리)을 통해
         <br />
-        프로젝트의 비용 및 일정 성과를 객관적인 지표로
+        EVM(획득 가치 관리)으로 비용·일정 성과를
         <br />
-        측정하고 미래 성과를 예측합니다.
+        객관 지표로 계산하고, 편차/추세를 봅니다.
       </>
     ),
     icon: (
@@ -900,7 +902,7 @@ const leftBenefitItems = [
     title: "공기 분석",
     description: (
       <>
-        공기연장 및 클레임 발생 시<br />
+        공기 연장(EoT) 및 클레임 발생 시<br />
         CPM 네트워크를 사용하여
         <br />
         객관적인 분석을 제공합니다.
@@ -986,12 +988,14 @@ const rightBenefitItems = [
   },
   {
     tone: "pink",
-    title: "선진화된 공정관리",
+    title: "데이터 기반 공정관리",
     description: (
       <>
-        Primavera 도구를 사용한 선진화된
+        Primavera 데이터를 기반으로
         <br />
-        공정관리 수행 현장임을 인식시킵니다.
+        기준선 대비 편차를 상시 추적하는
+        <br />
+        공정관리 체계를 보여줍니다.
       </>
     ),
     icon: (
