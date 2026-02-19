@@ -894,11 +894,11 @@ function UnifierPage() {
               {/* Reuse shared section header rhythm: tm-section-header + tm-section-title */}
               <div className="tm-section-header unifier-benefits-header">
                 <h2 className="tm-section-title">
-                  Unifier Accelerator: 도입하자마자 바로 효과적
+                  Unifier Accelerator: 신속한 도입과 조기 성과 창출
                 </h2>
                 <p className="unifier-benefits-subtitle">
                   Oracle이 '글로벌 Best Practice(모범사례)'를 기반으로 미리
-                  만들어 둔 기본 구성(템플릿/베이스 설정) 패키지
+                  만들어 둔 기본 구성 패키지
                 </p>
               </div>
 
@@ -922,7 +922,8 @@ function UnifierPage() {
                   (benefitsItemsRef.current[benefitsKpiData.length] = el)
                 }
               >
-                복잡한 초기 설정 없이 즉시 도입하여 표준화 달성
+                처음부터 다 만들 필요 없이 준비된 패키지로 바로 표준 방식을
+                운영합니다.
               </p>
             </div>
           </div>
@@ -941,10 +942,10 @@ function UnifierPage() {
                 ref={(el) => (benefitsItemsRef2.current[0] = el)}
               >
                 <h2 className="tm-section-title">
-                  The Synergy: Primavera Unifier + Primavera P6 EPPM
+                  시너지 효과: Primavera Unifier + Primavera P6 EPPM
                 </h2>
                 <p className="unifier-benefits-2-subtitle">
-                  일정(Time)과 비용(Cost)의 완벽한 동기화
+                  일정(Time) – 비용(Cost) 통합 기반 성과관리(EVM)
                 </p>
               </div>
 
@@ -953,7 +954,7 @@ function UnifierPage() {
                 ref={(el) => (benefitsItemsRef2.current[1] = el)}
               >
                 <article className="tm-ppm-eppm-card unifier-benefits-2-side-card unifier-benefits-2-side-card-left">
-                  <p className="unifier-benefits-2-side-label">Time/P6</p>
+                  <p className="unifier-benefits-2-side-label">Time / P6</p>
                   <div
                     className="unifier-benefits-2-media-stack"
                     aria-label="Primavera P6 EPPM 화면"
@@ -994,7 +995,9 @@ function UnifierPage() {
                 </article>
 
                 <article className="tm-ppm-eppm-card unifier-benefits-2-side-card unifier-benefits-2-side-card-right">
-                  <p className="unifier-benefits-2-side-label">Cost/Unifier</p>
+                  <p className="unifier-benefits-2-side-label">
+                    Cost / Unifier
+                  </p>
                   <div
                     className="unifier-benefits-2-media-stack"
                     aria-label="Primavera Unifier 화면"
@@ -1050,8 +1053,8 @@ function UnifierPage() {
                 </div>
 
                 <p className="unifier-benefits-2-conclusion">
-                  데이터 동기화: WBS, 액티비티(Activity), 자원 배정 연동을 통한
-                  통합 관리
+                  WBS · Activity · 자원 배정 데이터 연동으로 일정 – 비용 통합
+                  관리
                 </p>
               </div>
             </div>
@@ -1070,11 +1073,9 @@ function UnifierPage() {
                 className="tm-section-header unifier-benefits-header"
                 ref={(el) => (benefitsItemsRef3.current[0] = el)}
               >
-                <h2 className="tm-section-title">
-                  유연한 구축 환경 (Deployment Flexibility)
-                </h2>
+                <h2 className="tm-section-title">조직 환경에 맞춘 구축 옵션</h2>
                 <p className="unifier-benefits-3-subtitle">
-                  조직의 IT 전략과 보안 정책에 맞춘 최적의 선택
+                  조직의 보안 / 정책에 맞춰 구축 방식 선택 가능
                 </p>
               </div>
 
@@ -1118,7 +1119,7 @@ function UnifierPage() {
                         Oracle Cloud
                       </h3>
                       <p className="unifier-benefits-3-option-description">
-                        - 보안성, 확장성, 최신 기능 자동 업데이트
+                        보안성, 확장성, 최신 기능 자동 업데이트
                       </p>
                     </div>
                   </div>
@@ -1173,7 +1174,7 @@ function UnifierPage() {
                         On-Premise
                       </h3>
                       <p className="unifier-benefits-3-option-description">
-                        - 조직 내부 정책에 따른 자체 서버 구축 및 관리 지원
+                        조직 내부 정책에 따른 자체 서버 구축 및 관리 지원
                       </p>
                     </div>
                   </div>
@@ -1191,7 +1192,8 @@ function UnifierPage() {
                 </div>
 
                 <p className="unifier-benefits-3-conclusion">
-                  어떤 환경에서도 동일한 사용자 경험을 제공합니다.
+                  어떤 환경에서도 동일한 화면 · 동일한 흐름으로 업무를
+                  수행합니다.
                 </p>
               </div>
             </div>

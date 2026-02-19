@@ -53,8 +53,8 @@ const subMenuItems = [
 
 const overviewRiskBullets = [
   "수천 명의 참여자와 수백만 건의 문서",
-  "파편화된 커뮤니케이션으로 인한 책임 소재 불분명",
-  "데이터 누락이 초래하는 분쟁 및 클레임 비용",
+  "단절된 커뮤니케이션으로 모호한 역할 · 책임",
+  "기록(데이터) 누락으로 커지는 분쟁 · 클레임 비용",
 ];
 
 const roleCompareData = [
@@ -79,24 +79,18 @@ const roleCompareData = [
 const coreValueItems = [
   {
     id: "single-platform",
-    title: (
-      <>
-        한 곳에서
-        <br />
-        함께 일하기
-      </>
-    ),
-    description: ["발주처/협력사/현장이", "같은 화면에서 같이 작업"],
+    title: <>단일 플랫폼</>,
+    description: ["모든 참여자가", "하나의 시스템에서 협업"],
   },
   {
     id: "risk-reduction",
     title: "리스크 감소",
-    description: ["변경 불가능한", "감사 추적으로 분쟁 예방"],
+    description: ["수정 불가 이력 관리로", "분쟁을 사전에 차단"],
   },
   {
     id: "standardization",
     title: "표준화",
-    description: ["글로벌 표준 프로세스", "적용으로 업무 효율 극대화"],
+    description: ["표준화된 프로세스 적용으로", "업무 효율 극대화"],
   },
 ];
 
@@ -885,7 +879,9 @@ function AconexPage() {
 
     if (shouldHijackScroll) {
       window.addEventListener("wheel", handleWheel, { passive: false });
-      window.addEventListener("touchstart", handleTouchStart, { passive: true });
+      window.addEventListener("touchstart", handleTouchStart, {
+        passive: true,
+      });
       window.addEventListener("touchend", handleTouchEnd, { passive: true });
     }
 
@@ -1285,7 +1281,7 @@ function AconexPage() {
                 ref={(element) => (overviewCardsRef.current[0] = element)}
               >
                 <h2 className="tm-section-title">
-                  건설 리스크의 핵심은 ‘정보의 단절’입니다.
+                  건설 리스크의 핵심은 '정보의 단절'
                 </h2>
               </div>
 
@@ -1327,9 +1323,7 @@ function AconexPage() {
                 className="tm-section-header"
                 ref={(element) => (overviewCardsRef2.current[0] = element)}
               >
-                <h2 className="tm-section-title">
-                  공통 데이터 환경(CDE)의 완성
-                </h2>
+                <h2 className="tm-section-title">CDE 기반 통합 관리</h2>
               </div>
 
               <div className="aconex-cde-layout">
@@ -1408,21 +1402,17 @@ function AconexPage() {
                   ref={(element) => (overviewCardsRef2.current[2] = element)}
                 >
                   <article className="tm-ppm-eppm-card aconex-cde-description-card">
-                    <h3>정의 (Definition)</h3>
+                    <h3>정의</h3>
                     <p>
-                      프로젝트 전 생애주기의 정보와 공식 기록(Record)을
+                      프로젝트 전 과정의 정보와 공식 기록을 한곳에서
                       <br />
-                      표준화하는 단일 중앙 플랫폼
+                      표준화 · 관리하는 단일 플랫폼
                     </p>
                   </article>
 
                   <article className="tm-ppm-eppm-card aconex-cde-description-card">
-                    <h3>핵심 역할 (Key Role)</h3>
-                    <p>
-                      발주처, CM, 설계, 시공사 간의
-                      <br />
-                      정보 흐름 통합
-                    </p>
+                    <h3>핵심 역할</h3>
+                    <p>발주 ~ 시공 전 참여자 데이터 연계 · 통합</p>
                   </article>
                 </div>
               </div>
@@ -1705,8 +1695,7 @@ function AconexPage() {
                     <span className="aconex-benefits-summary-label">
                       상호 보완
                     </span>
-                    : Primavera P6의 일정 통제 + Oracle Aconex의 프로세스/정보
-                    통제
+                    : P6로 일정 통제, Aconex로 프로세스 · 문서 · 기록 통제
                   </p>
                   <p className="aconex-benefits-summary-line">
                     <span className="aconex-benefits-summary-label">결과</span>:

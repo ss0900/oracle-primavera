@@ -13475,7 +13475,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
 #customers .unifier-benefits-subtitle {
   margin: var(--space-lg) 0 0;
-  max-width: 920px;
+  max-width: 100%;
   color: var(--color-text-secondary);
   font-size: clamp(1rem, 1.2vw, 1.4rem);
   line-height: 1.5;
