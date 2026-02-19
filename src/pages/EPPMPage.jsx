@@ -522,7 +522,7 @@ const processStep5SummaryItems = [
     ),
   },
   {
-    text: "표준화된 보고 체계를 통한 투명성 확보",
+    text: "기준선 대비 실적을 같은 보고서에서 바로 비교",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect

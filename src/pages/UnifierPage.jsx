@@ -49,18 +49,18 @@ const subMenuItems = [
 
 const overview2FlowSteps = [
   {
-    title: "Capital Planning",
-    description: "투자 결정 및 우선순위",
+    title: "투자 결정 및 우선순위",
+    description: "무엇에 투자할지 고르는 단계",
     tone: "planning",
   },
   {
-    title: "Project Controls",
-    description: "실행 및 통제",
+    title: "실행 및 통제",
+    description: "선정된 프로젝트를 '계획대로 되게' 만드는 통제 영역",
     tone: "controls",
   },
   {
-    title: "Facilities & Asset Mgmt",
-    description: "운영 및 자산 관리",
+    title: "운영 및 자산 관리",
+    description: "준공 이후 운영 / 유지관리 단계",
     tone: "asset",
   },
 ];
@@ -337,7 +337,9 @@ function UnifierPage() {
 
     if (shouldHijackScroll) {
       window.addEventListener("wheel", handleWheel, { passive: false });
-      window.addEventListener("touchstart", handleTouchStart, { passive: true });
+      window.addEventListener("touchstart", handleTouchStart, {
+        passive: true,
+      });
       window.addEventListener("touchend", handleTouchEnd, { passive: true });
     }
 
@@ -736,7 +738,7 @@ function UnifierPage() {
             <div className="tm-methods-container" id="unifier-overview-1">
               <div className="tm-section-header">
                 <h2 className="tm-section-title">
-                  혼란에서 명확성으로: 단 하나의 진실
+                  흩어진 자료를 한 곳으로, 한눈에
                 </h2>
               </div>
               <div className="unifier-overview-layout">
@@ -789,8 +791,7 @@ function UnifierPage() {
                 className="unifier-overview-summary"
                 ref={(el) => (overviewCardsRef.current[2] = el)}
               >
-                여러 참여자가 공통된 프로세스 안에서 표준화 · 자동화된 방식으로
-                협업합니다.
+                참여자 모두가 '한 프로세스 · 한 워크플로우'로 움직입니다.
               </p>
             </div>
           </div>
