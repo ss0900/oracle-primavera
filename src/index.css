@@ -11449,6 +11449,9 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: var(--space-md);
+  line-height: 1.12;
+  display: inline-block;
+  padding-bottom: 0.12em;
 }
 
 .ppm-hero-subtitle {
