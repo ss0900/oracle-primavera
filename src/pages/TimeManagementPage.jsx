@@ -4363,7 +4363,10 @@ function TimeManagementPage() {
               <div className="tm-section-header">
                 <h2 className="tm-section-title">Schedule Control</h2>
                 <p className="tm-section-subtitle">
-                  개발 → 평가 → 유지 / 통제 (현재 슬라이드)
+                  개발 → 평가 →{" "}
+                  <span className="tm-core-current-slide-highlight">
+                    유지 / 통제 (현재 슬라이드)
+                  </span>
                 </p>
               </div>
 

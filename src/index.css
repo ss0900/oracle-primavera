@@ -5688,6 +5688,12 @@ a:hover {
   line-height: 1.6;
 }
 
+#core-4 .tm-core-current-slide-highlight {
+  color: var(--color-accent);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
 /* Definition Box */
 .tm-definition-box {
   width: 100%;
