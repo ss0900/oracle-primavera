@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  base: '/p6ix-company_introduction_site/',
+  base: "/oracle-primavera/",
   plugins: [react()],
   server: {
     port: 5173,
@@ -10,8 +10,8 @@ export default defineConfig({
     watch: {
       awaitWriteFinish: {
         stabilityThreshold: 250,
-        pollInterval: 100
-      }
-    }
-  }
-})
+        pollInterval: 100,
+      },
+    },
+  },
+});
