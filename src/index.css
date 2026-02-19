@@ -16190,9 +16190,14 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 @media (min-width: 901px) {
+  #core-5 .tm-core-scurve {
+    width: min(100%, 1180px);
+    margin: 0 auto;
+  }
+
   #core-5 .tm-core-scurve-info {
     width: min(100%, 420px);
-    justify-self: start;
+    justify-self: center;
   }
 }
 
