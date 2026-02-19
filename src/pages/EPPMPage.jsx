@@ -412,28 +412,42 @@ const eppmCoreChallenges = [
 const processInsightCards = [
   {
     keyword: "계층",
-    body: ": 포트폴리오 → 프로그램 → 프로젝트의 계층적 관리 구조",
+    body: "포트폴리오 → 프로그램 → 프로젝트의 계층적 관리 구조",
   },
   {
     keyword: "제약",
-    body: ": 자본 및 자원 제약 조건을 고려한 최적의 프로젝트 선별",
+    body: "자본 및 자원 제약 조건을 고려한 최적의 프로젝트 선별",
   },
   {
     keyword: "성과",
-    body: ": 기업 전략에 부합하는 프로젝트 선정",
+    body: "기업 전략에 부합하는 프로젝트 선정",
   },
 ];
 
 const processStep2ComparisonCards = [
   {
     product: "P6 Web Application",
-    description: "역할 기반의 주요 인터페이스, 접근성 및 협업 중심",
+    description: (
+      <>
+        여러 역할(발주처/PM/팀원 등)이 쉽게 접속해서 현황을 보고
+        <br />
+        협업 · 업데이트하기 좋은 인터페이스
+      </>
+    ),
     imageSrc: getAssetPath("/P6_Web_Application.png"),
     imageAlt: "P6 Web Application 화면 예시",
   },
   {
     product: "Primavera P6 Professional",
-    description: "파워 유저를 위한 심층 스케줄링 및 오프라인 작업 지원",
+    description: (
+      <>
+        일정을 깊게 만들고(복잡한 CPM/로직/자원/세부 설정),
+        <br />
+        경우에 따라 오프라인으로도 작업하는
+        <br />
+        '스케줄러 / 플래너' 중심 데스크톱 클라이언트
+      </>
+    ),
     imageSrc: getAssetPath("/P6_Professional_Schedule.png"),
     imageAlt: "Primavera P6 Professional 화면 예시",
   },
@@ -1719,7 +1733,7 @@ function EPPMPage() {
                         ref={(el) => (casesCardsRef.current[index + 1] = el)}
                       >
                         <h3 className="eppm-process-info-label">
-                          {item.keyword}:
+                          {item.keyword}
                         </h3>
                         <p className="eppm-process-info-body">{item.body}</p>
                       </article>

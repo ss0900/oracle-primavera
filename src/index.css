@@ -9831,7 +9831,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 }
 
 .eppm-process-info-label {
-  margin: 0 0 var(--space-xs);
+  margin: 0 0 var(--space-md);
   font-family: var(--font-display);
   font-size: clamp(var(--text-xl), 2vw, var(--text-2xl));
   line-height: 1.2;
