@@ -848,7 +848,7 @@ function UnifierPage() {
                     aria-hidden="true"
                   />
                   <p className="unifier-overview2-flowline-caption">
-                    데이터가 중간에서 끊기지 않고 자동으로 이어짐
+                    투자 결정 → 실행 통제 → 운영 / 자산관리가 한 번에 이어짐
                   </p>
                 </div>
               </div>
@@ -897,7 +897,8 @@ function UnifierPage() {
                   Unifier Accelerator: 도입하자마자 바로 효과적
                 </h2>
                 <p className="unifier-benefits-subtitle">
-                  Oracle이 제공하는 검증된 표준 방식 기반의 무상 구성 템플릿
+                  Oracle이 '글로벌 Best Practice(모범사례)'를 기반으로 미리
+                  만들어 둔 기본 구성(템플릿/베이스 설정) 패키지
                 </p>
               </div>
 

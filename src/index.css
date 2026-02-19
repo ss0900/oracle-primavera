@@ -13327,7 +13327,10 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   font-size: clamp(0.96rem, 1.04vw, 1.22rem);
   font-weight: 500;
   line-height: 1.3;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 #overview-content-2 .unifier-overview2-flowline {
