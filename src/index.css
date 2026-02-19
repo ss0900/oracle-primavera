@@ -10758,6 +10758,11 @@ tr:nth-child(2) .tm-td-p6:hover::after {
     text-align: left;
   }
 
+  .eppm-page-container #integration .cpm-section-header,
+  .eppm-page-container #integration .cpm-section-title {
+    text-align: left;
+  }
+
   .eppm-overview-core-card {
     padding: var(--space-lg);
   }

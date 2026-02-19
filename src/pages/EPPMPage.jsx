@@ -350,10 +350,10 @@ const eppmCoreChallenges = [
     ),
   },
   {
-    title: "표준화된 일정 및 통제",
+    title: "통합 일정 관리 및 통제",
     bullets: [
       "대형 프로젝트의 WBS 및 Critical Path 관리",
-      "계획과 실행의 유기적 연결",
+      "계획과 실적을 계속 맞춰가는 관리",
     ],
     icon: (
       <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -411,16 +411,16 @@ const eppmCoreChallenges = [
 
 const processInsightCards = [
   {
-    keyword: "Hierarchy",
-    body: "포트폴리오 → 프로그램 → 프로젝트의 계층적 관리 구조",
+    keyword: "계층",
+    body: ": 포트폴리오 → 프로그램 → 프로젝트의 계층적 관리 구조",
   },
   {
-    keyword: "Constraints",
-    body: "자본 및 자원 제약 조건을 고려한 최적의 프로젝트 선별",
+    keyword: "제약",
+    body: ": 자본 및 자원 제약 조건을 고려한 최적의 프로젝트 선별",
   },
   {
-    keyword: "Outcome",
-    body: "기업 전략에 부합하는 프로젝트 선정",
+    keyword: "성과",
+    body: ": 기업 전략에 부합하는 프로젝트 선정",
   },
 ];
 
@@ -798,7 +798,9 @@ function EPPMPage() {
 
     if (shouldHijackScroll) {
       window.addEventListener("wheel", handleWheel, { passive: false });
-      window.addEventListener("touchstart", handleTouchStart, { passive: true });
+      window.addEventListener("touchstart", handleTouchStart, {
+        passive: true,
+      });
       window.addEventListener("touchend", handleTouchEnd, { passive: true });
     }
 
@@ -1172,9 +1174,7 @@ function EPPMPage() {
         >
           <div className="cpm-features-container">
             <div className="cpm-section-header">
-              <h2 className="cpm-section-title">
-                세운 계획이 현장에서 그대로 실행되지 않는 문제
-              </h2>
+              <h2 className="cpm-section-title">계획과 현실의 차이</h2>
             </div>
 
             <div
@@ -1306,9 +1306,9 @@ function EPPMPage() {
                 >
                   <h4>단절</h4>
                   <p>
-                    상위 레벨의 투자 결정과 현장의
+                    위(투자)와 아래(WBS 실행)
                     <br />
-                    WBS 기반 실행 간의 데이터 불일치
+                    데이터 불일치
                   </p>
                 </article>
               </div>
@@ -1381,9 +1381,12 @@ function EPPMPage() {
             <div className="tm-advantages-container eppm-process-container eppm-process-focus-container">
               <div className="eppm-process-focus-layout">
                 <div className="tm-section-header eppm-process-focus-header">
-                  <h2 className="tm-section-title">단일 플랫폼, 완전한 통제</h2>
+                  <h2 className="tm-section-title">
+                    단일 플랫폼(P6), 완전한 통제
+                  </h2>
                   <p className="eppm-process-focus-subtitle">
-                    프로젝트, 프로그램, 포트폴리오를 아우르는 엔터프라이즈급 관리 솔루션
+                    프로젝트·프로그램·포트폴리오를 '우선순위 – 계획 – 실행 –
+                    성과'로 한 번에 관리하는 솔루션
                   </p>
                 </div>
 
