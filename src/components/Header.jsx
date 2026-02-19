@@ -243,6 +243,8 @@ function Header() {
           <a
             href="https://www.p6ix.co.kr/"
             className="header-logo-link"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
           >
             <img
