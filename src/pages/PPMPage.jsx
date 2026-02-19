@@ -1199,7 +1199,7 @@ const p6MsComparisonRows = [
   },
   {
     category: "사용자 접근성",
-    p6: "학습 곡선 있음",
+    p6: "진입 장벽 있음",
     ms: "사용자 친화적, Office 친화",
     p6Accent: false,
     msAccent: true,

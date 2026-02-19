@@ -1220,7 +1220,9 @@ function OPCPage() {
 
     if (shouldHijackScroll) {
       window.addEventListener("wheel", handleWheel, { passive: false });
-      window.addEventListener("touchstart", handleTouchStart, { passive: true });
+      window.addEventListener("touchstart", handleTouchStart, {
+        passive: true,
+      });
       window.addEventListener("touchend", handleTouchEnd, { passive: true });
     }
 
@@ -1665,10 +1667,9 @@ function OPCPage() {
                   </svg>
                 </span>
                 <p className="opc-overview-summary-text">
-                  OPC는 <strong>일정·비용·리스크를 하나의 화면에서</strong>{" "}
-                  연결해
+                  OPC는 지금 계획대로 가는지, 어디가 늦어질지,
                   <br />
-                  모든 질문에 대한 답을 실시간으로 보여줍니다.
+                  바꾸면 비용·리스크가 어떻게 되는지를 한 화면에서 보여줍니다.
                 </p>
               </div>
             </div>
@@ -1996,13 +1997,19 @@ function OPCPage() {
                   </table>
                 </div>
 
-                <div className="opc-comparison-mobile" aria-label="모바일 비교 카드">
+                <div
+                  className="opc-comparison-mobile"
+                  aria-label="모바일 비교 카드"
+                >
                   <div className="opc-comparison-mobile-legend">
                     <span>PPM = Primavera P6 PPM</span>
                     <span>OPC = Oracle Primavera Cloud</span>
                   </div>
 
-                  <div className="opc-comparison-mobile-group-pills" aria-hidden="true">
+                  <div
+                    className="opc-comparison-mobile-group-pills"
+                    aria-hidden="true"
+                  >
                     <span className="opc-comparison-mobile-group-pill is-p6">
                       {comparisonGroups.left.label}
                     </span>
@@ -2021,23 +2028,36 @@ function OPCPage() {
                         index <= comparisonGroups.right.endIndex;
 
                       return (
-                      <li key={`${row.item}-mobile`} className="opc-comparison-mobile-card">
-                        <h3
-                          className={`opc-comparison-mobile-item ${isExecutionGroup ? "is-execution-group" : ""} ${isManagementGroup ? "is-management-group" : ""}`}
+                        <li
+                          key={`${row.item}-mobile`}
+                          className="opc-comparison-mobile-card"
                         >
-                          {row.item}
-                        </h3>
+                          <h3
+                            className={`opc-comparison-mobile-item ${isExecutionGroup ? "is-execution-group" : ""} ${isManagementGroup ? "is-management-group" : ""}`}
+                          >
+                            {row.item}
+                          </h3>
 
-                        <div className="opc-comparison-mobile-rating-row">
-                          <span className="opc-comparison-mobile-product">PPM</span>
-                          <MobileStarRating count={row.p6Stars} label={`PPM ${row.item}`} />
-                        </div>
+                          <div className="opc-comparison-mobile-rating-row">
+                            <span className="opc-comparison-mobile-product">
+                              PPM
+                            </span>
+                            <MobileStarRating
+                              count={row.p6Stars}
+                              label={`PPM ${row.item}`}
+                            />
+                          </div>
 
-                        <div className="opc-comparison-mobile-rating-row">
-                          <span className="opc-comparison-mobile-product">OPC</span>
-                          <MobileStarRating count={row.opcStars} label={`OPC ${row.item}`} />
-                        </div>
-                      </li>
+                          <div className="opc-comparison-mobile-rating-row">
+                            <span className="opc-comparison-mobile-product">
+                              OPC
+                            </span>
+                            <MobileStarRating
+                              count={row.opcStars}
+                              label={`OPC ${row.item}`}
+                            />
+                          </div>
+                        </li>
                       );
                     })}
                   </ul>
