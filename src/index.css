@@ -9885,6 +9885,7 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   margin: 0 auto;
   min-height: clamp(560px, 78vh, 760px);
   padding-top: clamp(122px, 14vh, 170px);
+  transform: translateY(-20px);
 }
 
 .eppm-page-container #cases-3 .eppm-process-step3-header {

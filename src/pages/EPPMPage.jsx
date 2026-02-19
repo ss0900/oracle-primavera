@@ -459,20 +459,20 @@ const processStep3FieldUpdateImage = getAssetPath(
 
 const processStep3ConnectionBullets = [
   {
-    label: "The Problem",
-    body: "복잡한 입력 방식은 데이터 누락을 유발",
+    label: "문제",
+    body: "복잡한 입력 방식은 데이터 누락 유발",
   },
   {
-    label: "The Solution",
+    label: "해결",
     body: "현장 실무 인력을 위한 '가벼운 입력' 지원",
   },
   {
-    label: "Method",
+    label: "방법",
     body: (
       <>
-        단순 폼 및 모바일 인터페이스를 통해
+        단순한 폼 및 모바일 인터페이스를 통해
         <br />
-        본인 작업의 진척을 즉시 공유
+        본인 작업의 진척 실시간 공유
       </>
     ),
   },
