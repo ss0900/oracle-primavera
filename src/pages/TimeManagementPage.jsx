@@ -4559,8 +4559,9 @@ function TimeManagementPage() {
                       </text>
                       <text
                         className="tm-core-scurve-axis-label"
-                        x="250"
+                        x="325"
                         y="380"
+                        textAnchor="middle"
                       >
                         시간 (프로젝트 기간)
                       </text>
