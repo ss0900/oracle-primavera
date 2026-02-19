@@ -3280,12 +3280,13 @@ a:hover {
 .opc-overview-questions-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: stretch;
-  margin-top: clamp(30px, 1.2vw, 14px);
+  margin-top: clamp(14px, 1.2vw, 30px);
 }
 
 .opc-overview-summary {
   margin: var(--space-xl) auto 0;
-  min-width: 980px;
+  width: min(100%, 1080px);
+  min-width: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3350,8 +3351,11 @@ a:hover {
   }
 
   .opc-overview-summary {
+    width: 100%;
+    min-width: 0;
     flex-direction: column;
     align-items: center;
+    gap: var(--space-md);
   }
 }
 

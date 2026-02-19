@@ -647,10 +647,10 @@ const comparisonRows = [
   { item: "자원/로직 상세 제어", p6Stars: 5, opcStars: 3 },
   { item: "비용 관리", p6Stars: 3, opcStars: 4 },
   { item: "리스크 관리", p6Stars: 2, opcStars: 4 },
-  { item: "실시간 대시보드", p6Stars: 2, opcStars: 5, emphasized: true },
-  { item: "포트폴리오 관리", p6Stars: 2, opcStars: 5, emphasized: true },
-  { item: "협업/접근성", p6Stars: 3, opcStars: 5, emphasized: true },
-  { item: "경영진 보고", p6Stars: 2, opcStars: 5, emphasized: true },
+  { item: "실시간 대시보드", p6Stars: 2, opcStars: 5 },
+  { item: "포트폴리오 관리", p6Stars: 2, opcStars: 5 },
+  { item: "협업/접근성", p6Stars: 3, opcStars: 5 },
+  { item: "경영진 보고", p6Stars: 2, opcStars: 5 },
 ];
 
 const comparisonGroups = {
@@ -1637,7 +1637,7 @@ function OPCPage() {
             <div className="tm-methods-container opc-overview-executive-container">
               <div className="tm-section-header opc-overview-header">
                 <h2 className="tm-section-title">
-                  발주처와 경영진의 핵심 질문에 답합니다.
+                  발주처와 경영진의 핵심 질문
                 </h2>
               </div>
 
@@ -1686,9 +1686,9 @@ function OPCPage() {
             <div className="tm-core-container opc-overview-control-container">
               <div className="tm-section-header opc-overview-control-header">
                 <h2 className="tm-section-title">
-                  발주처를 '보고받는 위치'에서
+                  발주처를 '보고만 받는 수동적 위치'에서
                   <br />
-                  '프로젝트를 통제하는 위치'로 이동시킵니다.
+                  '프로젝트를 통제하는 능동적 위치'로 바꿉니다.
                 </h2>
               </div>
 
