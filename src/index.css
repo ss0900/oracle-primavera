@@ -5628,7 +5628,9 @@ a:hover {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: var(--space-md);
-  line-height: 1.1;
+  line-height: 1.12;
+  display: inline-block;
+  padding-bottom: 0.12em;
 }
 
 .tm-hero-subtitle {
