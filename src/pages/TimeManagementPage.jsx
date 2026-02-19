@@ -4631,7 +4631,7 @@ function TimeManagementPage() {
                     </li>
                     <br />
                     <li>
-                      <strong>EPC 기성:</strong> 내역 기성 또는 Milestone 달성
+                      <strong>EPC 기성:</strong> 내역 기성 또는 마일스톤 달성
                       기준
                     </li>
                   </ul>

@@ -16189,6 +16189,13 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   min-height: clamp(220px, 25vh, 320px);
 }
 
+@media (min-width: 901px) {
+  #core-5 .tm-core-scurve-info {
+    width: min(100%, 420px);
+    justify-self: start;
+  }
+}
+
 .tm-core-scurve-bullets {
   list-style: none;
   display: flex;
