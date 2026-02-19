@@ -18781,8 +18781,10 @@ tr:nth-child(2) .tm-td-p6:hover::after {
   color: #f6fbff;
   line-height: 1;
   transition:
-    background-color 300ms var(--ease-in-out),
+    background 300ms var(--ease-in-out),
     border-color 300ms var(--ease-in-out),
+    color 300ms var(--ease-in-out),
+    box-shadow 300ms var(--ease-in-out),
     transform 300ms var(--ease-in-out);
 }
 
@@ -18793,9 +18795,12 @@ tr:nth-child(2) .tm-td-p6:hover::after {
 
 .home-opc-menu-item-cta:hover,
 .home-opc-menu-item-cta:focus-visible,
-.home-opc-menu-card:hover .home-opc-menu-item-cta {
-  border-color: rgba(255, 255, 255, 0.52);
-  background: rgba(20, 38, 78, 0.75);
+.home-opc-menu-card:hover .home-opc-menu-item-cta,
+.home-opc-menu-card:focus-within .home-opc-menu-item-cta {
+  background: linear-gradient(145deg, #e8fcff 0%, #9ceaff 100%);
+  color: #041024;
+  border-color: rgba(167, 239, 255, 0.95);
+  box-shadow: 0 8px 22px rgba(0, 212, 255, 0.35);
   transform: translateY(-1px);
 }
 
