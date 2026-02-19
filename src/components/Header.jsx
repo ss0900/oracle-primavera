@@ -237,6 +237,12 @@ function Header() {
             className="header-logo"
           />
           <img
+            src={getAssetPath("/dividing_line.png")}
+            alt=""
+            aria-hidden="true"
+            className="header-logo-divider"
+          />
+          <img
             src={getAssetPath("/Oracle_Partner_Logo.png")}
             alt="Partner Logo"
             className="header-logo partner"

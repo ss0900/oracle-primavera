@@ -456,6 +456,13 @@ a:hover {
   object-fit: contain;
 }
 
+.header-logo-divider {
+  height: 2.2rem;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .header-logo.partner {
   height: 2.3rem;
 }
@@ -2592,6 +2599,10 @@ a:hover {
 
   .header-logo {
     height: 2rem;
+  }
+
+  .header-logo-divider {
+    height: 1.7rem;
   }
 
   .header-logo.partner {

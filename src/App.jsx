@@ -41,7 +41,7 @@ function App() {
   }, []);
 
   return (
-    <Router basename="/oracle-primavera">
+    <Router basename="/oracle-primavera/">
       <Loader isLoading={isLoading} />
       <ScrollToTop />
       <Header />
