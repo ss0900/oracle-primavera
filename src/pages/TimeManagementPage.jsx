@@ -49,24 +49,18 @@ const subMenuItems = [
 const coreDocumentationItems = [
   {
     iconKey: "periodic-reports",
-    title: "Periodic Reports",
+    title: "정기 보고",
     description: "일간/주간/월간 보고 (Client 및 내부용)",
   },
   {
     iconKey: "as-built-schedule",
-    title: "As-built Schedule",
+    title: "실행 이력 일정",
     description: "착공부터 준공까지의 이력 관리",
   },
   {
     iconKey: "claim-eot",
-    title: "Claim & EOT",
-    description: (
-      <>
-        공기 연장(Extension of Time) 및
-        <br />
-        클레임의 핵심 근거 자료
-      </>
-    ),
+    title: "Claim & EOT (Extension of Time)",
+    description: <>공기 연장 및 클레임의 핵심 근거</>,
   },
 ];
 
@@ -4669,7 +4663,8 @@ function TimeManagementPage() {
 
                 <div className="tm-core-docs-banner card glass">
                   <p>
-                    정확한 업데이트가 없으면 지연 사유를 입증할 수 없습니다.
+                    제때 남긴 기록이 없으면 나중에 지연 원인을 증명할 자료가
+                    없습니다.
                   </p>
                 </div>
               </div>

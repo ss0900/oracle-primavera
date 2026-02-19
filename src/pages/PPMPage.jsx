@@ -589,7 +589,7 @@ const overviewValueItemsTop = [
 const overviewValueItemsBottom = [
   {
     iconType: "evidence",
-    titleKo: "정량적 근거 제공",
+    titleKo: "객관적(정량) 근거 제공",
     titleEn: "Provides Quantitative Evidence",
     description: (
       <>
@@ -2414,7 +2414,7 @@ function PPMPage() {
           <div className="ppm-cpm-container">
             <div className="ppm-cpm-header">
               <h2 className="ppm-cpm-title">
-                Primavera P6가 제공하는 결정적 비즈니스 가치
+                Primavera P6의 핵심 비즈니스 효과
               </h2>
             </div>
 
@@ -2562,8 +2562,8 @@ function PPMPage() {
                   </span>
                 </h3>
                 <p className="ppm-overview-precision-module-description">
-                  Critical Path 및 Float의 수학적 분석을 통해 프로젝트의 가장
-                  중요한 경로를 식별하고 잠재적 지연을 예측합니다.
+                  Critical Path와 Float(여유)를 '수학적으로' 계산해서 중요한
+                  경로를 찾고, 지연 위험을 예측합니다.
                 </p>
               </article>
 
@@ -2742,9 +2742,8 @@ function PPMPage() {
                   </span>
                 </h3>
                 <p className="ppm-overview-precision-module-description">
-                  복잡한 프로젝트를 위계적인 WBS(작업 분해 구조)로 명확하게
-                  구조화하고, 작업 간의 논리적 관계를 정의하여 전체 공정을
-                  시각화합니다.
+                  복잡한 프로젝트를 WBS로 구조화하고, 작업 간 '논리적
+                  관계(Dependency)'를 정의히여 전체 공정을 시각화합니다.
                 </p>
               </article>
             </div>
